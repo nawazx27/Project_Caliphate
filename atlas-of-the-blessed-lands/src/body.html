@@ -1,0 +1,522 @@
+<svg class="defs" aria-hidden="true" focusable="false">
+  <defs>
+    <path id="landP"></path>
+    <pattern id="sand" patternUnits="userSpaceOnUse" width="7" height="7"><circle cx="1.5" cy="1.5" r=".75" style="fill:var(--sand)"/><circle cx="5" cy="5" r=".6" style="fill:var(--sand)"/></pattern>
+    <pattern id="h-sham" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" style="stroke:var(--sham);stroke-width:1.3;stroke-opacity:.55"/></pattern>
+    <pattern id="h-hijaz" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="7" style="stroke:var(--hijaz);stroke-width:1.3;stroke-opacity:.6"/></pattern>
+    <pattern id="h-fil" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(30)"><line x1="0" y1="0" x2="0" y2="6" style="stroke:var(--fil);stroke-width:1.2;stroke-opacity:.6"/></pattern>
+    <pattern id="h-misr" patternUnits="userSpaceOnUse" width="6.5" height="6.5" patternTransform="rotate(90)"><line x1="0" y1="0" x2="0" y2="6.5" style="stroke:var(--misr);stroke-width:1.2;stroke-opacity:.55"/></pattern>
+    <pattern id="h-disp" patternUnits="userSpaceOnUse" width="5" height="5" patternTransform="rotate(-30)"><rect width="5" height="5" style="fill:var(--ink);fill-opacity:.05"/><line x1="0" y1="0" x2="0" y2="5" style="stroke:var(--ink);stroke-width:1;stroke-opacity:.4"/></pattern>
+    <pattern id="h-static" patternUnits="userSpaceOnUse" width="5" height="5" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" style="stroke:var(--sham);stroke-width:1.3"/></pattern>
+    <symbol id="orn" viewBox="-6 -6 12 12"><path d="M0,-5L1.45,-3.5L3.54,-3.54L3.5,-1.45L5,0L3.5,1.45L3.54,3.54L1.45,3.5L0,5L-1.45,3.5L-3.54,3.54L-3.5,1.45L-5,0L-3.5,-1.45L-3.54,-3.54L-1.45,-3.5Z" style="fill:none;stroke:currentColor;stroke-width:.9;stroke-linejoin:round"/><circle r="1.4" style="fill:currentColor"/></symbol>
+    <pattern id="lava" patternUnits="userSpaceOnUse" width="6" height="6"><rect width="6" height="6" style="fill:var(--lava);fill-opacity:.1"/><path d="M0 6L6 0" style="stroke:var(--lava);stroke-opacity:.32;stroke-width:1"/></pattern>
+  </defs>
+</svg>
+
+<a class="skip" href="#map-section">Skip to the map</a>
+<div class="wrap" role="main">
+  <header class="mast" role="none">
+    <div class="headpiece">
+      <svg class="hpc h-tl" aria-hidden="true"><use href="#orn"/></svg><svg class="hpc h-tr" aria-hidden="true"><use href="#orn"/></svg><svg class="hpc h-bl" aria-hidden="true"><use href="#orn"/></svg><svg class="hpc h-br" aria-hidden="true"><use href="#orn"/></svg>
+      <div class="hp-in">
+        <h1>
+          <span class="cartrow"><span class="cart">
+            <svg class="cartbg" viewBox="0 0 520 100" aria-hidden="true" focusable="false">
+              <defs>
+                <pattern id="cartdots" patternUnits="userSpaceOnUse" width="11" height="11"><circle cx="5.5" cy="5.5" r="1" style="fill:var(--leaf)"/><circle cx="0" cy="0" r=".7" style="fill:var(--leaf)"/><circle cx="11" cy="0" r=".7" style="fill:var(--leaf)"/><circle cx="0" cy="11" r=".7" style="fill:var(--leaf)"/><circle cx="11" cy="11" r=".7" style="fill:var(--leaf)"/></pattern>
+              </defs>
+              <path class="c-out" d="M70,10H450C474,10 482,30 494,40C500,45 506,47 513,50C506,53 500,55 494,60C482,70 474,90 450,90H70C46,90 38,70 26,60C20,55 14,53 7,50C14,47 20,45 26,40C38,30 46,10 70,10Z"/>
+              <path class="c-dots" d="M72,17H448C467,17 474,33 485,42C490,46 494,48 499,50C494,52 490,54 485,58C474,67 467,83 448,83H72C53,83 46,67 35,58C30,54 26,52 21,50C26,48 30,46 35,42C46,33 53,17 72,17Z"/>
+              <path class="c-in" d="M72,17H448C467,17 474,33 485,42C490,46 494,48 499,50C494,52 490,54 485,58C474,67 467,83 448,83H72C53,83 46,67 35,58C30,54 26,52 21,50C26,48 30,46 35,42C46,33 53,17 72,17Z"/>
+              <use href="#orn" x="41" y="41" width="18" height="18" class="c-star"/><use href="#orn" x="461" y="41" width="18" height="18" class="c-star"/>
+            </svg>
+            <span class="ar" lang="ar" dir="rtl">الأراضي المباركة</span>
+          </span></span>
+          <span class="en">Atlas of the Blessed Lands</span>
+        </h1>
+        <p class="tagline">Revelation, early sources, classical geographers and modern borders, kept apart</p>
+      </div>
+      <p class="edition">Definitive edition, 1448 AH / 2026</p>
+    </div>
+    <div class="mastbody">
+      <p class="lede">Where the Qur'an and the Sunnah call a land holy, blessed or best, where the early scholars and geographers drew its edges, and where those edges fall on today's map. Tap anything on the map.</p>
+      <div class="openmap">
+        <button type="button" id="fullbtn" class="fullopen"><svg width="18" height="18" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 5.5v-4h4M14.5 5.5v-4h-4M1.5 10.5v4h4M14.5 10.5v4h-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>Open the full-screen map</button>
+        <span class="omtip"><span class="phonly">Turn your phone sideways for a wider view.</span><span class="lsonly">The map fills the whole screen; leave with the same button.</span><span class="dkonly">Or use the map below. Press Esc to leave full screen.</span></span>
+      </div>
+      <p class="notice">An educational reconstruction, not a survey and not a fatwa. <a href="#honest">What it cannot tell you</a></p>
+    </div>
+    <nav class="toc" aria-label="On this page">
+      <a href="#map-section">Map</a><a href="#keyfind">Key finding</a><a href="#sacred-status">Sacred status</a><a href="#limits">Named limits</a><a href="#reading">Reading the map</a><a href="#evidence">Four layers</a><a href="#today">Lands today</a><a href="#honest">Honest limits</a><a href="#synth">Caliphate outline</a><a href="#regions">Regional index</a><a href="#sources">Sources</a><a href="#colophon">Colophon</a>
+    </nav>
+  </header>
+
+  <p class="fstrip"><b>No boundary for any of these lands is set by revelation.</b> Solid colour is land every major source includes; hatching is land only some include. <a href="#keyfind">Why this matters</a></p>
+
+
+  <section class="atlas" id="map-section" aria-label="Interactive map">
+    <div class="mapcol">
+      <div class="mapbars">
+        <div class="viewbar"><span class="lab">View</span><div class="seg" id="presets" role="group" aria-label="Choose a view"></div></div>
+        <div class="viewbar tierbar"><span class="lab">Who drew it</span><div class="seg whoseg" id="tiers" role="group" aria-label="Show one kind of source at a time"></div></div>
+        <div class="find" role="search">
+          <svg class="mag" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="6.8" cy="6.8" r="4.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.4 10.4L14.5 14.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <input type="search" id="placeq" role="combobox" aria-autocomplete="list" aria-controls="placelist" aria-expanded="false" autocomplete="off" spellcheck="false" placeholder="Find a place: Makkah, aqsa, Dābiq…" aria-label="Find a place on the map">
+          <ul id="placelist" role="listbox" aria-label="Matching places" hidden></ul>
+        </div>
+      </div>
+      <p class="tiercap" id="tiercap" aria-live="polite" hidden></p>
+      <div class="mapwrap" id="mapwrap" tabindex="0" aria-label="Map. Drag or use the arrow keys to move; scroll, pinch or use plus and minus to zoom.">
+        <div class="mapgrain" aria-hidden="true"></div>
+        <div class="mapframe" aria-hidden="true"></div>
+        <div class="xtoggle onmap" hidden role="group" aria-label="Which version of your outline"><span class="xl">Your outline</span><button type="button" data-xv="full" aria-pressed="true">Complete</button><button type="button" data-xv="v2" aria-pressed="false" class="v2btn" title="Complete Caliphate V2: your complete outline with the lands on your Greater Middle East map"><span class="lgt">Complete V2</span><span class="sht">V2</span></button><button type="button" data-xv="max" aria-pressed="false" class="v2btn" title="Maximum: your complete outline with the lands on your list for its maximum stable expansion (your specification)"><span class="lgt">Maximum</span><span class="sht">Max</span></button><button type="button" data-xv="west" aria-pressed="false"><span class="lgt">To Iraq’s border</span><span class="sht">To Iraq</span></button><button type="button" data-xv="gme" aria-pressed="false" class="gbtn"><span class="lgt">+ Greater Caliphate</span><span class="sht">+ Greater</span></button><button type="button" data-xv="nat" aria-pressed="false" class="natbtn" title="Natural borders: the land inside one ring of coasts, rivers, crests and watersheds (your design)"><span class="lgt">Natural borders</span><span class="sht">Natural</span></button><button type="button" data-xv="natp" aria-pressed="false" class="natbtn" title="Natural + political: the natural ring, with every state it cuts taken whole (more than half inside) or left out (your design)"><span class="lgt">Natural + political</span><span class="sht">Nat + pol</span></button><span class="xbreak" aria-hidden="true"></span><span class="xl xl2">Lines</span><button type="button" data-lyt="natb" aria-pressed="false" class="lyt" title="Draw the natural line over any version"><span class="lgt">Natural line</span><span class="sht">Line</span></button><button type="button" data-lyt="intl" aria-pressed="false" class="lyt"><span class="lgt">Internal lines</span><span class="sht">Internal</span></button><span class="xl xl2 xlmap">Map</span><button type="button" data-clean aria-pressed="false" class="lyt cleanbtn" title="Clean map: hide the numbered discs, the dots and place names, the key, the outline’s captions, the scale, the compass and the coordinates, so only the map and the outline show"><span class="lgt">Clean map</span><span class="sht">Clean</span></button></div>
+        <svg class="corner c-tl" aria-hidden="true"><use href="#orn"/></svg><svg class="corner c-tr" aria-hidden="true"><use href="#orn"/></svg><svg class="corner c-bl" aria-hidden="true"><use href="#orn"/></svg><svg class="corner c-br" aria-hidden="true"><use href="#orn"/></svg>
+        <div id="mapmove"><svg id="map" role="group" aria-roledescription="map" aria-label="Interactive map of the sacred and blessed lands and classical regions against modern borders"></svg></div>
+        <details class="minilegend" id="legend" open>
+          <summary>Key</summary>
+          <div class="kb" aria-hidden="true">
+            <div><svg width="34" height="8"><line x1="1" y1="4" x2="33" y2="4" stroke="currentColor" stroke-width="2"/></svg>Well established</div>
+            <div><svg width="34" height="8"><line x1="1" y1="4" x2="33" y2="4" stroke="currentColor" stroke-width="2" stroke-dasharray="8 5"/></svg>Approximate</div>
+            <div><svg width="34" height="8"><line x1="2" y1="4" x2="33" y2="4" stroke="currentColor" stroke-width="2.6" stroke-dasharray=".5 5.5" stroke-linecap="round"/></svg>Disputed or uncertain</div>
+            <div><svg width="34" height="12"><rect x="1" y="1" width="32" height="10" rx="2" style="fill:var(--sham);fill-opacity:.3"/></svg>Every major source</div>
+            <div><svg width="34" height="12"><rect x="1" y="1" width="32" height="10" rx="2" fill="url(#h-static)"/></svg>Some sources</div>
+            <hr>
+            <div><svg width="34" height="16" viewBox="0 0 34 16"><circle cx="5" cy="8" r="5" style="fill:var(--st-haram)"/><circle cx="14" cy="8" r="5" style="fill:var(--st-muq)"/><circle cx="23" cy="8" r="5" style="fill:var(--st-mub)"/><circle cx="32" cy="8" r="2" style="fill:var(--st-fad)"/></svg>Disc colour: kind</div>
+            <div><svg width="34" height="16" viewBox="0 0 34 16"><circle cx="5" cy="8" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="8" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-dasharray="4 2.6" stroke-linecap="round"/><circle cx="29" cy="8" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-dasharray=".5 3" stroke-linecap="round"/></svg>Ring: Qur'an · Salaf · later</div>
+            <hr data-lgany hidden>
+            <div data-lg="caliph" hidden><svg width="34" height="12" viewBox="0 0 34 12"><line x1="2" y1="6" x2="32" y2="6" style="stroke:var(--ink);stroke-opacity:.18;stroke-width:9"/><line x1="2" y1="6" x2="32" y2="6" style="stroke:var(--ink);stroke-width:2.2;stroke-dasharray:.5 4.5;stroke-linecap:round"/></svg>Best-lands outline (mine)</div>
+            <div data-lg="caliphx" hidden class="lgcart"><span class="ct-en">al-Khilāfa al-Amīna</span><span class="ct-ar" lang="ar" dir="rtl">الخلافة الأمينة</span><span class="ct-sub">Dār al-Amān · its people Amānī, pl. Amāniyyūn · ★ capital al-Quds · your names, not from the sources</span></div>
+            <div data-lg="caliphx" hidden><svg width="34" height="12" viewBox="0 0 34 12"><line x1="2" y1="6" x2="32" y2="6" style="stroke:var(--xcal);stroke-opacity:.32;stroke-width:7"/><line x1="2" y1="6" x2="32" y2="6" style="stroke:var(--xcal);stroke-width:1.8;stroke-dasharray:7 3 1.5 3;stroke-linecap:round"/></svg><span class="lgx">Your complete outline</span></div>
+            <div data-lg="caliphv2h" hidden class="lgnest v2key"><span class="v2kt">Complete Caliphate V2: how each added land was held<small>province by province · dotted edge: uncertain</small></span><span class="v2kr"><span class="v2sw c-direct"></span>Ruled by a caliphate, directly</span><span class="v2kr"><span class="v2sw c-dynasty"></span>Ruled by a dynasty under a caliph</span><span class="v2kr"><span class="v2sw c-tributary"></span>Tributary to a caliphate</span><span class="v2kr"><span class="v2sw c-islamic"></span>Ruled by other Islamic states only</span><span class="v2kr"><span class="v2sw c-temporary"></span>Briefly held or raided only</span><span class="v2kr"><span class="v2sw c-influence"></span>Influence only</span></div>
+            <div data-lg="caliphgl" hidden class="lgnest"><svg width="34" height="22" viewBox="0 0 34 22"><rect x="1.5" y="1.5" width="31" height="19" rx="2" style="fill:var(--xcal);fill-opacity:.16;stroke:var(--xcal);stroke-width:1.6;stroke-dasharray:5 2 1.2 2"/><rect x="10" y="6.5" width="14" height="9" rx="1.5" style="fill:var(--xcal);fill-opacity:.16;stroke:var(--xcal);stroke-opacity:.45;stroke-width:.9;stroke-dasharray:1.5 1.5"/></svg><span>Contains the whole core caliphate<small>with the Greater Middle East, the Muslim-majority countries of Africa, every land caliphates once ruled and the lands joined to them, in one colour</small></span></div>
+            <div data-lg="natbAny" hidden class="lgnest natkey"><span class="v2kt">Natural ring<small>your design · not from the sources</small></span>
+              <span class="nk"><svg width="34" height="10" viewBox="0 0 34 10"><line x1="2" y1="5" x2="32" y2="5" class="k-solid"/></svg>River, crest, watershed or escarpment</span>
+              <span class="nk"><svg width="34" height="12" viewBox="0 0 34 12"><rect x="1" y="1" width="32" height="10" rx="2" style="fill:var(--xcal);fill-opacity:.18"/></svg>Land inside; at sea the coast is the edge</span>
+              <span class="nk"><svg width="34" height="14" viewBox="-17 -7 34 14"><path class="k-gate" d="M-6,-5.5L-2,-1.6L-2,1.6L-6,5.5M6,-5.5L2,-1.6L2,1.6L6,5.5"/></svg>Sea chokepoint (Gibraltar)</span>
+              <span class="nk nknote">Every stretch follows a natural feature; some are placed by hand and are approximate (see the note). Islands nearer an inside shore are inside. Western Sahara is inside the ring; its status is internationally disputed. Through Kashmir the ring follows the crest, not any political line.</span>
+            </div>
+            <div data-lg="intlAny" hidden class="lgnest natkey"><span class="v2kt">Internal lines<small>your design</small></span>
+              <span class="nk"><svg width="34" height="10" viewBox="0 0 34 10"><line x1="2" y1="5" x2="32" y2="5" class="k-river"/></svg>Nile, Tigris, Euphrates</span>
+              <span class="nk"><svg width="34" height="10" viewBox="0 0 34 10"><line x1="2" y1="5" x2="32" y2="5" class="k-taurus"/></svg>Taurus divide</span>
+              <span class="nk"><svg width="34" height="10" viewBox="0 0 34 10"><line x1="2" y1="5" x2="32" y2="5" class="k-axis"/></svg>Red Sea axis</span>
+            </div>
+          </div>
+        </details>
+        <div class="mapctl">
+          <button type="button" id="zin" aria-label="Zoom in">+</button>
+          <button type="button" id="zout" aria-label="Zoom out">&minus;</button>
+          <button type="button" id="zreset" aria-label="Show whole region" title="Show whole region">&#8634;</button>
+          <button type="button" id="zfull" aria-pressed="false" aria-label="Full-screen map" title="Full-screen map"><svg class="ic-in" width="17" height="17" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 5.5v-4h4M14.5 5.5v-4h-4M1.5 10.5v4h4M14.5 10.5v4h-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M5 8h6M8 5v6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" opacity=".55"/></svg><svg class="ic-out" width="17" height="17" viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 1.5v4h-4M10.5 1.5v4h4M5.5 14.5v-4h-4M10.5 14.5v-4h4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></button>
+          <button type="button" id="zwide" class="deskonly" aria-pressed="false" aria-label="Widen the map across the page" title="Widen the map across the page"><svg width="18" height="16" viewBox="0 0 18 16" aria-hidden="true"><path d="M1.5 8h15M5 4.5L1.5 8 5 11.5M13 4.5l3.5 3.5L13 11.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button type="button" class="mob" id="openLayers" aria-label="Show layers">Layers</button>
+          <button type="button" class="mob" id="openNotes" aria-label="Show notes">Notes</button>
+        </div>
+        <div class="scale"><div class="north" aria-hidden="true"><span>N</span><svg class="rose" width="34" height="34" viewBox="-17 -17 34 34" aria-hidden="true"><circle r="10.4" style="fill:none;stroke:var(--ink);stroke-opacity:.55;stroke-width:.7"/><circle r="11.8" style="fill:none;stroke:var(--ink);stroke-opacity:.3;stroke-width:.5;stroke-dasharray:.6 1.6"/><path d="M0,0L5.80,-5.80L-1.63,-1.63Z" style="fill:var(--ink);fill-opacity:0.6"/><path d="M0,0L5.80,-5.80L1.63,1.63Z" style="fill:var(--surface);stroke:var(--ink);stroke-width:.6;stroke-linejoin:round"/><path d="M0,0L5.80,5.80L1.63,-1.63Z" style="fill:var(--ink);fill-opacity:0.6"/><path d="M0,0L5.80,5.80L-1.63,1.63Z" style="fill:var(--surface);stroke:var(--ink);stroke-width:.6;stroke-linejoin:round"/><path d="M0,0L-5.80,5.80L1.63,1.63Z" style="fill:var(--ink);fill-opacity:0.6"/><path d="M0,0L-5.80,5.80L-1.63,-1.63Z" style="fill:var(--surface);stroke:var(--ink);stroke-width:.6;stroke-linejoin:round"/><path d="M0,0L-5.80,-5.80L-1.63,1.63Z" style="fill:var(--ink);fill-opacity:0.6"/><path d="M0,0L-5.80,-5.80L1.63,-1.63Z" style="fill:var(--surface);stroke:var(--ink);stroke-width:.6;stroke-linejoin:round"/><path d="M0,0L0.00,-13.50L-3.10,-0.00Z" style="fill:var(--haram)"/><path d="M0,0L0.00,-13.50L3.10,-0.00Z" style="fill:var(--haram);fill-opacity:.55"/><path d="M0,0L13.50,-0.00L0.00,-3.10Z" style="fill:var(--ink);fill-opacity:0.85"/><path d="M0,0L13.50,-0.00L0.00,3.10Z" style="fill:var(--surface);stroke:var(--ink);stroke-width:.6;stroke-linejoin:round"/><path d="M0,0L0.00,13.50L3.10,-0.00Z" style="fill:var(--ink);fill-opacity:0.85"/><path d="M0,0L0.00,13.50L-3.10,0.00Z" style="fill:var(--surface);stroke:var(--ink);stroke-width:.6;stroke-linejoin:round"/><path d="M0,0L-13.50,0.00L0.00,3.10Z" style="fill:var(--ink);fill-opacity:0.85"/><path d="M0,0L-13.50,0.00L-0.00,-3.10Z" style="fill:var(--surface);stroke:var(--ink);stroke-width:.6;stroke-linejoin:round"/><circle r="1.3" style="fill:var(--surface);stroke:var(--ink);stroke-width:.6"/></svg></div><div><span id="scaletxt">100 km</span><div class="bar" id="scalebar" style="width:80px"></div></div></div>
+        <div class="coords" id="coords">move over the map</div>
+        <div class="maploading" id="maploading" role="status"><span class="ml1">Drawing the map…</span><span class="ml2">Still loading. On a slow connection this can take a little while; if nothing appears, reload the page.</span></div>
+        <div class="fulltip" id="fulltip" role="status" hidden>Turn your phone sideways for a wider map</div>
+      </div>
+      <div class="focus" id="focus"><span class="lab">Go to</span></div>
+      <div class="insets" id="insets"></div>
+    </div>
+
+    <aside class="panel">
+      <div class="card sheet" id="infocard" aria-live="polite">
+        <div class="sheethead"><span class="grip"></span><span class="st">Notes</span><button type="button" data-close>Close</button></div>
+        <div id="infobody"></div>
+      </div>
+      <div class="card sheet" id="layerscard">
+        <div class="sheethead"><span class="grip"></span><span class="st">Layers</span><button type="button" data-close>Done</button></div>
+        <h3 class="dt">Layers</h3>
+        <div class="layers" id="layers"></div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="keyfind" id="keyfind" aria-label="Key finding">
+    <div>
+      <h2>No boundary for any of these lands is set by revelation.</h2>
+      <p>The Qur'an names blessed places but never uses the words al-Shām, Filasṭīn or al-Ḥijāz. The Sunnah and the Companions use al-Shām and al-Ḥijāz as regions everyone already knew. The lines came later: from ʿUmar's military districts (<i>ajnād</i>), from jurists defining al-Ḥijāz for a single ruling, and from geographers who disagree at every edge.</p>
+      <p>Only two places have a boundary the texts actually fix: the ḥarams of Makkah and Madinah, shown in detail below the map. On the map, <b>solid colour</b> marks land that every major source includes and <b>hatching</b> marks land that only some include.</p>
+    </div>
+    <div class="how">
+      <ul class="tierlist" aria-label="The four kinds of source, kept separate">
+        <li style="--c:var(--ink)"><b>Tier 1</b><span>Revelation: the Qur'an and the authentic Sunnah</span></li>
+        <li style="--c:var(--sham)"><b>Tier 2</b><span>Companions, Successors and early scholars (1st–3rd c. AH)</span></li>
+        <li style="--c:var(--hijaz)"><b>Tier 3</b><span>Classical geographers (3rd–8th c. AH)</span></li>
+        <li style="--c:var(--muted)"><b>Tier 4</b><span>Modern borders (20th century to today)</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="reading">
+    <h2>Reading the map</h2>
+    <div class="grid2">
+      <article class="note">
+        <h3 class="nh">Lines and colour</h3>
+        <div class="keyrow"><svg width="52" height="10"><line x1="1" y1="5" x2="51" y2="5" stroke="currentColor" stroke-width="2"/></svg><div><b>Solid:</b> well established. Coasts and present-day borders.</div></div>
+        <div class="keyrow"><svg width="52" height="10"><line x1="1" y1="5" x2="51" y2="5" stroke="currentColor" stroke-width="2" stroke-dasharray="8 5"/></svg><div><b>Dashed:</b> approximate. The landmarks are known but the line between them is not, such as the ḥaram outlines and the old roads.</div></div>
+        <div class="keyrow"><svg width="52" height="10"><line x1="2" y1="5" x2="51" y2="5" stroke="currentColor" stroke-width="2.6" stroke-dasharray=".5 5.5" stroke-linecap="round"/></svg><div><b>Dotted:</b> disputed or uncertain. The sources disagree, the edge moved over time, or I found no source for a line and drew only a rough indication.</div></div>
+        <div class="keyrow"><svg width="52" height="14"><rect x="1" y="1" width="50" height="12" rx="2" style="fill:var(--sham);fill-opacity:.3"/></svg><div><b>Solid colour:</b> land that every major source includes in the region.</div></div>
+        <div class="keyrow"><svg width="52" height="14"><rect x="1" y="1" width="50" height="12" rx="2" fill="url(#h-static)"/></svg><div><b>Hatching:</b> land that some sources include and others leave out. Where two regions' hatching crosses, the sources disagree about which region the land belongs to.</div></div>
+        <p class="fine">The shaded relief shows mountains and escarpments; the sand stipple marks the great deserts; the faint grid is latitude and longitude.</p>
+      </article>
+      <article class="note">
+        <h3 class="nh">Badges and discs</h3>
+        <div class="keyrow"><svg width="52" height="18"><circle cx="26" cy="9" r="8" style="fill:var(--surface);stroke:var(--ink);stroke-width:1.4"/><text x="26" y="9" text-anchor="middle" dominant-baseline="central" style="font:500 10px var(--font-mono);fill:var(--ink)">A</text></svg><div><b>Lettered circles (A–P):</b> places a source names as a limit of a region. Tap one to read the source's own words.</div></div>
+        <div class="keyrow"><svg width="52" height="30" viewBox="0 0 52 30"><circle cx="26" cy="15" r="12.5" fill="none" stroke="var(--st-haram)" stroke-width="2"/><circle cx="26" cy="15" r="9.4" style="fill:var(--st-haram)"/><text x="26" y="15" text-anchor="middle" dominant-baseline="central" style="font:600 10px var(--font-mono);fill:var(--st-on)">1</text></svg><div><b>Numbered discs (1–22):</b> the sacred-status entries explained in the table below. A disc marks a place or a whole land, never an area; where it sits off its site, a thin line leads back.</div></div>
+        <div class="discs" aria-label="Disc colours">
+          <span><svg width="16" height="16"><circle cx="8" cy="8" r="7" style="fill:var(--st-haram)"/></svg>ḥaram</span>
+          <span><svg width="16" height="16"><circle cx="8" cy="8" r="7" style="fill:var(--st-muq)"/></svg>muqaddas</span>
+          <span><svg width="16" height="16"><circle cx="8" cy="8" r="7" style="fill:var(--st-mub)"/></svg>mubārak</span>
+          <span><svg width="16" height="16"><circle cx="8" cy="8" r="7" style="fill:var(--st-fad)"/></svg>faḍīla</span>
+          <span><svg width="16" height="16"><circle cx="8" cy="8" r="7" style="fill:var(--miqat)"/></svg>link</span>
+          <span><svg width="16" height="16"><circle cx="8" cy="8" r="7" style="fill:var(--st-none)"/></svg>none established</span>
+        </div>
+        <div class="discs" aria-label="Ring outlines">
+          <span><svg width="18" height="18"><circle cx="9" cy="9" r="7" fill="none" stroke="currentColor" stroke-width="2"/></svg>Qur'an or Sunnah</span>
+          <span><svg width="18" height="18"><circle cx="9" cy="9" r="7" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="5 3.4" stroke-linecap="round"/></svg>the Salaf</span>
+          <span><svg width="18" height="18"><circle cx="9" cy="9" r="7" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray=".5 3.9" stroke-linecap="round"/></svg>later scholars, or disputed with a “?”</span>
+        </div>
+        <p class="fine">Use the <b>View</b> buttons above the map to switch between the overview, lands and boundaries, sacred status and the roads, or the layer list to switch single layers.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="sacred-status">
+    <h2>Sacred status: what the evidence establishes <small>22 entries</small></h2>
+    <p class="intro">The numbers match the discs on the map; tap a number to find it there. Two questions are kept apart in every row: what gives the place its status, and what fixes where it is and how far it reaches. “Level” says which kind of source carries the claim.</p>
+    <div class="fl" id="statusfilter" role="group" aria-label="Filter by kind"></div>
+    <div class="tablewrap">
+      <table class="stt">
+        <thead><tr><th>#</th><th>Place</th><th>Status rests on</th><th>Level</th><th>Where, and how far</th></tr></thead>
+        <tbody id="statusrows"></tbody>
+      </table>
+    </div>
+    <p class="fine">The dashed (Salaf) and dotted (later scholars) outlines are in the key because the scheme allows them; the entries I could verify rest on the Qur'an and the Sunnah, or are marked disputed (7, Wajj, and 13, the fig and the olive). Where the early commentators differ, the difference is about <i>which land</i> or <i>how far</i>, and each row says so.</p>
+  </section>
+
+  <section class="sec" id="limits">
+    <h2>Named limits on the map <small>A–P</small></h2>
+    <p class="intro">Lettered circles on the map mark places where a source itself names an edge. Each card gives the source's own words and who said them. Tap the letter to see the place on the map (turn on “Named limits” in the layers if it is not showing).</p>
+    <div class="limits" id="limitcards"></div>
+  </section>
+
+  <section class="sec" id="evidence">
+    <h2>Four layers of evidence</h2>
+    <p class="intro">Each layer is kept separate. Where I connect them, it is marked as my synthesis. A dagger <sup class="dag">†</sup> marks a statement I took from the atlas you shared and did not re-check against the sources.</p>
+    <div class="evid">
+      <article class="tier" style="--c:var(--ink)">
+        <div class="tn">Tier 1</div><h3>Revelation</h3><p class="bs">The Qur'an and the authentic Sunnah. Boundaries set: none, except the two ḥarams.</p>
+        <h4>al-Shām</h4>
+        <ul>
+          <li>The word does not occur in the Qur'an. Its root appears only as <i>al-mashʾamah</i>, “the left” (56:9, 90:19).</li>
+          <li>“The land We blessed” (21:71, 21:81, 7:137, 34:18). Al-Baghawī explains 21:71 and 21:81 as al-Shām.</li>
+          <li>The Sunnah uses al-Shām as a known region: al-Juḥfah is the mīqāt for it (al-Bukhārī 1524), and a fire from the land of al-Ḥijāz will light the necks of the camels at Buṣrā (al-Bukhārī 7118). I found no authenticated hadith that defines its borders.</li>
+        </ul>
+        <h4>Filasṭīn</h4>
+        <ul>
+          <li>The name does not occur in the Qur'an.</li>
+          <li>17:1: al-Aqṣā, “whose surroundings We have blessed”: a blessing, not a boundary.</li>
+          <li>5:21, “the holy land”: five answers in the early commentary (row 9).</li>
+        </ul>
+        <h4>al-Ḥijāz</h4>
+        <ul>
+          <li>The word does not occur. Its root appears only as <i>ḥājiz</i>, “a barrier” (27:61, 69:47).</li>
+          <li>The Sunnah names “the land of al-Ḥijāz” (al-Bukhārī 7118) and commands the expulsion of the <i>mushrikūn</i> from Jazīrat al-ʿArab (al-Bukhārī 3053, Muslim 1637), a ruling that gave jurists a reason to define al-Ḥijāz.</li>
+        </ul>
+        <h4>Neighbouring lands</h4>
+        <ul>
+          <li>Miṣr is named (12:99; also 10:87, 12:21, 43:51). In 2:61 the word is <i>miṣran</i>, which al-Ṭabarī reports Qatādah, al-Suddī, Mujāhid and Ibn Zayd reading as "any town", and he leaves the question open. Sabaʾ is named (34:15–19), and the Prophet ﷺ said Sabaʾ was a man with ten sons (al-Tirmidhī 3222). al-Aḥqāf (46:21) and al-Rūm (30:2–4) are named.</li>
+          <li>al-Ḥabashah is not in the Qur'an; it is in the Sunnah.</li>
+          <li>I found no verse or authentic hadith that calls Iraq a ḥaram, holy or blessed. The Sunnah gives it a mīqāt.</li>
+        </ul>
+      </article>
+
+      <article class="tier" style="--c:var(--sham)">
+        <div class="tn">Tier 2</div><h3>Companions and early scholars</h3><p class="bs">1st–3rd c. AH. Working divisions, not a fixed map.</p>
+        <h4>al-Shām</h4>
+        <ul>
+          <li>ʿUmar organised it into <i>ajnād</i>: Filasṭīn, al-Urdunn, Dimashq and Ḥimṣ. Qinnasrīn was split off later, under Muʿāwiyah or Yazīd, and al-ʿAwāṣim under Hārūn al-Rashīd.</li>
+          <li>At Sargh ʿUmar was met by “the commanders of the <i>ajnād</i>” (al-Bukhārī, Muslim), so the districts existed in the Companions' time.</li>
+          <li>Al-Balādhurī: ʿUmar counted Taymāʾ and Wādī al-Qurā as al-Shām (badge E). Al-Ṭabarī: all agree the Holy Land lies between the Euphrates and al-ʿArīsh (badge A).</li>
+        </ul>
+        <h4>Filasṭīn</h4>
+        <ul>
+          <li>Early usage treats Filasṭīn as a named part inside al-Shām: Ibrāhīm settled at al-Sabʿ “of the land of Filasṭīn” (Ibn Isḥāq, badge M); Usāmah was sent to al-Dārūm (badge N).</li>
+          <li>On 30:3, Muqātil names “al-Urdunn and Filasṭīn” side by side (badge O).</li>
+          <li>Jund Filasṭīn's capital was Ludd, then al-Ramlah, founded around 715 CE.</li>
+        </ul>
+        <h4>al-Ḥijāz</h4>
+        <ul>
+          <li><b>Physical sense:</b> the mountain chain that “bars” low Tihāmah from high Najd (Hishām b. al-Kalbī); al-Aṣmaʿī: Makkah is Tihāmī, Madinah and al-Ṭāʾif are Ḥijāzī.</li>
+          <li><b>Legal sense:</b> al-Shāfiʿī, Makkah, Madinah, al-Yamāmah and their districts; Aḥmad adds Khaybar, Yanbuʿ and Fadak <sup class="dag">†</sup> (badge J).</li>
+          <li><b>Outlier:</b> al-Ḥarbī, “Tabūk and Filasṭīn are of al-Ḥijāz” (via Yāqūt). Not drawn.</li>
+        </ul>
+        <h4>Neighbouring lands</h4>
+        <ul>
+          <li>On 30:3 Mujāhid takes “the nearest land” to be al-Jazīrah. On 46:21 three early reports place al-Aḥqāf at al-Shiḥr (Qatādah), Mahrah (Muqātil) or between ʿUmān and Mahrah (Ibn ʿAbbās).</li>
+        </ul>
+      </article>
+
+      <article class="tier" style="--c:var(--hijaz)">
+        <div class="tn">Tier 3</div><h3>Classical geographers</h3><p class="bs">3rd–8th c. AH. Explicit lines, but they differ.</p>
+        <h4>al-Shām</h4>
+        <ul>
+          <li><b>Ibn Ḥawqal</b> (4th c.): the Sea of al-Rūm to the west; the desert “from Ayla to the Euphrates” to the east; the Euphrates up to the Byzantine frontier, taking in the frontier fortresses; Egypt to the south, ending at Rafaḥ.</li>
+          <li><b>Yāqūt</b> (d. 626 AH): length from the Euphrates to al-ʿArīsh; width from the two mountains of Ṭayyiʾ to the sea (badges A, F). The widest line.</li>
+          <li><b>Abū al-Fidāʾ</b> (d. 732 AH): a narrower settled-land line, roughly the solid core.</li>
+          <li>Al-Muqaddasī counts six districts, adding al-Sharāt <sup class="dag">†</sup>.</li>
+        </ul>
+        <h4>Filasṭīn</h4>
+        <ul>
+          <li>The geographers list Filasṭīn as a district of al-Shām, the westernmost, from Rafaḥ to al-Lajjūn (badge K).</li>
+          <li>Disputed towns include Arīḥāʾ and ʿAmmān (badge L).</li>
+          <li>Nāṣir-i Khusraw notes that al-Ramlah itself was called “Filasṭīn” <sup class="dag">†</sup>. Under the Mamluks and Ottomans the unit broke into smaller districts, though the name stayed in use <sup class="dag">†</sup>.</li>
+        </ul>
+        <h4>al-Ḥijāz</h4>
+        <ul>
+          <li>Yāqūt gathers the earlier definitions and records Sargh as “the first of al-Ḥijāz” (badge D).</li>
+          <li>Al-Qazwīnī: “a barrier between Yemen and al-Shām, a month's journey” <sup class="dag">†</sup>.</li>
+          <li>Result: a firm core (Makkah, al-Ṭāʾif, Madinah, Yanbuʿ, Khaybar, Fadak) with a soft north, south and east.</li>
+        </ul>
+        <h4>Neighbouring lands</h4>
+        <ul>
+          <li>Al-Iṣṭakhrī gives al-Jazīrah, al-ʿIrāq and Miṣr chapters of their own. Yāqūt on Miṣr: from the two trees between Rafaḥ and al-ʿArīsh to Aswān, and from Barqah to Aylah.</li>
+          <li>Yāqūt on Tihāmah: it runs along the sea, and Makkah is of it.</li>
+        </ul>
+        <div class="synth"><b class="l">Synthesis (mine)</b>The seam between al-Shām and al-Ḥijāz is a band, not a line. ʿUmar, per al-Balādhurī, put it at Wādī al-Qurā; the geographers' “first of al-Ḥijāz, last of al-Shām” sits at Sargh, north of Tabūk. The two are a few hundred kilometres apart, and both are defensible readings of their own time. The map shows them overlapping rather than choosing.</div>
+      </article>
+
+      <article class="tier" style="--c:var(--muted)">
+        <div class="tn">Tier 4</div><h3>Modern political borders</h3><p class="bs">20th century to today. Surveyed lines, drawn for other reasons.</p>
+        <h4>al-Shām</h4>
+        <ul>
+          <li>After 1918 the British and French mandates divided it into Syria, Lebanon, Palestine and Transjordan; Hatay joined Türkiye in 1939 <sup class="dag">†</sup>.</li>
+          <li>None of these borders follows an old <i>jund</i> line.</li>
+        </ul>
+        <h4>Filasṭīn</h4>
+        <ul>
+          <li>The Mandate border is not Jund Filasṭīn. It added Galilee, Acre, Haifa, Tiberias and Baysān, all old al-Urdunn, and the Negev to Eilat; it left out the east-bank lands that some sources gave Filasṭīn <sup class="dag">†</sup>.</li>
+        </ul>
+        <h4>al-Ḥijāz</h4>
+        <ul>
+          <li>Now mainly Saudi Arabia's Makkah and Madinah provinces and part of the Tabūk region.</li>
+          <li>Maʿān and ʿAqaba belonged to the Hashemite Kingdom of the Ḥijāz until 1925, when Britain attached them to Transjordan <sup class="dag">†</sup>.</li>
+        </ul>
+        <h4>Neighbouring lands</h4>
+        <ul>
+          <li>Al-Jazīrah is split between Syria, Türkiye and Iraq; al-Ḥabashah lies in Ethiopia and Eritrea; Tihāmah is split between Saudi Arabia and Yemen.</li>
+        </ul>
+        <p class="fine" style="margin-top:12px">The map uses Natural Earth's de facto lines. They are not an endorsement of any claim; see the honest limits below.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="words">
+    <h2>Four different words</h2>
+    <article class="note">
+      <dl>
+        <dt>Ḥaram<span class="ar" lang="ar">حَرَم</span></dt>
+        <dd>A sanctuary in which Allah ﷻ forbade hunting and cutting the vegetation. Makkah is a ḥaram by the agreement of the Muslims, and Madinah by the view of most scholars (the Ḥanafī school is reported to differ; not re-checked). Whether Wajj near al-Ṭāʾif is a third is disputed, and its hadith is graded weak by al-Albānī.</dd>
+        <dt>Muqaddas<span class="ar" lang="ar">مُقَدَّس</span></dt>
+        <dd>Holy or purified. The Qur'an uses it for <i>al-arḍ al-muqaddasah</i> (al-Māʾidah 5:21) and the valley of Ṭuwā (Ṭā Hā 20:12; al-Nāziʿāt 79:16), where al-Baghawī glosses it “purified”. The same Arabic is rendered “blessed valley” in 20:12 and “sacred valley” in 79:16 by Saheeh International. The map does not treat these lands as a ḥaram; whether special rulings attach to them is a question for the scholars.</dd>
+        <dt>Mubārak<span class="ar" lang="ar">مُبَارَك</span></dt>
+        <dd>Blessed. Used for the House at Bakkah (3:96), the surroundings of al-Aqṣā (17:1), the land of 7:137, 21:71 and 21:81, the villages of 34:18, and the spot where Mūsā عليه السلام was called (28:30); in the Sunnah, for Wādī al-ʿAqīq (al-Bukhārī 1534). Al-Baghawī explains the blessing in several of these as water, trees, fruit and abundance.</dd>
+        <dt>Faḍīla<span class="ar" lang="ar">فَضِيلَة</span></dt>
+        <dd>A stated virtue, “best”. The Prophet ﷺ said of Makkah that it is the best of the land of Allah ﷻ (al-Tirmidhī 3925, Ibn Mājah 3108; <i>ḥasan ṣaḥīḥ gharīb</i>), and the Sunnah gives virtues to Madinah, Qubāʾ, Uḥud and others. Scholars are reported to differ on whether Makkah or Madinah is better; I did not re-check each school's position.</dd>
+      </dl>
+    </article>
+  </section>
+
+  <section class="sec" id="today">
+    <h2>Where the classical lands sit today</h2>
+    <p class="intro">“Core” means inside the solid colour on the map; “edges” means the hatched or dotted zones. The first four rows come from the atlas you shared <sup class="dag">†</sup>; the rows marked “my mapping” follow my own outlines on the map and carry only the certainty those outlines have.</p>
+    <div class="tablewrap lt-wrap" tabindex="0" role="region" aria-label="Where the classical lands sit today (table, scrolls sideways)">
+      <table class="lt">
+        <thead><tr><th>Classical region</th><th>Core, in today's states</th><th>Edges some sources include</th><th>Common shorthand, and what it misses</th></tr></thead>
+        <tbody>
+          <tr><td data-l="Region">Bilād al-Shām <sup class="dag">†</sup></td><td data-l="Core">Syria west of the Euphrates; Lebanon; Jordan (north and centre, down to al-Karak and al-Shawbak); Israel; the West Bank and Gaza; Türkiye's Hatay and the Gaziantep–Kilis area.</td><td data-l="Edges">Cilicia, Kahramanmaraş and Malatya (Türkiye); the Syrian desert to the Euphrates, including western Iraq's desert; southern Jordan to ʿAqaba; north-west Saudi Arabia (Tabūk, Taymāʾ, al-ʿUlā, al-Jawf, toward Ḥāʾil); north Sinai to al-ʿArīsh (Egypt).</td><td data-l="Shorthand">“Syria, Lebanon, Jordan and Palestine” is the core. It misses the Turkish and Saudi parts, and sweeps in Syria's lands across the Euphrates (al-Raqqah, al-Ḥasakah), which the geographers counted as al-Jazīrah.</td></tr>
+          <tr><td data-l="Region">Jund Filasṭīn <sup class="dag">†</sup></td><td data-l="Core">Central and southern Israel (coastal plain, Jerusalem hills, northern Negev); the West Bank; Gaza.</td><td data-l="Edges">Jericho and the lower Jordan valley; ʿAmmān, Zughar and al-Sharāt (Jordan); the Negev to Eilat; ʿAqaba; the coast to al-ʿArīsh (Egypt).</td><td data-l="Shorthand">“Palestine = the Mandate borders” adds Galilee and the Haifa–Acre coast, which were Jund al-Urdunn, and omits the east-bank lands.</td></tr>
+          <tr><td data-l="Region">Jund al-Urdunn <sup class="dag">†</sup></td><td data-l="Core">Northern Israel (Galilee, Acre, Tiberias, Baysān); southern Lebanon (Tyre); the Golan; north-west Jordan (Irbid, Jarash); Syria's Darʿā area.</td><td data-l="Edges">The lower Jordan valley (al-Ghawr).</td><td data-l="Shorthand">Not the modern Kingdom of Jordan, which took the river's name; most of that kingdom lay in Jund Dimashq (al-Balqāʾ) and al-Sharāt.</td></tr>
+          <tr><td data-l="Region">al-Ḥijāz <sup class="dag">†</sup></td><td data-l="Core">Saudi Arabia: Makkah and al-Ṭāʾif, Jeddah, Madinah, Yanbuʿ, Khaybar, Fadak (al-Ḥāʾiṭ).</td><td data-l="Edges">Wādī al-Qurā / al-ʿUlā, Taymāʾ, Tabūk; Jordan's Maʿān–ʿAqaba; the Sarāt south toward Tabālah; east toward Ḥāʾil and the Iraq road; al-Yamāmah (legal definition only).</td><td data-l="Shorthand">“The Ḥijāz = the Red Sea coast” is loose: strictly the Ḥijāz is the mountain barrier, and the coastal plain, including Makkah and Jeddah, is Tihāmah.</td></tr>
+          <tr class="mine"><td data-l="Region">al-Jazīrah</td><td data-l="Core">The land between the Euphrates and the Tigris: north-east Syria (al-Raqqah, al-Ḥasakah), south-east Türkiye (Urfa, Mardin, Diyarbakır) and north-west Iraq (Mosul, Sinjar).</td><td data-l="Edges">The dotted north and south ends are mine: the geographers fix them by towns.</td><td data-l="Shorthand">Not Jazīrat al-ʿArab: the same Arabic word <i>jazīrah</i>, a different land. This one is Upper Mesopotamia.</td></tr>
+          <tr class="mine"><td data-l="Region">al-ʿIrāq and the Sawād</td><td data-l="Core">The river plain of central and southern Iraq: Baghdad, al-Kūfah, al-Baṣrah, with the old sites of al-Madāʾin, Sāmarrāʾ and Tikrīt on the rivers.</td><td data-l="Edges">Every edge is dotted. I could not re-read the geographers' formula for its limits.</td><td data-l="Shorthand">Modern Iraq's borders also take in al-Jazīrah in the north (Mosul) and the western desert, which the old lists put elsewhere.</td></tr>
+          <tr class="mine"><td data-l="Region">Miṣr</td><td data-l="Core">The Nile valley from Aswān and the Delta: the cultivated land.</td><td data-l="Edges">Yāqūt's reckoning adds Sinai and a wide desert rectangle west to Barqah in Libya.</td><td data-l="Shorthand">Modern Egypt stops at the Libyan border and runs south of Aswān into Nubia; Yāqūt's does neither.</td></tr>
+          <tr class="mine"><td data-l="Region">Najd</td><td data-l="Core">Central Saudi Arabia: al-Qaṣīm (Buraydah), Ḥāʾil and the Riyadh plateau, as a rough outline.</td><td data-l="Edges">All dotted; later usage narrowed the name.</td><td data-l="Shorthand">The Najd of the hadith may mean this plateau or the east; scholars differ.</td></tr>
+          <tr class="mine"><td data-l="Region">al-Baḥrayn</td><td data-l="Core">The Gulf coast of Arabia: al-Aḥsāʾ and al-Qaṭīf in Saudi Arabia's Eastern Province, with the island state.</td><td data-l="Edges">A dotted belt: I found no stated limits.</td><td data-l="Shorthand">Today's Bahrain is only the island; the early name meant the coast.</td></tr>
+          <tr class="mine"><td data-l="Region">Tihāmah</td><td data-l="Core">The Red Sea coastal plain of Saudi Arabia and Yemen, including Makkah and Jeddah in the strict sense.</td><td data-l="Edges">The northern end near Yanbuʿ is my guess.</td><td data-l="Shorthand">Often confused with al-Ḥijāz; they overlap on the map.</td></tr>
+          <tr class="mine"><td data-l="Region">al-Yaman and Sabaʾ</td><td data-l="Core">South-west Arabia: today's Yemen, with Maʾrib, where Sabaʾ's dam stood.</td><td data-l="Edges">Whether it included Ḥaḍramawt and Najrān varied between authors.</td><td data-l="Shorthand">Early reports on 46:21 place al-Aḥqāf toward the south-east coast (al-Shiḥr, Ḥaḍramawt and Mahrah, ʿUmān).</td></tr>
+          <tr class="mine"><td data-l="Region">Bilād al-Rūm</td><td data-l="Core">The Byzantine lands beyond al-Shām's frontier: most of Anatolia (Türkiye) and Thrace, to Constantinople. My outline's west edge, at 24.5°E, is only where I stopped drawing.</td><td data-l="Edges">The frontier fortresses (al-thughūr) moved with the wars; the east edge toward Armenia is mine.</td><td data-l="Shorthand">The virtue in the hadith belongs to an army, not to the land.</td></tr>
+          <tr class="mine"><td data-l="Region">al-Ḥabashah</td><td data-l="Core">Ethiopia and Eritrea; I mark Aksūm, in northern Ethiopia, for the kingdom's heart.</td><td data-l="Edges">No outline is drawn.</td><td data-l="Shorthand">No sacred status for the land is established.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="sec" id="firm">
+    <h2>What is firm, what is approximate, what is disputed</h2>
+    <article class="note">
+      <div class="tiers">
+        <div>
+          <h3><svg width="30" height="8"><line x1="1" y1="4" x2="29" y2="4" stroke="currentColor" stroke-width="2"/></svg>Firm</h3>
+          <ul>
+            <li>That Makkah and Madinah are each a ḥaram.</li>
+            <li>The landmarks of Madinah's ḥaram: ʿAyr, Thawr and the two lava fields, named in authentic hadith.</li>
+            <li>The four mīqāts fixed by the Prophet ﷺ, and Dhāt ʿIrq, set by ʿUmar.</li>
+            <li>The location of al-Masjid al-Aqṣā in Jerusalem.</li>
+            <li>That the “blessed land” of several verses is al-Shām or part of it (and, for 7:137, Miṣr as well), as al-Baghawī explains.</li>
+            <li>That Miṣr, Sabaʾ, al-Aḥqāf and al-Rūm are named in the Qur'an.</li>
+            <li>The seaward sides of al-Shām and Jazīrat al-ʿArab.</li>
+          </ul>
+        </div>
+        <div>
+          <h3><svg width="30" height="8"><line x1="1" y1="4" x2="29" y2="4" stroke="currentColor" stroke-width="2" stroke-dasharray="8 5"/></svg>Approximate</h3>
+          <ul>
+            <li>The exact outline of each ḥaram between its markers.</li>
+            <li>The precise spots of the old mīqāt sites and of the Hajj-road stations.</li>
+            <li>The course of the caravan and Hajj roads between stations, and of the Maʾrib road.</li>
+            <li>Al-Shām's frontier near al-ʿArīsh and its edge along the Euphrates.</li>
+            <li>The inland edge of al-Ḥijāz toward Najd.</li>
+            <li>The Nile ribbon and Delta (traced from the river's course), and the places of Dābiq, al-Aʿmāq, Maʾrib, Aksūm and Jawāthā.</li>
+          </ul>
+        </div>
+        <div>
+          <h3><svg width="30" height="8"><line x1="2" y1="4" x2="29" y2="4" stroke="currentColor" stroke-width="2.6" stroke-dasharray=".5 5.5" stroke-linecap="round"/></svg>Disputed or uncertain</h3>
+          <ul>
+            <li>How far <i>al-arḍ al-muqaddasah</i> extends: the early commentators give five answers.</li>
+            <li>Al-Shām's desert edge and southern edge; Yāqūt's description reaches as far as the mountains of Ṭayyiʾ.</li>
+            <li>The borders between the ajnād, which shifted over time.</li>
+            <li>The northern limit of al-Ḥijāz and of Jazīrat al-ʿArab.</li>
+            <li>The locations of Ṭuwā, Mount Sinai and Madyan.</li>
+            <li>Whether the residence ruling covers al-Ḥijāz only or all of Jazīrat al-ʿArab.</li>
+            <li>Every limit I drew dotted: al-ʿIrāq, the north and south ends of al-Jazīrah, Najd, al-Baḥrayn, Tihāmah's north end and al-Rūm's east edge. I found no source for a line.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="sec" id="honest">
+    <h2>Reading these maps honestly</h2>
+    <div class="honest">
+      <article class="note"><h3>The lines are my reconstruction</h3><p>Classical authors describe limits by naming towns, deserts and rivers. I placed the lines from those descriptions, from the real courses of rivers and coasts, and from modern studies. Treat every edge as rough, tens of kilometres at best, and the dotted edges as ranges, not lines.</p></article>
+      <article class="note"><h3>The districts moved over time</h3><p>The ajnād of 640 CE, 900 CE and 1050 CE were not identical; the borders drawn here are schematic.</p></article>
+      <article class="note"><h3>Discs mark places, not areas</h3><p>A numbered disc stands for a place or a whole land, not for its extent. Some discs are moved off their site, with a thin line leading back, so the labels stay readable. Where the sources give no edge (al-Aqṣā's surroundings, the Holy Land, “the land We blessed”), the map uses a dashed or dotted ring, never a line.</p></article>
+      <article class="note"><h3>Even the two ḥaram lines are drawn by hand</h3><p>In the Makkah detail map the points are the boundary sites al-Nawawī names, placed at approximate positions, with the curve between them interpolated. Madinah's outline joins the landmarks the hadith names and is looser still. The Sinai marker is the traditional Jabal Mūsā, not an identification the Qur'an makes. The enclosure of al-Aqṣā is a small hand-drawn shape.</p></article>
+      <article class="note"><h3>The new neighbouring lands</h3><p>The river-bounded shapes (al-Jazīrah, the Sawād, the Nile valley and Delta) follow real river courses; the edges that rest on towns or distances, with no source I could read, are dotted. Najd, al-Baḥrayn and Tihāmah are rough indications only. The sizes of the three al-Aḥqāf rings are illustrative.</p></article>
+      <article class="note"><h3>Modern borders come from Natural Earth</h3><p>They are public-domain de facto lines. They do not show recent changes on the ground, and several are disputed: Jerusalem, the West Bank and Gaza, the Golan Heights, Shebaa and Ḥalāʾib are drawn as hatched disputed areas. The atlas you shared makes claims about which states recognise the Golan annexation and about the buffer zone since December 2024; I could not check them, so I left them out.</p></article>
+      <article class="note"><h3>What I could not verify</h3><ul><li>The geographers' formulas for the limits of al-ʿIrāq (Tikrīt to ʿAbbādān and the like), al-Jazīrah, Najd, al-Yamāmah and al-Baḥrayn. I tried again and the pages I could reach gave summaries, not the original text, so I added no limit I could not read myself.</li><li>The Ḥijāz lists attributed to al-Shāfiʿī and Aḥmad, and the Ḥanafī position on Madinah's ḥaram.</li><li>The shape of al-Ḥabashah beyond Aksūm.</li><li>The Golan recognition claims.</li></ul></article>
+      <article class="note"><h3>What I changed from the atlas you shared</h3><ul><li>Dropped the 12-mīl <i>ḥimā</i> circle around Madinah: Muslim 1372, as I read it, does not state twelve mīl.</li><li>Dropped “al-Juḥfah for Egypt”: I could not confirm the narration, so al-Juḥfah is described only as the mīqāt for al-Shām.</li><li>Kept Ṭuwā's two renderings apart (“blessed valley”, 20:12; “sacred valley”, 79:16) and marked Dhū Ṭuwā near Makkah as a different place.</li><li>Gave Wajj's hadith its grade (ḍaʿīf, al-Albānī), and did not take the atlas's treatment of Jericho and Nābulus as settled: the notes say the sources disagree about those towns.</li></ul></article>
+    </div>
+  </section>
+
+  <section class="sec" id="synth">
+    <h2>A caliphate outline <small>a thought experiment · not a ruling</small></h2>
+    <p class="intro">Two outlines, kept apart. The first is mine: the smallest single territory holding every land the sources give a status. The second is yours: the wider area you specified. No text, early scholar or geographer drew either one. The texts on the caliphate are in the first column.</p>
+    <div class="grid3 caliphgrid">
+      <article class="note">
+        <span class="ctag" style="--c:var(--ink)">From revelation</span>
+        <h3 class="nh">What the texts say</h3>
+        <p><b>Qur'an 24:55.</b> <span class="q" lang="ar" dir="rtl">لَيَسْتَخْلِفَنَّهُمْ فِى ٱلْأَرْضِ</span> "Allāh has promised those who have believed among you and done righteous deeds that He will surely grant them succession [to authority] upon the earth just as He granted it to those before them…" (Saheeh International). Al-Baghawī reports from Abū al-ʿĀliyah that it came down when the Companions lived in fear, and says the verse points to the caliphate of Abū Bakr and the imamate of the Rightly Guided Caliphs. Ibn Kathīr describes the promise as fulfilled in the Prophet's ﷺ lifetime and under Abū Bakr, ʿUmar and ʿUthmān.</p>
+        <p><b>Thirty years, then kingship.</b> "Al-Khilafah will be in my Ummah for thirty years, then there will be monarchy after that" (al-Tirmidhī 2226, from Safīnah; graded ḥasan).</p>
+        <p><b>A return foretold.</b> A hadith through al-Nuʿmān b. Bashīr lists prophethood, then a caliphate on the method of prophethood, then biting kingship, then tyrannical kingship, "then there will be a caliphate on the method of prophethood", after which the Prophet ﷺ fell silent (my rendering of the Arabic). Al-Albānī graded its chain ḥasan.</p>
+        <p><b>A warning sign.</b> "Ibn Hawalah, when you see the caliphate has settled in the holy land, earthquakes, sorrows and serious matters will have drawn near" (Abū Dāwūd 2535; ṣaḥīḥ according to al-Albānī).</p>
+        <p class="fine">None of these texts gives the caliphate a border.</p>
+      </article>
+      <article class="note">
+        <span class="ctag" style="--c:var(--hijaz)">My synthesis</span>
+        <h3 class="nh">The best-lands outline</h3>
+        <p>It is the smallest single territory that holds every land the sources give a status: al-Ḥijāz with the two ḥarams (entries 1–7), al-Shām with Filasṭīn and al-Aqṣā (8–11), Sinai and al-Ṭūr (12), al-Yaman (14) and Miṣr (15). Where the sources disagree on an edge, I took the widest reading, so every hatched zone of al-Shām and al-Ḥijāz is inside. For Miṣr I took only the Nile valley and the Delta, not Yāqūt's desert rectangle. Tihāmah joins al-Ḥijāz to al-Yaman.</p>
+        <p>What falls outside is telling. Najd, al-ʿIrāq, the Gulf coast, al-Ḥabashah and Bilād al-Rūm have no established status (entries 16, 20 and 21), so they are not in it. The table still shows a tenth of Iraq: its western desert, which falls inside only because al-Shām's widest reading reaches the Euphrates. The best lands form a ring around the Red Sea and up the Levant.</p>
+        <button type="button" class="gobtn" id="showcaliph">Show both outlines on the map</button>
+        <div class="cwrap"><table class="ctable">
+          <caption>Present-day states and territories inside the outline. Areas are my rough measurement from these outlines.</caption>
+          <thead><tr><th>State or territory</th><th class="num">Area inside, km²</th><th class="num">Share of it</th></tr></thead>
+          <tbody id="caliphrows"></tbody>
+        </table></div>
+      </article>
+      <article class="note wide">
+        <span class="ctag" style="--c:var(--xcal)">Your specification</span>
+        <h3 class="nh">Your outline: the core caliphate</h3>
+        <p>It holds the best-lands outline and adds the whole Arabian Peninsula; Greater Syria; Greater Israel in its widest reading; all of Iraq and Iran, with Greater Iraq inside them; all of Türkiye; Georgia, Armenia and Azerbaijan; the whole island of Cyprus; and all of Egypt, Sudan, South Sudan, Somalia (with Somaliland), Ethiopia, Eritrea and Djibouti.</p>
+        <p><b>Not an outline of the best lands.</b> The lands the sources honour are inside the black dotted line. Everything between that line and your outline is your addition.</p>
+        <p><b>The views.</b> The switch shows the core caliphate in its complete version; Complete V2, which adds the lands on your Greater Middle East map and shades how each was held; a version that stops at Iraq’s eastern border, leaving out Iran (with Khuzestan and ʿIrāq al-ʿAjam), Georgia, Armenia and Azerbaijan, with Türkiye’s eastern border as the edge north of Iraq; the Greater Caliphate, which takes in the whole core and extends it; or <b>Natural borders</b>, the land inside one ring of natural features drawn round the whole complete version. Natural borders is a territory of its own: from the Adriatic the ring follows the Kupa, Sava and Danube, the Greater Caucasus, the Ustyurt escarpment and the old Aral shore, the Amu Darya and the Panj, the rim of the Indus basin, the Yamuna, Chambal and Mahi, the Arabian Sea, and in Africa the Tana, the Kenyan highlands, the Victoria Nile, the Nile–Congo divide, the Ubangi, Sangha, Benue, Niger and Senegal, then the Atlantic and the Mediterranean. The Balkans, Anatolia, Iran, Afghanistan, Pakistan, north-west India, North Africa and the Sahel are inside.</p>
+        <p><b>The Greater Caliphate.</b> The third option extends the core caliphate, the complete version with Iran and the Caucasus, into one larger territory in the same colour. First it adds the Greater Middle East beyond the core: the Maghrib (Libya, Tunisia, Algeria, Morocco, Western Sahara and Mauritania), Central Asia (Kazakhstan, Uzbekistan, Turkmenistan, Kyrgyzstan and Tajikistan), Afghanistan and Pakistan, following the usual definition of that modern geopolitical term and the reference map you shared. Next it adds, whole, the Muslim-majority countries of Africa that are not already in it: Mali, Niger, Burkina Faso, Chad, Nigeria, Senegal, the Gambia, Guinea-Bissau, Guinea, Sierra Leone and the Comoros, chosen as countries where Muslims are more than half of the people in the Pew Research Center’s 2020 estimates (Nigeria and Guinea-Bissau are close calls, marked in the tables). Then it adds the part of every other land that a caliphate once ruled: al-Andalus with Gibraltar; Septimania and Fraxinetum in France; Sicily, southern Italy, southern Sardinia and Malta; Greece and the Ottoman Balkans; Ottoman Hungary, Slovakia's south and east, Romania and Moldova; southern Ukraine and Crimea; the Kuban, Azov and Derbent; the Sokoto Caliphate’s outer lands in Cameroon and the Central African Republic (its heartland is now inside the Muslim-majority countries); Tibesti and Borkou; Equatoria in northern Uganda; the Delhi Sultanate and Bengal; and Kashgaria. Each is labelled on the map with its caliphate and dates. Last, to join those lands up, it takes in, at your request: the rest of Italy and all the rest of France, with Corsica and Andorra; Austria, Slovenia and the rest of Croatia and Hungary, which join Italy to the Balkans; and the rest of Ukraine with the Southern and North Caucasus districts of Russia, which join the Black Sea lands to the Caucasus, the Caspian and Kazakhstan. No caliphate in the counted list is known to have ruled the western Mediterranean ones; I did not research the Balkan and Black Sea ones again, so some may have had an Ottoman or Crimean overlord at some time, which I have not checked. The page marks all of them as your addition, and the rule behind them is mine, not the sources’: whole countries or districts, only as many as it takes for every land to touch the next by land. The name Greater Caliphate is yours; the edges of the historical lands are my approximate tracing.</p>
+        <p><b>Dār al-Amān.</b> You named the core caliphate Dār al-Amān (<span lang="ar" dir="rtl">دار الأمان</span>), with the formal title al-Khilāfa al-Amīna (<span lang="ar" dir="rtl">الخلافة الأمينة</span>), its people Amānī (plural Amāniyyūn) and al-Quds (Jerusalem) as its capital. None of these names comes from the sources. <b>Natural borders</b> is the version drawn inside your natural ring: one natural boundary all round (rivers, crests, watersheds, escarpments and coasts), with Gibraltar marked where the ring runs out to the Atlantic, and the <b>internal lines</b> (the Taurus divide, the Nile, Tigris and Euphrates, and the Red Sea as the axis) switched on with it. The second row of the switch also draws the ring over any other version, and the internal lines over any version. All of it is your design, drawn approximately; the notes on the map say how each part was traced and where the drawing differs from your description.</p>
+        <div class="xtoggle insec" role="group" aria-label="Which version of your outline"><span class="xl">Your outline</span><button type="button" data-xv="full" aria-pressed="true">Complete</button><button type="button" data-xv="v2" aria-pressed="false" class="v2btn" title="Complete Caliphate V2: your complete outline with the lands on your Greater Middle East map"><span class="lgt">Complete V2</span><span class="sht">V2</span></button><button type="button" data-xv="max" aria-pressed="false" class="v2btn" title="Maximum: your complete outline with the lands on your list for its maximum stable expansion (your specification)"><span class="lgt">Maximum</span><span class="sht">Max</span></button><button type="button" data-xv="west" aria-pressed="false"><span class="lgt">To Iraq’s border</span><span class="sht">To Iraq</span></button><button type="button" data-xv="gme" aria-pressed="false" class="gbtn"><span class="lgt">+ Greater Caliphate</span><span class="sht">+ Greater</span></button><button type="button" data-xv="nat" aria-pressed="false" class="natbtn" title="Natural borders: the land inside one ring of coasts, rivers, crests and watersheds (your design)"><span class="lgt">Natural borders</span><span class="sht">Natural</span></button><button type="button" data-xv="natp" aria-pressed="false" class="natbtn" title="Natural + political: the natural ring, with every state it cuts taken whole (more than half inside) or left out (your design)"><span class="lgt">Natural + political</span><span class="sht">Nat + pol</span></button><span class="xbreak" aria-hidden="true"></span><span class="xl xl2">Lines</span><button type="button" data-lyt="natb" aria-pressed="false" class="lyt" title="Draw the natural line over any version"><span class="lgt">Natural line</span><span class="sht">Line</span></button><button type="button" data-lyt="intl" aria-pressed="false" class="lyt"><span class="lgt">Internal lines</span><span class="sht">Internal</span></button></div>
+        <p><b>How I read the two "Greater" terms.</b> Greater Syria: Syria, Lebanon, Jordan, Israel and Palestine, plus Bilād al-Shām's belt in Türkiye. "Greater Israel" is a term from Zionist maximalism and its critics, not an Islamic category; its widest reading runs from the Nile to the Euphrates. With all of Iraq and Egypt already in, neither term adds land of its own.</p>
+        <p><b>How I read "Greater Iraq".</b> You chose both readings: Khuzestan (al-Ahwāz), the modern irredentist claim, and ʿIrāq al-ʿAjam, the "Persian Iraq" of the later geographers, which is the old Jibāl of western Iran (Hamadān, Iṣfahān, Rayy, Qum, Qazvīn, Kirmānshāh). In the complete version, with the whole of Iran inside, they add no land of their own; their names stay on the map to show where they lie. The version to Iraq’s border leaves both out.</p>
+        <p><b>What the sources say about the added lands.</b> The atlas finds no established sacred status for most of them, Iraq included (entries 16, 20 and 21). Cyprus has none either; Ibn Kathīr, on 24:55, lists it among the lands taken in ʿUthmān's time. Türkiye, with Istanbul on both sides of the Bosphorus, is roughly the old Bilād al-Rūm. The hadith promise forgiveness to the first army to campaign against Caesar's city and count the conquest of Constantinople among the events before the Hour: a virtue for an army, not a status for the land (entry 21). Iran is the old land of Fāris and the Jibāl: Ibn Kathīr, on 24:55, describes most of Persia taken under ʿUmar, and Khurāsān and al-Ahwāz under ʿUthmān. That is conquest history, not a status. The South Caucasus, the old Armenia and Arrān, has no status in the sources either, and most people in Georgia and Armenia are Christian. For al-Ḥabashah the Sunnah says the opposite of a claim: <span class="q" lang="ar" dir="rtl">دَعُوا الْحَبَشَةَ مَا وَدَعُوكُمْ</span> "Let the Abyssinians alone as long as they let you alone" (Abū Dāwūd 4302; ḥasan according to al-Albānī).</p>
+        <div class="cwrap"><table class="ctable">
+          <caption id="caliphxcap">Present-day states and territories inside your outline. Areas are my rough measurement.</caption>
+          <thead><tr><th>State or territory</th><th class="num">Area inside, km²</th><th class="num">Share of it</th></tr></thead>
+          <tbody id="caliphxrows"></tbody>
+        </table></div>
+      </article>
+    </div>
+    <div class="caliphlimits">
+      <article class="note">
+        <span class="ctag" style="--c:var(--muted)">Precedent and limits</span>
+        <h3 class="nh">What it would mean</h3>
+        <p><b>It has existed before.</b> Ibn Kathīr, on 24:55, describes Abū Bakr taking control of the whole Arabian Peninsula, and ʿUmar's reign adding the rest of al-Shām, Egypt and most of Persia. By the end of ʿUmar's caliphate, most of the lands in the best-lands outline were under one rule, inside a much larger state. This part is my own summary of general history, not checked against a source in this atlas: the outline uses the widest reading of al-Shām, and its frontier fortresses (Ṭarsūs, Marʿash, Malaṭyah) were probably not yet securely held. Much of your wider outline, including al-Ḥabashah, was not under that rule either.</p>
+        <p><b>Today the best-lands outline would cross ten states and territories, and yours <span class="nx">twenty-five</span></b>, among them Israel, the state that serves the two ḥarams, and countries where most people are not Muslim. The only road to such a union without war is the free consent of the people who live there. In 2014, 122 scholars wrote to the leader of ISIS, who had declared a caliphate by force: "It is forbidden in Islam to declare a caliphate without consensus from all Muslims."</p>
+        <p><b>Muslims disagree about the caliphate today.</b> Some hold that restoring it is an obligation. Others hold that its aims, such as justice and the protection of religion and life, can be served by cooperating states. Many read the hadith of a returning caliphate as news of what Allah will bring about, not as a plan for any group to carry out. This page does not settle that question; ask qualified scholars.</p>
+        <p class="fine">My reading, not a ruling: the texts describe what will happen and tie a caliphate in the Holy Land to upheaval. They do not draw a border to fight for.</p>
+      </article>
+    </div>
+  </section>
+
+
+  <section class="sec" id="regions">
+    <h2>Regional index <small>the core caliphate and the Greater Caliphate</small></h2>
+    <p class="intro">Twenty-seven regions, named as the classical geographers and chroniclers named them (the joined lands have no classical name here and are named plainly), with the present-day states in each. Nine make up the core caliphate, your complete outline. The Greater Caliphate takes in all of them, adds three from the Greater Middle East, adds three for the Muslim-majority countries of Africa, adds nine that caliphates once ruled, counting only the part that was ruled, and adds three more, joined to the rest at your request. Tap a region to see it on the map. Areas are my rough measurement; classical names are approximate guides, not borders.</p>
+    <div class="regkey" aria-hidden="true"><span class="rk core">Core caliphate</span><span class="rk ring">Added: Greater Middle East</span><span class="rk afr">Added: Muslim-majority Africa</span><span class="rk hist">Added: once ruled by caliphates</span><span class="rk join">Added: joined, your request</span></div>
+    <div class="regions" id="regioncards"></div>
+  </section>
+  <section class="sec" id="sources">
+    <h2>Sources</h2>
+    <div class="grid2">
+      <article class="note">
+        <h3 class="nh">Texts</h3>
+        <ul class="srcs">
+          <li>Qur'an text, the Saheeh International translation, and the tafsir of al-Baghawī (with al-Ṭabarī on 5:21 and Ibn Kathīr on 24:55), retrieved from quran.com through quran.ai. Where the page quotes an English rendering it is Saheeh International's own wording. English names for lands (for example "the Holy Land" for <i>al-arḍ al-muqaddasah</i>) are this atlas's own: Saheeh International renders 5:21 "the blessed land [i.e., Palestine]", and the bracket is the translators' gloss, not the Arabic.</li>
+          <li>Hadith references and gradings checked on <a href="https://sunnah.com" target="_blank" rel="noopener">sunnah.com</a>; the Madinah ḥaram hadith on <a href="https://dorar.net/hadith/sharh/2171" target="_blank" rel="noopener">dorar.net</a>.</li>
+          <li><a href="https://www.islamweb.net/ar/fatwa/71668/" target="_blank" rel="noopener">Al-Nawawī on the Makkah ḥaram limits</a> (Islamweb fatwa 71668); <a href="https://islamqa.info/ar/34751" target="_blank" rel="noopener">Ibn Taymiyyah on the ḥarams</a>.</li>
+          <li>Yāqūt, <i>Muʿjam al-Buldān</i>: <a href="https://arabiclexicon.hawramani.com/%d9%85%d9%90%d8%b5%d9%92%d8%b1%d9%8f/" target="_blank" rel="noopener">s.v. Miṣr</a>, <a href="https://arabiclexicon.hawramani.com/%d8%aa%d9%87%d9%8e%d8%a7%d9%85%d9%8e%d8%a9/" target="_blank" rel="noopener">Tihāmah</a>, <a href="https://www.islamic-content.com/t/5632" target="_blank" rel="noopener">al-Ḥijāz</a>.</li>
+          <li>Al-Iṣṭakhrī, <i>al-Masālik wa-l-Mamālik</i>, on <a href="https://shamela.ws/book/11680/52" target="_blank" rel="noopener">Miṣr</a>, <a href="https://shamela.ws/book/11680/66" target="_blank" rel="noopener">al-Jazīrah</a> and <a href="https://shamela.ws/book/11680/70" target="_blank" rel="noopener">al-ʿIrāq</a> (al-Shāmilah).</li>
+          <li>Ibn Ḥawqal and Abū al-Fidāʾ on al-Shām, quoted in <a href="https://ar.wikisource.org/wiki/%D9%85%D8%AC%D9%84%D8%A9_%D8%A7%D9%84%D9%85%D9%82%D8%AA%D8%A8%D8%B3/%D8%A7%D9%84%D8%B9%D8%AF%D8%AF_70/%D8%A8%D9%8A%D9%86_%D8%A7%D9%84%D9%81%D9%8A%D8%AD%D8%A7%D8%A1_%D9%88%D8%A7%D9%84%D8%B4%D9%87%D8%A8%D8%A7%D8%A1" target="_blank" rel="noopener">al-Muqtabas no. 70</a>.</li>
+          <li><a href="https://www.islamweb.net/ar/library/content/200/17435/" target="_blank" rel="noopener">Al-Balādhurī on Taymāʾ and Wādī al-Qurā</a>.</li>
+        </ul>
+      </article>
+      <article class="note">
+        <h3 class="nh">Geography</h3>
+        <ul class="srcs">
+          <li>Base map: Natural Earth 1:10m countries, disputed areas, lakes and rivers, and shaded relief (public domain). The Nile, Euphrates and Tigris shapes are traced from Natural Earth's river lines.</li>
+          <li><a href="https://saudipedia.com/en/mawaqit-al-ihram" target="_blank" rel="noopener">Saudipedia: the mīqāts</a>; <a href="https://saudipedia.com/en/historical-hajj-routes-list" target="_blank" rel="noopener">historical Hajj routes</a>.</li>
+          <li><a href="https://en.wikipedia.org/wiki/Zubaydah_Trail" target="_blank" rel="noopener">Darb Zubaydah</a>; <a href="https://en.wikipedia.org/wiki/Jund_Filastin" target="_blank" rel="noopener">Jund Filasṭīn</a>; <a href="https://en.wikipedia.org/wiki/Bilad_al-Sham" target="_blank" rel="noopener">Bilād al-Shām</a>.</li>
+          <li><a href="https://alsahra.org/2019/02/%D8%AF%D8%B1%D8%A8-%D8%A7%D9%84%D8%AD%D8%AC-%D8%A7%D9%84%D8%B4%D8%A7%D9%85%D9%8A-18-%D9%85%D9%86%D8%B2%D9%84%D8%A9-%D8%B3%D9%8E%D8%B1%D8%BA-%D8%A7%D9%84%D9%85%D8%AF%D9%88%D8%B1%D8%A9" target="_blank" rel="noopener">Sargh and the Syrian Hajj road</a> (al-Saḥrāʾ).</li>
+          <li>Lands once ruled by caliphates (the Greater Caliphate’s historical additions): <a href="https://en.wikipedia.org/wiki/Umayyad_state_of_C%C3%B3rdoba" target="_blank" rel="noopener">Córdoba</a>, <a href="https://en.wikipedia.org/wiki/Almohad_Caliphate" target="_blank" rel="noopener">the Almohads</a>, <a href="https://en.wikipedia.org/wiki/Septimania" target="_blank" rel="noopener">Septimania</a>, <a href="https://en.wikipedia.org/wiki/Fraxinetum" target="_blank" rel="noopener">Fraxinetum</a>, <a href="https://en.wikipedia.org/wiki/Emirate_of_Sicily" target="_blank" rel="noopener">Sicily</a>, <a href="https://en.wikipedia.org/wiki/Emirate_of_Bari" target="_blank" rel="noopener">Bari</a>, <a href="https://en.wikipedia.org/wiki/Arabs_in_Malta" target="_blank" rel="noopener">Malta</a>, <a href="https://en.wikipedia.org/wiki/Emirate_of_Crete" target="_blank" rel="noopener">Crete</a>, <a href="https://en.wikipedia.org/wiki/Territorial_evolution_of_the_Ottoman_Empire" target="_blank" rel="noopener">Ottoman territorial changes</a>, <a href="https://en.wikipedia.org/wiki/Ottoman_Hungary" target="_blank" rel="noopener">Ottoman Hungary</a>, <a href="https://en.wikipedia.org/wiki/Uyvar_Eyalet" target="_blank" rel="noopener">Uyvar</a>, <a href="https://en.wikipedia.org/wiki/Republic_of_Ragusa" target="_blank" rel="noopener">Ragusa</a>, <a href="https://en.wikipedia.org/wiki/Crimean_Khanate" target="_blank" rel="noopener">the Crimean Khanate</a>, <a href="https://en.wikipedia.org/wiki/Podolia_Eyalet" target="_blank" rel="noopener">Podolia</a>, <a href="https://en.wikipedia.org/wiki/Derbent" target="_blank" rel="noopener">Derbent</a>, <a href="https://en.wikipedia.org/wiki/Sokoto_Caliphate" target="_blank" rel="noopener">Sokoto</a>, <a href="https://en.wikipedia.org/wiki/Adamawa_Emirate" target="_blank" rel="noopener">Adamawa</a>, <a href="https://en.wikipedia.org/wiki/Tibesti_(region)" target="_blank" rel="noopener">Tibesti</a>, <a href="https://en.wikipedia.org/wiki/Equatoria" target="_blank" rel="noopener">Equatoria</a>, <a href="https://en.wikipedia.org/wiki/Caliphate_campaigns_in_India" target="_blank" rel="noopener">the caliphate in India</a>, <a href="https://en.wikipedia.org/wiki/Iltutmish" target="_blank" rel="noopener">Iltutmish</a>, <a href="https://en.wikipedia.org/wiki/Al-Qadir" target="_blank" rel="noopener">al-Qādir and the Karakhanids</a>, <a href="https://en.wikipedia.org/wiki/Yettishar" target="_blank" rel="noopener">Yettishar</a>. Province boundaries for the ruled parts: Natural Earth admin-1 states and provinces.</li>
+          <li>Muslim-majority countries of Africa (the Greater Caliphate’s African additions): Pew Research Center, <a href="https://www.pewresearch.org/wp-content/uploads/sites/20/2025/06/PR_2025.06.09_global-religious-change_appendix-b.pdf" target="_blank" rel="noopener">religious composition table, 2010 and 2020 (appendix B, June 2025)</a>; <a href="https://www.pewresearch.org/short-reads/2025/11/11/5-facts-about-religion-in-nigeria/" target="_blank" rel="noopener">Pew on Nigeria</a>; <a href="https://en.wikipedia.org/wiki/Islam_in_Nigeria" target="_blank" rel="noopener">Islam in Nigeria</a>, <a href="https://en.wikipedia.org/wiki/Religion_in_Guinea-Bissau" target="_blank" rel="noopener">Religion in Guinea-Bissau</a>, <a href="https://en.wikipedia.org/wiki/Religion_in_Chad" target="_blank" rel="noopener">Chad</a> and <a href="https://en.wikipedia.org/wiki/Religion_in_Burkina_Faso" target="_blank" rel="noopener">Burkina Faso</a> (census and survey figures). The figures were read through a page-summarising tool and not checked cell by cell in the PDF.</li>
+          <li>The statements marked <sup class="dag">†</sup> come from the atlas you shared and were not re-checked.</li>
+        </ul>
+        <p class="fine" style="margin-top:10px">Present-day borders are de facto lines and are not an endorsement of any claim.</p>
+      </article>
+    </div>
+    <p class="ground">Grounded with quran.ai: fetch_quran (2:144, 2:198, 3:96–97, 5:21, 24:55, 7:85, 7:137, 9:40, 9:108, 12:99, 14:37, 15:80, 17:1, 20:12, 21:71, 21:81, 23:20, 27:91, 28:30, 28:57, 30:1–4, 34:15–18, 46:21, 52:1, 79:16, 95:1–3, 96:1, 106:1–4), fetch_translation (en-sahih-international), fetch_tafsir (ar-baghawi; ar-tabari on 5:21; en-ibn-kathir on 24:55), fetch_word_concordance (roots ش أ م, ح ج ز and ح ب ش). The “Synthesis (mine)” notes and the shapes I drew go beyond the fetched text and are not a scholarly ruling or an opinion of quran.ai, quran.com or quran.foundation.</p>
+  </section>
+
+  <section class="sec" id="colophon">
+    <h2>Colophon</h2>
+    <dl class="colo">
+      <div><dt>Edition</dt><dd>The definitive edition, completed in 1448 AH / 2026 CE. It closes the atlas with the caliphate outlines as a labelled thought experiment.</dd></div>
+      <div><dt>Projection</dt><dd>Mercator, one sheet covering the Greater Caliphate and its surroundings, from 30° west to 104° east and from 36.5° south to 60° north, so that shapes stay true for the small places: the two ḥarams, al-Aqṣā and the mīqāts. Full detail in the core, from the Horn to the Caucasus; a middle tier for the Maghrib, Central Asia, Afghanistan and Pakistan; lighter detail at the outer edges.</dd></div>
+      <div><dt>Base map</dt><dd>Natural Earth 1:10m countries, Iranian provinces, disputed areas, lakes and rivers, with a simplified coastline for the engraved water lines. The relief is Natural Earth's shaded relief, re-processed into a grey hillshade that lies under the colours.</dd></div>
+      <div><dt>Lines</dt><dd>Every classical edge is drawn through the places a source names, and its style says how sure we can be: solid, dashed or dotted. The two caliphate outlines are marked as my synthesis and as your specification.</dd></div>
+      <div><dt>Texts</dt><dd>Qur'an text, translation and tafsir retrieved through quran.ai from quran.com; hadith wording and gradings from sunnah.com and dorar.net. Statements I could not re-check are marked.</dd></div>
+      <div><dt>Typefaces</dt><dd>Alegreya for display, Alegreya Sans for reading and its small capitals (Alegreya Sans SC) for labels, Amiri for Arabic and IBM Plex Mono for figures. The title sits in a cartouche in the manner of the sūrah headings in illuminated manuscripts: a lapis ground, gold rules and a frame of eight-point stars.</dd></div>
+    </dl>
+    <p class="footer">Atlas of the Blessed Lands · definitive edition · an approximate educational reconstruction, not a survey and not a fatwa.</p>
+    <p class="endmark" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 12 12"><use href="#orn" width="12" height="12"/></svg></p>
+  </section>
+</div>

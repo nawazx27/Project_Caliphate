@@ -1,0 +1,35 @@
+@font-face{font-family:'Alegreya';font-style:normal;font-weight:500;font-display:block;src:url('node_modules/@fontsource/alegreya/files/alegreya-latin-500-normal.woff2') format('woff2')}
+@font-face{font-family:'Alegreya';font-style:normal;font-weight:500;font-display:block;src:url('node_modules/@fontsource/alegreya/files/alegreya-latin-ext-500-normal.woff2') format('woff2')}
+@font-face{font-family:'Alegreya';font-style:normal;font-weight:700;font-display:block;src:url('node_modules/@fontsource/alegreya/files/alegreya-latin-700-normal.woff2') format('woff2')}
+@font-face{font-family:'Alegreya';font-style:normal;font-weight:700;font-display:block;src:url('node_modules/@fontsource/alegreya/files/alegreya-latin-ext-700-normal.woff2') format('woff2')}
+@font-face{font-family:'Alegreya';font-style:italic;font-weight:500;font-display:block;src:url('node_modules/@fontsource/alegreya/files/alegreya-latin-500-italic.woff2') format('woff2')}
+@font-face{font-family:'Alegreya';font-style:italic;font-weight:500;font-display:block;src:url('node_modules/@fontsource/alegreya/files/alegreya-latin-ext-500-italic.woff2') format('woff2')}
+@font-face{font-family:'Alegreya';font-style:normal;font-weight:400;font-display:block;src:url('node_modules/@fontsource/alegreya/files/alegreya-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Alegreya';font-style:normal;font-weight:400;font-display:block;src:url('node_modules/@fontsource/alegreya/files/alegreya-latin-ext-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Alegreya';font-style:italic;font-weight:400;font-display:block;src:url('node_modules/@fontsource/alegreya/files/alegreya-latin-400-italic.woff2') format('woff2')}
+@font-face{font-family:'Alegreya';font-style:italic;font-weight:400;font-display:block;src:url('node_modules/@fontsource/alegreya/files/alegreya-latin-ext-400-italic.woff2') format('woff2')}
+@font-face{font-family:'Alegreya Sans';font-style:normal;font-weight:400;font-display:block;src:url('node_modules/@fontsource/alegreya-sans/files/alegreya-sans-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Alegreya Sans';font-style:normal;font-weight:400;font-display:block;src:url('node_modules/@fontsource/alegreya-sans/files/alegreya-sans-latin-ext-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Alegreya Sans';font-style:normal;font-weight:500;font-display:block;src:url('node_modules/@fontsource/alegreya-sans/files/alegreya-sans-latin-500-normal.woff2') format('woff2')}
+@font-face{font-family:'Alegreya Sans';font-style:normal;font-weight:500;font-display:block;src:url('node_modules/@fontsource/alegreya-sans/files/alegreya-sans-latin-ext-500-normal.woff2') format('woff2')}
+@font-face{font-family:'Alegreya Sans';font-style:normal;font-weight:700;font-display:block;src:url('node_modules/@fontsource/alegreya-sans/files/alegreya-sans-latin-700-normal.woff2') format('woff2')}
+@font-face{font-family:'Alegreya Sans';font-style:normal;font-weight:700;font-display:block;src:url('node_modules/@fontsource/alegreya-sans/files/alegreya-sans-latin-ext-700-normal.woff2') format('woff2')}
+@font-face{font-family:'Alegreya Sans';font-style:italic;font-weight:400;font-display:block;src:url('node_modules/@fontsource/alegreya-sans/files/alegreya-sans-latin-400-italic.woff2') format('woff2')}
+@font-face{font-family:'Alegreya Sans';font-style:italic;font-weight:400;font-display:block;src:url('node_modules/@fontsource/alegreya-sans/files/alegreya-sans-latin-ext-400-italic.woff2') format('woff2')}
+@font-face{font-family:'Alegreya Sans';font-style:italic;font-weight:500;font-display:block;src:url('node_modules/@fontsource/alegreya-sans/files/alegreya-sans-latin-500-italic.woff2') format('woff2')}
+@font-face{font-family:'Alegreya Sans';font-style:italic;font-weight:500;font-display:block;src:url('node_modules/@fontsource/alegreya-sans/files/alegreya-sans-latin-ext-500-italic.woff2') format('woff2')}
+@font-face{font-family:'Amiri';font-style:normal;font-weight:400;font-display:block;src:url('node_modules/@fontsource/amiri/files/amiri-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Amiri';font-style:normal;font-weight:400;font-display:block;src:url('node_modules/@fontsource/amiri/files/amiri-latin-ext-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Amiri';font-style:normal;font-weight:400;font-display:block;src:url('node_modules/@fontsource/amiri/files/amiri-arabic-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Amiri';font-style:normal;font-weight:700;font-display:block;src:url('node_modules/@fontsource/amiri/files/amiri-latin-700-normal.woff2') format('woff2')}
+@font-face{font-family:'Amiri';font-style:normal;font-weight:700;font-display:block;src:url('node_modules/@fontsource/amiri/files/amiri-latin-ext-700-normal.woff2') format('woff2')}
+@font-face{font-family:'Amiri';font-style:normal;font-weight:700;font-display:block;src:url('node_modules/@fontsource/amiri/files/amiri-arabic-700-normal.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:block;src:url('node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:block;src:url('node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-ext-400-normal.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:block;src:url('node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-500-normal.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:block;src:url('node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-ext-500-normal.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:block;src:url('node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-600-normal.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:600;font-display:block;src:url('node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-ext-600-normal.woff2') format('woff2')}@font-face{font-family:'Alegreya Sans SC';font-style:normal;font-weight:500;font-display:block;src:url('node_modules/@fontsource/alegreya-sans-sc/files/alegreya-sans-sc-latin-500-normal.woff2') format('woff2')}
+@font-face{font-family:'Alegreya Sans SC';font-style:normal;font-weight:500;font-display:block;src:url('node_modules/@fontsource/alegreya-sans-sc/files/alegreya-sans-sc-latin-ext-500-normal.woff2') format('woff2')}
+@font-face{font-family:'Alegreya Sans SC';font-style:normal;font-weight:700;font-display:block;src:url('node_modules/@fontsource/alegreya-sans-sc/files/alegreya-sans-sc-latin-700-normal.woff2') format('woff2')}
+@font-face{font-family:'Alegreya Sans SC';font-style:normal;font-weight:700;font-display:block;src:url('node_modules/@fontsource/alegreya-sans-sc/files/alegreya-sans-sc-latin-ext-700-normal.woff2') format('woff2')}

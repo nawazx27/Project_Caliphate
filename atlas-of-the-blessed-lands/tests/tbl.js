@@ -1,0 +1,11 @@
+const path=require('path'); const {chromium}=require('/opt/npm-tools/node_modules/playwright'); const fs=require('fs');
+const d3src = fs.readFileSync('node_modules/d3/dist/d3.min.js','utf8'); const tsrc = fs.readFileSync('node_modules/topojson-client/dist/topojson-client.min.js','utf8');
+(async()=>{ const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium',args:['--no-sandbox','--proxy-server=direct://']});
+ const p=await (await b.newContext({viewport:{width:1440,height:900}})).newPage();
+ await p.route('**/*', r=>{ const u=r.request().url(); if(u.includes('d3.min.js')) return r.fulfill({contentType:'application/javascript',body:d3src}); if(u.includes('topojson-client')) return r.fulfill({contentType:'application/javascript',body:tsrc}); if(u.startsWith('file:')) return r.continue(); return r.abort(); });
+ await p.goto('file://'+path.resolve('test.html')); await p.waitForTimeout(1200);
+ await p.evaluate(()=>location.hash='outline-greater'); await p.waitForTimeout(1500);
+ console.log(await p.evaluate(()=>[...document.querySelectorAll('#caliphxrows tr')].map(r=>[...r.cells].map(c=>c.textContent).join(' | ')).join('\n')));
+ console.log('INTRO:', await p.evaluate(()=>document.querySelector('#regions .intro').textContent));
+ console.log('AREA:', await p.evaluate(()=>[...document.querySelectorAll('#infobody p')].map(x=>x.innerText).filter(t=>/Greater Caliphate view/.test(t)).join('')));
+ await b.close(); })();

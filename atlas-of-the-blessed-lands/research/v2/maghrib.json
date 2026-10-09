@@ -1,0 +1,2012 @@
+[
+ {
+  "a3": "MAR",
+  "country": "Morocco",
+  "summary": "Northern Morocco was under Umayyad governors only from c. 708 until the Berber Revolt of 740, after which it broke away from the caliphate. The 10th century saw the Fatimids and the Umayyads of Córdoba fight over it through local proxies, and Córdoba ruled some coastal towns directly. Real caliphal rule over almost all of Morocco came through the Almoravids (who recognised the Abbasids, c. 1050s–1147) and then the Almohads, a counted caliphate (1147–1269). Later dynasties (Marinids, Wattasids, Saadians, Alaouites) did not recognise an outside caliph. The one exception is Abd al-Malik (1576–78), who had the khutba read in the Ottoman sultan's name.",
+  "units": [
+   {
+    "provinces": [
+     "Tanger - Tétouan",
+     "Taza - Al Hoceima - Taounate",
+     "Oriental",
+     "Fès - Boulemane",
+     "Meknès - Tafilalet",
+     "Gharb - Chrarda - Béni Hssen"
+    ],
+    "label": "Northern Morocco, Fez and Tafilalt (al-Maghrib al-Aqṣā; Sijilmāsa)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Umayyad governors (Tangier) until the Berber Revolt. In the 10th century, Fatimid and Córdoban-Umayyad direct posts and proxies. Then the Almoravids (recognised the Abbasids) and the Almohad caliphate directly.",
+     "dates": "c. 708–740 Umayyad direct (Tangier); 909 and 958–60 Fatimid campaigns (Sijilmasa, Fez); Córdoba direct at Melilla 927, Ceuta 931, Tangier 951, and Fez via the Maghrawa from 987/88; Almoravid c. 1055 (Sijilmasa) to early 1080s (Fez) until 1147; Almohad 1147–1269",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Idrisids",
+      "dates": "788–974",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Midrarids of Sijilmasa (Sufri Kharijite)",
+      "dates": "757/8–976",
+      "recognised_caliph": "nominal"
+     },
+     {
+      "name": "Maghrawa of Fez (Ziri ibn Atiyya)",
+      "dates": "987/8–early 11th c.",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Marinids",
+      "dates": "1244–1465",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Saadians",
+      "dates": "1510–1659",
+      "recognised_caliph": "claimed caliphate itself"
+     },
+     {
+      "name": "Alaouites",
+      "dates": "1631/1666–present",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Umayyad rule here was short: Musa ibn Nusayr took Tangier c. 705–708, and the Berber Revolt of 740 permanently ended Umayyad control. Under the Idrisids the land was ruled by Muslims but by no caliph. Fatimid and Córdoban control in the 10th century was patchy and contested; Córdoba directly held coastal towns (Melilla, Ceuta, Tangier). The Midrarids of Sijilmasa are listed as nominal Abbasid and then Fatimid vassals. The firm caliphal period is Almoravid (Abbasid-recognising) and Almohad rule.",
+    "confidence": "high",
+    "uncertain": "Ceuta and Melilla are not in these admin-1 polygons; I used them only as evidence for Córdoba's footing on this coast. The exact length of direct Córdoban rule in Fez (via al-Mansur's governors) was not confirmed in an opened page. The 'nominal vassal' status of the Midrarids comes from the Wikipedia infobox, not checked further.",
+    "sources": [
+     {
+      "title": "Muslim conquest of the Maghreb (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquest_of_the_Maghreb",
+      "supports": "Musa ibn Nusayr conquered Tangier and pushed to Tafilalt; Tariq left as governor of Tangier 708",
+      "kind": "modern"
+     },
+     {
+      "title": "Berber Revolt (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Berber_Revolt",
+      "supports": "Revolt began at Tangier 740; western and central Maghreb permanently lost to Umayyad control",
+      "kind": "modern"
+     },
+     {
+      "title": "Idrisid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Idrisid_dynasty",
+      "supports": "Idrisids 788–974; 917 Fatimid-backed attack forced recognition of Fatimid suzerainty; expelled from Fez 927; hostages to Córdoba 974",
+      "kind": "modern"
+     },
+     {
+      "title": "History of Ceuta (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/History_of_Ceuta",
+      "supports": "Córdoban Umayyad conquests of Ceuta 931 and Melilla 927; Almoravid 1084–1147, Almohad from 1147",
+      "kind": "modern"
+     },
+     {
+      "title": "Ziri ibn Atiyya (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ziri_ibn_Atiyya",
+      "supports": "Maghrawa took Fez 987–988 under the protection of the Umayyad caliph; Oujda founded 994; expansion to Tlemcen",
+      "kind": "modern"
+     },
+     {
+      "title": "Midrarid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Midrarid_dynasty",
+      "supports": "Midrarids at Sijilmasa, Sufri; nominal Abbasid vassal 757–906, Fatimid vassal 906–976; Fatimid siege 909",
+      "kind": "modern"
+     },
+     {
+      "title": "Fatimid Caliphate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Fatimid_Caliphate",
+      "supports": "Fatimids seized Sijilmasa 909; Jawhar took Sijilmasa 958",
+      "kind": "modern"
+     },
+     {
+      "title": "Almoravid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Almoravid_dynasty",
+      "supports": "Almoravids took Sijilmasa 1054–55, Fez by the early 1080s; acknowledged the Abbasid caliph",
+      "kind": "modern"
+     },
+     {
+      "title": "Almohad Caliphate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Almohad_Caliphate",
+      "supports": "Almohads took Marrakesh 1147; empire ended 1269",
+      "kind": "modern"
+     },
+     {
+      "title": "Marinid Sultanate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Marinid_Sultanate",
+      "supports": "Marinids 1244–1465; no caliph recognition stated",
+      "kind": "modern"
+     },
+     {
+      "title": "Saadi Sultanate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Saadi_Sultanate",
+      "supports": "Abd al-Malik (1576–78) had the khutba read in the Ottoman sultan's name; al-Mansur proclaimed himself caliph",
+      "kind": "modern"
+     },
+     {
+      "title": "Alawi dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Alawi_dynasty",
+      "supports": "Alaouite rise in Tafilalt 1631, Fez 1666",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Rabat - Salé - Zemmour - Zaer",
+     "Grand Casablanca",
+     "Chaouia - Ouardigha",
+     "Doukkala - Abda"
+    ],
+    "label": "Atlantic plains (Tāmasnā, land of the Barghawāṭa)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Almoravids (recognised the Abbasids), then the Almohad caliphate directly",
+     "dates": "Almoravid conquest c. 1058–1060 to 1147; Almohad 1147–1269 (Barghawata finally eliminated 1149)",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Barghawata (heterodox confederation)",
+      "dates": "744–1058 (eliminated by the Almohads 1149)",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Marinids, Wattasids, Saadians, Alaouites",
+      "dates": "1244–present (sequence)",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "For about three centuries the Tamesna coast between Salé and Safi was ruled by the Barghawata, whose heterodox religion mixed Islamic and local Berber elements. They recognised no caliph and resisted Córdoba, the Fatimids and the Almoravids; Ibn Yasin was killed fighting them in 1058/59. Caliphal rule begins only with the Almoravid conquest and is completed by the Almohads.",
+    "confidence": "high",
+    "uncertain": "I could not confirm whether the Umayyad governors (708–740) ever actually administered Tamesna, so I have not claimed it. The Barghawata's exact borders (Bou Regreg to the Oum Er-Rbia, or to Safi) are only approximate.",
+    "sources": [
+     {
+      "title": "Barghawata (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Barghawata",
+      "supports": "Barghawata in Tamesna between Safi and Salé, 744–1058; Ibn Yasin killed fighting them 1058; eliminated by Almohads 1149",
+      "kind": "modern"
+     },
+     {
+      "title": "Almoravid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Almoravid_dynasty",
+      "supports": "Barghawata territory conquered by c. 1060; Almoravids acknowledged the Abbasid caliph",
+      "kind": "modern"
+     },
+     {
+      "title": "Almohad Caliphate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Almohad_Caliphate",
+      "supports": "Almohad conquest from 1147",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Marrakech - Tensift - Al Haouz",
+     "Tadla - Azilal"
+    ],
+    "label": "Haouz of Marrakesh and Tadla (Aghmāt, Marrākush, Tinmal)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Almoravids (recognised the Abbasids) made Aghmat and then Marrakesh their capital; Marrakesh was the Almohad caliphal capital",
+     "dates": "Almoravid 1058 (Aghmat), Marrakesh founded c. 1070, to 1147; Almohad 1147–1269",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Marinids, Saadians (capital Marrakesh), Alaouites",
+      "dates": "1269–present (sequence)",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "This was the political centre of two caliphal regimes: Almoravid Marrakesh, under Abbasid recognition, and the Almohad caliphate, which arose in the High Atlas (Ibn Tumart proclaimed Mahdi 1121) and ruled from Marrakesh until 1269. Before the Almoravids, I found no verified evidence of caliphal administration here.",
+    "confidence": "high",
+    "uncertain": "Early Umayyad expeditions (Uqba, Musa) probably crossed this region, but I could not confirm that Umayyad governors were based here.",
+    "sources": [
+     {
+      "title": "Almoravid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Almoravid_dynasty",
+      "supports": "Aghmat taken 1058 as first capital; Marrakesh founded c. 1070; Abbasid recognition",
+      "kind": "modern"
+     },
+     {
+      "title": "Almohad Caliphate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Almohad_Caliphate",
+      "supports": "Almohads proclaimed 1121, caliph title from Abd al-Mu'min; Marrakesh taken 1147; last caliph killed in Marrakesh 1269",
+      "kind": "modern"
+     },
+     {
+      "title": "Saadi Sultanate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Saadi_Sultanate",
+      "supports": "Saadian dynasty ruled Morocco 1510–1659",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Souss - Massa - Draâ"
+    ],
+    "label": "Sous and the Draa valley (al-Sūs)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "First, Umayyad expeditions (Uqba, Musa). Then the Almoravids (recognised the Abbasids) and the Almohad caliphate directly.",
+     "dates": "Uqba reached the Atlantic near Agadir 682–683 (raid); Musa ibn Nusayr pushed into the Sus c. 705–708; Almoravid from the 1050s to 1147; Almohad 1147–1269",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Saadians (origin in the Draa and Sous)",
+      "dates": "1510–1659",
+      "recognised_caliph": "claimed caliphate itself"
+     },
+     {
+      "name": "Alaouites",
+      "dates": "17th c.–present",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Umayyad armies reached the Sous (Uqba's 682–83 march, Musa's campaign), but these were expeditions rather than lasting administration, and all of it ended in 740. Lasting caliphal rule came with the Almoravids and Almohads. The Saadian dynasty rose here; under Abd al-Malik (1576–78) it briefly had the khutba read for the Ottoman sultan.",
+    "confidence": "high",
+    "uncertain": "Modern scholars quoted on the conquest page doubt parts of Uqba's march. I did not confirm whether Umayyad governors sat permanently in the Sous before 740.",
+    "sources": [
+     {
+      "title": "Muslim conquest of the Maghreb (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquest_of_the_Maghreb",
+      "supports": "Uqba's 682–683 march reached the Atlantic near Agadir; Musa pushed into the Sus al-Adna; scholars doubt parts of Uqba's route",
+      "kind": "modern"
+     },
+     {
+      "title": "Almoravid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Almoravid_dynasty",
+      "supports": "Almoravid conquests in the 1050s; Abbasid recognition",
+      "kind": "modern"
+     },
+     {
+      "title": "Almohad Caliphate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Almohad_Caliphate",
+      "supports": "Almohad empire's Moroccan core 1147–1269",
+      "kind": "modern"
+     },
+     {
+      "title": "Saadi Sultanate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Saadi_Sultanate",
+      "supports": "Saadians originated in the Draa (Tagmadert) and the Sous (Tidsi)",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Guelmim - Es-Semara"
+    ],
+    "label": "Wadi Nun and the northern Saguia el-Hamra (Nūl Lamṭa)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Almoravids (recognised the Abbasids), possibly the Almohads",
+     "dates": "probably 1050s–1147 (Almoravid); not confirmed",
+     "nominal": true
+    },
+    "islamic_states": [
+     {
+      "name": "Almoravid movement (Sanhaja)",
+      "dates": "1050s–1147",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Alaouite sultans (allegiance of Ma'qil/Tekna tribes)",
+      "dates": "1678 (Moulay Ismail) to 1767; later spiritual allegiance only",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "The Wadi Nun lay on the Almoravid corridor between the Sahara and the Sous, so it was very probably inside the Almoravid realm. I could not open a page that confirms this. In the early modern period the Ma'qil and Tekna tribes of the Wadi Nun gave allegiance to Moulay Ismail (1678), but by 1767 Morocco's treaty with Spain admitted it did not control the Tekna. The Es-Semara part of this province is really Western Saharan Saguia el-Hamra; Smara was only founded in 1869 and was Ma al-Aynayn's religious capital from 1902.",
+    "confidence": "low",
+    "uncertain": "I could not open the Nul Lamta articles (English or French), so Almoravid and Almohad control of the Wadi Nun is inferred, not checked. If that rule is rejected, this unit drops to islamic_state_ruled. The southern (Smara) part of the polygon has a different, Western Saharan history.",
+    "sources": [
+     {
+      "title": "Almoravid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Almoravid_dynasty",
+      "supports": "Almoravid origins among the western Saharan Sanhaja and their northward conquests in the 1050s",
+      "kind": "modern"
+     },
+     {
+      "title": "Khanatha bint Bakkar (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Khanatha_bint_Bakkar",
+      "supports": "Moulay Ismail received the allegiance of Ma'qil tribes incl. the M'gharfa of Oued Noun in 1678",
+      "kind": "modern"
+     },
+     {
+      "title": "Tekna (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Tekna",
+      "supports": "Tekna recognised Moroccan sultans; 1767 treaty with Spain admitted Morocco did not control the Tekna; later only spiritual allegiance",
+      "kind": "modern"
+     },
+     {
+      "title": "Smara (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Smara",
+      "supports": "Smara founded 1869; Ma al-Aynayn made it his capital in 1902",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Laâyoune - Boujdour - Sakia El Hamra",
+     "Oued el Dahab"
+    ],
+    "label": "Western Sahara inside Morocco's admin-1 (Sāqiyat al-Ḥamrāʾ and Wādī al-Dhahab / Río de Oro)",
+    "category": "islamic_state_ruled",
+    "caliphate": {
+     "status": "none",
+     "who": "No verified caliphal administration. This is the Sanhaja homeland of the Almoravid movement, but the Almoravids' Abbasid recognition dates to Yusuf ibn Tashfin's northern state.",
+     "dates": "",
+     "nominal": true
+    },
+    "islamic_states": [
+     {
+      "name": "Almoravid movement (Lamtuna/Guddala Sanhaja)",
+      "dates": "c. 1040s–1087 (Saharan wing)",
+      "recognised_caliph": "nominal"
+     },
+     {
+      "name": "Moroccan sultans (allegiance of some tribes only)",
+      "dates": "17th–19th c.",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "The Almoravid movement grew from the Sanhaja tribes of this desert. Their rule there was a tribal confederation, not an administration with governors. Later, Hassaniya-speaking tribes sometimes gave allegiance (bay'a) to Moroccan sultans. In 1975 the ICJ found ties of allegiance with only some tribes, and no Moroccan or Mauritanian territorial sovereignty. This is a strictly historical classification, not a statement on today's sovereignty dispute.",
+    "confidence": "low",
+    "uncertain": "It is unclear whether the Saharan Almoravids under Abu Bakr ibn Umar (to 1087) used the Abbasid name; the opened pages tie Abbasid recognition to Yusuf ibn Tashfin. Rating this as an 'Islamic state ruled' land is generous: in practice it may be closer to tribal autonomy with occasional allegiance.",
+    "sources": [
+     {
+      "title": "History of Western Sahara (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/History_of_Western_Sahara",
+      "supports": "Sanhaja/Lamtuna founded the Almoravids; tribes occasionally gave bay'a; Spain claimed the coast 1884",
+      "kind": "modern"
+     },
+     {
+      "title": "ICJ, Summary of the Advisory Opinion of 16 October 1975 (Western Sahara)",
+      "url": "https://www.icj-cij.org/node/103799",
+      "supports": "Not terra nullius; legal ties of allegiance between the Sultan and only some tribes; no territorial sovereignty",
+      "kind": "modern"
+     },
+     {
+      "title": "Almoravid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Almoravid_dynasty",
+      "supports": "Abbasid recognition introduced by Yusuf ibn Tashfin; Saharan wing under Abu Bakr until 1087",
+      "kind": "modern"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "a3": "SAH",
+  "country": "Western Sahara",
+  "summary": "This is the desert homeland of the Sanhaja tribes who launched the Almoravid movement in the 11th century, but no caliphate ever administered it with governors or garrisons. Later it was Hassaniya-speaking tribal country; some tribes gave allegiance to Moroccan sultans. The ICJ (1975) found ties of allegiance with only some tribes, and no territorial sovereignty by Morocco or the Mauritanian entity.",
+  "units": [
+   {
+    "provinces": [
+     "Western Sahara"
+    ],
+    "label": "Western Sahara (Sāqiyat al-Ḥamrāʾ and Wādī al-Dhahab)",
+    "category": "islamic_state_ruled",
+    "caliphate": {
+     "status": "none",
+     "who": "No verified caliphal administration (see notes on the Almoravids)",
+     "dates": "",
+     "nominal": true
+    },
+    "islamic_states": [
+     {
+      "name": "Almoravid movement (Sanhaja: Lamtuna, Guddala)",
+      "dates": "c. 1040s–1087 (Saharan wing)",
+      "recognised_caliph": "nominal"
+     },
+     {
+      "name": "Moroccan sultans (Saadian/Alaouite), allegiance of some tribes",
+      "dates": "16th–19th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Ma al-Aynayn's religious-political centre at Smara",
+      "dates": "1902–1913",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Muslim tribes lived here and the Almoravid movement began among them, but the record shows tribal self-rule with occasional allegiance to neighbouring rulers, not administration. Spain claimed the coast in 1884, and the interior was subdued only in 1934.",
+    "confidence": "low",
+    "uncertain": "Whether the Saharan Almoravids counted as 'ruling' this land, and whether they named the Abbasid caliph before Yusuf ibn Tashfin's time, is not established. Since Moroccan sultans were not counted caliphs, their claims do not raise the category.",
+    "sources": [
+     {
+      "title": "History of Western Sahara (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/History_of_Western_Sahara",
+      "supports": "Almoravid origins; occasional bay'a; Spain 1884; subdued 1934",
+      "kind": "modern"
+     },
+     {
+      "title": "ICJ, Summary of the Advisory Opinion of 16 October 1975 (Western Sahara)",
+      "url": "https://www.icj-cij.org/node/103799",
+      "supports": "1975 opinion: allegiance of only some tribes; no tie of territorial sovereignty",
+      "kind": "modern"
+     },
+     {
+      "title": "Almoravid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Almoravid_dynasty",
+      "supports": "Almoravid origins among Lamtuna/Gudala/Massufa; Abbasid recognition under Yusuf ibn Tashfin",
+      "kind": "modern"
+     },
+     {
+      "title": "Smara (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Smara",
+      "supports": "Ma al-Aynayn's holy capital from 1902; sacked 1913",
+      "kind": "modern"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "a3": "DZA",
+  "country": "Algeria",
+  "summary": "The east (Constantinois, Zab) belonged to Ifriqiya. It was ruled by Umayyad and then Abbasid governors, by the Aghlabids for the Abbasids, and from 909 by the Fatimids, whose movement started among the Kutama of Petite Kabylie. The west and centre were lost to the caliphate in 740 and went to the Rustamid Ibadi imamate and the Idrisids. They came back under caliph-linked rule through the Fatimids and Zirids/Hammadids, the Almoravids and the Almohads. From the 16th century the Ottoman Regency of Algiers (from 1516/1519 to 1830) administered the Tell. The Saharan oases were only tributary or autonomous, and the far south (Ahaggar, Tindouf) was never really ruled.",
+  "units": [
+   {
+    "provinces": [
+     "Constantine",
+     "Mila",
+     "Jijel",
+     "Skikda",
+     "Annaba",
+     "El Tarf",
+     "Guelma",
+     "Souk Ahras",
+     "Oum el Bouaghi",
+     "Sétif",
+     "Bordj Bou Arréridj",
+     "Béjaïa",
+     "Tébessa"
+    ],
+    "label": "Constantinois and Petite Kabylie (western Ifrīqiyah; Kutāma country)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Umayyad then Abbasid governors. Then the Aghlabids for the Abbasids, the Fatimids directly, the Zirids for the Fatimids, and the Hammadids (alternating Abbasid/Fatimid recognition). Then the Almohad caliphate, and the Ottoman Beylik of Constantine.",
+     "dates": "c. 700s Umayyad (central Numidia/Constantine held by 708); 800–909 Aghlabid; 909–973 Fatimid direct; 973–1015 Zirid; 1015–1152 Hammadid (Béjaïa capital c. 1090–1152); 1152–1229 Almohad; Ottoman Beylik of Constantine 1528–1837",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Hafsids",
+      "dates": "1229–16th c.",
+      "recognised_caliph": "claimed caliphate itself"
+     }
+    ],
+    "notes": "This is the most solidly caliph-ruled part of Algeria. Aghlabid towns included Mila and Setif. The Fatimid da'wa began among the Kutama near Ikjan (893). Béjaïa was the Hammadid capital. In the Ottoman era the Beylik of Constantine was the Regency's most populous province, under a bey appointed by the dey.",
+    "confidence": "high",
+    "uncertain": "Some mountain districts (e.g. Babors, parts of Petite Kabylie) were probably only loosely controlled in every period; I did not check this district by district.",
+    "sources": [
+     {
+      "title": "Muslim conquest of the Maghreb (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquest_of_the_Maghreb",
+      "supports": "By 708 central Numidia around Constantine was under Muslim governors",
+      "kind": "modern"
+     },
+     {
+      "title": "Aghlabid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Aghlabid_dynasty",
+      "supports": "Aghlabid domain included eastern Algeria; Mila, Setif named; khutba for the Abbasids",
+      "kind": "modern"
+     },
+     {
+      "title": "Fatimid Caliphate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Fatimid_Caliphate",
+      "supports": "Fatimid movement began among the Kutama near Ikjan, 893; conquest of Ifriqiya 909",
+      "kind": "modern"
+     },
+     {
+      "title": "Zirid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Zirid_dynasty",
+      "supports": "Zirids ruled for the Fatimids from 972/3; Hammadid split 1015",
+      "kind": "modern"
+     },
+     {
+      "title": "Hammadid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Hammadid_dynasty",
+      "supports": "Hammadid capitals Qal'at Bani Hammad and Béjaïa; alternating Abbasid/Fatimid allegiance; Almohad conquest 1152",
+      "kind": "modern"
+     },
+     {
+      "title": "Hafsid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Hafsid_dynasty",
+      "supports": "Hafsid domain included Constantine and Béjaïa; caliphal claim",
+      "kind": "modern"
+     },
+     {
+      "title": "Beylik of Constantine (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Beylik_of_Constantine",
+      "supports": "Beylik est. 1528, bey appointed by the dey; cities incl. Annaba, Jijel, Collo, Béjaïa, Mila, Tebessa; fell 1837",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Batna",
+     "Khenchela",
+     "Biskra",
+     "M'Sila"
+    ],
+    "label": "Aurès, Zab and Hodna (al-Zāb; Ṭubna, al-Masīla)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Umayyad and Abbasid governors at Tobna (capital of the Zab), Aghlabids for the Abbasids, the Fatimids (founded M'Sila 927), Zirids/Hammadids (Qal'at Bani Hammad in M'Sila), Almohads, the Ottoman Beylik of Constantine",
+     "dates": "c. 700–c. 900 Tobna as Zab capital (Ibrahim ibn al-Aghlab governor there before 800); 800–909 Aghlabid; 909–973 Fatimid; 1015–1152 Hammadid; 1152–1229 Almohad; 1528–1830s Ottoman beylik",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Hafsids",
+      "dates": "13th–16th c.",
+      "recognised_caliph": "claimed caliphate itself"
+     }
+    ],
+    "notes": "Tobna (Batna province) was the governors' capital of the Zab for about two centuries, so the lowlands were firmly administered. The Aurès mountains were the base of the Kahina's resistance (defeated c. 701) and later of Ibadi Hawwara rebels against the Fatimids (947), so the high Aurès were probably more loosely held. Biskra had a Hammadid governor and later belonged to the Ottoman Beylik of Constantine.",
+    "confidence": "high",
+    "uncertain": "How far each regime controlled the interior Aurès massif, as opposed to the Zab and Hodna plains, was not checked.",
+    "sources": [
+     {
+      "title": "Tobna (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Tobna",
+      "supports": "Tobna capital of the Zab c. 700–900; Ibrahim ibn al-Aghlab governed from it; Fatimids founded M'Sila 927; destroyed by Banu Hilal",
+      "kind": "modern"
+     },
+     {
+      "title": "Tobna (Wikipedia) — quoting al-Bakri",
+      "url": "https://en.wikipedia.org/wiki/Tobna",
+      "supports": "al-Bakri called Tobna the most important city between Kairouan and Sijilmasa",
+      "kind": "classical"
+     },
+     {
+      "title": "Muslim conquest of the Maghreb (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquest_of_the_Maghreb",
+      "supports": "Hassan ibn al-Nu'man defeated the Kahina c. 701",
+      "kind": "modern"
+     },
+     {
+      "title": "Kel Ahaggar (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Kel_Ahaggar",
+      "supports": "Ibadi Hawwara of the Aurès joined Abu Yazid's revolt against the Fatimids, defeated 947",
+      "kind": "modern"
+     },
+     {
+      "title": "Hammadid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Hammadid_dynasty",
+      "supports": "Qal'at Bani Hammad in M'Sila province; governor of Biskra",
+      "kind": "modern"
+     },
+     {
+      "title": "Beylik of Constantine (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Beylik_of_Constantine",
+      "supports": "M'Sila and Biskra among the beylik's settlements",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Alger",
+     "Tipaza",
+     "Blida",
+     "Boumerdès",
+     "Médéa",
+     "Aïn Defla",
+     "Chlef"
+    ],
+    "label": "Central Tell: Algiers, Mitidja, Titteri and the Chelif (Jazāʾir Banī Mazghanna)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Zirids (for the Fatimids) and Hammadids (Algiers governed by a Hammadid prince), Almoravids (Abbasid recognition), the Almohad caliphate, then the Ottoman Regency of Algiers (Beylik of Titteri at Médéa)",
+     "dates": "Zirid/Fatimid later 10th c.; Hammadid 1015–1080s; Almoravid early 1080s–1147; Almohad 1147–c. 1230s; Ottoman 1516/1519–1830 (Titteri 1546–1834)",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Zayyanids / Hafsids (contested)",
+      "dates": "13th–16th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Rustamid sphere (western edge)",
+      "dates": "777–909",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Umayyad control of this area before 740 is not documented in the pages I opened. From the late 10th century the area was held by caliph-recognising dynasties. Algiers was the Ottoman Regency's capital, with the sultan named in the khutba and on coins even after the deys became practically independent (1659–1830).",
+    "confidence": "high",
+    "uncertain": "I did not verify Zirid rule over Algiers, Médéa and Miliana in an opened page; the Hammadid page confirms a Hammadid governor in Algiers.",
+    "sources": [
+     {
+      "title": "Hammadid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Hammadid_dynasty",
+      "supports": "Hammadid authority over Algiers; son appointed governor of Algiers",
+      "kind": "modern"
+     },
+     {
+      "title": "Almoravid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Almoravid_dynasty",
+      "supports": "Algiers fell to the Almoravids by the early 1080s",
+      "kind": "modern"
+     },
+     {
+      "title": "Almohad Caliphate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Almohad_Caliphate",
+      "supports": "Almohad conquest of the central Maghreb, Béjaïa 1152",
+      "kind": "modern"
+     },
+     {
+      "title": "Regency of Algiers (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Regency_of_Algiers",
+      "supports": "Regency 1516–1830; deys kept the sultan's name in the Friday prayer and on coins",
+      "kind": "modern"
+     },
+     {
+      "title": "Beylik of Titteri (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Beylik_of_Titteri",
+      "supports": "Beylik of Titteri 1546–1834, capital Médéa",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Tizi Ouzou",
+     "Bouira"
+    ],
+    "label": "Greater Kabylia (land of the Zwāwa; Kingdom of Kuku)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "The Ottoman Regency of Algiers held forts (bordjs) in the Sebaou and neighbouring valleys. Before that, Hammadid/Almohad reach into the mountains is unclear.",
+     "dates": "Ottoman forts 18th c. (Tazarart 1710s, Boghni 1724); Kuku a tributary 'feudatory' of Algiers from the mid-16th c.",
+     "nominal": true
+    },
+    "islamic_states": [
+     {
+      "name": "Kingdom of Kuku (Zwawa)",
+      "dates": "c. 1515–1630s",
+      "recognised_caliph": "nominal"
+     }
+    ],
+    "notes": "The high Kabyle mountains largely governed themselves. The Kingdom of Kuku allied with, fought and later paid modest tribute and troops to Ottoman Algiers. Ottoman garrisons and forts held only the valleys and were repeatedly destroyed. The caliphal rating rests on the valleys; the mountains were closer to tributary.",
+    "confidence": "medium",
+    "uncertain": "I found no verified evidence on how far the Hammadids (based nearby at Béjaïa) or the Almohads controlled Greater Kabylia. Splitting valley from mountain is not possible at province level.",
+    "sources": [
+     {
+      "title": "Kingdom of Kuku (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Kingdom_of_Kuku",
+      "supports": "Kuku c. 1515–1630s; tribute and troops to Algiers; Ottoman bordjs at Tazarart, Boghni; resistance",
+      "kind": "modern"
+     },
+     {
+      "title": "Regency of Algiers (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Regency_of_Algiers",
+      "supports": "Kabylie kept autonomy; Kuku and Beni Abbas semi-independent",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Tlemcen",
+     "Aïn Témouchent",
+     "Oran",
+     "Sidi Bel Abbès",
+     "Mascara",
+     "Mostaganem",
+     "Relizane",
+     "Saïda"
+    ],
+    "label": "Western Tell / Oranie (Tilimsān)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Umayyad conquest (708) until 740. Then the Maghrawa of Ziri ibn Atiyya under Córdoban Umayyad protection, the Almoravids (Abbasid recognition), the Almohad caliphate directly, and the Ottoman Regency (Beylik of the West).",
+     "dates": "708–740 Umayyad; 990s Maghrawa/Córdoba; Almoravid early 1080s–1147; Almohad 1147–1235; Ottoman 1551–1830 (Oran Spanish until 1792)",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Idrisids (Tlemcen)",
+      "dates": "late 8th–10th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Zayyanids of Tlemcen",
+      "dates": "1235–1556/57",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Marinids (occupations)",
+      "dates": "1337 and later",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "After the Arab conquest (708), the region left caliphal control in 740 and was ruled by Idrisid and Zenata Muslim powers. Caliph-linked rule came through Córdoba's Zenata clients, the Almoravids and the Almohads. The Zayyanids recognised no caliph. Ottoman rule began at Tlemcen in 1551, but Oran stayed Spanish until 1792.",
+    "confidence": "high",
+    "uncertain": "I did not open an Ottoman–Spanish timeline for Oran (including any interval of Ottoman rule before 1792). Whether the Zayyanids gave any formal recognition to the Hafsid caliphal claim was not established.",
+    "sources": [
+     {
+      "title": "Tlemcen (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Tlemcen",
+      "supports": "Arab conquest 708; Zayyanid capital 1235–1554; Ottoman rule from 1551",
+      "kind": "modern"
+     },
+     {
+      "title": "Ziri ibn Atiyya (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ziri_ibn_Atiyya",
+      "supports": "Maghrawa expansion to Tlemcen and western Algeria under Umayyad protection",
+      "kind": "modern"
+     },
+     {
+      "title": "Almoravid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Almoravid_dynasty",
+      "supports": "Tlemcen fell to the Almoravids by the early 1080s",
+      "kind": "modern"
+     },
+     {
+      "title": "Zayyanid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Zayyanid_dynasty",
+      "supports": "Zayyanids 1235–1556/57; Ottomans occupied Tlemcen by 1551",
+      "kind": "modern"
+     },
+     {
+      "title": "Beylik of the West (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Beylik_of_the_West",
+      "supports": "Beylik 1563–1831; capitals Mazouna, Mascara, Oran; Oran Spanish 1505–1792",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Tiaret",
+     "Tissemsilt"
+    ],
+    "label": "Tiaret and the Ouarsenis (Tāhart, Rustamid capital)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "The Fatimids took Tahert in 909. It then passed to the Zirids (for the Fatimids), the Almohads, and the Ottoman Regency.",
+     "dates": "909–973 Fatimid; Zirid after 973; Almohad 12th–13th c.; Ottoman 16th c.–1830",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Rustamid Ibadi imamate (Tahert)",
+      "dates": "777–909",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Zayyanids",
+      "dates": "13th–16th c.",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Tahert was the capital of the Rustamid Ibadi imamate, which recognised no caliph (though it is said to have recognised the suzerainty of the Umayyad emirs of Córdoba, who were not then caliphs). The Fatimids conquered it in 909, and caliph-linked dynasties ruled it afterwards.",
+    "confidence": "medium",
+    "uncertain": "I found no opened source detailing Almohad or Ottoman administration specifically in Tiaret/Tissemsilt, so it is inferred from their general extent. Whether Umayyad governors held Tiaret before 740 is not checked.",
+    "sources": [
+     {
+      "title": "Rustamid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Rustamid_dynasty",
+      "supports": "Rustamids at Tahert 777–909, Ibadi imamate, recognised no external caliph; Fatimid conquest 909",
+      "kind": "modern"
+     },
+     {
+      "title": "Fatimid Caliphate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Fatimid_Caliphate",
+      "supports": "Fatimids seized Tahert 909",
+      "kind": "modern"
+     },
+     {
+      "title": "Zirid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Zirid_dynasty",
+      "supports": "Zirid territory included the central Maghreb",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Djelfa",
+     "Laghouat"
+    ],
+    "label": "High Plateaux: Ouled Naïl and Laghouat (al-Aghwāṭ)",
+    "category": "tributary",
+    "caliphate": {
+     "status": "tributary",
+     "who": "Paid taxes/tribute to the Ottoman Beylik of Titteri (Regency of Algiers)",
+     "dates": "Laghouat tribute to Algiers 1727–1828",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Alaouite Morocco (expedition to make Laghouat tributary)",
+      "dates": "1650s nominal; 1708–1713 expedition",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Laghouat kept its own leaders and paid tribute regularly to the Ottoman Regency through the Beylik of Titteri. Before that, Morocco claimed nominal authority and sent an expedition (1708). I found no evidence of earlier direct caliphal administration of this steppe.",
+    "confidence": "medium",
+    "uncertain": "The Djelfa (Ouled Naïl) side is not separately documented; I assumed it shared Laghouat's tributary relation to Titteri. Older (Rustamid, Hammadid, Almohad) reach into this steppe was not checked.",
+    "sources": [
+     {
+      "title": "Laghouat (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Laghouat",
+      "supports": "Moroccan nominal authority 1650s, expedition c. 1708; under the Algerian Deylik from 1727 paying tribute until 1828",
+      "kind": "modern"
+     },
+     {
+      "title": "Laghouat (Wikipedia) — quoting Ibn Khaldun",
+      "url": "https://en.wikipedia.org/wiki/Laghouat",
+      "supports": "Ibn Khaldun describes a walled town of the Laghouat tribe in the 14th c.",
+      "kind": "classical"
+     },
+     {
+      "title": "Beylik of Titteri (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Beylik_of_Titteri",
+      "supports": "Saharan cities such as Laghouat paid taxes to Titteri",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "El Bayadh",
+     "Naâma"
+    ],
+    "label": "Western steppe and Ksour mountains (Awlād Sīdī al-Shaykh)",
+    "category": "tributary",
+    "caliphate": {
+     "status": "tributary",
+     "who": "The Awlad Sidi Shaykh confederation counted among the tributary groups of the Ottoman Regency of Algiers",
+     "dates": "Ottoman period (16th c.–1830); exact dates not found",
+     "nominal": true
+    },
+    "islamic_states": [
+     {
+      "name": "Alaouite Morocco (influence)",
+      "dates": "17th–19th c.",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "This was steppe country of a religious tribal confederation that sat between Algiers and Morocco. It paid tribute to the Regency but was often under the Moroccan sultan's influence. I found no evidence of governors or garrisons.",
+    "confidence": "low",
+    "uncertain": "I found no source for earlier Rustamid, Almohad or Zayyanid control of El Bayadh or Naâma. Naâma's (Hamyan, Ain Sefra) own history was not checked.",
+    "sources": [
+     {
+      "title": "Ouled Sidi Cheikh (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ouled_Sidi_Cheikh",
+      "supports": "Confederation was a tributary group of the Regency of Algiers and often under the Moroccan sultan's influence; revolt 1864",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Ghardaïa"
+    ],
+    "label": "The Mzab (Ibadi pentapolis)",
+    "category": "islamic_state_ruled",
+    "caliphate": {
+     "status": "tributary",
+     "who": "Recognised nominal Ottoman authority (Regency of Algiers) while keeping internal autonomy",
+     "dates": "16th c.–1830",
+     "nominal": true
+    },
+    "islamic_states": [
+     {
+      "name": "Ibadi federation of the Mzab (council-governed towns)",
+      "dates": "towns founded 1012–1350; to 1882",
+      "recognised_caliph": "nominal"
+     }
+    ],
+    "notes": "The Mzab towns were founded by Ibadi refugees after the Rustamid fall and governed themselves under their own religious councils. They accepted Ottoman suzerainty only nominally, then paid France a contribution from 1853 until annexation in 1882.",
+    "confidence": "medium",
+    "uncertain": "Whether the Mzab paid a regular tribute to Algiers or only had a negotiated autonomy is unclear: the Ghardaïa university abstract describes autonomy with loyalty rather than tribute.",
+    "sources": [
+     {
+      "title": "M'zab (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/M%27zab",
+      "supports": "Ibadi refuge after the Rustamid collapse; five towns founded 1012–1350; annexed by France 1882",
+      "kind": "modern"
+     },
+     {
+      "title": "Mozabites (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Mozabites",
+      "supports": "Mozabites recognised nominal Ottoman authority; 1853 convention with France",
+      "kind": "modern"
+     },
+     {
+      "title": "Relationship of the Mzab valley with the Ottoman Regency of Algiers 1519–1830 (Univ. Ghardaïa repository abstract)",
+      "url": "https://dspace.univ-ghardaia.edu.dz/xmlui/handle/123456789/4514",
+      "supports": "Mzab accepted Ottoman authority while keeping autonomy over internal affairs",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Ouargla",
+     "El Oued"
+    ],
+    "label": "Ouargla, Oued Righ (Touggourt) and the Souf (Wārjalān)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "A Hammadid governor at Ouargla (the Hammadids recognised the Abbasid or Fatimid caliph), then Ottoman vassalage (Touggourt and Ouargla paid tribute to Algiers)",
+     "dates": "Hammadid governor under al-Nasir (r. 1062–1088); Touggourt tributary to Algiers from 1552; Ouargla vassal from c. 1555",
+     "nominal": true
+    },
+    "islamic_states": [
+     {
+      "name": "Ibadi Sedrata/Ouargla community",
+      "dates": "10th–11th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Sultanate of Touggourt (Banu Djellab)",
+      "dates": "15th c.–1854/1881",
+      "recognised_caliph": "nominal"
+     },
+     {
+      "name": "Sultanate of Ouargla",
+      "dates": "to 1850s",
+      "recognised_caliph": "nominal"
+     }
+    ],
+    "notes": "Caliph-linked rule here was thin. The Hammadids had a governor in Ouargla, their southernmost town, for an unknown period. From 1552 the Banu Djellab of Touggourt and the Ouargla rulers were Ottoman vassals who paid tribute but governed themselves. In practice this was mostly local Muslim rule with brief or nominal caliphal overlordship.",
+    "confidence": "low",
+    "uncertain": "How long the Hammadid governorship lasted is unknown. If it was brief, the honest category is islamic_state_ruled or tributary. The Souf's (El Oued's) own relation to Touggourt or Constantine was not checked. Pre-2019 Ouargla province also covered Touggourt; I treated it that way.",
+    "sources": [
+     {
+      "title": "Hammadid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Hammadid_dynasty",
+      "supports": "Hammadid territory reached Ouargla and Oued Righ; Ouargla their southernmost city; al-Nasir had a governor in Ouargla",
+      "kind": "modern"
+     },
+     {
+      "title": "Sultanate of Touggourt (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Sultanate_of_Touggourt",
+      "supports": "Banu Djellab, 15th c.; Salah Rais's 1552 expedition made them vassals paying tribute to Algiers",
+      "kind": "modern"
+     },
+     {
+      "title": "Ouargla (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ouargla",
+      "supports": "Ibadi refuge; Ottoman vassalage with recognised autonomy from 1555; French 1855",
+      "kind": "modern"
+     },
+     {
+      "title": "Ouargla (Wikipedia) — quoting Ibn Khaldun",
+      "url": "https://en.wikipedia.org/wiki/Ouargla",
+      "supports": "Ibn Khaldun: town founded by the Banu Wargla",
+      "kind": "classical"
+     },
+     {
+      "title": "Rustamid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Rustamid_dynasty",
+      "supports": "Rustamid refugees fled to the Sedrata of Ouargla after 909",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Adrar",
+     "Béchar"
+    ],
+    "label": "Tuat, Gourara and the Saoura (Tuwāt)",
+    "category": "islamic_state_ruled",
+    "caliphate": {
+     "status": "none",
+     "who": "Ottoman officials visited Tuat (1578, 1582) but did not rule it",
+     "dates": "",
+     "nominal": true
+    },
+    "islamic_states": [
+     {
+      "name": "Zayyanid influence (via tribal alliances)",
+      "dates": "14th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Saadian Morocco",
+      "dates": "1583/88–early 17th c.",
+      "recognised_caliph": "claimed caliphate itself"
+     },
+     {
+      "name": "Alaouite Morocco",
+      "dates": "mid-17th c.–c. 1795 (weakening; then internally autonomous)",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Ahmad al-Mansur's Saadian forces took Tuat and Gourara between 1583 and 1588, and Alaouite sultans then claimed authority, weakly after the early 18th century. By 1795 the oases were internally autonomous until the French arrived in 1899–1901. Béchar/Saoura is grouped here as Moroccan-sphere oasis country.",
+    "confidence": "medium",
+    "uncertain": "Béchar (Saoura, Kenadsa, Taghit) has no opened source: the Béchar and Saoura Wikipedia pages carry no pre-colonial history. Its placement in the Moroccan sphere is my inference from geography and the neighbouring Tuat/Figuig record, so treat it as low confidence. The Regency of Algiers page lists Tuat among outlying oases, but Ottoman tribute from Tuat was not confirmed.",
+    "sources": [
+     {
+      "title": "Tuat (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Tuat",
+      "supports": "Saadian conquest 1583–1588; Ottoman visits 1578/1582; Alaouite authority from mid-17th c., autonomous by 1795; French 1899–1901; al-Maghili c. 1490",
+      "kind": "modern"
+     },
+     {
+      "title": "Saadi Sultanate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Saadi_Sultanate",
+      "supports": "Saadian forces conquered Touat and Gourara in 1583; al-Mansur proclaimed himself caliph",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Tindouf"
+    ],
+    "label": "Tindouf and the Hamada (Tindūf)",
+    "category": "influence",
+    "caliphate": {
+     "status": "none",
+     "who": "",
+     "dates": "",
+     "nominal": true
+    },
+    "islamic_states": [],
+    "notes": "This was desert grazing land of Muslim nomads (Tajakant, Reguibat). The town was founded only in 1852, destroyed in 1895 and occupied by France in 1934. I found no evidence that any Muslim state administered it; Moroccan claims rest on tribal allegiance, not proven rule.",
+    "confidence": "low",
+    "uncertain": "Moroccan sultans may have received allegiance from Tajakant or Reguibat groups, which would raise this to islamic_state_ruled (as for Western Sahara). I did not verify this.",
+    "sources": [
+     {
+      "title": "Tindouf (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Tindouf",
+      "supports": "Founded 1852 by the Tajakant; sacked by the Reguibat 1895; French arrival 1934",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Illizi"
+    ],
+    "label": "Tassili n'Ajjer and Djanet (Kel Ajjer country)",
+    "category": "temporary",
+    "caliphate": {
+     "status": "temporary",
+     "who": "Ottoman (Tripolitania/Fezzan) presence: Turkish flags on the ksour of Djanet",
+     "dates": "early 20th c. until French occupation of Djanet in 1911 (exact Ottoman start not found)",
+     "nominal": true
+    },
+    "islamic_states": [],
+    "notes": "This was Kel Ajjer Tuareg country centred on Ghat (now in Libya). The Ottomans, nominal overlords of Fezzan and Ghat, reinforced their presence in the Djanet area in the early 20th century. In 1909 the French demanded that the Turkish flag be taken down from the ksour, and they occupied Djanet in 1911. Otherwise this was Muslim Tuareg self-rule, not state administration.",
+    "confidence": "low",
+    "uncertain": "The depth and dates of the Ottoman presence at Djanet are not established (it may have been flags and a small detachment only).",
+    "sources": [
+     {
+      "title": "Djanet (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Djanet",
+      "supports": "Founded by the Tuareg; Ottomans, nominal over Fezzan, reinforced presence in the area at the start of the 20th c.",
+      "kind": "modern"
+     },
+     {
+      "title": "Kel Ajjer (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Kel_Ajjer",
+      "supports": "1909 French demand to remove the Turkish flag from the ksur; Djanet occupied Nov. 1911; Ghat nominally Ottoman until 1911",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Tamanghasset"
+    ],
+    "label": "Ahaggar (Hoggar) and Tidikelt",
+    "category": "influence",
+    "caliphate": {
+     "status": "none",
+     "who": "",
+     "dates": "",
+     "nominal": true
+    },
+    "islamic_states": [],
+    "notes": "The Kel Ahaggar Tuareg confederation, descended in part from the Ibadi Hawwara who fled the Aurès after 947, governed itself until French suzerainty in 1902–1903. Islam spread here through these migrations and the caravan trade, not through any state's rule.",
+    "confidence": "medium",
+    "uncertain": "The old Tamanghasset province also contains In Salah (Tidikelt). Tidikelt may have fallen under Saadian or Alaouite Moroccan authority together with Tuat; if so, that part would be islamic_state_ruled. I could not open the Tidikelt page to check.",
+    "sources": [
+     {
+      "title": "Kel Ahaggar (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Kel_Ahaggar",
+      "supports": "Descended from the Hawwara of the Aurès, defeated with Abu Yazid 947; tribal confederacy; French suzerainty by 1903",
+      "kind": "modern"
+     },
+     {
+      "title": "Tamanrasset (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Tamanrasset",
+      "supports": "Caravan centre; French era from 1905; no pre-colonial state rule documented",
+      "kind": "modern"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "a3": "TUN",
+  "country": "Tunisia",
+  "summary": "Tunisia was the heart of Ifriqiya and the most continuously caliph-ruled land in the Maghreb. Its rulers in turn were Umayyad governors from Kairouan (670), the Aghlabids for the Abbasids (800–909), the Fatimids directly (909–973) and the Zirids for the Fatimids. The Zirids switched to the Abbasids around 1048. After that came the Almohads (1159–1229) and the Ottomans (1574–1881). The Hafsids (1229–1574) recognised no outside caliph and claimed the caliphate themselves from 1253.",
+  "units": [
+   {
+    "provinces": [
+     "Tunis",
+     "Ben Arous (Tunis Sud)",
+     "Manubah",
+     "Bizerte",
+     "Béja",
+     "Jendouba",
+     "Le Kef",
+     "Siliana",
+     "Zaghouan",
+     "Nabeul",
+     "Sousse",
+     "Monastir",
+     "Mahdia",
+     "Sfax",
+     "Kairouan",
+     "Kassérine",
+     "Sidi Bou Zid"
+    ],
+    "label": "Northern and central Tunisia (core of Ifrīqiyah: Qayrawān, Tūnis, al-Mahdiyya)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "First a Rashidun raid (Sufetula 647). Then Umayyad and Abbasid governors at Kairouan, the Aghlabids for the Abbasids, the Fatimid caliphs (capital Mahdia), and the Zirids for the Fatimids and then for the Abbasids. Later the Almohad caliphate, and the Ottoman pashas, deys and beys.",
+     "dates": "647 raid (tribute, no occupation); 670–800 Umayyad/Abbasid direct (Carthage 698; Kharijite seizure of Kairouan 745/758 aside); 800–909 Aghlabid; 909–973 Fatimid direct; 973–c.1048 Zirid for the Fatimids, then for the Abbasids to 1148/1160; 1159/60–1229 Almohad; 1574–1881 Ottoman",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Hafsids",
+      "dates": "1229–1574",
+      "recognised_caliph": "claimed caliphate itself"
+     },
+     {
+      "name": "Husainid beys (under Ottoman suzerainty)",
+      "dates": "1705–1881 (1957)",
+      "recognised_caliph": "nominal"
+     }
+    ],
+    "notes": "The 647 battle of Sufetula (Sbeitla, Kassérine) was a Rashidun raid bought off with tribute, not a conquest. Lasting rule began with Kairouan in 670. The Norman Kingdom of Africa held Mahdia and some coastal towns (1148–1160) and Spain held Tunis 1535–1574, so the coast had breaks. Under the Husainids Ottoman suzerainty became largely formal.",
+    "confidence": "high",
+    "uncertain": "The exact dates of Norman and Spanish coastal enclaves within each province were not mapped. The Zirid switch to the Abbasids is given as 1041–1051 in the opened source.",
+    "sources": [
+     {
+      "title": "Battle of Sufetula (647) (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Battle_of_Sufetula_(647)",
+      "supports": "Rashidun raid under Abdallah ibn Sa'd; tribute paid; not followed up",
+      "kind": "modern"
+     },
+     {
+      "title": "Kairouan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Kairouan",
+      "supports": "Founded c. 670 by Uqba; Umayyad governors' centre; Kharijite capture 745; Aghlabid capital from 800",
+      "kind": "modern"
+     },
+     {
+      "title": "Muslim conquest of the Maghreb (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquest_of_the_Maghreb",
+      "supports": "Carthage taken 698 by Hassan ibn al-Nu'man",
+      "kind": "modern"
+     },
+     {
+      "title": "Ifriqiya (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ifriqiya",
+      "supports": "Ifriqiya = Tunisia, eastern Algeria, Tripolitania; dynastic sequence",
+      "kind": "modern"
+     },
+     {
+      "title": "Aghlabid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Aghlabid_dynasty",
+      "supports": "Aghlabids 800–909, Abbasid khutba and tribute",
+      "kind": "modern"
+     },
+     {
+      "title": "Fatimid Caliphate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Fatimid_Caliphate",
+      "supports": "Fatimid conquest 909, move to Egypt 973",
+      "kind": "modern"
+     },
+     {
+      "title": "Zirid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Zirid_dynasty",
+      "supports": "Zirids ruled for the Fatimids, renounced them for the Abbasids 1041–1051; Normans took Mahdia 1148",
+      "kind": "modern"
+     },
+     {
+      "title": "Almohad Caliphate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Almohad_Caliphate",
+      "supports": "Almohads took Tunis 1159, Mahdia Jan. 1160",
+      "kind": "modern"
+     },
+     {
+      "title": "Hafsid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Hafsid_dynasty",
+      "supports": "Hafsids 1229–1574; al-Mustansir recognised as caliph by the Sharif of Mecca 1259",
+      "kind": "modern"
+     },
+     {
+      "title": "Ottoman Tunisia (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ottoman_Tunisia",
+      "supports": "Ottoman conquest 1574; deys, Muradids, Husainids; Spanish interlude 1535–1574",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Gafsa",
+     "Tozeur",
+     "Kebili",
+     "Gabès",
+     "Médenine",
+     "Tataouine"
+    ],
+    "label": "Southern Tunisia: Djerid, Nefzaoua, Gabès, Djerba and the Dahar (Qasṭīliya, Jarba)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "The same sequence as the core (Umayyad, Aghlabid, Fatimid, Zirid, Almohad, Ottoman), with more autonomy",
+     "dates": "Djerba conquered 665; Ifriqiyan rule from the 670s; Almohads expelled the Normans from Djerba 1159; Ottoman from 1556/1574 to 1881",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Hafsids",
+      "dates": "1229–1574",
+      "recognised_caliph": "claimed caliphate itself"
+     },
+     {
+      "name": "Ibadi communities (Djerba, Djerid) under local shaykhs",
+      "dates": "8th c. onward",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "The south was formally inside every Ifriqiyan state, but Ibadi Djerba and the Djerid kept wide autonomy. The Hammadids even assigned Tozeur to its own emir. In the Ottoman period these interior zones were held through twice-yearly armed tax expeditions (mahallas) rather than permanent administration. Djerba was Norman 1135–1159.",
+    "confidence": "high",
+    "uncertain": "Tataouine's mountain Berber country (Dahar) is probably the most loosely held. Medieval Christian occupations of Djerba after 1159 were not checked.",
+    "sources": [
+     {
+      "title": "Djerba (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Djerba",
+      "supports": "Conquered 665 by Ruwayfi ibn Thabit; Ibadi; Normans 1135–1159; Almohad, Hafsid, Ottoman",
+      "kind": "modern"
+     },
+     {
+      "title": "Ottoman Tunisia (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ottoman_Tunisia",
+      "supports": "Interior Saharan zones (Djerid, Nefzaoua, Tataouine) semi-autonomous, integrated via mahallas",
+      "kind": "modern"
+     },
+     {
+      "title": "Hammadid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Hammadid_dynasty",
+      "supports": "Tozeur region assigned to its own emir under the Hammadids",
+      "kind": "modern"
+     },
+     {
+      "title": "Ifriqiya (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ifriqiya",
+      "supports": "Ifriqiya's dynastic sequence",
+      "kind": "modern"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "a3": "LBY",
+  "country": "Libya",
+  "summary": "Cyrenaica (Barqa) and Tripoli were conquered by Amr ibn al-As under the Rashidun caliph Umar in 642–643. Cyrenaica then followed Egypt (Umayyad, Abbasid, Fatimid, Ayyubid, Mamluk) and Tripolitania followed Ifriqiya (Aghlabid, Fatimid, Zirid, Almohad, Hafsid). The Ottomans held Tripoli from 1551 and Benghazi from 1578, directly or through the Karamanlis (1711–1835). The Fezzan was raided in 642 and 666–67 and then ruled by local Muslim dynasties (Ibadi Banu Khattab, Kanem, Awlad Muhammad); the Awlad Muhammad were tributary to the Ottomans, who ruled directly from 1842. Kufra was never really under any caliph; the Sanusiyya made it their centre from 1895.",
+  "units": [
+   {
+    "provinces": [
+     "An Nuqat al Khams",
+     "Az Zawiyah",
+     "Al Jifarah",
+     "Tajura' wa an Nawahi al Arba",
+     "Al Marqab",
+     "Misratah",
+     "Surt"
+    ],
+    "label": "Tripolitania coast (Ṭarābulus al-Gharb)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Rashidun conquest, Umayyad and Abbasid governors, Aghlabids for the Abbasids, the Fatimids, Zirids, the Almohads, and the Ottomans (directly, via the Karamanlis, then directly again)",
+     "dates": "643 Rashidun (Tripoli taken); Umayyad/Abbasid to 800 (Ibadi Abu al-Khattab held Tripoli 757–761); Aghlabid 800–909 (Tripolitania ceded to the Rustamids for a time after 812); Fatimid 909–973; Zirid from 978; Almohad c. 1160; Ottoman 1551–1911 (Karamanli 1711–1835)",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Hafsids",
+      "dates": "13th c.–1510 (Tripoli annexed 1401)",
+      "recognised_caliph": "claimed caliphate itself"
+     },
+     {
+      "name": "Ibadi imamate of Abu al-Khattab",
+      "dates": "757–761",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Tripoli fell to Amr ibn al-As after about a month's siege in 643, making the coast one of the earliest caliph-ruled parts of the Maghreb. Rule was interrupted by Ibadi revolts, the Normans (Tripoli taken in 1146, not checked here), Spain (1510–1530) and the Knights of St John (1530–1551). The Karamanlis were hereditary rulers under nominal Ottoman suzerainty.",
+    "confidence": "high",
+    "uncertain": "The Norman occupation of Tripoli (1146–1158) was not confirmed in an opened page. Surt (the Sirte gulf) was thinly settled and ruled mainly as a route.",
+    "sources": [
+     {
+      "title": "Muslim conquest of the Maghreb (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquest_of_the_Maghreb",
+      "supports": "Amr ibn al-As took Cyrenaica and Tripolitania 642–643; Tripoli fell after about a month",
+      "kind": "modern"
+     },
+     {
+      "title": "Aghlabid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Aghlabid_dynasty",
+      "supports": "Aghlabid domain included Tripolitania",
+      "kind": "modern"
+     },
+     {
+      "title": "Rustamid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Rustamid_dynasty",
+      "supports": "Aghlabids ceded Tripolitania to the Rustamids after the 812 siege of Tripoli",
+      "kind": "modern"
+     },
+     {
+      "title": "Nafusa Mountains (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Nafusa_Mountains",
+      "supports": "Abu al-Khattab captured Tripoli 757, Kairouan 758; Abbasid intervention 761",
+      "kind": "modern"
+     },
+     {
+      "title": "Zirid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Zirid_dynasty",
+      "supports": "Zirid control of Tripolitania after 978",
+      "kind": "modern"
+     },
+     {
+      "title": "Almohad Caliphate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Almohad_Caliphate",
+      "supports": "Tripoli recognised Almohad authority after 1159–60",
+      "kind": "modern"
+     },
+     {
+      "title": "Hafsid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Hafsid_dynasty",
+      "supports": "Hafsid annexation of Tripoli 1401",
+      "kind": "modern"
+     },
+     {
+      "title": "Ottoman Tripolitania (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ottoman_Tripolitania",
+      "supports": "Spain 1510, Knights 1530–1551, Ottoman 1551; Karamanli 1711–1835; direct rule 1835–1912",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Ghadamis",
+     "Mizdah"
+    ],
+    "label": "Jabal Nafusa hinterland and Ghadames (Jabal Nafūsa, Ghadāmis)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Aghlabids (for the Abbasids) after crushing the Nafusa imamate, later the Ifriqiyan dynasties, and the Ottoman sanjak of Jabal al-Gharb",
+     "dates": "Ghadames under Muslim rule from the late 7th c.; Aghlabid reconquest 896–97 (battle of Manu); Ottoman 1551–1911 (sanjak after 1835)",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Ibadi Imamate of Jabal Nafusa (allied to the Rustamids)",
+      "dates": "8th c.–896/97",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "The Nafusa mountains were an Ibadi stronghold allied to the Rustamids, independent of the caliphs until the Aghlabid Ibrahim II defeated them at Manu (896–97). Ibadism survived locally. Ghadames came under Muslim domination in the late 7th century; it was a trading oasis rather than a seat of power.",
+    "confidence": "medium",
+    "uncertain": "The Natural Earth names here are an older district set; I assume these two polygons cover the Nafusa uplands and the Ghadames oasis. I did not open a source giving the date of Ottoman rule at Ghadames; the Ghadames page jumps to Italy in 1911.",
+    "sources": [
+     {
+      "title": "Nafusa Mountains (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Nafusa_Mountains",
+      "supports": "Ibadi imamate allied with the Rustamids; defeated by Ibrahim II at Manu 896–97",
+      "kind": "modern"
+     },
+     {
+      "title": "Ghadames (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ghadames",
+      "supports": "Dominated by Muslim Arabs in the late 7th c.; Italian occupation from 1911",
+      "kind": "modern"
+     },
+     {
+      "title": "Ottoman Tripolitania (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ottoman_Tripolitania",
+      "supports": "Ottoman sanjak of Jabal al-Gharb after 1835",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Al Butnan",
+     "Al Qubbah",
+     "Al Jabal al Akhdar",
+     "Al Marj",
+     "Benghazi",
+     "Ajdabiya"
+    ],
+    "label": "Cyrenaica (Barqa)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Rashidun (Amr ibn al-As under Umar), Umayyad and Abbasid rule through Egypt, the Fatimids, later the Ottomans (directly, via the Karamanlis, then directly again)",
+     "dates": "c. 642 Rashidun; Umayyad 661–750; Abbasid via Egypt; Fatimid 10th c.–c. 1051; Ottoman Benghazi 1578–1911 (Karamanli 1711–1835)",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Zirid allegiance",
+      "dates": "c. 1051/52",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Ayyubid Qaraqush and Mamluk overlordship (tenuous)",
+      "dates": "late 12th–16th c.",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Sanusiyya (religious-political order)",
+      "dates": "1840s–1911",
+      "recognised_caliph": "nominal"
+     }
+    ],
+    "notes": "Barqa was the first part of the Maghreb taken (c. 642), and Uqba ibn Nafi was its first governor. After the Hilalian migrations (11th c.) control of the interior was weak and tribal. Ottoman rule from Benghazi (1578) was firmer on the coast. The Sanusiyya's authority among the tribes later exceeded that of the Ottoman governors.",
+    "confidence": "high",
+    "uncertain": "The Ayyubid and Mamluk periods were described as tenuous claims, and I did not verify the Mamluk caliph link (the Cairo Abbasid shadow caliphate) for Cyrenaica. The Ajdabiya polygon includes the interior Awjila/Jalu oases, which were not checked separately.",
+    "sources": [
+     {
+      "title": "Cyrenaica (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Cyrenaica",
+      "supports": "Conquered c. 642 by Amr under Umar; Fatimid domain; 1051/52 shift to the Zirids; Banu Hilal; Ayyubid/Mamluk tenuous; Ottoman wilayah 1879",
+      "kind": "modern"
+     },
+     {
+      "title": "Muslim conquest of the Maghreb (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquest_of_the_Maghreb",
+      "supports": "Amr left Uqba ibn Nafi as governor of Barqa",
+      "kind": "modern"
+     },
+     {
+      "title": "Benghazi (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Benghazi",
+      "supports": "Conquered c. 642–643; Turks conquered Benghazi 1578; Karamanli 1711–1835; direct Ottoman until 1911",
+      "kind": "modern"
+     },
+     {
+      "title": "Senussi (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Senussi",
+      "supports": "Sanusi authority exceeded the Ottoman governors'; tension rather than formal recognition",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Sabha",
+     "Wadi al Hayaa",
+     "Ash Shati'",
+     "Murzuq",
+     "Al Jufrah"
+    ],
+    "label": "Fezzan and the Jufra oases (Fazzān, Zawīla, Waddān)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "First, Rashidun and Umayyad expeditions (Waddan tribute 642; Uqba's military post 666–67). Then Ottoman suzerainty over the local Awlad Muhammad sultans with a garrison at Murzuq, and direct Ottoman rule from 1842.",
+     "dates": "642 tribute (Waddan); 666–67 Uqba's conquest/raid; Ottoman from 1574/1580s (tributary sultans + garrison); direct Ottoman 1842–1912",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Banu Khattab of Zawila (Ibadi)",
+      "dates": "918/19–c. 1172/77",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Kanem Empire",
+      "dates": "13th–14th c. (Waddan its northernmost point)",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Awlad Muhammad of Murzuq",
+      "dates": "16th c.–1812",
+      "recognised_caliph": "yes"
+     }
+    ],
+    "notes": "Early Muslim armies raided the Fezzan and Waddan and took tribute, and Uqba left a military post at Waddan. For about 900 years after that, though, the Fezzan was ruled by local or Saharan Muslim dynasties that recognised no caliph (Ibadi Banu Khattab, Kanem). From the 1570s–80s the Awlad Muhammad gave allegiance to the Ottoman sultan, with a garrison, and direct Ottoman rule came only in 1842. The Rustamid imamate's influence reached Zawila (9th c.).",
+    "confidence": "medium",
+    "uncertain": "It is unclear whether Uqba's 666 campaign or any Abbasid-era governor left lasting administration. The Ottoman tribute amounts, garrison continuity and the exact start of Awlad Muhammad rule are disputed.",
+    "sources": [
+     {
+      "title": "Waddan, Libya (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Waddan,_Libya",
+      "supports": "Captured 642 by Busr ibn Artat (tribute, no garrison); Uqba re-conquered 666–67 and set a military post; Kanem's northernmost point in the 13th c.",
+      "kind": "modern"
+     },
+     {
+      "title": "Fezzan (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/place/Fezzan",
+      "supports": "Arabs conquered Phazania in 666; made part of the Ottoman Empire in 1842",
+      "kind": "modern"
+     },
+     {
+      "title": "Fezzan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Fezzan",
+      "supports": "Kanem 13th–14th c.; Awlad Muhammad; Ottoman occupation 1574; allegiance from the 1580s; limited Turkish influence",
+      "kind": "modern"
+     },
+     {
+      "title": "Banu Khattab (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Banu_Khattab",
+      "supports": "Ibadi dynasty at Zawila 918/19–1172/77; sacked by Qaraqush",
+      "kind": "modern"
+     },
+     {
+      "title": "Murzuk (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Murzuk",
+      "supports": "Awlad Muhammad to 1812; Ottoman garrison, local control with the Sultan of Fezzan; Italian 1914",
+      "kind": "modern"
+     },
+     {
+      "title": "Rustamid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Rustamid_dynasty",
+      "supports": "Rustamid sphere extended to the Fezzan as far as Zawila",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Ghat"
+    ],
+    "label": "Ghat and the Kel Ajjer country (Ghāt)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Ottoman garrison (Koukemen fortress) under the Tripoli/Fezzan administration",
+     "dates": "late 19th c. (start date not verified) to 1911/1913",
+     "nominal": true
+    },
+    "islamic_states": [
+     {
+      "name": "Kel Ajjer Tuareg confederation",
+      "dates": "medieval–1911",
+      "recognised_caliph": "nominal"
+     },
+     {
+      "name": "Kanem Empire (parts of Fezzan)",
+      "dates": "13th–14th c.",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Ghat was the stronghold of the Kel Ajjer Tuareg. The Ottomans, in competition with France (1861–1900), built a fort and garrison there, but the town is described as only 'nominally' Ottoman until 1911. This is the thinnest form of caliph rule: a garrison over a self-governing Tuareg town.",
+    "confidence": "low",
+    "uncertain": "I could not confirm the start date of the Ottoman garrison (often given as 1875, but I did not find that in an opened source). If the garrison was short or merely symbolic, the category should drop to temporary.",
+    "sources": [
+     {
+      "title": "Ghat, Libya (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ghat,_Libya",
+      "supports": "Kel Ajjer stronghold; Italian occupation from 1911",
+      "kind": "modern"
+     },
+     {
+      "title": "Fortress of Ghat (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Fortress_of_Ghat",
+      "supports": "Koukemen fortress begun by the Ottoman military; destroyed by the Italians 1913",
+      "kind": "modern"
+     },
+     {
+      "title": "Kel Ajjer (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Kel_Ajjer",
+      "supports": "Ghat nominally belonged to the Ottoman Empire until 1911",
+      "kind": "modern"
+     },
+     {
+      "title": "The Libyan city of Ghat among the French ambitions and Ottoman control 1861–1900 (Journal of Humanities, Sebha University)",
+      "url": "https://sebhau.edu.ly/journal/johs/article/view/1504",
+      "supports": "Ottoman drive to control Ghat and the southern towns in response to French expansion",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Al Kufrah"
+    ],
+    "label": "Kufra (Tebu 'Tazer'; Sanusi centre)",
+    "category": "islamic_state_ruled",
+    "caliphate": {
+     "status": "none",
+     "who": "The Ottomans only supplied arms and troops to the Zuwayya in 1808; Kufra never fully came under Ottoman dominion",
+     "dates": "",
+     "nominal": true
+    },
+    "islamic_states": [
+     {
+      "name": "Zuwayya Arab occupation",
+      "dates": "1808 onward",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Sanusiyya (order headquarters, quasi-state)",
+      "dates": "1894/95–1931",
+      "recognised_caliph": "nominal"
+     }
+    ],
+    "notes": "Kufra was Tebu country until the Zuwayya Arabs took it in 1808. From 1894/95 the Sanusi order made it their headquarters, partly to escape Ottoman pressure, and it was the centre of their desert network until Italy took it in 1931. The Sanusiyya ran it as a religious-political authority, but it was not a formal state with a caliph.",
+    "confidence": "medium",
+    "uncertain": "Whether the Sanusiyya formally acknowledged the Ottoman sultan-caliph is not settled in the sources I opened, which stress tension and autonomy. It is debatable whether the order counts as an 'Islamic state'.",
+    "sources": [
+     {
+      "title": "Kufra (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Kufra",
+      "supports": "Toubou inhabitants; 1808 Zuwayya occupation with Ottoman arms; never fully under Arab or Ottoman dominion; Senussi centre 1895; Italian 1931",
+      "kind": "modern"
+     },
+     {
+      "title": "Senussi (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Senussi",
+      "supports": "Moved to Kufra 1894 to escape Ottoman pressure; tension with Ottoman governors",
+      "kind": "modern"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "a3": "MRT",
+  "country": "Mauritania",
+  "summary": "No caliph ever administered Mauritania. It was ruled instead by Muslim powers that did not formally recognise a caliph. In the north, the Almoravid movement rose among the Sanhaja in the 1040s–1050s, with Azougui in the Adrar as its first capital; Abu Bakr ibn Umar ruled the Saharan wing until he died in Tagant in 1087. The south-east was in Ghana's and then Mali's sphere (Walata a Mali garrison town). The Senegal valley had Muslim Takrur (from c. 1035) and the Futa Toro Imamate (1776). From the 17th century the Hassaniya emirates (Trarza, Brakna, Adrar, Tagant) ruled until French protectorates (1902–1912).",
+  "units": [
+   {
+    "provinces": [
+     "Adrar",
+     "Inchiri",
+     "Tagant"
+    ],
+    "label": "Adrar and Tagant plateaus (Azūgī; Almoravid Saharan core)",
+    "category": "islamic_state_ruled",
+    "caliphate": {
+     "status": "none",
+     "who": "The Almoravid Saharan wing under Abu Bakr ibn Umar; Abbasid recognition is attested only for Yusuf ibn Tashfin's northern realm",
+     "dates": "",
+     "nominal": true
+    },
+    "islamic_states": [
+     {
+      "name": "Almoravids (Saharan wing, base at Azougui)",
+      "dates": "1050s–1087",
+      "recognised_caliph": "nominal"
+     },
+     {
+      "name": "Emirate of Adrar",
+      "dates": "17th c.–1909",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Emirate of Tagant (Idaw'ish)",
+      "dates": "18th–19th c.",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Azougui was the first Almoravid capital and fortress, and Abu Bakr ibn Umar made it his base after 1072. He died in Tagant in 1087, after which the Saharan confederation split among his and his brother's descendants. Later the Hassaniya emirates governed these plateaus until the French conquest of the Adrar (1908–1912).",
+    "confidence": "medium",
+    "uncertain": "I did not confirm whether the Saharan Almoravids named the Abbasid caliph in the khutba or on coins. If they did, the category would rise to caliphate_ruled (nominal). The Emirate of Tagant's dates come from general knowledge, not an opened page; the Tagant page I opened only says Adrar migrants settled there in the mid-17th c.",
+    "sources": [
+     {
+      "title": "Azougui (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Azougui",
+      "supports": "First Almoravid capital; fortress built by Yannu ibn Umar; battle of Tabfarilla 1056",
+      "kind": "modern"
+     },
+     {
+      "title": "Azougui (Wikipedia) — quoting al-Bakri and al-Zuhri",
+      "url": "https://en.wikipedia.org/wiki/Azougui",
+      "supports": "al-Bakri: fortress surrounded by 20,000 palms; chroniclers regarded Azougui as the Almoravid capital",
+      "kind": "classical"
+     },
+     {
+      "title": "Almoravid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Almoravid_dynasty",
+      "supports": "Abu Bakr made Azuggi his base; died in Tagant Nov. 1087; confederation divided afterwards; Abbasid recognition introduced by Yusuf ibn Tashfin",
+      "kind": "modern"
+     },
+     {
+      "title": "Abu Bakr ibn Umar (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Abu_Bakr_ibn_Umar",
+      "supports": "Returned to the Sahara 1072; died 1087 near Tagant; grave near Tidjikja",
+      "kind": "modern"
+     },
+     {
+      "title": "Colonial Mauritania (Wikipedia; 'Emirate of Adrar' redirect)",
+      "url": "https://en.wikipedia.org/wiki/Emirate_of_Adrar",
+      "supports": "French pacification of Adrar 1908–1912 under Gouraud",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Tiris Zemmour",
+     "Dakhlet Nouadhibou"
+    ],
+    "label": "Northern desert and Atlantic coast (Tīris; Guddāla country)",
+    "category": "islamic_state_ruled",
+    "caliphate": {
+     "status": "none",
+     "who": "",
+     "dates": "",
+     "nominal": true
+    },
+    "islamic_states": [
+     {
+      "name": "Almoravid movement (Guddala/Lamtuna)",
+      "dates": "c. 1040s–1087",
+      "recognised_caliph": "nominal"
+     },
+     {
+      "name": "Emirate of Adrar (sphere)",
+      "dates": "17th c.–1909",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "This was nomadic Sanhaja, and later Hassaniya, country, where the Almoravid movement began. Any 'rule' was tribal-confederal: there were no towns of governance here before the colonial era, and I found no evidence of administration.",
+    "confidence": "low",
+    "uncertain": "The category could reasonably be 'influence' instead: the evidence for any state actually governing these areas is thin. The ICJ's 'Mauritanian entity' finding concerns tribal rights, not a state.",
+    "sources": [
+     {
+      "title": "Almoravid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Almoravid_dynasty",
+      "supports": "Almoravids emerged from the Lamtuna, Gudala and Massufa between present-day Mauritania and Western Sahara",
+      "kind": "modern"
+     },
+     {
+      "title": "ICJ, Summary of the Advisory Opinion of 16 October 1975 (Western Sahara)",
+      "url": "https://www.icj-cij.org/node/103799",
+      "supports": "Mauritanian entity: tribal rights relating to land, no territorial sovereignty",
+      "kind": "modern"
+     },
+     {
+      "title": "History of Mauritania (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/History_of_Mauritania",
+      "supports": "Sanhaja confederation 8th–10th c.; Banu Hassan migration; Char Bouba",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Trarza",
+     "Brakna",
+     "Nouakchott"
+    ],
+    "label": "Lower Senegal valley and the south-west (emirates of Trārza and Brākna)",
+    "category": "islamic_state_ruled",
+    "caliphate": {
+     "status": "none",
+     "who": "",
+     "dates": "",
+     "nominal": true
+    },
+    "islamic_states": [
+     {
+      "name": "Takrur (river kingdom spanning both banks)",
+      "dates": "c. 1035–c. 1286",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Emirate of Trarza",
+      "dates": "c. 1640–1902",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Emirate of Brakna",
+      "dates": "17th c.–1902",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Moroccan sultan (allegiance of some Ma'qil tribes)",
+      "dates": "1678 (Moulay Ismail)",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "The Hassaniya emirates of Trarza and Brakna ruled here from the 17th century until they became French protectorates in 1902. Futa Toro's first Almamy defeated both in the late 1700s. Moroccan claims rest on allegiances to Moulay Ismail and, much later, to Ma al-Aynayn, not on administration.",
+    "confidence": "high",
+    "uncertain": "How far Takrur's rule actually reached on the right (Mauritanian) bank west of the Gorgol was not established.",
+    "sources": [
+     {
+      "title": "Emirate of Trarza (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Emirate_of_Trarza",
+      "supports": "c. 1640–1902 French protectorate; Ma al-Aynin recognised the Moroccan sultan's claims",
+      "kind": "modern"
+     },
+     {
+      "title": "Emirate of Brakna (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Emirate_of_Brakna",
+      "supports": "17th c. confederation; Char Bouba; French protectorate 1902; allied with Abdul Kader's Futa revolution",
+      "kind": "modern"
+     },
+     {
+      "title": "Imamate of Futa Toro (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Imamate_of_Futa_Toro",
+      "supports": "1776–1859; Abdul Kader defeated Trarza and Brakna",
+      "kind": "modern"
+     },
+     {
+      "title": "Khanatha bint Bakkar (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Khanatha_bint_Bakkar",
+      "supports": "1678 allegiance of Ma'qil tribes to Moulay Ismail",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Gorgol",
+     "Guidimaka"
+    ],
+    "label": "Middle and upper Senegal valley (Takrūr, Fūta Tōro)",
+    "category": "islamic_state_ruled",
+    "caliphate": {
+     "status": "none",
+     "who": "",
+     "dates": "",
+     "nominal": true
+    },
+    "islamic_states": [
+     {
+      "name": "Takrur (Gorgol valley heartland)",
+      "dates": "Islamic law from c. 1035; Mali conquest c. 1286",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Mali Empire",
+      "dates": "c. 1286–14th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Imamate of Futa Toro",
+      "dates": "1776–1859",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "The Gorgol valley was the heartland of Takrur, whose king War Jabi instituted Islamic law around 1035 and allied with the Almoravids. Later it was ruled by Mali, then the Jolof and the Denianke (1521–1776), and from 1776 by the clerical Imamate of Futa Toro. None of these recognised an outside caliph, as far as the sources show.",
+    "confidence": "medium",
+    "uncertain": "Guidimaka (upper river, Soninke Gajaaga country) was not checked; I could not open the Gajaaga page, so its inclusion here rests on Gorgol's history. The Denianke rulers' religious status was not checked.",
+    "sources": [
+     {
+      "title": "Takrur (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Takrur",
+      "supports": "Gorgol valley heartland; War Jabi c. 1035 Islamic law; Almoravid alliance; Mali c. 1286; Jolof; Denianke 1521–1776; Futa Toro 1776",
+      "kind": "modern"
+     },
+     {
+      "title": "Imamate of Futa Toro (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Imamate_of_Futa_Toro",
+      "supports": "Imamate 1776–1859 on both banks; no external caliph recognised",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Hodh ech Chargui",
+     "Hodh el Gharbi",
+     "Assaba"
+    ],
+    "label": "The Hodh and Assaba (Awdaghust, Walāta, Kumbi Saleh)",
+    "category": "islamic_state_ruled",
+    "caliphate": {
+     "status": "none",
+     "who": "",
+     "dates": "",
+     "nominal": true
+    },
+    "islamic_states": [
+     {
+      "name": "Almoravids (capture of Awdaghust)",
+      "dates": "1054–55; possible Ghana campaign c. 1076 (disputed)",
+      "recognised_caliph": "nominal"
+     },
+     {
+      "name": "Mali Empire (garrisons at Oualata and Koumbi)",
+      "dates": "13th c.–1430s",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Songhai (Walata tributary)",
+      "dates": "c. 1500–1510s",
+      "recognised_caliph": "nominal"
+     },
+     {
+      "name": "Hassaniya groups / Tuareg",
+      "dates": "15th c. onward",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Awdaghust (Tegdaoust, Hodh el Gharbi) was a Ghana-aligned trading town until the Almoravids stormed it in 1054–55. Whether they then conquered Ghana (Koumbi Saleh, Hodh ech Chargui) is disputed. Mali held Walata and Koumbi with garrisons until losing Walata to the Tuareg (1430s). Songhai under Askia Muhammad took Walata briefly and settled for tribute.",
+    "confidence": "medium",
+    "uncertain": "Askia Muhammad bore the title khalifa after his hajj (1496–98), but the opened source does not say who conferred it (an Abbasid shadow caliph in Cairo or the Sharif of Mecca), so I did not count it as caliph rule. Assaba's own history was not checked.",
+    "sources": [
+     {
+      "title": "Aoudaghost (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Aoudaghost",
+      "supports": "Remains at Tegdaoust, Hodh El Gharbi; part of Ghana; Almoravid sack 1054–55; decline",
+      "kind": "modern"
+     },
+     {
+      "title": "Aoudaghost (Wikipedia) — quoting al-Bakri",
+      "url": "https://en.wikipedia.org/wiki/Aoudaghost",
+      "supports": "al-Bakri: 'In the year 1054–5 Abd Allah b. Yasin invaded the town of Awdaghust'",
+      "kind": "classical"
+     },
+     {
+      "title": "Koumbi Saleh (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Koumbi_Saleh",
+      "supports": "Possible Ghana capital in SE Mauritania; identification debated",
+      "kind": "modern"
+     },
+     {
+      "title": "Abu Bakr ibn Umar (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Abu_Bakr_ibn_Umar",
+      "supports": "Ghana conquest c. 1076 debated",
+      "kind": "modern"
+     },
+     {
+      "title": "Mali Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Mali_Empire",
+      "supports": "Oualata and Audaghost in the north; garrisons at Oualata and Koumbi; Oualata lost to the Tuareg c. 1437",
+      "kind": "modern"
+     },
+     {
+      "title": "Oualata (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Oualata",
+      "supports": "Mali in the 14th c.; lost 1433; Songhai tributary by 1509–10; Hassaniya influx 17th c.",
+      "kind": "modern"
+     },
+     {
+      "title": "Askia Muhammad I (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Askia_Muhammad_I",
+      "supports": "Hajj 1496–98, title khalifa; Walata captured but not held, tribute accepted",
+      "kind": "modern"
+     }
+    ]
+   }
+  ]
+ }
+]

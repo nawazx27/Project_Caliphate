@@ -1,0 +1,2163 @@
+[
+ {
+  "a3": "KAZ",
+  "country": "Kazakhstan",
+  "summary": "Only the southern rim of Kazakhstan (Isfijab/Sayram, Taraz, Otrar, Jand, Semirechye) came under caliph-recognising dynasties: the Samanids, the Karakhanids after c.1001 and the Khwarazmshahs. No caliphal governor ever ruled the northern, central or western steppe, whose first Muslim rulers were the Islamised Golden Horde (from 1313), the Nogai Horde and the Kazakh khans. The Kimek-Kipchak and Oghuz confederations were not Muslim states, and the Qara Khitai (1130s-1211) were non-Muslim overlords. Russia absorbed the steppe between the 1730s and 1860s.",
+  "units": [
+   {
+    "provinces": [
+     "South Kazakhstan"
+    ],
+    "label": "Isfijab (Sayram), Farab/Otrar and Yasi (Turkestan)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Samanids (Abbasid-invested) held Isfijab as a vassal principality from 840; then Karakhanids, who recognised the Abbasid caliph from c.1001; then the Khwarazmshahs (governor Inalchuq at Otrar, 1218)",
+     "dates": "840-c.980 (Samanid suzerainty over a vassal local dynasty); c.1001-1141 (Karakhanid, Abbasid-recognising); c.1210-1219 (Khwarazmshah)",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Samanids (suzerains of the Isfijab vassal dynasty)",
+      "dates": "840-c.980",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Karakhanids",
+      "dates": "980-1141 (then under Qara Khitai overlordship)",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Khwarazmshahs (Otrar)",
+      "dates": "c.1210-1219",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Golden Horde eastern wing / Blue Horde",
+      "dates": "after Islamisation 1313-later 14th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Timurids",
+      "dates": "late 14th c.-mid 15th c. (Timur died at Otrar 1405)",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Kazakh Khanate",
+      "dates": "16th c.-early 19th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Khanate of Kokand",
+      "dates": "early 19th c.-1864",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Isfijab was taken from the Turks by the Samanid Nuh b. Asad in 840 but kept its own Turkic dynasty, which showed loyalty by military service, gifts and the Samanid name on coins: a vassal of a caliph-recognising dynasty. Karakhanid rule from 980 became caliph-recognising from c.1001; Otrar had a Khwarazmshah governor in 1218. Russian conquest of Chimkent 1864.",
+    "confidence": "medium",
+    "uncertain": "The Sayram/Isfijab page describes the Samanid relationship as loyalty from a local dynasty, not direct administration; whether Samanid tax collectors operated there was not checked. The exact Karakhanid recognition date (c.1001) comes from one Wikipedia article. Kokand's control of Turkestan city was not separately checked.",
+    "sources": [
+     {
+      "title": "Sayram / Isfijab (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Isfijab",
+      "supports": "Samanid Nuh b. Asad took Isfijab 840; local Turkic dynasty kept autonomy with Samanid name on coins; Karakhanids seized it 980; Mongol capture",
+      "kind": "modern"
+     },
+     {
+      "title": "Otrar (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Otrar",
+      "supports": "Samanid/Karakhanid-era centre; Khwarazmshah governor Inalchuq and the 1218 caravan incident; Mongol siege 1219; Timur died there 1405",
+      "kind": "modern"
+     },
+     {
+      "title": "Samanid Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Samanid_Empire",
+      "supports": "819 sons of Asad given Samarkand, Ferghana, Shash (Tashkent), Herat; Isma'il recognised by caliph; Isfijab 839/40, Taraz 893; Khwarazm and Khuttal subdued; fall 999",
+      "kind": "modern"
+     },
+     {
+      "title": "Al-Qadir (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Al-Qadir",
+      "supports": "Karakhanids recognised Abbasid caliph's suzerainty for the first time c.1001; Samanids/Ghaznavids recognised al-Qadir in 1000",
+      "kind": "modern"
+     },
+     {
+      "title": "Ilak-Khanids (Encyclopaedia Iranica)",
+      "url": "https://www.iranicaonline.org/articles/ilak-khanids",
+      "supports": "Qarakhanids stressed loyalty to the Abbasid caliph as part of their legitimacy; realm included Shash, Farghana, Asfijab, Talas/Taraz, Semirechye; Balasagun capital; Qara Khitay took Balasagun 1134; Qatwan 1141",
+      "kind": "modern"
+     },
+     {
+      "title": "Khwarazmian Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Khwarazmian_Empire",
+      "supports": "Anushtegin 1073; Atsiz 1127-1156 conquered Jand and Mangyshlak; tribute to Qara Khitai from 1141; Tekish's break with caliph al-Nasir, accepted as sultan by caliph 1198; Mongol conquest 1219-1221",
+      "kind": "modern"
+     },
+     {
+      "title": "Kazakh Khanate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Kazakh_Khanate",
+      "supports": "Founded 1465; Senior/Middle/Junior juz locations; Sunni Islam; Junior juz to Russia 1731, Middle 1740; khanate abolished 1822-1824; Kenesary 1837-1847; no recognition of a caliph found",
+      "kind": "modern"
+     },
+     {
+      "title": "Russian conquest of Central Asia (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Russian_conquest_of_Central_Asia",
+      "supports": "Irtysh forts 1715-1720; juz submissions 1730s; Petropavlovsk 1753; Ak-Mechet 1853; Vernoye 1854; Pishpek/Tokmak 1862; Aulie-Ata/Chimkent 1864; Tashkent 1865; Khujand/Jizzakh 1866; Samarkand 1868; Khiva 1873; Kokand 1876; Geok Tepe 1881; Merv 1884; Pamirs 1890s",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Zhambyl"
+    ],
+    "label": "Taraz (Talas) and the lower Talas/Chu",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Samanids (Isma'il b. Ahmad took Taraz 893, church turned into a mosque); then Karakhanids after recognising the Abbasids (c.1001)",
+     "dates": "893-c.990s (Samanid); c.1001-1134/1141 (Karakhanid)",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Samanids",
+      "dates": "893-late 10th c.",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Karakhanids",
+      "dates": "10th c.-1130s/1141",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Moghulistan (Chagatayid, Muslim khans)",
+      "dates": "1354-early 16th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Kazakh Khanate",
+      "dates": "16th c.-18th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Khanate of Kokand",
+      "dates": "early 19th c.-1864 (fortress at Aulie-Ata)",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "The 751 Battle of Talas was fought near here, but the Abbasids did not garrison Talas afterwards; real Muslim rule began with the Samanid capture of Taraz in 893. Under the Qara Khitai (1130s-1211) the overlords were non-Muslim. Russia took Aulie-Ata in 1864.",
+    "confidence": "high",
+    "uncertain": "The end date of Samanid control at Taraz before the Karakhanids was not checked.",
+    "sources": [
+     {
+      "title": "Taraz (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Taraz",
+      "supports": "Samanid capture 893 with church converted to mosque; Karakhanids; Qara Khitai governors; Mongols 1220; Kazakh Khanate 16th c.; Kokand fortress; Russian 1864",
+      "kind": "modern"
+     },
+     {
+      "title": "Battle of Talas (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Battle_of_Talas",
+      "supports": "751, site unconfirmed near Taraz on the Talas river; Abbasids took Shash but did not garrison Talas (cites Barthold)",
+      "kind": "modern"
+     },
+     {
+      "title": "Samanid Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Samanid_Empire",
+      "supports": "819 sons of Asad given Samarkand, Ferghana, Shash (Tashkent), Herat; Isma'il recognised by caliph; Isfijab 839/40, Taraz 893; Khwarazm and Khuttal subdued; fall 999",
+      "kind": "modern"
+     },
+     {
+      "title": "Al-Qadir (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Al-Qadir",
+      "supports": "Karakhanids recognised Abbasid caliph's suzerainty for the first time c.1001; Samanids/Ghaznavids recognised al-Qadir in 1000",
+      "kind": "modern"
+     },
+     {
+      "title": "Ilak-Khanids (Encyclopaedia Iranica)",
+      "url": "https://www.iranicaonline.org/articles/ilak-khanids",
+      "supports": "Qarakhanids stressed loyalty to the Abbasid caliph as part of their legitimacy; realm included Shash, Farghana, Asfijab, Talas/Taraz, Semirechye; Balasagun capital; Qara Khitay took Balasagun 1134; Qatwan 1141",
+      "kind": "modern"
+     },
+     {
+      "title": "Moghulistan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Moghulistan",
+      "supports": "Ili core, bounded by Shash and Karatau to the west, Balkhash north; Tughlugh Timur Muslim 1354; Semirechye/Tian Shan lost to Kazakhs and Kyrgyz by 1510-11; Dzungar conquest 1680s",
+      "kind": "modern"
+     },
+     {
+      "title": "Russian conquest of Central Asia (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Russian_conquest_of_Central_Asia",
+      "supports": "Irtysh forts 1715-1720; juz submissions 1730s; Petropavlovsk 1753; Ak-Mechet 1853; Vernoye 1854; Pishpek/Tokmak 1862; Aulie-Ata/Chimkent 1864; Tashkent 1865; Khujand/Jizzakh 1866; Samarkand 1868; Khiva 1873; Kokand 1876; Geok Tepe 1881; Merv 1884; Pamirs 1890s",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Qyzylorda"
+    ],
+    "label": "Jand, Yengikent and Sighnaq (lower Syr Darya)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Khwarazmshahs (Anushteginids), who recognised the Abbasid caliph (despite the Tekish/Muhammad II quarrels with al-Nasir); Atsiz annexed Jand and made his son Il-Arslan its wali",
+     "dates": "1152-1221 at Jand (Atsiz's annexation may be earlier; one source says Atsiz 'annexed Jand and Mangyshlak' during his reign 1127-1156)",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Oghuz Yabgu state (Muslim only late; rulers converted c.1003)",
+      "dates": "c.750-c.1043",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Seljuk chiefs at Jand (pre-empire)",
+      "dates": "985-1037",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Khwarazmshahs",
+      "dates": "1152-1221",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Golden Horde eastern wing (Blue Horde capital Sighnaq)",
+      "dates": "after 1313-14th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Timurids",
+      "dates": "late 14th c.-1440s",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Uzbek Khanate of Abu'l-Khayr",
+      "dates": "1446-1468",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Kazakh Khanate",
+      "dates": "16th c.-19th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Khanate of Kokand (Aq Masjid/Ak-Mechet)",
+      "dates": "early 19th c.-1853",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Before Islam the lower Syr Darya belonged to the non-Muslim Oghuz Yabgu state; the Seljuks became Muslim at Jand (985) but were not yet a state. Real caliph-recognising rule came with the Khwarazmshahs at Jand, 1152-1221. Russia took Ak-Mechet in 1853. The desert north and the Aral shore were nomadic.",
+    "confidence": "medium",
+    "uncertain": "The Atsiz article dates the conquest of Jand to 1152, while other pages place the annexation earlier in his reign; Khwarazmshahs paid tribute to the non-Muslim Qara Khitai from 1141, so their own sovereignty was layered. Kokand's rule here is inferred from its 'Aq Masjid' frontier.",
+    "sources": [
+     {
+      "title": "Jand (Transoxania) (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Jand_(Transoxania)",
+      "supports": "Jand in Kyzylorda Region; Seljuk seat 985-1037; Atsiz annexed Jand and Mangyshlak; Khwarazmian rule until 1221",
+      "kind": "modern"
+     },
+     {
+      "title": "Atsiz (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Atsiz",
+      "supports": "1152 recapture of Jand from a Qara Khitai band; Il-Arslan made wali of Jand",
+      "kind": "modern"
+     },
+     {
+      "title": "Oghuz Yabgu State (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Oghuz_Yabgu_State",
+      "supports": "c.750-1055, capital Yangikent; Tengriist, Oghuz converted 1003; collapse c.1043",
+      "kind": "modern"
+     },
+     {
+      "title": "Sighnaq (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Sighnaq",
+      "supports": "Sighnaq in Kyzylorda Region; Blue Horde capital; raided from Khwarezm 1152, 1195; Mongols 1220; Timur; Abu'l-Khayr 1446; Kazakh in 16th c.",
+      "kind": "modern"
+     },
+     {
+      "title": "Khwarazmian Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Khwarazmian_Empire",
+      "supports": "Anushtegin 1073; Atsiz 1127-1156 conquered Jand and Mangyshlak; tribute to Qara Khitai from 1141; Tekish's break with caliph al-Nasir, accepted as sultan by caliph 1198; Mongol conquest 1219-1221",
+      "kind": "modern"
+     },
+     {
+      "title": "Golden Horde (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Golden_Horde",
+      "supports": "Berke Muslim; Oz Beg (1312/13-1341) made Islam state religion; eastern wing at Sighnaq; successors Nogai, Uzbek (Abu'l-Khayr), Kazakh",
+      "kind": "modern"
+     },
+     {
+      "title": "Khanate of Kokand (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Khanate_of_Kokand",
+      "supports": "1709-1876; Ferghana, Tashkent, Khujand, Syr Darya and Chu forts (Pishpek, Toqmaq); borders 'Aq Masjid in the west and Karakol in the east'; annexed 1876",
+      "kind": "modern"
+     },
+     {
+      "title": "Russian conquest of Central Asia (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Russian_conquest_of_Central_Asia",
+      "supports": "Irtysh forts 1715-1720; juz submissions 1730s; Petropavlovsk 1753; Ak-Mechet 1853; Vernoye 1854; Pishpek/Tokmak 1862; Aulie-Ata/Chimkent 1864; Tashkent 1865; Khujand/Jizzakh 1866; Samarkand 1868; Khiva 1873; Kokand 1876; Geok Tepe 1881; Merv 1884; Pamirs 1890s",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Mangghystau"
+    ],
+    "label": "Mangyshlak (Manqishlaq)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Khwarazmshah Atsiz (Seljuk vassal, Abbasid-recognising dynasty) occupied the peninsula",
+     "dates": "1127 or 1138 to 1221 (dates conflict between sources; depth of administration unknown)",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Khwarazmshahs",
+      "dates": "1127/1138-1221",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Golden Horde",
+      "dates": "after Islamisation 1313-late 14th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Nogai Horde",
+      "dates": "c.1500-1630s",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Uzbek and Kazakh Khanates (Adai Kazakhs)",
+      "dates": "15th-19th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Khanate of Khiva (claim; Turkmen vassals)",
+      "dates": "to 1873, renounced in Russia's favour",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Mangyshlak was nomad country (Oghuz/Turkmen, later Kazakh), on the border between Khwarazm and the Khazars. Its one link to a caliph-recognising state is the Khwarazmshah occupation from Atsiz's time to the Mongols (1221); it was never under direct caliphal governors. Kalmyks (Buddhist) took or raided it from 1620/1639; Russia built forts in 1834 and 1846 and Khiva renounced its claim in 1873.",
+    "confidence": "low",
+    "uncertain": "Sources disagree on Atsiz's date (1127 in the Mangystau Region article vs 1138 in the Atsiz article) and none I opened describes how long or how deeply the Khwarazmshahs governed it; if their hold was brief this should drop to 'temporary' and the unit would be 'islamic_state_ruled' (Golden Horde/Nogai). Bosworth's EI2 article 'Mangishlak' was not accessible.",
+    "sources": [
+     {
+      "title": "Mangystau Region (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Mangystau_Region",
+      "supports": "Border of Khwarezm and Khazars; 'In 1127, Atsiz occupied the whole peninsula'; Mongols 1221; then Golden Horde, Nogai, Uzbek, Kazakh; Kalmyk raids 1620; Russian forts 1834/1846; Khiva renounced 1873",
+      "kind": "modern"
+     },
+     {
+      "title": "Mangyshlak Peninsula (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Mangyshlak_Peninsula",
+      "supports": "Kalmyks 1639; Adai rebellion 1870; transfer to Kazakh ASSR 1920",
+      "kind": "modern"
+     },
+     {
+      "title": "Atsiz (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Atsiz",
+      "supports": "Atsiz took Mangyshlak during his 1138 rebellion",
+      "kind": "modern"
+     },
+     {
+      "title": "Jand (Transoxania) (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Jand_(Transoxania)",
+      "supports": "Atsiz annexed Jand and Mangyshlak to Khwarazm",
+      "kind": "modern"
+     },
+     {
+      "title": "Khwarazmian Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Khwarazmian_Empire",
+      "supports": "Anushtegin 1073; Atsiz 1127-1156 conquered Jand and Mangyshlak; tribute to Qara Khitai from 1141; Tekish's break with caliph al-Nasir, accepted as sultan by caliph 1198; Mongol conquest 1219-1221",
+      "kind": "modern"
+     },
+     {
+      "title": "Khanate of Khiva (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Khanate_of_Khiva",
+      "supports": "1511-1920 (Afsharid interruption 1740-1747); Khorezm, western Uzbekistan, SW Kazakhstan, much of Turkmenistan; Russian protectorate 12 Aug 1873; abdication 1920; no caliph recognition mentioned",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Almaty",
+     "Almaty City"
+    ],
+    "label": "Semirechye (Jetisu) and the Ili valley",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Karakhanids, who recognised the Abbasid caliph from c.1001; never under Umayyad/Abbasid governors",
+     "dates": "c.1001-1134 (Qara Khitai took Balasagun 1134)",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Karakhanids",
+      "dates": "10th c.-1134",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Chagatai Khanate / Moghulistan (Muslim khans)",
+      "dates": "c.1350/1354-early 16th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Kazakh Khanate (Senior juz)",
+      "dates": "16th c.-1680s and c.1750s-1840s",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Khanate of Kokand (forts)",
+      "dates": "1820s-1850s (not checked for this region)",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Semirechye was Muslim-ruled through the Karakhanids, whose realm included Semirechye; the Qara Khitai (1134-1211) were non-Muslim overlords and so were the Mongols before Islamisation and the Dzungars (1680s-1750s). Russia founded Fort Vernoye (Almaty) in 1854.",
+    "confidence": "medium",
+    "uncertain": "How far Karakhanid control reached north into the Ili and Balkhash steppe (most of the province's area) is not stated in the sources I opened; the Karakhanid recognition date rests on one Wikipedia article. Kokand's presence in this province was not checked.",
+    "sources": [
+     {
+      "title": "Kara-Khanid Khanate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Kara-Khanid_Khanate",
+      "supports": "Conversion 934/c.960; Balasagun capital; territories incl. Zhetysu, Issyk-Kul region, Ferghana, Talas; 1089 Seljuk vassalage; Qatwan 1141; end 1211/1212",
+      "kind": "modern"
+     },
+     {
+      "title": "Ilak-Khanids (Encyclopaedia Iranica)",
+      "url": "https://www.iranicaonline.org/articles/ilak-khanids",
+      "supports": "Qarakhanids stressed loyalty to the Abbasid caliph as part of their legitimacy; realm included Shash, Farghana, Asfijab, Talas/Taraz, Semirechye; Balasagun capital; Qara Khitay took Balasagun 1134; Qatwan 1141",
+      "kind": "modern"
+     },
+     {
+      "title": "Al-Qadir (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Al-Qadir",
+      "supports": "Karakhanids recognised Abbasid caliph's suzerainty for the first time c.1001; Samanids/Ghaznavids recognised al-Qadir in 1000",
+      "kind": "modern"
+     },
+     {
+      "title": "Chagatai Khanate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Chagatai_Khanate",
+      "supports": "Mubarak Shah first Muslim khan; Tarmashirin 1326-1334; Tughlugh Timur converted c.1350; Moghulistan incl. Issyk-Kul, Tian Shan, Semirechye",
+      "kind": "modern"
+     },
+     {
+      "title": "Moghulistan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Moghulistan",
+      "supports": "Ili core, bounded by Shash and Karatau to the west, Balkhash north; Tughlugh Timur Muslim 1354; Semirechye/Tian Shan lost to Kazakhs and Kyrgyz by 1510-11; Dzungar conquest 1680s",
+      "kind": "modern"
+     },
+     {
+      "title": "Kazakh Khanate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Kazakh_Khanate",
+      "supports": "Founded 1465; Senior/Middle/Junior juz locations; Sunni Islam; Junior juz to Russia 1731, Middle 1740; khanate abolished 1822-1824; Kenesary 1837-1847; no recognition of a caliph found",
+      "kind": "modern"
+     },
+     {
+      "title": "Russian conquest of Central Asia (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Russian_conquest_of_Central_Asia",
+      "supports": "Irtysh forts 1715-1720; juz submissions 1730s; Petropavlovsk 1753; Ak-Mechet 1853; Vernoye 1854; Pishpek/Tokmak 1862; Aulie-Ata/Chimkent 1864; Tashkent 1865; Khujand/Jizzakh 1866; Samarkand 1868; Khiva 1873; Kokand 1876; Geok Tepe 1881; Merv 1884; Pamirs 1890s",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "East Kazakhstan"
+    ],
+    "label": "Upper Irtysh, Altai and Tarbagatai",
+    "category": "islamic_state_ruled",
+    "caliphate": {
+     "status": "none",
+     "who": "",
+     "dates": "",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Kazakh Khanate (Middle juz)",
+      "dates": "16th-18th c. (interrupted by the Dzungars, 1680s-1750s), until Russian absorption by the 1820s",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "The Kimek-Kipchak confederation here (c.880-1035) was Tengrist, not Muslim; later the area passed to Mongol and Oirat/Dzungar (Buddhist) powers. The only Muslim states were the nomadic Kazakh khans of the Middle juz. Russia built forts at Ust-Kamenogorsk (1720) and on the Irtysh from 1715.",
+    "confidence": "low",
+    "uncertain": "I could not confirm whether any Muslim state actually governed the Irtysh/Altai zone (e.g. Golden Horde eastern wing after 1313) rather than only claiming it; the Kazakh khans' hold was nomadic and loose. If that is judged too weak, the category would be 'influence'.",
+    "sources": [
+     {
+      "title": "Kimek-Kipchak confederation (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Kimek%E2%80%93Kipchak_confederation",
+      "supports": "Irtysh-to-Caspian confederation c.880-1035; Tengrist, Islam only made inroads in 11th c.",
+      "kind": "modern"
+     },
+     {
+      "title": "Kazakh Khanate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Kazakh_Khanate",
+      "supports": "Founded 1465; Senior/Middle/Junior juz locations; Sunni Islam; Junior juz to Russia 1731, Middle 1740; khanate abolished 1822-1824; Kenesary 1837-1847; no recognition of a caliph found",
+      "kind": "modern"
+     },
+     {
+      "title": "Russian conquest of Central Asia (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Russian_conquest_of_Central_Asia",
+      "supports": "Irtysh forts 1715-1720; juz submissions 1730s; Petropavlovsk 1753; Ak-Mechet 1853; Vernoye 1854; Pishpek/Tokmak 1862; Aulie-Ata/Chimkent 1864; Tashkent 1865; Khujand/Jizzakh 1866; Samarkand 1868; Khiva 1873; Kokand 1876; Geok Tepe 1881; Merv 1884; Pamirs 1890s",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "North Kazakhstan",
+     "Qostanay",
+     "Pavlodar",
+     "Aqmola",
+     "Astana",
+     "Qaraghandy"
+    ],
+    "label": "Northern and central Kazakh steppe (Dasht-i Qipchaq)",
+    "category": "islamic_state_ruled",
+    "caliphate": {
+     "status": "none",
+     "who": "",
+     "dates": "",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Golden Horde (eastern wing)",
+      "dates": "after Oz Beg's Islamisation 1313-late 14th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Uzbek Khanate of Abu'l-Khayr",
+      "dates": "c.1428-1468",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Khanate of Sibir (southern fringe on the Ishim/Tobol)",
+      "dates": "Kuchum 1563-1598",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Kazakh Khanate (Middle juz)",
+      "dates": "16th c.-1822/24 (Russian suzerainty from 1740)",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "No caliph or caliph-recognising dynasty ever governed this steppe; the Kimek-Kipchaks were not Muslim. Muslim rule came only through the Islamised Golden Horde and its successors, and above all the Kazakh khans. Russia built Petropavlovsk (1753) and absorbed the Middle juz by abolishing the khanate in 1822-1824.",
+    "confidence": "medium",
+    "uncertain": "The Golden Horde's actual control of this eastern steppe and the precise southern reach of the Khanate of Sibir were not checked in detail. Russian dates for Akmolinsk and Qostanay towns were not checked.",
+    "sources": [
+     {
+      "title": "Kimek-Kipchak confederation (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Kimek%E2%80%93Kipchak_confederation",
+      "supports": "Irtysh-to-Caspian confederation c.880-1035; Tengrist, Islam only made inroads in 11th c.",
+      "kind": "modern"
+     },
+     {
+      "title": "Golden Horde (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Golden_Horde",
+      "supports": "Berke Muslim; Oz Beg (1312/13-1341) made Islam state religion; eastern wing at Sighnaq; successors Nogai, Uzbek (Abu'l-Khayr), Kazakh",
+      "kind": "modern"
+     },
+     {
+      "title": "Berke (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Berke",
+      "supports": "No statement that Berke recognised the Cairo Abbasid caliph; only Mamluk alliance against Hulagu",
+      "kind": "modern"
+     },
+     {
+      "title": "Khanate of Sibir (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Khanate_of_Sibir",
+      "supports": "Southern border on the Ishim/Tobol next to the Kazakhs; Kuchum 1563-1598 tried to Islamise; Russian conquest 1582-1598",
+      "kind": "modern"
+     },
+     {
+      "title": "Kazakh Khanate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Kazakh_Khanate",
+      "supports": "Founded 1465; Senior/Middle/Junior juz locations; Sunni Islam; Junior juz to Russia 1731, Middle 1740; khanate abolished 1822-1824; Kenesary 1837-1847; no recognition of a caliph found",
+      "kind": "modern"
+     },
+     {
+      "title": "Russian conquest of Central Asia (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Russian_conquest_of_Central_Asia",
+      "supports": "Irtysh forts 1715-1720; juz submissions 1730s; Petropavlovsk 1753; Ak-Mechet 1853; Vernoye 1854; Pishpek/Tokmak 1862; Aulie-Ata/Chimkent 1864; Tashkent 1865; Khujand/Jizzakh 1866; Samarkand 1868; Khiva 1873; Kokand 1876; Geok Tepe 1881; Merv 1884; Pamirs 1890s",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Aqtöbe",
+     "West Kazakhstan",
+     "Atyrau"
+    ],
+    "label": "Ural (Yaik)-Emba steppe and Saraychik",
+    "category": "islamic_state_ruled",
+    "caliphate": {
+     "status": "none",
+     "who": "",
+     "dates": "",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Golden Horde (Saray-Juk on the Ural)",
+      "dates": "after 1313-1395",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Nogai Horde (capital Saraychik)",
+      "dates": "c.1500-1634",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Kazakh Khanate (Junior juz)",
+      "dates": "17th c.-1731 (then Russian suzerainty)",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Bukey Horde (under Russian suzerainty)",
+      "dates": "1801-1845",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "This was real Muslim state territory: Saray-Juk, north of Atyrau, was one of the largest Golden Horde cities and later the Nogai capital, until Cossacks burned it in 1580. The Bukey Horde was a Muslim Kazakh khanate between the Volga and Ural under Russian suzerainty. Russia had a fort near Saraychik by 1640 and the Junior juz swore fealty in 1731.",
+    "confidence": "high",
+    "uncertain": "I found no source that the Golden Horde khans formally recognised the Cairo Abbasid caliph (the Berke article only shows a Mamluk alliance), so recognition is recorded as 'no'. The Kalmyk (Buddhist) dominance of the 17th c. is not dated precisely here.",
+    "sources": [
+     {
+      "title": "Saray-Juk (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Saray-J%C3%BCk",
+      "supports": "50 km north of Atyrau on the Ural; possibly founded by Khwarazmian colonists (Tolstov); major Golden Horde city; Nogai capital c.1430s-1580; Cossacks burned it 1580; Russian fort nearby 1640",
+      "kind": "modern"
+     },
+     {
+      "title": "Nogai Horde (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Nogai_Horde",
+      "supports": "c.1500, between Volga and Emba, capital Saraychik; Sunni Muslim; 1634 defeat by Kalmyks",
+      "kind": "modern"
+     },
+     {
+      "title": "Bukey Horde (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Bukey_Horde",
+      "supports": "1801-1845 Muslim Kazakh khanate between Ural and Volga under Russian suzerainty",
+      "kind": "modern"
+     },
+     {
+      "title": "Golden Horde (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Golden_Horde",
+      "supports": "Berke Muslim; Oz Beg (1312/13-1341) made Islam state religion; eastern wing at Sighnaq; successors Nogai, Uzbek (Abu'l-Khayr), Kazakh",
+      "kind": "modern"
+     },
+     {
+      "title": "Berke (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Berke",
+      "supports": "No statement that Berke recognised the Cairo Abbasid caliph; only Mamluk alliance against Hulagu",
+      "kind": "modern"
+     },
+     {
+      "title": "Kazakh Khanate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Kazakh_Khanate",
+      "supports": "Founded 1465; Senior/Middle/Junior juz locations; Sunni Islam; Junior juz to Russia 1731, Middle 1740; khanate abolished 1822-1824; Kenesary 1837-1847; no recognition of a caliph found",
+      "kind": "modern"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "a3": "UZB",
+  "country": "Uzbekistan",
+  "summary": "Almost all of Uzbekistan was conquered by the Umayyads under Qutayba b. Muslim (705-715) and then ruled directly by Umayyad and Abbasid governors, though the Turgesh rolled much of it back between 720 and 738. Outlying principalities (Khwarazm, Chaghaniyan, Ushrusana, Shash, Ferghana) were first tributaries and came under Abbasid and Samanid rule between 751 and 893. After the Mongols, Muslim states that did not recognise a caliph ruled: the Chagatayids, Timurids, Shaybanids and the khanates of Bukhara, Khiva and Kokand. Russia conquered it between 1865 and 1876.",
+  "units": [
+   {
+    "provinces": [
+     "Bukhoro",
+     "Navoi"
+    ],
+    "label": "Bukhara oasis and Karmana (western Sogdiana)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Umayyad (Qutayba b. Muslim, Arab garrison and tribute), then Abbasid, then the Abbasid-invested Samanids who made Bukhara their capital",
+     "dates": "706-709 onward; lost to the Turgesh 728, recovered by Nasr b. Sayyar by c.743; Abbasid from 750; Samanid capital 892-999",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Samanids",
+      "dates": "892-999",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Karakhanids",
+      "dates": "999-1212 (Seljuk vassals from 1089, Qara Khitai vassals from 1141)",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Khwarazmshahs",
+      "dates": "1212-1220",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Chagatai Khanate (after Islamisation)",
+      "dates": "1326-1370",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Timurids",
+      "dates": "1370-1500s",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Shaybanid / Janid Khanate of Bukhara, then Emirate of Bukhara",
+      "dates": "1500s-1920 (Russian protectorate 1868/1873)",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Bukhara was conquered and garrisoned by Qutayba (706-709), briefly lost to the Turgesh, then ruled directly by Umayyad and Abbasid governors and later by the Samanids from Bukhara itself. The Navoi desert (Kyzylkum) was nomad land attached to the oasis.",
+    "confidence": "high",
+    "uncertain": "Navoi's northern Kyzylkum was not separately researched.",
+    "sources": [
+     {
+      "title": "Qutayba ibn Muslim (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Qutayba_ibn_Muslim",
+      "supports": "705 Chaghaniyan submits; 706-709 Bukhara garrisoned; 710 Nasaf and Kesh; 711-712 Khwarazm tributary; 712 Samarkand garrisoned; 713-715 Shash/Ferghana; died 715",
+      "kind": "modern"
+     },
+     {
+      "title": "Muslim conquest of Transoxiana (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquest_of_Transoxiana",
+      "supports": "Qutayba's campaigns 705-715; Turgesh counter-offensive 720-738; Nasr b. Sayyar recovery by c.743; Talas 751 (cites Gibb, Kennedy, Blankinship)",
+      "kind": "modern"
+     },
+     {
+      "title": "Samanid Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Samanid_Empire",
+      "supports": "819 sons of Asad given Samarkand, Ferghana, Shash (Tashkent), Herat; Isma'il recognised by caliph; Isfijab 839/40, Taraz 893; Khwarazm and Khuttal subdued; fall 999",
+      "kind": "modern"
+     },
+     {
+      "title": "Emirate of Bukhara (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Emirate_of_Bukhara",
+      "supports": "1785-1920; eastern Bukhara incl. Hisar, Kulob, Karategin, Darvaz, Rushan; Russian protectorate after 1873; Soviet conquest 1920; no caliph recognition mentioned",
+      "kind": "modern"
+     },
+     {
+      "title": "Russian conquest of Central Asia (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Russian_conquest_of_Central_Asia",
+      "supports": "Irtysh forts 1715-1720; juz submissions 1730s; Petropavlovsk 1753; Ak-Mechet 1853; Vernoye 1854; Pishpek/Tokmak 1862; Aulie-Ata/Chimkent 1864; Tashkent 1865; Khujand/Jizzakh 1866; Samarkand 1868; Khiva 1873; Kokand 1876; Geok Tepe 1881; Merv 1884; Pamirs 1890s",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Samarkand"
+    ],
+    "label": "Samarkand (Sogdiana)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Umayyad (Qutayba occupied and garrisoned it after a treaty with the Sogdian king), then Abbasid; Samanid Nuh b. Asad its governor from 819",
+     "dates": "712-c.728 and c.739-750 (Umayyad); 750 onward (Abbasid); 819-999 via Samanids",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Samanids",
+      "dates": "819-999",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Karakhanids (capital at Samarkand 1040-1212)",
+      "dates": "999-1212",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Khwarazmshahs",
+      "dates": "1212-1220",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Timurids (capital)",
+      "dates": "1370-1500s",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Shaybanids, Janids, Emirate of Bukhara",
+      "dates": "1500s-1868",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "The Sogdian king first made a tribute treaty in 712, but Qutayba then occupied and garrisoned the city, so this counts as direct rule. Sogdian revolts and Turgesh pressure interrupted it until the 730s-740s. Russia took Samarkand in 1868.",
+    "confidence": "high",
+    "uncertain": "",
+    "sources": [
+     {
+      "title": "Qutayba ibn Muslim (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Qutayba_ibn_Muslim",
+      "supports": "705 Chaghaniyan submits; 706-709 Bukhara garrisoned; 710 Nasaf and Kesh; 711-712 Khwarazm tributary; 712 Samarkand garrisoned; 713-715 Shash/Ferghana; died 715",
+      "kind": "modern"
+     },
+     {
+      "title": "Muslim conquest of Transoxiana (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquest_of_Transoxiana",
+      "supports": "Qutayba's campaigns 705-715; Turgesh counter-offensive 720-738; Nasr b. Sayyar recovery by c.743; Talas 751 (cites Gibb, Kennedy, Blankinship)",
+      "kind": "modern"
+     },
+     {
+      "title": "Samanid Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Samanid_Empire",
+      "supports": "819 sons of Asad given Samarkand, Ferghana, Shash (Tashkent), Herat; Isma'il recognised by caliph; Isfijab 839/40, Taraz 893; Khwarazm and Khuttal subdued; fall 999",
+      "kind": "modern"
+     },
+     {
+      "title": "Russian conquest of Central Asia (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Russian_conquest_of_Central_Asia",
+      "supports": "Irtysh forts 1715-1720; juz submissions 1730s; Petropavlovsk 1753; Ak-Mechet 1853; Vernoye 1854; Pishpek/Tokmak 1862; Aulie-Ata/Chimkent 1864; Tashkent 1865; Khujand/Jizzakh 1866; Samarkand 1868; Khiva 1873; Kokand 1876; Geok Tepe 1881; Merv 1884; Pamirs 1890s",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Kashkadarya"
+    ],
+    "label": "Nasaf (Nakhshab/Qarshi) and Kesh (Shahrisabz)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Umayyad (Qutayba), then Abbasid and Samanid",
+     "dates": "710 onward (with Turgesh-era interruptions to c.739)",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Samanids",
+      "dates": "9th c.-999",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Karakhanids",
+      "dates": "999-1212",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Timurids (Timur born near Kesh)",
+      "dates": "1370-1500s",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Shaybanids, Janids, Emirate of Bukhara",
+      "dates": "1500s-1920",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Nasaf and Kesh were taken and incorporated in 710. They stayed in the Bukharan state until 1920 (the Bukharan emir was a Russian protectorate from the 1870s).",
+    "confidence": "high",
+    "uncertain": "",
+    "sources": [
+     {
+      "title": "Qutayba ibn Muslim (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Qutayba_ibn_Muslim",
+      "supports": "705 Chaghaniyan submits; 706-709 Bukhara garrisoned; 710 Nasaf and Kesh; 711-712 Khwarazm tributary; 712 Samarkand garrisoned; 713-715 Shash/Ferghana; died 715",
+      "kind": "modern"
+     },
+     {
+      "title": "Muslim conquest of Transoxiana (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquest_of_Transoxiana",
+      "supports": "Qutayba's campaigns 705-715; Turgesh counter-offensive 720-738; Nasr b. Sayyar recovery by c.743; Talas 751 (cites Gibb, Kennedy, Blankinship)",
+      "kind": "modern"
+     },
+     {
+      "title": "Samanid Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Samanid_Empire",
+      "supports": "819 sons of Asad given Samarkand, Ferghana, Shash (Tashkent), Herat; Isma'il recognised by caliph; Isfijab 839/40, Taraz 893; Khwarazm and Khuttal subdued; fall 999",
+      "kind": "modern"
+     },
+     {
+      "title": "Emirate of Bukhara (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Emirate_of_Bukhara",
+      "supports": "1785-1920; eastern Bukhara incl. Hisar, Kulob, Karategin, Darvaz, Rushan; Russian protectorate after 1873; Soviet conquest 1920; no caliph recognition mentioned",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Surkhandarya"
+    ],
+    "label": "Termez (Tirmidh) and Chaghaniyan",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Umayyad: Chaghaniyan's ruler Tish submitted to Qutayba in 705 (tributary); Termez held directly; later Abbasid/Samanid, with the Muhtajids of Chaghaniyan as Samanid vassals",
+     "dates": "705 onward (Termez conquest dated 676 in one source); Muhtajids from 939; Ghaznavid vassals c.1000",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Muhtajids of Chaghaniyan (Samanid, then Ghaznavid vassals)",
+      "dates": "10th c.-c.1000s",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Ghaznavids, Seljuks, Karakhanids, Khwarazmshahs",
+      "dates": "11th c.-1220",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Timurids",
+      "dates": "1370-1500s",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Shaybanids, Janids, Emirate of Bukhara",
+      "dates": "16th c.-1920",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Termez on the Oxus was a direct Umayyad/Abbasid possession and a Samanid scholarly centre (al-Tirmidhi). Chaghaniyan up the Surkhan valley kept native rulers who were first Umayyad tributaries and later Samanid and Ghaznavid vassals. The Mongols destroyed Termez in 1220.",
+    "confidence": "high",
+    "uncertain": "The Termez article dates the Umayyad conquest to 676, which I could not reconcile with other accounts (a rebel, Musa b. Abdallah b. Khazim, is usually said to have held Termez c.689-704; not checked). The Iranica 'Chaghaniyan' page could not be read (rate-limited).",
+    "sources": [
+     {
+      "title": "Termez (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Termez",
+      "supports": "Umayyad conquest (dated 676 there); Samanid-era scholars; Ghaznavid, Seljuk, Karakhanid, Khwarazmshah; Mongols 1220; Timurids; Bukhara",
+      "kind": "modern"
+     },
+     {
+      "title": "Chaghaniyan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Chaghaniyan",
+      "supports": "Tish submitted to Qutayba 705; 718 embassy to the Tang; Muhtajids as Samanid vassals, Abu Ali from 939; Ghaznavid vassals",
+      "kind": "modern"
+     },
+     {
+      "title": "Qutayba ibn Muslim (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Qutayba_ibn_Muslim",
+      "supports": "705 Chaghaniyan submits; 706-709 Bukhara garrisoned; 710 Nasaf and Kesh; 711-712 Khwarazm tributary; 712 Samarkand garrisoned; 713-715 Shash/Ferghana; died 715",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Khorezm",
+     "Karakalpakstan"
+    ],
+    "label": "Khwarazm (Kath, Khiva) and the Amu Darya delta",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Umayyad suzerainty after Qutayba's 712 invasion (Afrighid shahs kept as tributaries); later the Afrighids as Samanid vassals; Ma'munids of Gurganj; Ghaznavids; Seljuk-appointed Anushteginid Khwarazmshahs",
+     "dates": "712 (tributary under Umayyads); 9th c.-995 (Afrighids under Samanids); 995-1017 (Ma'munids); 1017 onward (Ghaznavids); 1077-1220 (Khwarazmshahs)",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Afrighids (converted; Samanid vassals)",
+      "dates": "9th c.-995",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Ma'munids of Gurganj",
+      "dates": "995-1017",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Ghaznavids, then Seljuks",
+      "dates": "1017-1090s",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Khwarazmshahs (Anushteginids)",
+      "dates": "1077-1220",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Golden Horde (north) / Chagatai (south), after Islamisation",
+      "dates": "1313/1326-1370s",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Timurids",
+      "dates": "1379-1505",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Khanate of Khiva (Arabshahids, then Qungrats)",
+      "dates": "1511-1920 (Russian protectorate 1873)",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Qutayba's 712 invasion made Khwarazm a tributary under its own Afrighid shahs; Iranica says Islamisation only really began in the next century when the shahs converted and became Samanid vassals. From then on it was ruled by caliph-recognising dynasties until the Mongols. Northern Karakalpakstan (Ustyurt, Aral shore) was nomad land.",
+    "confidence": "high",
+    "uncertain": "Whether Umayyad governors sat in Khwarazm after 712 (direct) or only collected tribute was not resolved; I recorded 'via_dynasty'.",
+    "sources": [
+     {
+      "title": "Chorasmia ii. In Islamic times (Encyclopaedia Iranica)",
+      "url": "https://iranicaonline.org/articles/chorasmia-ii",
+      "supports": "Qutayba invaded 712; Afrighids converted and became Samanid vassals; Ma'munids of Gurganj 995; Mahmud of Ghazna 1017; Khwarazmshahs; post-Mongol split Golden Horde (north) / Chagatai (south); Arabshahids at Khiva; Russian invasion 1873, protectorate to 1920",
+      "kind": "modern"
+     },
+     {
+      "title": "Qutayba ibn Muslim (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Qutayba_ibn_Muslim",
+      "supports": "705 Chaghaniyan submits; 706-709 Bukhara garrisoned; 710 Nasaf and Kesh; 711-712 Khwarazm tributary; 712 Samarkand garrisoned; 713-715 Shash/Ferghana; died 715",
+      "kind": "modern"
+     },
+     {
+      "title": "Khwarazmian Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Khwarazmian_Empire",
+      "supports": "Anushtegin 1073; Atsiz 1127-1156 conquered Jand and Mangyshlak; tribute to Qara Khitai from 1141; Tekish's break with caliph al-Nasir, accepted as sultan by caliph 1198; Mongol conquest 1219-1221",
+      "kind": "modern"
+     },
+     {
+      "title": "Khanate of Khiva (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Khanate_of_Khiva",
+      "supports": "1511-1920 (Afsharid interruption 1740-1747); Khorezm, western Uzbekistan, SW Kazakhstan, much of Turkmenistan; Russian protectorate 12 Aug 1873; abdication 1920; no caliph recognition mentioned",
+      "kind": "modern"
+     },
+     {
+      "title": "Russian conquest of Central Asia (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Russian_conquest_of_Central_Asia",
+      "supports": "Irtysh forts 1715-1720; juz submissions 1730s; Petropavlovsk 1753; Ak-Mechet 1853; Vernoye 1854; Pishpek/Tokmak 1862; Aulie-Ata/Chimkent 1864; Tashkent 1865; Khujand/Jizzakh 1866; Samarkand 1868; Khiva 1873; Kokand 1876; Geok Tepe 1881; Merv 1884; Pamirs 1890s",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Tashkent"
+    ],
+    "label": "Shash/Chach and Ilaq",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Umayyad conquest early 8th c. (contested), Abbasids took Shash after Talas (751); Samanid Yahya b. Asad governor from 819 under the Abbasid governor of Khurasan",
+     "dates": "early 8th c. (contested); 751 onward; 819-999 via Samanids; Karakhanids (Abbasid-recognising) c.1001-1141",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Samanids",
+      "dates": "819-999",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Karakhanids",
+      "dates": "late 10th c.-1212",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Timurids, Shaybanids",
+      "dates": "1370-16th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Kazakh Khanate",
+      "dates": "1598-1723",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Khanate of Kokand",
+      "dates": "1809-1865",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Shash was raided and partly subdued under the Umayyads, and its king's execution by the Tang in 750-751 led to Talas, after which the Abbasids took Shash. From 819 it was a Samanid governorship. Russia stormed Tashkent in 1865.",
+    "confidence": "high",
+    "uncertain": "The Iranica 'Chach' page could not be read (rate-limited), so the Umayyad-era tributary/direct status is taken from Wikipedia only.",
+    "sources": [
+     {
+      "title": "Tashkent (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Tashkent",
+      "supports": "Chach/Shash conquered by the Umayyads at the beginning of the 8th c.; Samanid Binkath; Karakhanids from 10th c.; Kazakh Khanate held it 1598-1723; Kokand 1809; Russia 1865",
+      "kind": "modern"
+     },
+     {
+      "title": "Battle of Talas (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Battle_of_Talas",
+      "supports": "751, site unconfirmed near Taraz on the Talas river; Abbasids took Shash but did not garrison Talas (cites Barthold)",
+      "kind": "modern"
+     },
+     {
+      "title": "Samanid Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Samanid_Empire",
+      "supports": "819 sons of Asad given Samarkand, Ferghana, Shash (Tashkent), Herat; Isma'il recognised by caliph; Isfijab 839/40, Taraz 893; Khwarazm and Khuttal subdued; fall 999",
+      "kind": "modern"
+     },
+     {
+      "title": "Qutayba ibn Muslim (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Qutayba_ibn_Muslim",
+      "supports": "705 Chaghaniyan submits; 706-709 Bukhara garrisoned; 710 Nasaf and Kesh; 711-712 Khwarazm tributary; 712 Samarkand garrisoned; 713-715 Shash/Ferghana; died 715",
+      "kind": "modern"
+     },
+     {
+      "title": "Khanate of Kokand (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Khanate_of_Kokand",
+      "supports": "1709-1876; Ferghana, Tashkent, Khujand, Syr Darya and Chu forts (Pishpek, Toqmaq); borders 'Aq Masjid in the west and Karakol in the east'; annexed 1876",
+      "kind": "modern"
+     },
+     {
+      "title": "Russian conquest of Central Asia (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Russian_conquest_of_Central_Asia",
+      "supports": "Irtysh forts 1715-1720; juz submissions 1730s; Petropavlovsk 1753; Ak-Mechet 1853; Vernoye 1854; Pishpek/Tokmak 1862; Aulie-Ata/Chimkent 1864; Tashkent 1865; Khujand/Jizzakh 1866; Samarkand 1868; Khiva 1873; Kokand 1876; Geok Tepe 1881; Merv 1884; Pamirs 1890s",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Jizzakh",
+     "Sirdaryo"
+    ],
+    "label": "Ushrusana (Usrushana) and the Hungry Steppe",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Abbasid: the Afshins submitted 794-95 and were conquered in 822; afterwards they ruled 'as subjects of the caliph'; the Samanids annexed Ushrusana in 892/893",
+     "dates": "Umayyad attempts 712-14 and 737-39 incomplete; 794-95 submission; 822-893 Abbasid subject-princes; 893 onward Samanid",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Samanids",
+      "dates": "893-999",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Karakhanids",
+      "dates": "999-1212",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Timurids, Shaybanids, Bukhara/Kokand",
+      "dates": "1370-1866",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Ushrusana kept native Afshins long after the conquest of Sogdiana: tributary to 822, then part of the Abbasid state under subject princes, then Samanid from 893. Russia took Jizzakh in 1866.",
+    "confidence": "medium",
+    "uncertain": "Neither page I opened names Jizzakh (Dizak), Zaamin or the Hungry Steppe as part of Ushrusana; the assignment follows its stated location between Samarkand and Khujand south of the Syr Darya. If Jizzakh belonged instead to the Samarkand district, the category is still caliphate_ruled.",
+    "sources": [
+     {
+      "title": "Ushrusana / Osrushana (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ushrusana",
+      "supports": "Between Samarkand and Khujand south of the Syr Darya; 712-14 and 737-39 incomplete subjugation; 794-95 submission; 822 conquest; 893 Samanid annexation",
+      "kind": "modern"
+     },
+     {
+      "title": "Principality of Ushrusana (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Principality_of_Ushrusana",
+      "supports": "822 conquest by Ahmad b. Abi Khalid; afshins kept control 'as subjects of the caliph'; Isma'il b. Ahmad incorporated it 892/893",
+      "kind": "modern"
+     },
+     {
+      "title": "Samanid Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Samanid_Empire",
+      "supports": "819 sons of Asad given Samarkand, Ferghana, Shash (Tashkent), Herat; Isma'il recognised by caliph; Isfijab 839/40, Taraz 893; Khwarazm and Khuttal subdued; fall 999",
+      "kind": "modern"
+     },
+     {
+      "title": "Russian conquest of Central Asia (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Russian_conquest_of_Central_Asia",
+      "supports": "Irtysh forts 1715-1720; juz submissions 1730s; Petropavlovsk 1753; Ak-Mechet 1853; Vernoye 1854; Pishpek/Tokmak 1862; Aulie-Ata/Chimkent 1864; Tashkent 1865; Khujand/Jizzakh 1866; Samarkand 1868; Khiva 1873; Kokand 1876; Geok Tepe 1881; Merv 1884; Pamirs 1890s",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Ferghana",
+     "Andijon",
+     "Namangan"
+    ],
+    "label": "Farghana (western and central valley: Akhsikath, Andijan, Kasan)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Samanids (Ahmad b. Asad given Ferghana in 819 by the caliph's governor), then Karakhanids after recognising the Abbasids; before that Umayyad occupation in 715 (reversed) and tributary local princes",
+     "dates": "715 brief Umayyad occupation; 819-999 Samanid; c.1001-1141 Karakhanid (Abbasid-recognising)",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Samanids",
+      "dates": "819-999",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Karakhanids",
+      "dates": "late 10th c.-1212",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Chagatai Khanate (after Islamisation), Timurids",
+      "dates": "1326-1500s (Babur born in Andijan)",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Shaybanids and Janids of Bukhara",
+      "dates": "16th-18th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Khanate of Kokand",
+      "dates": "1709-1876",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Qutayba died in Ferghana in 715 and his installed ruler was soon driven out with Chinese help, so the Umayyad phase was temporary. Lasting rule came under the Samanids from 819. Russia annexed Kokand in 1876.",
+    "confidence": "high",
+    "uncertain": "",
+    "sources": [
+     {
+      "title": "Fergana Valley (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Fergana_Valley",
+      "supports": "715 Qutayba installs a ruler, later reversed; 819 Ahmad b. Asad given Fergana; Karakhanids to 1212; Timurids; Shaybanids/Janids; Kokand 1709; Russian 1876",
+      "kind": "modern"
+     },
+     {
+      "title": "Samanid Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Samanid_Empire",
+      "supports": "819 sons of Asad given Samarkand, Ferghana, Shash (Tashkent), Herat; Isma'il recognised by caliph; Isfijab 839/40, Taraz 893; Khwarazm and Khuttal subdued; fall 999",
+      "kind": "modern"
+     },
+     {
+      "title": "Qutayba ibn Muslim (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Qutayba_ibn_Muslim",
+      "supports": "705 Chaghaniyan submits; 706-709 Bukhara garrisoned; 710 Nasaf and Kesh; 711-712 Khwarazm tributary; 712 Samarkand garrisoned; 713-715 Shash/Ferghana; died 715",
+      "kind": "modern"
+     },
+     {
+      "title": "Muslim conquest of Transoxiana (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquest_of_Transoxiana",
+      "supports": "Qutayba's campaigns 705-715; Turgesh counter-offensive 720-738; Nasr b. Sayyar recovery by c.743; Talas 751 (cites Gibb, Kennedy, Blankinship)",
+      "kind": "modern"
+     },
+     {
+      "title": "Khanate of Kokand (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Khanate_of_Kokand",
+      "supports": "1709-1876; Ferghana, Tashkent, Khujand, Syr Darya and Chu forts (Pishpek, Toqmaq); borders 'Aq Masjid in the west and Karakol in the east'; annexed 1876",
+      "kind": "modern"
+     },
+     {
+      "title": "Russian conquest of Central Asia (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Russian_conquest_of_Central_Asia",
+      "supports": "Irtysh forts 1715-1720; juz submissions 1730s; Petropavlovsk 1753; Ak-Mechet 1853; Vernoye 1854; Pishpek/Tokmak 1862; Aulie-Ata/Chimkent 1864; Tashkent 1865; Khujand/Jizzakh 1866; Samarkand 1868; Khiva 1873; Kokand 1876; Geok Tepe 1881; Merv 1884; Pamirs 1890s",
+      "kind": "modern"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "a3": "TKM",
+  "country": "Turkmenistan",
+  "summary": "Southern Turkmenistan (Merv, Nasa, Abivard, Sarakhs) was part of Khurasan and fell to the Rashidun caliphate in 651, staying under caliphal and caliph-recognising rule until the Mongols. Khwarazm (Dashoguz) and Dihistan (Balkan) were first tributary or briefly conquered and later ruled by caliph-recognising dynasties. After 1220, Muslim states that did not recognise a caliph followed: the Golden Horde, Timurids, Khiva, Bukhara and Iran. The Turkmen tribes were independent until the Russian conquest of 1881-1885.",
+  "units": [
+   {
+    "provinces": [
+     "Mary"
+    ],
+    "label": "Merv (Marw al-Shahijan)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Rashidun (conquest of Khurasan), then Umayyad (capital of Khurasan), Abbasid (Abu Muslim's revolt began here); later Tahirids, Samanids, Ghaznavids, Seljuks",
+     "dates": "651 onward",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Tahirids, Samanids, Ghaznavids",
+      "dates": "9th c.-1030s",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Great Seljuks (Sanjar's capital)",
+      "dates": "1037-1157",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Khwarazmshahs",
+      "dates": "late 12th c.-1221",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Timurids",
+      "dates": "late 14th-15th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Safavid/Uzbek contest, then Emirate of Bukhara (Shah Murad razed it 1788-89)",
+      "dates": "16th-18th c.",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Merv was taken without a fight in 651, when Yazdegerd III died nearby, and became the capital of Umayyad Khurasan and the launching point of the Abbasid revolution. The Mongols destroyed it in 1221; Russia occupied the oasis in 1884.",
+    "confidence": "high",
+    "uncertain": "",
+    "sources": [
+     {
+      "title": "Merv (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Merv",
+      "supports": "Arab conquest 651; capital of Umayyad Khorasan; Abu Muslim 747-748; Seljuk Sanjar; Mongols 1221; Shah Murad 1788-89; Russia 1884",
+      "kind": "modern"
+     },
+     {
+      "title": "Muslim conquest of Persia (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquest_of_Persia",
+      "supports": "Ahnaf b. Qays's 651 conquest of Khurasan; Merv occupied without a fight; Yazdegerd killed near Merv 651",
+      "kind": "modern"
+     },
+     {
+      "title": "Russian conquest of Central Asia (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Russian_conquest_of_Central_Asia",
+      "supports": "Irtysh forts 1715-1720; juz submissions 1730s; Petropavlovsk 1753; Ak-Mechet 1853; Vernoye 1854; Pishpek/Tokmak 1862; Aulie-Ata/Chimkent 1864; Tashkent 1865; Khujand/Jizzakh 1866; Samarkand 1868; Khiva 1873; Kokand 1876; Geok Tepe 1881; Merv 1884; Pamirs 1890s",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Ahal"
+    ],
+    "label": "Nasa, Abivard, Farawa and Sarakhs (northern Khurasan)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Rashidun conquest of Khurasan, then Umayyad and Abbasid governors; later Tahirids, Samanids, Ghaznavids (Mas'ud assigned Nasa and Farawa to the Seljuks in 1035), Seljuks, Khwarazmshahs",
+     "dates": "c.651 onward",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Tahirids, Samanids, Ghaznavids",
+      "dates": "9th c.-1035",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Great Seljuks",
+      "dates": "1035-1157",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Khwarazmshahs",
+      "dates": "to 1221",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Timurids; Safavid and Afsharid Iran; Khiva (contested)",
+      "dates": "14th-18th c.",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "The Kopet Dagh foothill towns were part of Khurasan and fell with it in the 650s. In the 19th century the Teke Turkmens were independent until Russia took Geok Tepe in 1881.",
+    "confidence": "medium",
+    "uncertain": "No page I opened gives Nasa's own conquest date; it is inferred from the 651 conquest of Khurasan. The Abivard page lists later dynasties but no dates.",
+    "sources": [
+     {
+      "title": "Muslim conquest of Persia (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquest_of_Persia",
+      "supports": "Conquest of Khurasan 651",
+      "kind": "modern"
+     },
+     {
+      "title": "Dehestan (Encyclopaedia Iranica)",
+      "url": "https://iranicaonline.org/articles/dehestan",
+      "supports": "In 1035 the Ghaznavid Mas'ud was forced to assign Dehestan, Farava and Nasa to the Seljuk chiefs",
+      "kind": "modern"
+     },
+     {
+      "title": "Abivard (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Abivard",
+      "supports": "Abiward in Ahal province; later Arab, Tahirid, Samanid, Ghaznavid, Seljuk, Khwarazmshah, Mongol, Timurid, Safavid/Afsharid rulers (no dates)",
+      "kind": "modern"
+     },
+     {
+      "title": "Russian conquest of Central Asia (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Russian_conquest_of_Central_Asia",
+      "supports": "Irtysh forts 1715-1720; juz submissions 1730s; Petropavlovsk 1753; Ak-Mechet 1853; Vernoye 1854; Pishpek/Tokmak 1862; Aulie-Ata/Chimkent 1864; Tashkent 1865; Khujand/Jizzakh 1866; Samarkand 1868; Khiva 1873; Kokand 1876; Geok Tepe 1881; Merv 1884; Pamirs 1890s",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Balkan"
+    ],
+    "label": "Dihistan (Misrian) and the Balkhan/Caspian coast",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Umayyad: Yazid b. al-Muhallab subdued it in 716 (tributary terms, then withdrawal); later the orbit of the Khwarazmshahs (late Samanid), Ghaznavids after 1017, Seljuks from 1035, Khwarazmshah Muhammad (1200-1220)",
+     "dates": "716 (temporary); late 10th c.-1221 via recognising dynasties",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Ma'munid Khwarazmshahs (orbit)",
+      "dates": "late 10th c.-1017",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Ghaznavids",
+      "dates": "1017-1035",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Great Seljuks",
+      "dates": "1035-1150s",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Khwarazmshahs",
+      "dates": "to 1220/21",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Khanate of Khiva (Turkmen tribes as vassals)",
+      "dates": "17th c.-1873",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Yazid b. al-Muhallab's 716 campaign was a conquest followed by a tributary settlement and withdrawal, so the first Umayyad phase was temporary. Dihistan was a prosperous Muslim town from the 10th to 14th centuries, with the oldest surviving mosque in Turkmenistan and a mosque of Khwarazmshah Muhammad. Russia's Transcaspian advance began at Krasnovodsk.",
+    "confidence": "medium",
+    "uncertain": "Whether Dihistan had Abbasid or Tahirid governors in the 8th-9th c. was not checked; the 'via_dynasty' status rests on the later Khwarazmian/Ghaznavid/Seljuk period. The Krasnovodsk founding date was not checked.",
+    "sources": [
+     {
+      "title": "Dehestan (Encyclopaedia Iranica)",
+      "url": "https://iranicaonline.org/articles/dehestan",
+      "supports": "In the orbit of the Khwarazmshahs in late Samanid times; Ghaznavid after 1017; assigned to Seljuks 1035; Khwarazmshah Muhammad 1200-1220; Turkmen vassals of Khiva in 17th c.",
+      "kind": "modern"
+     },
+     {
+      "title": "Yazid ibn al-Muhallab (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Yazid_ibn_al-Muhallab",
+      "supports": "716 campaign against Dihistan (dihqan amnesty / tributary terms); later Muslim withdrawal from the region",
+      "kind": "modern"
+     },
+     {
+      "title": "Dehistan/Mishrian (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Dehistan/Mishrian",
+      "supports": "Balkan Region; economic centre 10th-14th c.; Shir-kabir mosque 9th/10th c.; mosque of Khwarazmshah Muhammad; abandoned c.15th c.",
+      "kind": "modern"
+     },
+     {
+      "title": "Khanate of Khiva (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Khanate_of_Khiva",
+      "supports": "1511-1920 (Afsharid interruption 1740-1747); Khorezm, western Uzbekistan, SW Kazakhstan, much of Turkmenistan; Russian protectorate 12 Aug 1873; abdication 1920; no caliph recognition mentioned",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Chardzhou"
+    ],
+    "label": "Amul (Amul-i Shatt/Amuya) and Zamm on the Oxus",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Umayyad and Abbasid Khurasan/Transoxiana, then Samanids (inferred: the main Oxus crossing between Merv and Bukhara)",
+     "dates": "early 8th c. onward (not directly sourced)",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Samanids and their successors",
+      "dates": "9th c.-1220",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Khanate, then Emirate of Bukhara (Chardzhou beylik)",
+      "dates": "16th c.-1920 (Russian protectorate)",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Amul sat on the Silk Road crossing linking Merv with Bukhara and Khiva, both under direct caliphal rule from the early 8th century. For centuries it was a Bukharan possession; Russia built New Chardjuy in 1886 for the Transcaspian railway.",
+    "confidence": "medium",
+    "uncertain": "No page I opened gives Amul's own early-Islamic conquest or governors; the caliphate_ruled status is inferred from its position between Merv and Bukhara.",
+    "sources": [
+     {
+      "title": "Turkmenabat (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/T%C3%BCrkmenabat",
+      "supports": "Ancient Amul; Silk Road hub between Bukhara, Khiva and Merv; long part of the Bukharan khanate/emirate; Russian New-Chardjuy 1886",
+      "kind": "modern"
+     },
+     {
+      "title": "Qutayba ibn Muslim (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Qutayba_ibn_Muslim",
+      "supports": "705 Chaghaniyan submits; 706-709 Bukhara garrisoned; 710 Nasaf and Kesh; 711-712 Khwarazm tributary; 712 Samarkand garrisoned; 713-715 Shash/Ferghana; died 715",
+      "kind": "modern"
+     },
+     {
+      "title": "Emirate of Bukhara (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Emirate_of_Bukhara",
+      "supports": "1785-1920; eastern Bukhara incl. Hisar, Kulob, Karategin, Darvaz, Rushan; Russian protectorate after 1873; Soviet conquest 1920; no caliph recognition mentioned",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Tashauz"
+    ],
+    "label": "Northern Khwarazm (Gurganj / Kunya-Urgench)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Umayyad-tributary Khwarazm after 712; Ma'munids of Gurganj; Ghaznavids; Khwarazmshahs (capital Gurganj)",
+     "dates": "712 (tributary); 995-1017 (Ma'munids at Gurganj); 1017-1220",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Ma'munids of Gurganj",
+      "dates": "995-1017",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Ghaznavids, Seljuks",
+      "dates": "1017-1090s",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Khwarazmshahs",
+      "dates": "1077-1220",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Golden Horde (Urgench), after Islamisation",
+      "dates": "1313-1370s",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Timurids",
+      "dates": "1379-1505",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Khanate of Khiva",
+      "dates": "1511-1920",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Gurganj was the capital of the Ma'munids and of the Anushteginid Khwarazmshahs, all caliph-recognising. After the Mongols, northern Khwarazm fell to the Golden Horde. Khiva became a Russian protectorate in 1873.",
+    "confidence": "high",
+    "uncertain": "",
+    "sources": [
+     {
+      "title": "Chorasmia ii. In Islamic times (Encyclopaedia Iranica)",
+      "url": "https://iranicaonline.org/articles/chorasmia-ii",
+      "supports": "Qutayba invaded 712; Afrighids converted and became Samanid vassals; Ma'munids of Gurganj 995; Mahmud of Ghazna 1017; Khwarazmshahs; post-Mongol split Golden Horde (north) / Chagatai (south); Arabshahids at Khiva; Russian invasion 1873, protectorate to 1920",
+      "kind": "modern"
+     },
+     {
+      "title": "Khwarazmian Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Khwarazmian_Empire",
+      "supports": "Anushtegin 1073; Atsiz 1127-1156 conquered Jand and Mangyshlak; tribute to Qara Khitai from 1141; Tekish's break with caliph al-Nasir, accepted as sultan by caliph 1198; Mongol conquest 1219-1221",
+      "kind": "modern"
+     },
+     {
+      "title": "Khanate of Khiva (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Khanate_of_Khiva",
+      "supports": "1511-1920 (Afsharid interruption 1740-1747); Khorezm, western Uzbekistan, SW Kazakhstan, much of Turkmenistan; Russian protectorate 12 Aug 1873; abdication 1920; no caliph recognition mentioned",
+      "kind": "modern"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "a3": "KGZ",
+  "country": "Kyrgyzstan",
+  "summary": "No Umayyad or Abbasid governor ever ruled Kyrgyz territory except the Ferghana valley, which the Samanids governed for the caliph from 819. The Chu valley, Talas and Issyk-Kul came under Muslim rule through the Karakhanids, whose capital was Balasagun and who recognised the Abbasids from about 1001, until the non-Muslim Qara Khitai took over in 1134. Later Muslim states were Moghulistan (Muslim khans from 1354) and Kokand (early 19th c.), separated by long Kyrgyz tribal and Dzungar periods. Russia took the north in the 1850s-60s and Kokand in 1876.",
+  "units": [
+   {
+    "provinces": [
+     "Osh",
+     "Jalal-Abad",
+     "Batken"
+    ],
+    "label": "Eastern and southern Farghana (Uzgend, Osh)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Samanids (Ferghana governorship from 819), then Karakhanids after recognising the Abbasids (Uzgend was a Karakhanid capital)",
+     "dates": "819-999 (Samanid, eastern extent uncertain); c.1001-1141 (Karakhanid)",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Samanids",
+      "dates": "819-999",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Karakhanids (capital at Uzgend)",
+      "dates": "late 10th c.-1212",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Chagatai Khanate (after Islamisation), Timurids",
+      "dates": "1326-1500s",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Shaybanids/Janids",
+      "dates": "16th-18th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Khanate of Kokand",
+      "dates": "1709-1876",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "The valley floor around Osh, Uzgend and Jalal-Abad was part of medieval Farghana, which Arab geographers (al-Muqaddasi, Ibn Hawqal) described; the surrounding mountains were held by pastoral tribes. Russia annexed it with Kokand in 1876.",
+    "confidence": "medium",
+    "uncertain": "Whether Samanid control reached the eastern valley (Osh, Uzgend) or only the western and central valley was not confirmed; the Karakhanid status is solid. The classical geographers are cited only as reported on the Ozgon Wikipedia page, not seen directly.",
+    "sources": [
+     {
+      "title": "Ozgon (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/%C3%96zg%C3%B6n",
+      "supports": "Karakhanid capital; described by al-Muqaddasi and Ibn Hawqal in the 10th c.",
+      "kind": "modern"
+     },
+     {
+      "title": "Fergana Valley (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Fergana_Valley",
+      "supports": "715 Qutayba installs a ruler, later reversed; 819 Ahmad b. Asad given Fergana; Karakhanids to 1212; Timurids; Shaybanids/Janids; Kokand 1709; Russian 1876",
+      "kind": "modern"
+     },
+     {
+      "title": "Samanid Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Samanid_Empire",
+      "supports": "819 sons of Asad given Samarkand, Ferghana, Shash (Tashkent), Herat; Isma'il recognised by caliph; Isfijab 839/40, Taraz 893; Khwarazm and Khuttal subdued; fall 999",
+      "kind": "modern"
+     },
+     {
+      "title": "Al-Qadir (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Al-Qadir",
+      "supports": "Karakhanids recognised Abbasid caliph's suzerainty for the first time c.1001; Samanids/Ghaznavids recognised al-Qadir in 1000",
+      "kind": "modern"
+     },
+     {
+      "title": "Kara-Khanid Khanate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Kara-Khanid_Khanate",
+      "supports": "Conversion 934/c.960; Balasagun capital; territories incl. Zhetysu, Issyk-Kul region, Ferghana, Talas; 1089 Seljuk vassalage; Qatwan 1141; end 1211/1212",
+      "kind": "modern"
+     },
+     {
+      "title": "Khanate of Kokand (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Khanate_of_Kokand",
+      "supports": "1709-1876; Ferghana, Tashkent, Khujand, Syr Darya and Chu forts (Pishpek, Toqmaq); borders 'Aq Masjid in the west and Karakol in the east'; annexed 1876",
+      "kind": "modern"
+     },
+     {
+      "title": "Russian conquest of Central Asia (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Russian_conquest_of_Central_Asia",
+      "supports": "Irtysh forts 1715-1720; juz submissions 1730s; Petropavlovsk 1753; Ak-Mechet 1853; Vernoye 1854; Pishpek/Tokmak 1862; Aulie-Ata/Chimkent 1864; Tashkent 1865; Khujand/Jizzakh 1866; Samarkand 1868; Khiva 1873; Kokand 1876; Geok Tepe 1881; Merv 1884; Pamirs 1890s",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Chuy",
+     "Bishkek",
+     "Talas"
+    ],
+    "label": "Chu and upper Talas valleys (Balasagun)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Karakhanids, whose supreme capital was Balasagun, after they recognised the Abbasid caliph (c.1001); never under Umayyad/Abbasid governors",
+     "dates": "c.1001-1134",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Karakhanids",
+      "dates": "10th c.-1134",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Chagatai Khanate / Moghulistan (Muslim khans)",
+      "dates": "c.1350/1354-early 16th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Khanate of Kokand (Pishpek and Tokmak forts)",
+      "dates": "early 19th c.-1862",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Arab armies never ruled here: Talas (751) was fought nearby but the Abbasids did not garrison the valley. Muslim rule began with the Karakhanids at Balasagun. The non-Muslim Qara Khitai made Balasagun their capital from 1134, and the Dzungars (Buddhist) dominated in the 17th-18th c. Russia took Pishpek and Tokmak in 1862.",
+    "confidence": "medium",
+    "uncertain": "The c.1001 date of Karakhanid recognition comes from one Wikipedia article and may refer to the western branch; whether the eastern (Balasagun) khans also put the caliph's name on coins was not checked. Upper Talas (Kyrgyz side) is not specifically documented.",
+    "sources": [
+     {
+      "title": "Balasagun (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Balasagun",
+      "supports": "Chuy valley near Burana; Karakhanid capital from the 10th c.; taken by Qara Khitai 1134; Mongols 1218",
+      "kind": "modern"
+     },
+     {
+      "title": "Ilak-Khanids (Encyclopaedia Iranica)",
+      "url": "https://www.iranicaonline.org/articles/ilak-khanids",
+      "supports": "Qarakhanids stressed loyalty to the Abbasid caliph as part of their legitimacy; realm included Shash, Farghana, Asfijab, Talas/Taraz, Semirechye; Balasagun capital; Qara Khitay took Balasagun 1134; Qatwan 1141",
+      "kind": "modern"
+     },
+     {
+      "title": "Al-Qadir (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Al-Qadir",
+      "supports": "Karakhanids recognised Abbasid caliph's suzerainty for the first time c.1001; Samanids/Ghaznavids recognised al-Qadir in 1000",
+      "kind": "modern"
+     },
+     {
+      "title": "Kara-Khanid Khanate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Kara-Khanid_Khanate",
+      "supports": "Conversion 934/c.960; Balasagun capital; territories incl. Zhetysu, Issyk-Kul region, Ferghana, Talas; 1089 Seljuk vassalage; Qatwan 1141; end 1211/1212",
+      "kind": "modern"
+     },
+     {
+      "title": "Battle of Talas (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Battle_of_Talas",
+      "supports": "751, site unconfirmed near Taraz on the Talas river; Abbasids took Shash but did not garrison Talas (cites Barthold)",
+      "kind": "modern"
+     },
+     {
+      "title": "Moghulistan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Moghulistan",
+      "supports": "Ili core, bounded by Shash and Karatau to the west, Balkhash north; Tughlugh Timur Muslim 1354; Semirechye/Tian Shan lost to Kazakhs and Kyrgyz by 1510-11; Dzungar conquest 1680s",
+      "kind": "modern"
+     },
+     {
+      "title": "Khanate of Kokand (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Khanate_of_Kokand",
+      "supports": "1709-1876; Ferghana, Tashkent, Khujand, Syr Darya and Chu forts (Pishpek, Toqmaq); borders 'Aq Masjid in the west and Karakol in the east'; annexed 1876",
+      "kind": "modern"
+     },
+     {
+      "title": "Russian conquest of Central Asia (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Russian_conquest_of_Central_Asia",
+      "supports": "Irtysh forts 1715-1720; juz submissions 1730s; Petropavlovsk 1753; Ak-Mechet 1853; Vernoye 1854; Pishpek/Tokmak 1862; Aulie-Ata/Chimkent 1864; Tashkent 1865; Khujand/Jizzakh 1866; Samarkand 1868; Khiva 1873; Kokand 1876; Geok Tepe 1881; Merv 1884; Pamirs 1890s",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Ysyk-Köl"
+    ],
+    "label": "Issyk-Kul basin (Barskhan)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Karakhanids (the Issyk-Kul region was part of their realm) after recognising the Abbasids",
+     "dates": "c.1001-1134",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Karakhanids",
+      "dates": "10th c.-1134",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Moghulistan (Muslim khans)",
+      "dates": "1354-c.1510",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Khanate of Kokand (eastern border at Karakol)",
+      "dates": "early 19th c.-1850s",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Barskhan on the south shore was the hometown of Mahmud al-Kashgari (11th c.), in Karakhanid times. From c.1510 the basin was Kyrgyz pastureland under loose or no state control, with Dzungar (Buddhist) supremacy in the 17th-18th c. Kokand's reach to Karakol was brief.",
+    "confidence": "low",
+    "uncertain": "The Karakhanid link rests on the Wikipedia list of their territories and al-Kashgari's origin; no page I opened describes actual Karakhanid administration on the lake. If that is judged too thin the category would be islamic_state_ruled (Moghulistan, Kokand). The Russian annexation date (1850s) was not checked.",
+    "sources": [
+     {
+      "title": "Barskoon (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Barskoon",
+      "supports": "Silk Road stop; birthplace of Mahmud al-Kashgari (11th c.)",
+      "kind": "modern"
+     },
+     {
+      "title": "Kara-Khanid Khanate (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Kara-Khanid_Khanate",
+      "supports": "Conversion 934/c.960; Balasagun capital; territories incl. Zhetysu, Issyk-Kul region, Ferghana, Talas; 1089 Seljuk vassalage; Qatwan 1141; end 1211/1212",
+      "kind": "modern"
+     },
+     {
+      "title": "Al-Qadir (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Al-Qadir",
+      "supports": "Karakhanids recognised Abbasid caliph's suzerainty for the first time c.1001; Samanids/Ghaznavids recognised al-Qadir in 1000",
+      "kind": "modern"
+     },
+     {
+      "title": "Moghulistan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Moghulistan",
+      "supports": "Ili core, bounded by Shash and Karatau to the west, Balkhash north; Tughlugh Timur Muslim 1354; Semirechye/Tian Shan lost to Kazakhs and Kyrgyz by 1510-11; Dzungar conquest 1680s",
+      "kind": "modern"
+     },
+     {
+      "title": "Khanate of Kokand (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Khanate_of_Kokand",
+      "supports": "1709-1876; Ferghana, Tashkent, Khujand, Syr Darya and Chu forts (Pishpek, Toqmaq); borders 'Aq Masjid in the west and Karakol in the east'; annexed 1876",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Naryn"
+    ],
+    "label": "Inner Tian Shan (At-Bashy, Naryn valley)",
+    "category": "islamic_state_ruled",
+    "caliphate": {
+     "status": "none",
+     "who": "",
+     "dates": "",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Moghulistan (Muslim khans)",
+      "dates": "1354-c.1510",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Khanate of Kokand",
+      "dates": "early 19th c.-1860s/1876",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "This high pasture country lay on the route between Kashgar and the Chu valley, but no source I opened places it under a caliph-recognising state. Tash Rabat may be a 10th-century Buddhist monastery or a later caravanserai, and Koshoy Korgon is undated. Muslim rule is documented only for Moghulistan and Kokand.",
+    "confidence": "low",
+    "uncertain": "Karakhanid control (which would make it caliphate_ruled) is likely, given its position between Kashgar and Balasagun, but is unconfirmed. The extent of Kokand's hold in Naryn and the Russian dates were not checked.",
+    "sources": [
+     {
+      "title": "Tash Rabat (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Tash_Rabat",
+      "supports": "Naryn Province; dated 10th or 15th c.; possibly a Buddhist or Nestorian monastery, Sufi khanaqah or caravanserai",
+      "kind": "modern"
+     },
+     {
+      "title": "Koshoy Korgon (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Koshoy_Korgon",
+      "supports": "At-Bashy district fortress of uncertain date",
+      "kind": "modern"
+     },
+     {
+      "title": "History of Kyrgyzstan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/History_of_Kyrgyzstan",
+      "supports": "Karakhanids converted by the 10th c.; Qara Khitai; Mongols/Khaidu; Kokand control of Kyrgyz territory early 19th c.; Russian annexation 1876",
+      "kind": "modern"
+     },
+     {
+      "title": "Moghulistan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Moghulistan",
+      "supports": "Ili core, bounded by Shash and Karatau to the west, Balkhash north; Tughlugh Timur Muslim 1354; Semirechye/Tian Shan lost to Kazakhs and Kyrgyz by 1510-11; Dzungar conquest 1680s",
+      "kind": "modern"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "a3": "TJK",
+  "country": "Tajikistan",
+  "summary": "Northern Tajikistan (Panjikant, Ushrusana, Khujand) and Khuttal in the south were conquered and ruled under the Umayyads and Abbasids, Ushrusana only from 822 and Khuttal fully from 750-751, and then by the Samanids and Ghaznavids. The Hisar/Dushanbe area was probably Samanid, but the evidence is thin. Karategin and the Pamirs (Gorno-Badakhshan) kept their own princes or mirs and came under larger Muslim states (Bukhara, Afghanistan) only in the 1870s-1890s. Bukhara ruled most of the country under Russian protection until 1920-21.",
+  "units": [
+   {
+    "provinces": [
+     "Leninabad"
+    ],
+    "label": "Ushrusana (Istaravshan), Khujand and Panjikant",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Umayyad (Panjikant taken 722, Divashtich executed); Abbasid (Ushrusana conquered 822, Afshins as subjects of the caliph); Samanid from 893",
+     "dates": "722 onward (Panjikant); 822 onward (Ushrusana); 893-999 (Samanid)",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Samanids",
+      "dates": "893-999",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Karakhanids",
+      "dates": "999-1212",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Timurids, Shaybanids",
+      "dates": "1370-17th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Khanate of Kokand / Emirate of Bukhara",
+      "dates": "18th c.-1866",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Panjikant fell to Arab forces in 722 and was then run by new administrators. Ushrusana's princes were tributaries (794-95) before the 822 conquest and Samanid annexation in 893. Russia took Khujand in 1866.",
+    "confidence": "high",
+    "uncertain": "The Panjakent article calls the 722 conquest 'Abbasid', which is anachronistic (it was Umayyad).",
+    "sources": [
+     {
+      "title": "Panjakent (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Panjakent",
+      "supports": "722 Arab siege and capture; Divashtich executed; new administrators for c.50 years; 10th-c. Friday mosque",
+      "kind": "modern"
+     },
+     {
+      "title": "Ushrusana / Osrushana (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ushrusana",
+      "supports": "Between Samarkand and Khujand south of the Syr Darya; 712-14 and 737-39 incomplete subjugation; 794-95 submission; 822 conquest; 893 Samanid annexation",
+      "kind": "modern"
+     },
+     {
+      "title": "Principality of Ushrusana (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Principality_of_Ushrusana",
+      "supports": "822 conquest by Ahmad b. Abi Khalid; afshins kept control 'as subjects of the caliph'; Isma'il b. Ahmad incorporated it 892/893",
+      "kind": "modern"
+     },
+     {
+      "title": "Samanid Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Samanid_Empire",
+      "supports": "819 sons of Asad given Samarkand, Ferghana, Shash (Tashkent), Herat; Isma'il recognised by caliph; Isfijab 839/40, Taraz 893; Khwarazm and Khuttal subdued; fall 999",
+      "kind": "modern"
+     },
+     {
+      "title": "Khanate of Kokand (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Khanate_of_Kokand",
+      "supports": "1709-1876; Ferghana, Tashkent, Khujand, Syr Darya and Chu forts (Pishpek, Toqmaq); borders 'Aq Masjid in the west and Karakol in the east'; annexed 1876",
+      "kind": "modern"
+     },
+     {
+      "title": "Russian conquest of Central Asia (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Russian_conquest_of_Central_Asia",
+      "supports": "Irtysh forts 1715-1720; juz submissions 1730s; Petropavlovsk 1753; Ak-Mechet 1853; Vernoye 1854; Pishpek/Tokmak 1862; Aulie-Ata/Chimkent 1864; Tashkent 1865; Khujand/Jizzakh 1866; Samarkand 1868; Khiva 1873; Kokand 1876; Geok Tepe 1881; Merv 1884; Pamirs 1890s",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Khatlon"
+    ],
+    "label": "Khuttal (Kulab/Hulbuk) and Wakhsh",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Umayyad tributary kings (Asad b. Abd Allah's campaigns 737); real Abbasid dominion 750-751 under Abu Muslim's appointee; then Banijurid/Abu Dawudid governors from Balkh; Samanid tributaries; caliph awarded Khuttal to the Ghaznavid Mas'ud in 1031",
+     "dates": "737 (campaigns, tributary); 750/751 onward Abbasid; 10th c. Samanid; 1031 Ghaznavid investiture",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Banijurids / Abu Dawudids",
+      "dates": "9th c.",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Samanids (Khuttal rulers as privileged tributaries)",
+      "dates": "10th c.",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Ghaznavids (caliphal grant 1031), then Seljuks, Karakhanids, Ghurids, Khwarazmshahs",
+      "dates": "1031-1220",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Emirate of Bukhara (Kulob beylik)",
+      "dates": "to 1920",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Khuttal's native kings were tributaries under the Umayyads; real Arab rule began in 750-751, when the prince fled to the Tang. Under the Samanids its rulers sent presents rather than taxes. In 1031 the caliph himself granted Khuttal to the Ghaznavid Mas'ud.",
+    "confidence": "high",
+    "uncertain": "",
+    "sources": [
+     {
+      "title": "Khottal (Encyclopaedia Iranica)",
+      "url": "https://iranicaonline.org/articles/kottal",
+      "supports": "Location between Vakhsh and Panj; Asad's 737 victory; Arab dominion 750-751; Banijurids; Samanid tributaries sending presents not taxes; caliph awarded Khuttal to Mas'ud 1031; later Seljuks, Qarakhanids, Ghurids, Khwarazmshahs",
+      "kind": "modern"
+     },
+     {
+      "title": "Muslim conquest of Transoxiana (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquest_of_Transoxiana",
+      "supports": "Qutayba's campaigns 705-715; Turgesh counter-offensive 720-738; Nasr b. Sayyar recovery by c.743; Talas 751 (cites Gibb, Kennedy, Blankinship)",
+      "kind": "modern"
+     },
+     {
+      "title": "Emirate of Bukhara (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Emirate_of_Bukhara",
+      "supports": "1785-1920; eastern Bukhara incl. Hisar, Kulob, Karategin, Darvaz, Rushan; Russian protectorate after 1873; Soviet conquest 1920; no caliph recognition mentioned",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Dushanbe",
+     "Tadzhikistan Territories"
+    ],
+    "label": "Hisar valley (Shuman) and Karategin (Rasht)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Samanids (Hisar/Dushanbe area 'controlled by the Samanids after the Arab conquest'); Karategin largely outside",
+     "dates": "9th-10th c. (not precisely dated)",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Samanids",
+      "dates": "9th-10th c.",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Shaybanids (conquered Hisar 1504) and later Uzbek beks",
+      "dates": "1504-18th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Emirate of Bukhara (Hisar; Karategin conquered 1877; Dushanbe granted 1868)",
+      "dates": "1868-1920/21",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Wikipedia says the Samanids controlled the Dushanbe region after the Arab conquest. The mountain district of Karategin (Rasht) stayed under native princes until Bukhara annexed it (1868/1877). Bukhara held Hisar and Dushanbe under Russian protection until the Red Army took Dushanbe in 1921.",
+    "confidence": "low",
+    "uncertain": "The only evidence for early caliphal-era rule here is one sentence in the Wikipedia Dushanbe article (the same article misplaces Hulbuk, which is in Khatlon, 'near Dushanbe'). The Iranica Chaghaniyan page, which likely covers Shuman/Akharun, could not be read. Karategin's early-Islamic status (said to have been independent 'for many centuries'; one passage claims Bukharan conquest in 1636) is unresolved.",
+    "sources": [
+     {
+      "title": "Dushanbe (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Dushanbe",
+      "supports": "'After the Arab conquest, the Samanids controlled the region'; 7th-c. Chinese mention of Shuman",
+      "kind": "modern"
+     },
+     {
+      "title": "Dushanbe (Encyclopaedia Iranica)",
+      "url": "https://iranicaonline.org/articles/dushanbe",
+      "supports": "Village first recorded 17th-18th c.; long subject to the beg of Hisor; given to the amir of Bukhara 1868; Red Army took it 21 Feb 1921; Enver Pasha's capture Feb 1922",
+      "kind": "modern"
+     },
+     {
+      "title": "Hisor (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Hisor",
+      "supports": "Muhammad Shaybani conquered the region 1504; Babur briefly 1511; semi-independent; reintegrated into Bukhara after the 1868 treaty",
+      "kind": "modern"
+     },
+     {
+      "title": "Karategin (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Karategin",
+      "supports": "Independent native princes for centuries; Kokand's ineffective claim; Bukharan conquest 1877 (also a 1636 Bukharan seizure reported)",
+      "kind": "modern"
+     },
+     {
+      "title": "Emirate of Bukhara (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Emirate_of_Bukhara",
+      "supports": "1785-1920; eastern Bukhara incl. Hisar, Kulob, Karategin, Darvaz, Rushan; Russian protectorate after 1873; Soviet conquest 1920; no caliph recognition mentioned",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Gorno-Badakhshan"
+    ],
+    "label": "Western Pamirs (Shughnan, Rushan, Wakhan, Darvaz) and eastern Pamir",
+    "category": "islamic_state_ruled",
+    "caliphate": {
+     "status": "none",
+     "who": "",
+     "dates": "",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Mirdom of Darvaz (Muslim mirs)",
+      "dates": "pre-1638-1878",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Mirs of Shughnan-Rushan (Muslim, Ismaili); tribute to Murad Beg of Kunduz",
+      "dates": "medieval-1883 (tribute 1829)",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Emirate of Afghanistan (annexed Shughnan)",
+      "dates": "1883-1895",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Emirate of Bukhara (Darvaz from 1878; Rushan)",
+      "dates": "1878-1920",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Khanate of Kokand (claims in the eastern Pamir)",
+      "dates": "19th c. (not dated)",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "No caliphal or caliph-recognising state is documented in the Pamir valleys. The region was ruled by small Muslim mirdoms (Darvaz, Shughnan-Rushan, Wakhan) and from the 1870s-1890s by Afghanistan and Bukhara, with Russia completing control in 1895-96. Ismaili Islam spread here mainly through missionary activity, not conquest.",
+    "confidence": "medium",
+    "uncertain": "Whether any of the Pamir valleys paid tribute to the Abbasids or Samanids (as part of greater Badakhshan) was not checked; Iranica's Badakhshan/Shughnan articles were not reached. The Shughnan Wikipedia summary has inconsistent 1874/1883/1893 dates. The role of Nasir-i Khusraw in Ismaili conversion is widely reported but not checked here.",
+    "sources": [
+     {
+      "title": "Gorno-Badakhshan Autonomous Region (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Gorno-Badakhshan_Autonomous_Region",
+      "supports": "17th-19th c. semi-autonomous statelets Darwaz, Shughnun-Rushan, Wakhan; Kokand and Bukhara authority; Russian colonisation completed 1896; 1895-96 boundary",
+      "kind": "modern"
+     },
+     {
+      "title": "Shughnan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Shughnan",
+      "supports": "Mirs of Shughnan and Roshan; tribute to Murad Beg of Kunduz 1829; Abdur Rahman annexed Shughnan 1883; 1895 Anglo-Russian accord",
+      "kind": "modern"
+     },
+     {
+      "title": "Darvaz (region) (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Darvaz_(region)",
+      "supports": "Mir dynasty from before 1638; invaded by Bukhara Dec 1877, absorbed by spring 1878",
+      "kind": "modern"
+     },
+     {
+      "title": "Emirate of Bukhara (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Emirate_of_Bukhara",
+      "supports": "1785-1920; eastern Bukhara incl. Hisar, Kulob, Karategin, Darvaz, Rushan; Russian protectorate after 1873; Soviet conquest 1920; no caliph recognition mentioned",
+      "kind": "modern"
+     },
+     {
+      "title": "Russian conquest of Central Asia (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Russian_conquest_of_Central_Asia",
+      "supports": "Irtysh forts 1715-1720; juz submissions 1730s; Petropavlovsk 1753; Ak-Mechet 1853; Vernoye 1854; Pishpek/Tokmak 1862; Aulie-Ata/Chimkent 1864; Tashkent 1865; Khujand/Jizzakh 1866; Samarkand 1868; Khiva 1873; Kokand 1876; Geok Tepe 1881; Merv 1884; Pamirs 1890s",
+      "kind": "modern"
+     }
+    ]
+   }
+  ]
+ }
+]

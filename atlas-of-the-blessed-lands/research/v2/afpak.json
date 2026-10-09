@@ -1,0 +1,1649 @@
+[
+ {
+  "a3": "AFG",
+  "country": "Afghanistan",
+  "summary": "Western Afghanistan (Herat, Sistan) and the north (Balkh/Tokharistan) were taken into the Rashidun and Umayyad caliphates in the 650s-710s and governed by caliphal governors. The east and south-east (Kabul, Zabulistan, Ghazni) resisted for two centuries under the Turk/Hindu Shahis and the Zunbils, paying tribute at times, and came under lasting Muslim rule only with the Saffarids (870) and Ghaznavids (late 10th c.), who recognised the Abbasid caliph. Ghor was Islamised only in the 11th century and later ruled by the Abbasid-recognising Ghurids. Nuristan (Kafiristan) was never ruled by a caliphate or recognising dynasty; it was conquered and converted by Amir Abdur Rahman Khan in 1895-96.",
+  "units": [
+   {
+    "provinces": [
+     "Hirat",
+     "Badghis"
+    ],
+    "label": "Herat and Badghis (Harat, Badghis)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Rashidun, Umayyad and Abbasid governors of Khurasan; later Tahirids, Samanids, Ghaznavids, Seljuks, Ghurids (all recognising the Abbasids)",
+     "dates": "c. 652 treaty; Arab governor appointed; caliphal rule continuous through Abbasid era; recognising dynasties to 1215",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Tahirids",
+      "dates": "9th c. (to c. 870)",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Saffarids",
+      "dates": "870 (conquest of Herat) - 900",
+      "recognised_caliph": "nominal"
+     },
+     {
+      "name": "Samanids",
+      "dates": "c. 900 - 999",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Ghaznavids",
+      "dates": "998 - 1040",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Great Seljuks",
+      "dates": "1040 - 12th c.",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Ghurids",
+      "dates": "1175 - c. 1215",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Kartids (under Mongol overlords)",
+      "dates": "1244 - 1381",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Timurids",
+      "dates": "1380 - 1507",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Safavids",
+      "dates": "1510 - 1732 (with interruptions)",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Durrani Empire / Barakzai Afghanistan",
+      "dates": "1747 onwards; Herat finally incorporated 1863",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Ruled directly: the local ruler made a peace treaty covering Herat, Badghis and Pushang at the first conquest (c. 652) and an Arab governor was installed. Badghis's Hephthalite prince Nizak surrendered to Qutayba in 705 and revolted in 709; after that the area was firmly part of Umayyad Khurasan.",
+    "confidence": "high",
+    "uncertain": "Exact year of first conquest of Herat varies in sources (643 vs 652); I did not open the Iranica 'Herat iii' medieval article (URL not found).",
+    "sources": [
+     {
+      "title": "Muslim conquests of Afghanistan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquests_of_Afghanistan",
+      "supports": "Conquest dates for Zaranj 643-644, Herat/Badghis treaty, Balkh 652/705, Kabul 664, Bust/Zabul treaty 656; Bamiyan Sher conversion late 8th c. (citing al-Ya'qubi); Kabul king's conversion under al-Ma'mun; Ghor Islamised after Ghaznavid raids; Nuristan conquered 1895-96",
+      "kind": "modern"
+     },
+     {
+      "title": "Herat (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Herat",
+      "supports": "Arab conquest c.652 and Arab governor; Tahirids, Saffarids 870, Samanids, Ghaznavids 998-1040, Seljuks, Ghurids 1175, Mongol sieges 1221-22, Kartids 1244-1381, Timurids, Safavids 1510, Durrani 1747, incorporated into Afghanistan 1863",
+      "kind": "modern"
+     },
+     {
+      "title": "Muslim conquest of Transoxiana (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquest_of_Transoxiana",
+      "supports": "Tokharistan principalities (Badakhshan, Guzgan, Badghis, Herat, Bamiyan, Kabul) listed; 651-652 tribute only (Morony); Qutayba recovers Balkh 705; after 709-710 Lower Tokharistan 'more firmly incorporated' with Arab district representatives",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Nimroz",
+     "Farah"
+    ],
+    "label": "Sīstān (Zaranj) and Farah",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Rashidun (under Uthman), Umayyad and Abbasid governors of Sijistan; then Saffarids (recognised by the caliph as governors for a time), Samanid-vassal Saffarids, Ghaznavids",
+     "dates": "Zarang surrendered 31/652 (raids from 643-644); caliphal governors to 861; Saffarids 861-1003; Ghaznavid 1003 on",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Saffarids",
+      "dates": "861 - 1003",
+      "recognised_caliph": "nominal"
+     },
+     {
+      "name": "Ghaznavids",
+      "dates": "1003 - mid-11th c.",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Great Seljuks (overlords)",
+      "dates": "mid-11th c. - 12th c.",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Nasrid maliks of Sistan",
+      "dates": "1030 - 1225",
+      "recognised_caliph": "nominal"
+     },
+     {
+      "name": "Mehrabanid maliks; later Timurids, Safavids",
+      "dates": "1236 onwards",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Durrani / Barakzai Afghanistan (eastern Sistan)",
+      "dates": "18th-19th c.; border fixed 1872 and 1903-05",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Ruled directly: Zarang surrendered peacefully in 652 and became the Arab base for raids east against the Zunbils and Kabul Shahs. Sistan was a Kharijite stronghold, but still a caliphal province, until Ya'qub b. al-Layth rose there (861). Farah sits on the Zarang-Herat road and shared this history.",
+    "confidence": "high",
+    "uncertain": "Farah is grouped with Sistan by geography; I did not open a source about Farah specifically.",
+    "sources": [
+     {
+      "title": "Sistan (Encyclopaedia Iranica)",
+      "url": "https://www.iranicaonline.org/articles/sistan",
+      "supports": "Arabs reach Sistan 31/652 under Abdallah b. Amir; Zarang surrendered peacefully, Bost resisted; Umayyad/Abbasid governors; 698 defeat by Zunbil; Ibn al-Ash'ath revolt; Kharijites; Saffarids from 861; Mahmud 1003; Nasrid maliks 1030-1225; 1872 commission",
+      "kind": "modern"
+     },
+     {
+      "title": "Muslim conquests of Afghanistan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquests_of_Afghanistan",
+      "supports": "Conquest dates for Zaranj 643-644, Herat/Badghis treaty, Balkh 652/705, Kabul 664, Bust/Zabul treaty 656; Bamiyan Sher conversion late 8th c. (citing al-Ya'qubi); Kabul king's conversion under al-Ma'mun; Ghor Islamised after Ghaznavid raids; Nuristan conquered 1895-96",
+      "kind": "modern"
+     },
+     {
+      "title": "Saffarid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Saffarid_dynasty",
+      "supports": "Ya'qub's conquests (Zunbils, Kabul valley, Herat 870); caliph recognised Ya'qub as governor of Sistan, Fars, Kerman; 876 break with caliph; Saffarids later Samanid vassals; ended by Mahmud 1002",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Balkh",
+     "Samangan",
+     "Kunduz",
+     "Baghlan",
+     "Takhar"
+    ],
+    "label": "Balkh and Lower Ṭukhāristān",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Umayyad governors of Khurasan (Qutayba b. Muslim, Asad b. Abd Allah); Abbasid governors; then Tahirids, Samanids, Ghaznavids, Seljuks, Ghurids (recognising the Abbasids)",
+     "dates": "Tribute only 652-c.705; firm control from 705 (Qutayba) and 709-710 (after Nizak's revolt); Balkh briefly capital of Khurasan from 725; to 1220",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Tahirids",
+      "dates": "821 - 873",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Saffarids",
+      "dates": "870s - 900",
+      "recognised_caliph": "nominal"
+     },
+     {
+      "name": "Samanids",
+      "dates": "900 - 999",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Ghaznavids, Seljuks, Ghurids, Khwarazmshahs",
+      "dates": "999 - 1220",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Timurids",
+      "dates": "late 14th - early 16th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Uzbek khanates (Shaybanid/Janid Bukhara); Mughal occupation 1646-47",
+      "dates": "16th - 18th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Durrani / Barakzai Afghanistan",
+      "dates": "1750s onwards (firmly from 1850s)",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "First submissions in 651-652 were tribute agreements that local princes broke. From Qutayba's campaigns (705-710) Arab district officers were placed beside the local princes, and in 725 Governor Asad rebuilt Balkh and moved the Khurasan capital there. So this was directly ruled, not only tributary.",
+    "confidence": "high",
+    "uncertain": "Kunduz/Baghlan/Takhar (old Tokharistan, Khulm, Andarab) are grouped with Balkh by region; I did not open separate sources on each. Exact date of first Arab entry to Balkh is given as 652 or 653.",
+    "sources": [
+     {
+      "title": "Balkh ii. History from the Arab conquest to the Mongols (Encyclopaedia Iranica)",
+      "url": "https://www.iranicaonline.org/articles/bal%e1%b8%b5-ii-history-from-the-arab-conquest-to-the-mongols/",
+      "supports": "Raids under Uthman 32/653; Nizak's revolt in Guzgan and lower Tokharistan 90/709 suppressed by Qutayba; Asad b. Abd-Allah rebuilt Balkh 107/725 and moved Khorasan capital there; Samanid, Ghaznavid, Seljuk, Ghurid, Khwarazmshah rule; Mongol sack 618/1221",
+      "kind": "modern"
+     },
+     {
+      "title": "Muslim conquest of Transoxiana (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquest_of_Transoxiana",
+      "supports": "Tokharistan principalities (Badakhshan, Guzgan, Badghis, Herat, Bamiyan, Kabul) listed; 651-652 tribute only (Morony); Qutayba recovers Balkh 705; after 709-710 Lower Tokharistan 'more firmly incorporated' with Arab district representatives",
+      "kind": "modern"
+     },
+     {
+      "title": "Muslim conquests of Afghanistan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquests_of_Afghanistan",
+      "supports": "Conquest dates for Zaranj 643-644, Herat/Badghis treaty, Balkh 652/705, Kabul 664, Bust/Zabul treaty 656; Bamiyan Sher conversion late 8th c. (citing al-Ya'qubi); Kabul king's conversion under al-Ma'mun; Ghor Islamised after Ghaznavid raids; Nuristan conquered 1895-96",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Jawzjan",
+     "Faryab",
+     "Sari Pul"
+    ],
+    "label": "Gūzgān (Juzjan) and Fāryāb",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Umayyad governors of Khurasan after 709; Abbasid governors; then local Farighunid amirs as vassals of the Saffarids, Samanids and Ghaznavids",
+     "dates": "c. 709-710 (Nizak's revolt in Guzgan suppressed) to 1010; recognising dynasties to 1215",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Farighunids (vassals of Saffarid Amr, then Samanids, then Ghaznavids)",
+      "dates": "9th c. - c. 1010",
+      "recognised_caliph": "yes (via Samanid/Ghaznavid overlords)"
+     },
+     {
+      "name": "Ghaznavids, Seljuks, Ghurids",
+      "dates": "1010 - c. 1215",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Timurids; Uzbek khanates",
+      "dates": "15th - 18th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Durrani / Barakzai Afghanistan",
+      "dates": "18th c. onwards (Uzbek khanates of Maymana etc. absorbed in the 19th c.)",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Guzgan was part of lower Tokharistan, where Nizak raised a revolt in 709 that Qutayba put down; after that the area was within Umayyad Khurasan. In the 9th-10th centuries it was held by the local Muslim Farighunids as Samanid and then Ghaznavid vassals.",
+    "confidence": "medium",
+    "uncertain": "Neither source I opened gives a firm date for the Arab conquest of Guzgan itself or says whether the Farighunids named the caliph on their coins. Sar-i Pul and Faryab are grouped here by region.",
+    "sources": [
+     {
+      "title": "Balkh ii. History from the Arab conquest to the Mongols (Encyclopaedia Iranica)",
+      "url": "https://www.iranicaonline.org/articles/bal%e1%b8%b5-ii-history-from-the-arab-conquest-to-the-mongols/",
+      "supports": "Raids under Uthman 32/653; Nizak's revolt in Guzgan and lower Tokharistan 90/709 suppressed by Qutayba; Asad b. Abd-Allah rebuilt Balkh 107/725 and moved Khorasan capital there; Samanid, Ghaznavid, Seljuk, Ghurid, Khwarazmshah rule; Mongol sack 618/1221",
+      "kind": "modern"
+     },
+     {
+      "title": "Farighunids (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Farighunids",
+      "supports": "Farighunid rulers of Guzgan recognised the Saffarid Amr, then Samanid vassals, then Ghaznavid vassals; ended c.1010 under Mahmud",
+      "kind": "modern"
+     },
+     {
+      "title": "Muslim conquest of Transoxiana (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquest_of_Transoxiana",
+      "supports": "Tokharistan principalities (Badakhshan, Guzgan, Badghis, Herat, Bamiyan, Kabul) listed; 651-652 tribute only (Morony); Qutayba recovers Balkh 705; after 709-710 Lower Tokharistan 'more firmly incorporated' with Arab district representatives",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Badakhshan"
+    ],
+    "label": "Badakhshān",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Samanids (coins at the Badakhshan mint name the Abbasid caliphs al-Radi, al-Muti', al-Ta'i), then Ghaznavids",
+     "dates": "Samanid governors c. 920-990s; Ghaznavid from late 10th c.; earlier 8th-c. Arab presence (tribute) not dated precisely",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Samanids (governors such as al-Harith b. Harb)",
+      "dates": "c. 920 - late 10th c.",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Ghaznavids",
+      "dates": "late 10th - 11th c.",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Local mirs/shahs; Timurids",
+      "dates": "13th - 16th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Mughal occupation",
+      "dates": "1641 - 1647",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Uzbeks; Yarid mirs",
+      "dates": "1584 onwards; Yarids from 1657",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Durrani / Barakzai Afghanistan",
+      "dates": "Durrani invasion mid-18th c.; tributary to Kabul by 1859; autonomy ended 1881",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "As part of Tokharistan, Badakhshan was likely tributary to the Umayyads at first. Firm evidence of rule comes from 10th-century Samanid coins struck in Badakhshan with the Abbasid caliph's name. Ismaili Islam was spread there by Nasir Khusraw in the 11th century, and later it was usually run by semi-autonomous local mirs.",
+    "confidence": "medium",
+    "uncertain": "I could not open an Iranica history section for Badakhshan (only geography/name sections exist). No source I opened dates the first Arab conquest. The coin study's date for the Ghaznavid takeover (it says 984, under 'Mahmud') does not match Mahmud's reign and is not used.",
+    "sources": [
+     {
+      "title": "M. Mitchiner, 'Multiple Dirhems of the Samanid-Ghaznavid Period from North-East Afghanistan', Oriental Numismatic Society Information Sheet (1975)",
+      "url": "https://www.orientalnumismaticsociety.org/archive/IS_005.pdf",
+      "supports": "Samanid-era coins struck at the Badakhshan mint naming Abbasid caliphs (al-Radi, al-Muti', al-Ta'i) and Samanid governors such as al-Harith b. Harb; later Ghaznavid coinage there",
+      "kind": "modern"
+     },
+     {
+      "title": "Badakhshan Province (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Badakhshan_Province",
+      "supports": "Gradual incorporation into the Islamic world from the 8th c.; Samanid, Ghaznavid, Seljuk, Timurid periods; semi-autonomous mirs; Durrani in mid-18th c.",
+      "kind": "modern"
+     },
+     {
+      "title": "Badakhshan (Encyclopaedia Britannica)",
+      "url": "https://www.britannica.com/place/Badakhshan",
+      "supports": "Ruled successively by Hephthalites, Turks and Arabs; local dynasty from 13th c.; Timurids 15th c.; Uzbek conquest 1584; Murad Beg of Kunduz 1822; tributary to Kabul by 1859, autonomy ended 1881",
+      "kind": "modern"
+     },
+     {
+      "title": "Badakhshan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Badakhshan",
+      "supports": "Nasir Khusraw spread Ismailism in the 11th c.; Timurid and Mughal-era princes; Shah Jahan's occupation 1641-1647; Yarid mirs from 1657; Ahmad Shah Durrani's invasion; Abdur Rahman's campaigns 1883-1887",
+      "kind": "modern"
+     },
+     {
+      "title": "Muslim conquest of Transoxiana (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquest_of_Transoxiana",
+      "supports": "Tokharistan principalities (Badakhshan, Guzgan, Badghis, Herat, Bamiyan, Kabul) listed; 651-652 tribute only (Morony); Qutayba recovers Balkh 705; after 709-710 Lower Tokharistan 'more firmly incorporated' with Arab district representatives",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Kabul",
+     "Kapisa",
+     "Parwan",
+     "Wardak"
+    ],
+    "label": "Kābulistān (Kabul, Kāpisā)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Saffarids (870, Ya'qub b. al-Layth, recognised by the caliph as governor), then Ghaznavids (recognised the Abbasids; Mahmud invested 999), Ghurids",
+     "dates": "Saffarid 870 (perhaps lost c. 878); Ghaznavid from 977 to the 1150s; Ghurid to c. 1215",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Saffarids",
+      "dates": "870 - c. 878 (?)",
+      "recognised_caliph": "nominal"
+     },
+     {
+      "name": "Ghaznavids",
+      "dates": "977 - 12th c.",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Ghurids, Khwarazmshahs",
+      "dates": "12th c. - 1221",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Qarlughids, Khaljis, Timurids",
+      "dates": "13th - 15th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Mughals (Babur from 1504; Kabul Subah)",
+      "dates": "1504 - 1738",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Afsharids (Nader Shah)",
+      "dates": "1738 - 1747",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Durrani / Barakzai Afghanistan (capital 1776)",
+      "dates": "1747 onwards",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Before 870 this land was not ruled by the caliphate: Arab raids (Abd al-Rahman b. Samura took Kabul c. 664 but left) were temporary, and the Turk Shahi kings paid tribute at times (submission to al-Mahdi 775-785; defeat by al-Ma'mun's forces 814/815 with forced conversion and tribute). Lasting Muslim rule began with the Saffarid conquest of 870 and firmly with the Ghaznavids from 977.",
+    "confidence": "medium",
+    "uncertain": "Sources disagree on whether the Hindu Shahis retook Kabul after 878 and held it until Sabuktigin (977); 'History of Kabul' presents 870 as the lasting start. Parwan and Wardak are grouped here by region (Wardak is also partly Hazarajat).",
+    "sources": [
+     {
+      "title": "History of Kabul (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/History_of_Kabul",
+      "supports": "Kabul independent in 642; Abd al-Rahman b. Samura's temporary occupation; Ya'qub b. al-Layth conquered Kabul 870; Istakhri (921) on mixed Muslim/non-Muslim town; later Samanids, Ghaznavids, Ghurids, Khwarazmshahs",
+      "kind": "modern"
+     },
+     {
+      "title": "Turk Shahis (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Turk_Shahis",
+      "supports": "Submission to al-Mahdi (775-785); 814/815 defeat by al-Ma'mun's forces, forced conversion and annual tribute; territory Kapisa to Gandhara",
+      "kind": "modern"
+     },
+     {
+      "title": "Hindu Shahis (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Hindu_Shahis",
+      "supports": "Saffarid capture of Kabul 870, Saffarid control until 878 then reportedly retaken; capitals Hund/Nandana/Lahore; Ghaznavid defeats 1001-1026; territory Kabulistan, Gandhara, Punjab, Peshawar valley, Swat, Salt Range",
+      "kind": "modern"
+     },
+     {
+      "title": "Jayapala (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Jayapala",
+      "supports": "Sabuktigin took Kabul 977; plundered Lamghan; 991 defeat; 1001 Battle of Peshawar and submission of Shahi lands west of the Indus",
+      "kind": "modern"
+     },
+     {
+      "title": "Muslim conquests of Afghanistan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquests_of_Afghanistan",
+      "supports": "Conquest dates for Zaranj 643-644, Herat/Badghis treaty, Balkh 652/705, Kabul 664, Bust/Zabul treaty 656; Bamiyan Sher conversion late 8th c. (citing al-Ya'qubi); Kabul king's conversion under al-Ma'mun; Ghor Islamised after Ghaznavid raids; Nuristan conquered 1895-96",
+      "kind": "modern"
+     },
+     {
+      "title": "Saffarid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Saffarid_dynasty",
+      "supports": "Ya'qub's conquests (Zunbils, Kabul valley, Herat 870); caliph recognised Ya'qub as governor of Sistan, Fars, Kerman; 876 break with caliph; Saffarids later Samanid vassals; ended by Mahmud 1002",
+      "kind": "modern"
+     },
+     {
+      "title": "Ghaznavids (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ghaznavids",
+      "supports": "Alptigin takes Ghazni 962; Sabuktigin c.977; Abbasid caliph recognised Mahmud 999 (Yamin al-Dawla); Peshawar 1001, Multan 1005-06, Punjab c.1021, Sind/Mansura 1026; Ghurids take Ghazni c.1173, Lahore 1186",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Nangarhar",
+     "Laghman"
+    ],
+    "label": "Lamghān and Nagarahāra (Jalalabad)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Ghaznavids (recognised the Abbasid caliph)",
+     "dates": "Fought over 986-991; firmly Ghaznavid after Jayapala's defeat at Peshawar, 1001; Ghurid in the late 12th c.",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Ghaznavids",
+      "dates": "c. 991/1001 - 12th c.",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Ghurids",
+      "dates": "late 12th c. - c. 1215",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Mughals (Kabul Subah)",
+      "dates": "1504 - 1738",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Durrani / Barakzai Afghanistan",
+      "dates": "1747 onwards",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "This was Hindu Shahi land (Kabul Shahi tribute periods apply). Sabuktigin plundered Lamghan after Jayapala broke a treaty (c. 986-988) and routed him in 991. After Mahmud's victory at Peshawar in 1001, all Shahi territory west of the Indus submitted to the Ghaznavids.",
+    "confidence": "medium",
+    "uncertain": "No source I opened gives an exact annexation year for Laghman/Nangarhar specifically. Upper Laghman (Alingar/Alishang) bordered Kafiristan and stayed non-Muslim until the 1890s.",
+    "sources": [
+     {
+      "title": "Jayapala (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Jayapala",
+      "supports": "Sabuktigin took Kabul 977; plundered Lamghan; 991 defeat; 1001 Battle of Peshawar and submission of Shahi lands west of the Indus",
+      "kind": "modern"
+     },
+     {
+      "title": "Hindu Shahis (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Hindu_Shahis",
+      "supports": "Saffarid capture of Kabul 870, Saffarid control until 878 then reportedly retaken; capitals Hund/Nandana/Lahore; Ghaznavid defeats 1001-1026; territory Kabulistan, Gandhara, Punjab, Peshawar valley, Swat, Salt Range",
+      "kind": "modern"
+     },
+     {
+      "title": "Ghaznavids (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ghaznavids",
+      "supports": "Alptigin takes Ghazni 962; Sabuktigin c.977; Abbasid caliph recognised Mahmud 999 (Yamin al-Dawla); Peshawar 1001, Multan 1005-06, Punjab c.1021, Sind/Mansura 1026; Ghurids take Ghazni c.1173, Lahore 1186",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Kunar"
+    ],
+    "label": "Kunar valley (Chaghan-Sarai)",
+    "category": "islamic_state_ruled",
+    "caliphate": {
+     "status": "none",
+     "who": "No caliphate or recognising dynasty confirmed as ruling the valley",
+     "dates": "",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Mughals (Babur's campaigns; Kabul Subah)",
+      "dates": "early 16th c. - 1738",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Durrani / Barakzai Afghanistan",
+      "dates": "1747 onwards; side valleys conquered 1895-96",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "The lower valley had a Muslim town (Chaghan-Sarai) by Babur's time, whose people mixed with Kafir customs. Much of the province was part of the Kafiristan borderland, and its non-Muslim parts were conquered and converted under Abdur Rahman Khan in the 1890s.",
+    "confidence": "low",
+    "uncertain": "The Wikipedia province article's claim of 'Gabari sultans' ruling 900-1190 is poorly sourced and is not used. I could not confirm whether the Ghaznavids held the lower valley; if they did, the category would be caliphate_ruled.",
+    "sources": [
+     {
+      "title": "Kunar Province (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Kunar_Province",
+      "supports": "Babur on Chaghan-Sarai's Muslim townsfolk mixing with Kafirs; part of the Kafiristan borderland; Kafirs converted under Abdur Rahman in the 1890s; Durrani control",
+      "kind": "modern"
+     },
+     {
+      "title": "Kafiristan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Kafiristan",
+      "supports": "Location (Nuristan, Alingar/Pech/Kunar basins); conquest by Abdur Rahman Khan winter 1895-96 in 40 days; renamed Nuristan 1896; possible raid by Mahmud of Ghazni on 'Nardain'",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Nuristan"
+    ],
+    "label": "Kāfiristān (Nuristan)",
+    "category": "islamic_state_ruled",
+    "caliphate": {
+     "status": "none",
+     "who": "Never ruled by a caliphate or recognising dynasty",
+     "dates": "",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Barakzai Emirate of Afghanistan (Amir Abdur Rahman Khan)",
+      "dates": "conquered winter 1895-96; renamed Nuristan 1896",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Politically independent and non-Muslim until Abdur Rahman Khan's columns took it in about 40 days in winter 1895-96, followed by forced conversion. Earlier contact was raids only, e.g. a possible raid by Mahmud of Ghazni on 'Nardain'. Surrounding Muslim states never ruled it.",
+    "confidence": "high",
+    "uncertain": "Whether any earlier raid (Mahmud c. 1020; Timur 1398, often mentioned elsewhere) actually reached Nuristan; I did not open a source on Timur's raid.",
+    "sources": [
+     {
+      "title": "Kafiristan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Kafiristan",
+      "supports": "Location (Nuristan, Alingar/Pech/Kunar basins); conquest by Abdur Rahman Khan winter 1895-96 in 40 days; renamed Nuristan 1896; possible raid by Mahmud of Ghazni on 'Nardain'",
+      "kind": "modern"
+     },
+     {
+      "title": "Muslim conquests of Afghanistan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquests_of_Afghanistan",
+      "supports": "Conquest dates for Zaranj 643-644, Herat/Badghis treaty, Balkh 652/705, Kabul 664, Bust/Zabul treaty 656; Bamiyan Sher conversion late 8th c. (citing al-Ya'qubi); Kabul king's conversion under al-Ma'mun; Ghor Islamised after Ghaznavid raids; Nuristan conquered 1895-96",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Ghazni"
+    ],
+    "label": "Ghazna",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Saffarids (Lawik rulers reduced to tributaries), then Ghaznavids (recognised the Abbasids), Ghurids",
+     "dates": "Saffarid conquest c. 870; Lawik tributary 877; Ghaznavid 962/977 - 1163; Ghurid 1173 - c. 1215",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Lawik dynasty (Muslim status contested)",
+      "dates": "c. 750 - 962/977",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Saffarids",
+      "dates": "c. 870 - late 9th c.",
+      "recognised_caliph": "nominal"
+     },
+     {
+      "name": "Ghaznavids (capital)",
+      "dates": "977 - 1163",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Ghurids (secondary capital)",
+      "dates": "1173 - c. 1215",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Khwarazmshahs",
+      "dates": "1215 - 1221",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Later: Timurids, Mughals, Durrani/Barakzai",
+      "dates": "14th c. onwards",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "An Arab raid reached the area in 683, and in 769 Ma'n b. Za'ida defeated the Zunbils near Ghazni and took tribute; both were temporary or tributary. Lasting Muslim rule came with Ya'qub b. al-Layth (c. 870) and above all Alptigin's capture in 962, after which Ghazni was the Ghaznavid capital (977-1163).",
+    "confidence": "high",
+    "uncertain": "Whether the Lawik rulers were Muslim is disputed in the sources.",
+    "sources": [
+     {
+      "title": "Ghazni (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ghazni",
+      "supports": "Arab raid 683; Ya'qub conquers Zunbils; Alptigin 962; Ghaznavid capital 977-1163; Ghurid secondary capital 1173; Khwarazmian 1215-1221; Mongol destruction",
+      "kind": "modern"
+     },
+     {
+      "title": "Lawik dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Lawik_dynasty",
+      "supports": "Lawiks of Ghazni/Gardez, contested conversion; Ya'qub reduced Abu Mansur Aflah Lawik to tributary at Gardez 877; Alptigin 962",
+      "kind": "modern"
+     },
+     {
+      "title": "Zunbils (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Zunbils",
+      "supports": "Zunbil territory (Zamindawar, Ghazni, Bost/Rukhkhaj), Umayyad tribute episodes 698/711/769, nominal submission to al-Mahdi, end 870 by Ya'qub b. al-Layth",
+      "kind": "modern"
+     },
+     {
+      "title": "Ghaznavids (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ghaznavids",
+      "supports": "Alptigin takes Ghazni 962; Sabuktigin c.977; Abbasid caliph recognised Mahmud 999 (Yamin al-Dawla); Peshawar 1001, Multan 1005-06, Punjab c.1021, Sind/Mansura 1026; Ghurids take Ghazni c.1173, Lahore 1186",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Paktya",
+     "Logar",
+     "Paktika",
+     "Khost"
+    ],
+    "label": "Gardīz and the south-eastern highlands",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Saffarids (Lawik ruler of Gardez made tributary 877), then Ghaznavids and Ghurids (recognised the Abbasids)",
+     "dates": "877; Ghaznavid c. 977 - 12th c.",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Saffarids",
+      "dates": "877 - late 9th c.",
+      "recognised_caliph": "nominal"
+     },
+     {
+      "name": "Ghaznavids, Ghurids",
+      "dates": "late 10th c. - c. 1215",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Mughals; Durrani / Barakzai Afghanistan",
+      "dates": "16th c. onwards (tribal autonomy in Khost/Paktika)",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Gardez (Paktya) is the best documented: Ya'qub b. al-Layth made its Lawik ruler a tributary in 877, and it then lay inside the Ghaznavid heartland next to Ghazni. Logar lies between Kabul and Gardez. Khost and Paktika were tribal uplands where state control was probably light.",
+    "confidence": "low",
+    "uncertain": "No source I opened documents administration of Khost or Paktika specifically; grouped here by geography. If treated strictly, Khost/Paktika might only reach islamic_state_ruled.",
+    "sources": [
+     {
+      "title": "Lawik dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Lawik_dynasty",
+      "supports": "Lawiks of Ghazni/Gardez, contested conversion; Ya'qub reduced Abu Mansur Aflah Lawik to tributary at Gardez 877; Alptigin 962",
+      "kind": "modern"
+     },
+     {
+      "title": "Ghaznavids (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ghaznavids",
+      "supports": "Alptigin takes Ghazni 962; Sabuktigin c.977; Abbasid caliph recognised Mahmud 999 (Yamin al-Dawla); Peshawar 1001, Multan 1005-06, Punjab c.1021, Sind/Mansura 1026; Ghurids take Ghazni c.1173, Lahore 1186",
+      "kind": "modern"
+     },
+     {
+      "title": "Saffarid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Saffarid_dynasty",
+      "supports": "Ya'qub's conquests (Zunbils, Kabul valley, Herat 870); caliph recognised Ya'qub as governor of Sistan, Fars, Kerman; 876 break with caliph; Saffarids later Samanid vassals; ended by Mahmud 1002",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Kandahar",
+     "Hilmand",
+     "Zabul"
+    ],
+    "label": "Zābulistān, Zamindāwar, Bust and Rukhkhaj (Kandahar)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Saffarids (Ya'qub, recognised by the caliph as governor of Sistan), then Ghaznavids and Ghurids (recognised the Abbasids). Earlier: Rashidun/Umayyad conquest of Bust and tribute from the Zunbils.",
+     "dates": "Bust and Zabul treaty 656; Zunbil tribute intermittently 7th-8th c.; Saffarid conquest 870; Ghaznavid c. 977 - 1150s; Ghurid to c. 1215",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Saffarids",
+      "dates": "870 - c. 900",
+      "recognised_caliph": "nominal"
+     },
+     {
+      "name": "Ghaznavids (winter capital at Bust/Lashkari Bazar)",
+      "dates": "c. 977 - 1150",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Ghurids",
+      "dates": "1150s - c. 1215",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Kartids/Timurids (Timur took Kandahar 1383)",
+      "dates": "14th - 15th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Arghuns; Mughals and Safavids contesting Kandahar",
+      "dates": "1508 - 1709",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Hotaki dynasty",
+      "dates": "1709 - 1738",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Durrani Empire (capital 1747-1776) / Barakzai",
+      "dates": "1747 onwards",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Mixed in the first two centuries: Bost and Zabul submitted by treaty in 656 and Arab expeditions came from Sistan (e.g. Abbad b. Ziyad, 673-681). But the Zunbils held Zamindawar and Zabulistan, defeated an Umayyad army in 698, and paid tribute only at times (698/711/769; nominal submission to al-Mahdi). Lasting Muslim rule came when Ya'qub b. al-Layth destroyed the Zunbils in 870.",
+    "confidence": "medium",
+    "uncertain": "I could not open the Iranica 'Bost' history text, so I could not confirm whether Bust itself was a continuous Arab garrison under the Umayyads/Abbasids (if yes, status for Bust would be 'direct'). Last Zunbil killed 865 vs 870 in different sources.",
+    "sources": [
+     {
+      "title": "Zunbils (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Zunbils",
+      "supports": "Zunbil territory (Zamindawar, Ghazni, Bost/Rukhkhaj), Umayyad tribute episodes 698/711/769, nominal submission to al-Mahdi, end 870 by Ya'qub b. al-Layth",
+      "kind": "modern"
+     },
+     {
+      "title": "Kandahar (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Kandahar",
+      "supports": "Abbad b. Ziyad's expedition (governor of Sijistan 673-681); Ya'qub 870 defeats Zunbils; Ghaznavids, Ghurids; Timur 1383; Babur 1508; Safavid 1648-49; Hotaki 1709-1738; Durrani capital 1747",
+      "kind": "modern"
+     },
+     {
+      "title": "Sistan (Encyclopaedia Iranica)",
+      "url": "https://www.iranicaonline.org/articles/sistan",
+      "supports": "Arabs reach Sistan 31/652 under Abdallah b. Amir; Zarang surrendered peacefully, Bost resisted; Umayyad/Abbasid governors; 698 defeat by Zunbil; Ibn al-Ash'ath revolt; Kharijites; Saffarids from 861; Mahmud 1003; Nasrid maliks 1030-1225; 1872 commission",
+      "kind": "modern"
+     },
+     {
+      "title": "Muslim conquests of Afghanistan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquests_of_Afghanistan",
+      "supports": "Conquest dates for Zaranj 643-644, Herat/Badghis treaty, Balkh 652/705, Kabul 664, Bust/Zabul treaty 656; Bamiyan Sher conversion late 8th c. (citing al-Ya'qubi); Kabul king's conversion under al-Ma'mun; Ghor Islamised after Ghaznavid raids; Nuristan conquered 1895-96",
+      "kind": "modern"
+     },
+     {
+      "title": "Saffarid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Saffarid_dynasty",
+      "supports": "Ya'qub's conquests (Zunbils, Kabul valley, Herat 870); caliph recognised Ya'qub as governor of Sistan, Fars, Kerman; 876 break with caliph; Saffarids later Samanid vassals; ended by Mahmud 1002",
+      "kind": "modern"
+     },
+     {
+      "title": "Ghaznavids (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ghaznavids",
+      "supports": "Alptigin takes Ghazni 962; Sabuktigin c.977; Abbasid caliph recognised Mahmud 999 (Yamin al-Dawla); Peshawar 1001, Multan 1005-06, Punjab c.1021, Sind/Mansura 1026; Ghurids take Ghazni c.1173, Lahore 1186",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Uruzgan"
+    ],
+    "label": "Uruzgan (southern Hazarajat)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Saffarids, Samanids, Ghaznavids, Ghurids (recognising the Abbasids) claimed the Hazarajat region",
+     "dates": "late 9th c. - c. 1215",
+     "nominal": true
+    },
+    "islamic_states": [
+     {
+      "name": "Ghaznavids, Ghurids",
+      "dates": "late 10th c. - c. 1215",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Timurids, Mughals, Durranis (claims)",
+      "dates": "15th - 18th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Barakzai Emirate of Afghanistan (Abdur Rahman's Hazarajat conquest)",
+      "dates": "c. 1891 - 1893",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Mountain land between Ghor, Ghazni and Kandahar. General sources list it in the Saffarid-to-Ghurid realms, but the Hazarajat was in practice autonomous under local chiefs until Abdur Rahman Khan's conquest in the 1880s-90s. Caliphal-era rule here is therefore likely nominal.",
+    "confidence": "low",
+    "uncertain": "I found no source documenting actual Ghaznavid/Ghurid administration of Uruzgan itself. A stricter reading would put it at islamic_state_ruled (Barakzai, 1890s).",
+    "sources": [
+     {
+      "title": "Hazarajat (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Hazarajat",
+      "supports": "Hazarajat (Bamyan, Daykundi, Uruzgan, parts of Ghor, Wardak, Ghazni, Parwan) autonomous until the 1880s; earlier Saffarid, Samanid, Ghaznavid, Ghurid, Timurid, Mughal, Durrani claims; Abdur Rahman's conquest",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Bamyan"
+    ],
+    "label": "Bāmiyān",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Saffarids (870), Samanids, Ghaznavids, then the Ghurid branch of Bamiyan (Ghurids recognised the Abbasids). Earlier: the Sher of Bamiyan submitted/converted under the Abbasids.",
+     "dates": "Sher's conversion late 8th c.; Saffarid 870; Ghaznavid 11th c.; Ghurid branch 1155-1212",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Saffarids",
+      "dates": "870 - late 9th c.",
+      "recognised_caliph": "nominal"
+     },
+     {
+      "name": "Ghaznavids",
+      "dates": "11th c.",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Ghurid sub-kingdom of Bamiyan",
+      "dates": "1155 - 1212",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Mongols (destruction 1221); later Timurids, Mughals, Durranis",
+      "dates": "1221 onwards",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Barakzai Emirate (Hazarajat conquest)",
+      "dates": "c. 1891 - 1893",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "In the 8th century a tributary local kingdom whose ruler (the Sher) converted, per al-Ya'qubi as reported in a modern source. It came under Saffarid control in 870 and Ghaznavid rule in the 11th century. From 1155 to 1212 it was the capital of a Ghurid branch kingdom stretching to the Oxus.",
+    "confidence": "medium",
+    "uncertain": "Sources conflict on when Bamiyan was Islamised (late 8th c. Sher conversion vs 'under Sultan Mahmud'). Iranica's history article on Bamiyan could not be opened.",
+    "sources": [
+     {
+      "title": "Bamyan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Bamyan",
+      "supports": "Saffarid control 870; Islamised under Mahmud (11th c.); Ghurid capital of a branch kingdom 1155-1212; Mongol destruction 1221",
+      "kind": "modern"
+     },
+     {
+      "title": "Muslim conquests of Afghanistan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquests_of_Afghanistan",
+      "supports": "Conquest dates for Zaranj 643-644, Herat/Badghis treaty, Balkh 652/705, Kabul 664, Bust/Zabul treaty 656; Bamiyan Sher conversion late 8th c. (citing al-Ya'qubi); Kabul king's conversion under al-Ma'mun; Ghor Islamised after Ghaznavid raids; Nuristan conquered 1895-96",
+      "kind": "modern"
+     },
+     {
+      "title": "Hazarajat (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Hazarajat",
+      "supports": "Hazarajat (Bamyan, Daykundi, Uruzgan, parts of Ghor, Wardak, Ghazni, Parwan) autonomous until the 1880s; earlier Saffarid, Samanid, Ghaznavid, Ghurid, Timurid, Mughal, Durrani claims; Abdur Rahman's conquest",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Ghor"
+    ],
+    "label": "Ghūr",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Ghaznavids (loose vassalage from 1011), then the Ghurid sultans, who kept close relations with the Abbasids (embassies; Ghiyath al-Din admitted to al-Nasir's futuwwa order)",
+     "dates": "1011 - c. 1215",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Ghaznavid overlordship",
+      "dates": "1011 - 12th c.",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Ghurids (Firuzkuh)",
+      "dates": "c. 1100s - 1215",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Kartids, Timurids, Safavids/Mughals (fringes), Durrani/Barakzai",
+      "dates": "13th c. onwards; interior largely autonomous until the 1890s",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Arabs never set up lasting control here. Ghor was Islamised late, through Ghaznavid campaigns of Mahmud and Mas'ud in the early 11th century that left it in loose vassalage. Its own Ghurid dynasty then built an empire and maintained relations with the Abbasid caliph. Juzjani's story that an early Ghurid prince was legitimised by Harun al-Rashid is a legend, not proof of caliphal rule.",
+    "confidence": "high",
+    "uncertain": "Whether 'cordial relations / embassies / futuwwa' amounts to formal investiture; khutba and coin evidence was not checked directly.",
+    "sources": [
+     {
+      "title": "Ghurids (Encyclopaedia Iranica)",
+      "url": "https://www.iranicaonline.org/articles/ghur",
+      "supports": "Ghor Islamised by Ghaznavid campaigns early 11th c. and placed in loose vassalage; Ghurid cordial relations and embassies with the Abbasids; Ghiyath al-Din admitted to al-Nasir's futuwwa order; collapse 1215",
+      "kind": "modern"
+     },
+     {
+      "title": "Ghurid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ghurid_dynasty",
+      "supports": "Ghaznavid conquest of Ghor 1011 and gradual conversion; Firuzkuh, Ghazni 1173, Herat 1175, Bamiyan branch; Multan and Uch 1175, Lahore 1186; legend of Amir Banji legitimised by Harun al-Rashid; end 1215",
+      "kind": "modern"
+     },
+     {
+      "title": "Muslim conquests of Afghanistan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muslim_conquests_of_Afghanistan",
+      "supports": "Conquest dates for Zaranj 643-644, Herat/Badghis treaty, Balkh 652/705, Kabul 664, Bust/Zabul treaty 656; Bamiyan Sher conversion late 8th c. (citing al-Ya'qubi); Kabul king's conversion under al-Ma'mun; Ghor Islamised after Ghaznavid raids; Nuristan conquered 1895-96",
+      "kind": "modern"
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "a3": "PAK",
+  "country": "Pakistan",
+  "summary": "Sind and Multan were conquered by the Umayyads in 711-713 and governed by caliphal governors, then by local dynasties that read the khutba for the Abbasids (Habbarids of Mansura, Banu Munabbih of Multan) or, at Multan, the Fatimids. Makran was entered under Umar (644) and was the launching base for 711. Northern Punjab, the Peshawar valley and Islamabad's area stayed under the Hindu Shahis until the Ghaznavid conquest (1001-1026), and the Ghaznavids recognised the Abbasid caliph. Gilgit-Baltistan and Azad Kashmir were never under a caliphate; they came under local Muslim dynasties, the Kashmir Sultanate and the Mughals from the 14th-16th centuries, then Sikh and Dogra (non-Muslim) rule from 1819-1840 until 1947.",
+  "units": [
+   {
+    "provinces": [
+     "Sind"
+    ],
+    "label": "Sind (Mansūra, Daybul)",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Umayyad governors (Muhammad b. al-Qasim 711-715, Junayd, al-Hakam b. Awana) and Abbasid governors; then the Habbarids of Mansura, who read the Friday prayer in the Abbasid caliph's name",
+     "dates": "Direct 711 - 854/861; Habbarids 854 - 1026",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Habbarid emirate of Mansura",
+      "dates": "854 - 1026",
+      "recognised_caliph": "nominal"
+     },
+     {
+      "name": "Ghaznavids",
+      "dates": "1026 (sack of Mansura); brief",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Soomras (Ismaili-leaning); Ghurids and Delhi Sultanate in upper Sind",
+      "dates": "11th - 14th c.; Iltutmish took Sind 1228, invested by the Abbasid caliph 1229",
+      "recognised_caliph": "nominal"
+     },
+     {
+      "name": "Sammas, Arghuns, Tarkhans",
+      "dates": "14th - 16th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Mughals",
+      "dates": "1591 - 18th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Kalhoras; Talpurs (tributary to the Durranis)",
+      "dates": "18th c. - 1843",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Ruled directly: Muhammad b. al-Qasim took Debal, Nirun, Sehwan, Brahmanabad and Aror in 711-713, and Sind became a caliphal province with garrison cities (al-Mahfuza, al-Mansura). After 861 the Habbarids ruled independently but kept the khutba for the Abbasids until Mahmud of Ghazni destroyed Mansura in 1026.",
+    "confidence": "high",
+    "uncertain": "The Soomra and Samma dynasties' relation to any caliph was not checked. Classical narrative (Chachnama, al-Baladhuri) was not consulted directly.",
+    "sources": [
+     {
+      "title": "Umayyad campaigns in India (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Umayyad_campaigns_in_India",
+      "supports": "Muhammad b. al-Qasim took Debal, Brahmanabad, Aror, Multan 711-713; recalled 715; Junayd and al-Hakam; founding of al-Mahfuza and al-Mansura",
+      "kind": "modern"
+     },
+     {
+      "title": "Arab conquest of Sindh (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Arab_conquest_of_Sindh",
+      "supports": "Hakim b. Jabala's Makran expedition 649; Muhammad b. al-Qasim's route; caliphal province of Sind including part of southern Punjab and Makran",
+      "kind": "modern"
+     },
+     {
+      "title": "Habbari dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Habbari_dynasty",
+      "supports": "Habbarids of Mansura 854-1026; after 861 independent but Friday prayer in the Abbasid caliph's name; ruled from the Arabian Sea to Aror and Khuzdar; ended by Mahmud 1026",
+      "kind": "modern"
+     },
+     {
+      "title": "Ghaznavids (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ghaznavids",
+      "supports": "Alptigin takes Ghazni 962; Sabuktigin c.977; Abbasid caliph recognised Mahmud 999 (Yamin al-Dawla); Peshawar 1001, Multan 1005-06, Punjab c.1021, Sind/Mansura 1026; Ghurids take Ghazni c.1173, Lahore 1186",
+      "kind": "modern"
+     },
+     {
+      "title": "Iltutmish (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Iltutmish",
+      "supports": "Iltutmish took Multan, Uch and Sind from Qabacha 1228; Abbasid caliph al-Mustansir's investiture arrived 18 Feb 1229; caliph's name on coins",
+      "kind": "modern"
+     },
+     {
+      "title": "Talpur dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Talpur_dynasty",
+      "supports": "Talpurs 1783-1843, mostly tributary to the Durranis; overthrew Kalhoras; Battle of Miani 1843",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Punjab"
+    ],
+    "label": "Punjab: Multan (Mūltān) and Lahore",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Multan: Umayyad direct (713), Banu Munabbih (recognised Abbasids), Ismaili rulers reading the khutba for the Fatimid caliph. Rest of Punjab (Lahore, Salt Range): Ghaznavids (recognised Abbasids), Ghurids, Delhi Sultanate (invested by the Abbasid caliph 1229).",
+     "dates": "Multan 713 - 1010; Lahore and central/northern Punjab c. 1014-1021 onward",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Banu Munabbih (Sama) amirs of Multan",
+      "dates": "c. 855 - 959",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Ismaili rulers of Multan (Fatimid allegiance)",
+      "dates": "c. 959 - 1010",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Ghaznavids (Lahore their eastern capital)",
+      "dates": "c. 1005-1021 - 1186",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Ghurids",
+      "dates": "1175 (Multan, Uch) / 1186 (Lahore) - 1206",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Delhi Sultanate",
+      "dates": "1206 - 16th c. (Abbasid investiture of Iltutmish 1229)",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Mughals",
+      "dates": "1526 - 18th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Durrani Empire",
+      "dates": "1749/1752 - 1818 (Multan)",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Sikh Empire (NOT Islamic)",
+      "dates": "Lahore 1799 - 1849; Multan 1818 - 1849",
+      "recognised_caliph": "n/a"
+     }
+    ],
+    "notes": "Southern Punjab (Multan) was ruled directly by the Umayyads from 713 and then by recognising local amirs; the Fatimid khutba period also counts. Central and northern Punjab belonged to the Hindu Shahis until Mahmud's victories (Chach 1008, Nandana 1014) and annexation around 1021. From then on it was ruled by Abbasid-recognising dynasties. Sikh rule (1799-1849) was a non-Islamic interlude before the British.",
+    "confidence": "high",
+    "uncertain": "Exact annexation year of Lahore (1021 vs later) varies; eastern Punjab districts' timing not checked individually.",
+    "sources": [
+     {
+      "title": "Umayyad campaigns in India (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Umayyad_campaigns_in_India",
+      "supports": "Muhammad b. al-Qasim took Debal, Brahmanabad, Aror, Multan 711-713; recalled 715; Junayd and al-Hakam; founding of al-Mahfuza and al-Mansura",
+      "kind": "modern"
+     },
+     {
+      "title": "Emirate of Multan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Emirate_of_Multan",
+      "supports": "Banu Munabbih c.855-959 initially recognising Abbasids; Ismaili rulers reading khutba for the Fatimid caliph; Mahmud's campaigns 1005-1010",
+      "kind": "modern"
+     },
+     {
+      "title": "Hindu Shahis (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Hindu_Shahis",
+      "supports": "Saffarid capture of Kabul 870, Saffarid control until 878 then reportedly retaken; capitals Hund/Nandana/Lahore; Ghaznavid defeats 1001-1026; territory Kabulistan, Gandhara, Punjab, Peshawar valley, Swat, Salt Range",
+      "kind": "modern"
+     },
+     {
+      "title": "Ghaznavids (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ghaznavids",
+      "supports": "Alptigin takes Ghazni 962; Sabuktigin c.977; Abbasid caliph recognised Mahmud 999 (Yamin al-Dawla); Peshawar 1001, Multan 1005-06, Punjab c.1021, Sind/Mansura 1026; Ghurids take Ghazni c.1173, Lahore 1186",
+      "kind": "modern"
+     },
+     {
+      "title": "Ghurid dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ghurid_dynasty",
+      "supports": "Ghaznavid conquest of Ghor 1011 and gradual conversion; Firuzkuh, Ghazni 1173, Herat 1175, Bamiyan branch; Multan and Uch 1175, Lahore 1186; legend of Amir Banji legitimised by Harun al-Rashid; end 1215",
+      "kind": "modern"
+     },
+     {
+      "title": "Iltutmish (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Iltutmish",
+      "supports": "Iltutmish took Multan, Uch and Sind from Qabacha 1228; Abbasid caliph al-Mustansir's investiture arrived 18 Feb 1229; caliph's name on coins",
+      "kind": "modern"
+     },
+     {
+      "title": "Durrani Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Durrani_Empire",
+      "supports": "Durrani acquisition of Punjab/Sind/trans-Indus 1749, Kashmir 1752, loss of Multan 1818, Kashmir 1819, Peshawar 1823-34; suzerainty over Kalat, Sind tributary; held Herat, Balkh, Badakhshan",
+      "kind": "modern"
+     },
+     {
+      "title": "Sikh Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Sikh_Empire",
+      "supports": "Sikh capture of Lahore 1799, Multan 1818, Kashmir 1819, Peshawar tributary 1823 / annexed 1834; Ladakh and Baltistan 1840 via Gulab Singh; dissolved 1849",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "K.P."
+    ],
+    "label": "Khyber Pakhtunkhwa: Peshawar valley (Purushapura), Swat, Hazara, Chitral",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Ghaznavids (recognised the Abbasid caliph; Mahmud invested 999), then Ghurids, Delhi Sultanate",
+     "dates": "Peshawar 1001 (Jayapala defeated, Shahi lands west of the Indus submit) - 1180s; Ghurids to 1206",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Ghaznavids",
+      "dates": "1001 - 1180s",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Ghurids",
+      "dates": "1180s - 1206",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Kashmir Sultanate (Pakhli/Hazara, Swat under Shihab-ud-Din)",
+      "dates": "1354 - 1373 (temporary)",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Mughals",
+      "dates": "16th - 18th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Durrani Empire",
+      "dates": "1747 - 1823/1834",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Sikh Empire (NOT Islamic)",
+      "dates": "Peshawar tributary 1823, annexed 1834 - 1849",
+      "recognised_caliph": "n/a"
+     }
+    ],
+    "notes": "The Peshawar valley was Hindu Shahi territory until Mahmud's victory at Peshawar on 27 November 1001; afterwards it was ruled by Abbasid-recognising dynasties. Exceptions: the high valleys of Chitral (Kalasha still non-Muslim today), upper Swat/Dir and Kohistan were not effectively governed by these dynasties and were Islamised later under local rulers. Sikh rule 1834-1849 was non-Islamic.",
+    "confidence": "medium",
+    "uncertain": "Chitral, Dir, Swat and Kohistan were not researched individually. The Jayapala article gives 27 September 1001 for the Peshawar battle, the Hindu Shahis article 27 November 1001.",
+    "sources": [
+     {
+      "title": "Hindu Shahis (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Hindu_Shahis",
+      "supports": "Saffarid capture of Kabul 870, Saffarid control until 878 then reportedly retaken; capitals Hund/Nandana/Lahore; Ghaznavid defeats 1001-1026; territory Kabulistan, Gandhara, Punjab, Peshawar valley, Swat, Salt Range",
+      "kind": "modern"
+     },
+     {
+      "title": "Jayapala (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Jayapala",
+      "supports": "Sabuktigin took Kabul 977; plundered Lamghan; 991 defeat; 1001 Battle of Peshawar and submission of Shahi lands west of the Indus",
+      "kind": "modern"
+     },
+     {
+      "title": "Ghaznavids (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ghaznavids",
+      "supports": "Alptigin takes Ghazni 962; Sabuktigin c.977; Abbasid caliph recognised Mahmud 999 (Yamin al-Dawla); Peshawar 1001, Multan 1005-06, Punjab c.1021, Sind/Mansura 1026; Ghurids take Ghazni c.1173, Lahore 1186",
+      "kind": "modern"
+     },
+     {
+      "title": "Shah Mir dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Shah_Mir_dynasty",
+      "supports": "Kashmir Sultanate 1339-1561; Shihab-ud-Din (1354-1373) took Pakhli and Swat, invaded Khokhar lands Attock-Sialkot, and subdued Gilgit, Baltistan, Ladakh",
+      "kind": "modern"
+     },
+     {
+      "title": "Durrani Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Durrani_Empire",
+      "supports": "Durrani acquisition of Punjab/Sind/trans-Indus 1749, Kashmir 1752, loss of Multan 1818, Kashmir 1819, Peshawar 1823-34; suzerainty over Kalat, Sind tributary; held Herat, Balkh, Badakhshan",
+      "kind": "modern"
+     },
+     {
+      "title": "Sikh Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Sikh_Empire",
+      "supports": "Sikh capture of Lahore 1799, Multan 1818, Kashmir 1819, Peshawar tributary 1823 / annexed 1834; Ladakh and Baltistan 1840 via Gulab Singh; dissolved 1849",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "F.A.T.A."
+    ],
+    "label": "Former tribal areas (Khyber, Kurram, Bajaur, Mohmand, Orakzai, Waziristan)",
+    "category": "islamic_state_ruled",
+    "caliphate": {
+     "status": "none",
+     "who": "Ghaznavid armies used the passes, but no administration was found in the sources opened",
+     "dates": "",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Mughals (Babur's conquest of Bajaur 1518; Akbar's failed Yusufzai campaign 1585-86)",
+      "dates": "16th - 17th c. (partial)",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Durrani / Barakzai Afghanistan (Kurram under a Kabul governor c. 1848)",
+      "dates": "18th c. - 1879/1893",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Mostly self-governing Pashtun tribal land. Muslim states reached parts of it: Babur took Bajaur in 1518, and Kurram was taxed by Kabul with periodic expeditions and got a resident governor around 1848. British control under the Durand Line (1893) never fully pacified it.",
+    "confidence": "low",
+    "uncertain": "Whether the Ghaznavids or Ghurids administered the Khyber, Kurram or Tochi routes; if so the category would rise to caliphate_ruled. Not checked for Waziristan or Orakzai individually.",
+    "sources": [
+     {
+      "title": "Bajaur District (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Bajaur_District",
+      "supports": "Babur's conquest of Bajaur 1518; Akbar-era Yusufzai campaign failure 1585-86; local khans; 1893 boundary",
+      "kind": "modern"
+     },
+     {
+      "title": "Kurram District (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Kurram_District",
+      "supports": "Shah Jahan's garden; early 19th c. under Kabul government with periodic revenue expeditions; Kabul governor c.1848; British administration 1890",
+      "kind": "modern"
+     },
+     {
+      "title": "Federally Administered Tribal Areas (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Federally_Administered_Tribal_Areas",
+      "supports": "No pre-British history given; British never fully pacified the area",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Baluchistan"
+    ],
+    "label": "Baluchistan: Makrān (Kech), Ṭurān (Quṣdār/Khuzdar), Kalat",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "direct",
+     "who": "Makran: Rashidun entry (644) and Umayyad control (base for the 711 invasion; part of the caliphal province of Sind). Turan/Qusdar: via local Muslim rulers reading the khutba for the Abbasids (Mu'tazz at Kizkanan, mid-10th c.) and Habbarid Mansura reaching Khuzdar; later Saffarid and Ghaznavid tributaries.",
+     "dates": "Makran 644 / 711 onward; Turan mid-9th - 10th c.; Ghaznavid suzerainty 976-77 to 12th c.",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Ma'danid rulers of Makran (tributary to Saffarids)",
+      "dates": "late 9th - mid-10th c.",
+      "recognised_caliph": "nominal"
+     },
+     {
+      "name": "Habbarid emirate of Mansura (to Khuzdar)",
+      "dates": "854 - 1026",
+      "recognised_caliph": "nominal"
+     },
+     {
+      "name": "Ghaznavid suzerainty over Makran and Qusdar",
+      "dates": "366/976-77 - 12th c.",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Local Makran maliks; Safavid influence in west",
+      "dates": "13th - 17th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Mughals and Safavids (Quetta/Shal as part of Kandahar)",
+      "dates": "16th - 17th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Khanate of Kalat (Durrani suzerainty 1747 on; British from 1839/1876)",
+      "dates": "1666 - 1948",
+      "recognised_caliph": "no"
+     }
+    ],
+    "notes": "Makran (coast and Kech) was entered under Umar (23/644) and served as the Umayyad route to Sind in 711, so it counts as directly ruled, though Umar barred further advance and control later loosened. Inner Baluchistan (Turan/Qusdar) is less clear: Iranica says it is not named in the early conquest accounts. Caliphal rule there is shown only through local rulers reading the Abbasid khutba in the 10th century, before it became a Ghaznavid tributary. The northern Pashtun belt (Quetta-Pishin, Zhob) and the Marri-Bugti hills followed Kandahar's or tribal history.",
+    "confidence": "medium",
+    "uncertain": "Early Umayyad campaigns against Kikan/Qiqan and Qusdar (reported by al-Baladhuri) were not seen quoted in any source I opened. Wikipedia's 'Rashidun conquest of Turan c. 650' conflicts with Iranica and is treated as unreliable. Northern Baluchistan not researched separately.",
+    "sources": [
+     {
+      "title": "Baluchistan i. History (Encyclopaedia Iranica)",
+      "url": "https://www.iranicaonline.org/articles/baluchistan-i",
+      "supports": "Arabs invade Makran under Umar 23/644; Ghaznavid-era dependence of Qusdar and Makran on Qandahar; Safavid reassertion; Khanate of Kalat from 1666; Nasir Khan I; Durrani suzerainty 1747+; British from 1839/1876",
+      "kind": "modern"
+     },
+     {
+      "title": "Makran (Encyclopaedia Iranica)",
+      "url": "https://www.iranicaonline.org/articles/makran",
+      "supports": "Arab penetration under Umar and Mu'awiya; Makran as base for 711 invasion of Sind; Ma'danid rulers tributary to Saffarids; Buyid expedition 970-72; Ghaznavid suzerainty from 366/976-77, sack of Kij 1030",
+      "kind": "modern"
+     },
+     {
+      "title": "Turan (Encyclopaedia Iranica, C. E. Bosworth)",
+      "url": "https://www.iranicaonline.org/?p=10294",
+      "supports": "Turan 'does not seem to be mentioned' in accounts of early Arab penetration; 10th-c. Muslim amir of Turan; mid-10th-c. ruler Mu'tazz at Kizkanan read khutba for the Abbasid caliphs; probable Saffarid tributary; Sebuktegin made Qusdar tributary 366 AH; Ghaznavid satellite into 12th c.",
+      "kind": "modern"
+     },
+     {
+      "title": "Khuzdar (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Khuzdar",
+      "supports": "Under the Umayyads capital of Turan province; Abbasid-era route Qandabil-Kalat-Khuzdar-Multan; Sabuktigin conquered Khuzdar",
+      "kind": "modern"
+     },
+     {
+      "title": "Turan (Sasanian province) (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Turan_(Sasanian_province)",
+      "supports": "Claims conquest by the Rashidun c.650 (uncited detail; conflicts with Iranica)",
+      "kind": "modern"
+     },
+     {
+      "title": "Arab conquest of Sindh (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Arab_conquest_of_Sindh",
+      "supports": "Hakim b. Jabala's Makran expedition 649; Muhammad b. al-Qasim's route; caliphal province of Sind including part of southern Punjab and Makran",
+      "kind": "modern"
+     },
+     {
+      "title": "Habbari dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Habbari_dynasty",
+      "supports": "Habbarids of Mansura 854-1026; after 861 independent but Friday prayer in the Abbasid caliph's name; ruled from the Arabian Sea to Aror and Khuzdar; ended by Mahmud 1026",
+      "kind": "modern"
+     },
+     {
+      "title": "Khanate of Kalat (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Khanate_of_Kalat",
+      "supports": "Founded 1666; Nasir Khan I 1749-1794 extent; British treaty 1876; accession to Pakistan 27 March 1948",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "F.C.T."
+    ],
+    "label": "Islamabad / Potohar plateau",
+    "category": "caliphate_ruled",
+    "caliphate": {
+     "status": "via_dynasty",
+     "who": "Ghaznavids (recognised the Abbasids), then Ghurids and Delhi Sultanate",
+     "dates": "Hindu Shahi lost the Salt Range (Nandana) 1014 and Punjab c. 1021; Ghaznavid to 1186",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Ghaznavids",
+      "dates": "c. 1014-1021 - 1186",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Ghurids, Delhi Sultanate (with Gakhar/Khokhar chiefs often hostile)",
+      "dates": "1186 - 15th c.",
+      "recognised_caliph": "yes"
+     },
+     {
+      "name": "Gakhar chiefs under the Mughals",
+      "dates": "16th - mid-18th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Sikh rule (NOT Islamic)",
+      "dates": "mid-1760s - 1849",
+      "recognised_caliph": "n/a"
+     }
+    ],
+    "notes": "This was Hindu Shahi country until Mahmud of Ghazni's campaigns (he is said to have destroyed Rawalpindi). It was then within the Ghaznavid Punjab, but local Gakhar/Khokhar chiefs kept much power. Under the Mughals the Gakhars administered it, until the Sikhs took it in the 1760s.",
+    "confidence": "medium",
+    "uncertain": "Ghaznavid administration of the Potohar specifically (as opposed to raids) is inferred from their holding Nandana and Lahore; not documented for the Islamabad area itself.",
+    "sources": [
+     {
+      "title": "Rawalpindi (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Rawalpindi",
+      "supports": "Mahmud of Ghazni destroyed the town; Gakhar restorations; Mongol-era decay; Akbar's stay 1585; Gakhars under Mughals; Sikh capture mid-1760s; British 1849",
+      "kind": "modern"
+     },
+     {
+      "title": "Hindu Shahis (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Hindu_Shahis",
+      "supports": "Saffarid capture of Kabul 870, Saffarid control until 878 then reportedly retaken; capitals Hund/Nandana/Lahore; Ghaznavid defeats 1001-1026; territory Kabulistan, Gandhara, Punjab, Peshawar valley, Swat, Salt Range",
+      "kind": "modern"
+     },
+     {
+      "title": "Ghaznavids (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Ghaznavids",
+      "supports": "Alptigin takes Ghazni 962; Sabuktigin c.977; Abbasid caliph recognised Mahmud 999 (Yamin al-Dawla); Peshawar 1001, Multan 1005-06, Punjab c.1021, Sind/Mansura 1026; Ghurids take Ghazni c.1173, Lahore 1186",
+      "kind": "modern"
+     },
+     {
+      "title": "Sikh Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Sikh_Empire",
+      "supports": "Sikh capture of Lahore 1799, Multan 1818, Kashmir 1819, Peshawar tributary 1823 / annexed 1834; Ladakh and Baltistan 1840 via Gulab Singh; dissolved 1849",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Northern Areas"
+    ],
+    "label": "Gilgit-Baltistan (Bolor; Baltistan/Skardu)",
+    "category": "islamic_state_ruled",
+    "caliphate": {
+     "status": "none",
+     "who": "Never ruled by a caliphate or recognising dynasty",
+     "dates": "",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Kashmir Sultanate (Shihab-ud-Din's campaigns into Gilgit, Baltistan)",
+      "dates": "1354 - 1373 (temporary)",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Maqpon rajas of Skardu (Muslim; Ali Sher Khan Anchan from 1580)",
+      "dates": "16th c. - 1840",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Trakhan rulers of Gilgit; Mirs of Hunza and Nagar (Muslim local rulers)",
+      "dates": "Islam from c. 14th c. - 19th c.",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Mughal intervention / suzerainty over Baltistan",
+      "dates": "1586 (Akbar, as stated); 1634-36 (Shah Jahan)",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Sikh and Dogra rule (NOT Islamic)",
+      "dates": "Skardu 1839-40; Gilgit by c. 1842-1870 - 1947",
+      "recognised_caliph": "n/a"
+     }
+    ],
+    "notes": "Islam arrived through Sufi missionaries from Kashmir and Central Asia from the 14th century (Baltistan largely Nurbakhshi by the 17th century; Hunza Ismaili). It was then ruled by local Muslim dynasties, with brief Kashmir Sultanate campaigns and Mughal intervention. Muslim rule ended with the Sikh and Dogra conquests of 1839-1870, which lasted until the 1947 Gilgit revolt.",
+    "confidence": "medium",
+    "uncertain": "How firm the Mughal hold over Baltistan was (Wikipedia speaks of 'conquest' 1586 and intrusions 1634-36); the date the Gilgit Trakhans became Muslim; whether Durrani suzerainty reached the area.",
+    "sources": [
+     {
+      "title": "History of Gilgit-Baltistan (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/History_of_Gilgit-Baltistan",
+      "supports": "Islam brought to Baltistan by Sufis in the 14th c.; Trakhan (Gilgit) and Maqpon (Skardu) dynasties; 'Muslim rule in the area ended' with Sikh then Dogra expansion; Gilgit Agency 1889; 1947 revolt",
+      "kind": "modern"
+     },
+     {
+      "title": "Maqpon dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Maqpon_dynasty",
+      "supports": "Islam dominant in Baltistan by end of 17th c. (Nurbakhshiyya); Ali Sher Khan Anchan from 1580; 'conquest of Baltistan by Akbar' 1586 (as stated); Shah Jahan-era Mughal intrusion 1634-36; Dogra seizure of Skardu 1839-40 (Dani cited)",
+      "kind": "modern"
+     },
+     {
+      "title": "Shah Mir dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Shah_Mir_dynasty",
+      "supports": "Kashmir Sultanate 1339-1561; Shihab-ud-Din (1354-1373) took Pakhli and Swat, invaded Khokhar lands Attock-Sialkot, and subdued Gilgit, Baltistan, Ladakh",
+      "kind": "modern"
+     },
+     {
+      "title": "Sikh Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Sikh_Empire",
+      "supports": "Sikh capture of Lahore 1799, Multan 1818, Kashmir 1819, Peshawar tributary 1823 / annexed 1834; Ladakh and Baltistan 1840 via Gulab Singh; dissolved 1849",
+      "kind": "modern"
+     }
+    ]
+   },
+   {
+    "provinces": [
+     "Azad Kashmir"
+    ],
+    "label": "Azad Kashmir (Muzaffarabad, Poonch, Mirpur, Bhimber)",
+    "category": "islamic_state_ruled",
+    "caliphate": {
+     "status": "none",
+     "who": "Never ruled by a caliphate or recognising dynasty",
+     "dates": "",
+     "nominal": false
+    },
+    "islamic_states": [
+     {
+      "name": "Kashmir Sultanate (Shah Mir, then Chak) - extent into these hills uncertain",
+      "dates": "1339 - 1586",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Mughals (Kashmir Subah; Gakhar and Bomba chiefs as local rulers)",
+      "dates": "1586 - 1752",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Durrani Empire (Kashmir)",
+      "dates": "1752 - 1819",
+      "recognised_caliph": "no"
+     },
+     {
+      "name": "Sikh Empire (NOT Islamic)",
+      "dates": "Bhimber 1812; Kashmir 1819 - 1846",
+      "recognised_caliph": "n/a"
+     },
+     {
+      "name": "Dogra Jammu and Kashmir (NOT Islamic)",
+      "dates": "1846 (Treaty of Amritsar) - 1947",
+      "recognised_caliph": "n/a"
+     }
+    ],
+    "notes": "Never under a caliphate or a recognising dynasty. Muslim rule came with the Kashmir Sultanate (from 1339) and especially the Mughals, under whom local Muslim chiefs founded Mirpur (c. 1640) and Muzaffarabad (1646). Afghan (Durrani) rule followed until the Sikh conquest of 1819 and Dogra rule (1846-1947).",
+    "confidence": "medium",
+    "uncertain": "I did not confirm that the Kashmir Sultanate governed the Muzaffarabad/Poonch/Mirpur hills (vs only the Valley); the Mughal date (1586) is for Kashmir as a whole. Whether Ghaznavid campaigns ever held Mirpur/Bhimber was not checked (no source I opened says so).",
+    "sources": [
+     {
+      "title": "Muzaffarabad (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Muzaffarabad",
+      "supports": "Founded 1646 by Sultan Muzaffar Khan, Bomba chief; Sikh-era resistance 1827; 1947 capture",
+      "kind": "modern"
+     },
+     {
+      "title": "Mirpur, Azad Kashmir (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Mirpur,_Azad_Kashmir",
+      "supports": "Founded c.1640 by Gakhar chief under Mughal rule; Chibh rule; Sikh annexation of Bhimber 1812; Dogra from 1846 Treaty of Amritsar",
+      "kind": "modern"
+     },
+     {
+      "title": "Azad Kashmir (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Azad_Kashmir",
+      "supports": "Territory formerly in Jammu province of the princely state; 1947 Poonch uprising and provisional government",
+      "kind": "modern"
+     },
+     {
+      "title": "Shah Mir dynasty (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Shah_Mir_dynasty",
+      "supports": "Kashmir Sultanate 1339-1561; Shihab-ud-Din (1354-1373) took Pakhli and Swat, invaded Khokhar lands Attock-Sialkot, and subdued Gilgit, Baltistan, Ladakh",
+      "kind": "modern"
+     },
+     {
+      "title": "Durrani Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Durrani_Empire",
+      "supports": "Durrani acquisition of Punjab/Sind/trans-Indus 1749, Kashmir 1752, loss of Multan 1818, Kashmir 1819, Peshawar 1823-34; suzerainty over Kalat, Sind tributary; held Herat, Balkh, Badakhshan",
+      "kind": "modern"
+     },
+     {
+      "title": "Sikh Empire (Wikipedia)",
+      "url": "https://en.wikipedia.org/wiki/Sikh_Empire",
+      "supports": "Sikh capture of Lahore 1799, Multan 1818, Kashmir 1819, Peshawar tributary 1823 / annexed 1834; Ladakh and Baltistan 1840 via Gulab Singh; dissolved 1849",
+      "kind": "modern"
+     }
+    ]
+   }
+  ]
+ }
+]
