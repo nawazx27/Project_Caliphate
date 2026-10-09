@@ -251,7 +251,10 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   let bl = null; CLIPS.push({els:[cb, cl], key:()=>'', full:()=>d, lines:()=> bl || (bl = projLines(CALIPH.polys.flat()))});
   /* the user's expanded outline: their specification, not from the sources; two versions share one set of elements */
   const dOf = o => o.polys.map(poly=>poly.map(rg=>ringD(rg)).join('')).join('');
-  const dx = dOf(CALIPH.x); CX.d = {full:dx, west:dOf(CALIPH.xw), gme:dOf(CALIPH.g), v2:dOf(CALIPH.v2), nat:dOf(NAT.main), natp:dOf(NAT.pol), max:dOf(CALIPH.m)};
+  /* each version's path is built the first time it is shown, not all seven at startup */
+  const dx = dOf(CALIPH.x); CX.d = {full:dx};
+  const lazyD = (k, f) => Object.defineProperty(CX.d, k, {configurable:true, enumerable:true, get(){ const v = f(); Object.defineProperty(CX.d, k, {value:v, enumerable:true}); return v; }});
+  lazyD('west', ()=>dOf(CALIPH.xw)); lazyD('gme', ()=>dOf(CALIPH.g)); lazyD('v2', ()=>dOf(CALIPH.v2)); lazyD('nat', ()=>dOf(NAT.main)); lazyD('natp', ()=>dOf(NAT.pol)); lazyD('max', ()=>dOf(CALIPH.m));
   CX.clip = sdefs.append('clipPath').attr('id','caliphxclip').append('path').attr('d', dx);
   const gx = layerG(gEdges, 'caliphx');
   const openx = e=>{ e.stopPropagation(); select('caliphx'); };
@@ -264,7 +267,7 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   /* in the natural-borders version the band runs only along the land stretches of the ring: a wide clipped band along every coast
      inside the ring (the Red Sea, the Gulf, the Aegean) made zooming there several times slower, and the coast has its own line */
   const natLand = NAT.main.lines.filter(l=>l.k !== 'coast').map(l=>l.p);
-  CX.d.natband = natLand.map(p=>lineD(p)).join('');
+  lazyD('natband', ()=>natLand.map(p=>lineD(p)).join(''));
   const BK = () => XK() === 'nat' ? 'natband' : XK();
   CLIPS.push({els:[CX.band], key:BK, full:()=>CX.d[BK()], lines:()=> xl[BK()] || (xl[BK()] = BK() === 'natband' ? projLines(natLand) : projLines(src[XK()].polys.flat()))});
   CLIPS.push({els:[CX.line], key:()=>XK(), full:()=>CX.d[XK()], lines:()=> xl[XK()] || (xl[XK()] = projLines(src[XK()].polys.flat()))});
@@ -272,13 +275,8 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   /* a faint wash over the land inside your outline, under every other colour */
   const gw = layerG(gFill, 'caliphx'); gFill.node().insertBefore(gw.node(), gFill.node().firstChild);
   CX.wash = gw.append('path').attr('class','caliphx-wash').attr('d', dx);
-  /* Complete Caliphate V2: the history of each added land, province by province, shaded by how it was held */
-  const gv = layerG(gFill, 'caliphv2h');   /* the history shading of V2: not shown since Version 41 (Nawaz: V2 in the same neutral colour as Complete and Greater); the history stays in the notes */ gFill.node().insertBefore(gv.node(), gw.node().nextSibling);
-  (CALIPH.v2.units || []).forEach((u,i)=>{ if(!u.polys.length) return;
-    gv.append('path').attr('class', `v2u c-${u.cat}${u.conf === 'low' ? ' low' : ''}`).attr('data-sel', 'v2u_'+i)
-      .attr('d', u.polys.map(poly=>poly.map(rg=>ringD(rg)).join('')).join(''))
-      .on('click', e=>{ e.stopPropagation(); select('v2u_'+i); })
-      .append('title').text(`${u.label} · ${V2CAT[u.cat].label}`); });
+  /* Complete Caliphate V2: the province history shading is not drawn since Version 41 (Nawaz: V2 in the same neutral colour as Complete and Greater);
+     the history stays in the notes, and the page carries only each province's box (see build.js), so the layer is no longer built (Version 47) */
 }
 /* ---------- Dār al-Amān: natural borders and internal lines (your design, 2026-10-07; see tools/nat_gen.js) ----------
    (no wide halo or glow strokes under these lines: on a long line they doubled the cost of every redraw)

@@ -8,7 +8,11 @@ const relief = 'data:image/webp;base64,' + fs.readFileSync('relief_full.webp').t
 const geo = R('geo2.json').trim();
 const geoLo = R('landlo.json').trim();
 /* outline data as a JSON block ("<" escaped so no string can close the script tag) */
-const caliphJ = JSON.stringify(JSON.parse(R('src/caliph.json'))).replace(/</g, '\\u003c');
+/* the V2 province shapes are not drawn on the page (since Version 41): it needs only each province's box, to zoom to it from the notes */
+const caliphD = JSON.parse(R('src/caliph.json'));
+(caliphD.v2.units || []).forEach(u=>{ let x0 = 180, y0 = 90, x1 = -180, y1 = -90; (u.polys || []).forEach(p=>p[0].forEach(([x,y])=>{ x0 = Math.min(x0,x); x1 = Math.max(x1,x); y0 = Math.min(y0,y); y1 = Math.max(y1,y); }));
+  if(x1 > x0) u.b = [x0, y0, x1, y1]; delete u.polys; });
+const caliphJ = JSON.stringify(caliphD).replace(/</g, '\\u003c');
 const natJ = JSON.stringify(JSON.parse(R('src/nat.json'))).replace(/</g, '\\u003c');
 
 let js = [R('src/head.js'), R('src/old_data.js'), R('src/new_geom.js').replace('__GENERATED__', gen), R('src/new_info.js'), R('src/eng_a.js'), R('src/eng_b.js'), R('src/eng_c.js'), R('src/eng_d.js'), R('src/eng_e.js'), R('src/start.js')].join('\n');
