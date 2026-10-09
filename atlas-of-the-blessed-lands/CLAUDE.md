@@ -3,7 +3,7 @@
 This is Nawaz's project: an interactive map ("Atlas of the Blessed Lands"). Pick it up where it was left off.
 
 ## Start of every new session
-1. Read `notes.md` first (full history, version by version; latest is Version 48, Tunisia in Complete (Version 46 added Turkmenistan, Afghanistan and Pakistan; Version 47 was a speed pass)).
+1. Read `notes.md` first (full history, version by version; latest is Version 50, which restored Version 48 (Tunisia in Complete) after Version 49 (Ottoman lands) was reverted at Nawaz's request).
 2. Then `SPEC.md` (what the atlas is, standing rules; it is behind, it stops around Version 34 — `notes.md` is more current) and `README.md` (how it is built).
 3. Run `npm install` once, then `node build.js` to make `index.html`. Edit files in `src/`, never `index.html`.
 

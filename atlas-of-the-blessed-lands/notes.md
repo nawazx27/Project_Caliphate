@@ -222,3 +222,7 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Texts updated (complete, To Iraq, V2, Maximum, Greater, body.html). Sources: Ibn Kathīr on 24:55 (fetched from quran.ai, en-ibn-kathir, this session) names "Kairouan and Sebta" among the lands of the west conquered under ʿUthmān. From general knowledge: Tunisia as roughly the old Ifrīqiya.
 - View frames: Complete and To Iraq start at 7.5°E. On an upright phone the map cannot zoom out far enough to show Tunisia to Pakistan at once (~55° of longitude at most), so the Complete view needs panning at either end there; To Iraq fits.
 - Tests: smoke test no errors; desktop and phone screenshots of Complete, To Iraq, V2, Greater, Maximum (no page errors); zoom on Tunisia checked for stray lines; regional cards and states table checked.
+
+## Version 50: back to Version 48 (Tunisia)
+- Nawaz (2026-10-09), after asking whether Complete held all the Ottoman lands: "revert it back to tunisia version". Version 49 (the Ottoman Empire at its height in Complete) undone with a git revert; every file is as in Version 48 (rebuilt index.html identical to Version 48's). Version 49's tool (tools/add_core_ottoman.js) and its notes stay in the git history (commit 31cfda6) if it is wanted again.
+- Not carried over from the Version 49 discussion: the Adygea hole, the Nogai steppe east of Zaporizhzhia, Dagestan beyond Derbent, Tibesti/Borkou, Kashgar, Otranto (none of them is in Complete now; no change needed).
