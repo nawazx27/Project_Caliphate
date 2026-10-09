@@ -3,7 +3,7 @@
 This is Nawaz's project: an interactive map ("Atlas of the Blessed Lands"). Pick it up where it was left off.
 
 ## Start of every new session
-1. Read `notes.md` first (full history, version by version; latest is Version 49, the Ottoman Empire at its height added to Complete (Version 46: Turkmenistan, Afghanistan, Pakistan; 47: speed pass; 48: Tunisia)).
+1. Read `notes.md` first (full history, version by version; latest is Version 48, Tunisia in Complete (Version 46 added Turkmenistan, Afghanistan and Pakistan; Version 47 was a speed pass)).
 2. Then `SPEC.md` (what the atlas is, standing rules; it is behind, it stops around Version 34 — `notes.md` is more current) and `README.md` (how it is built).
 3. Run `npm install` once, then `node build.js` to make `index.html`. Edit files in `src/`, never `index.html`.
 
@@ -29,4 +29,4 @@ This is Nawaz's project: an interactive map ("Atlas of the Blessed Lands"). Pick
 - If this Claude Code session cannot publish to that artifact (no Artifact tool), do not invent another way. Tell Nawaz, hand him the rebuilt `index.html` and zip, and let him republish from his claude.ai chat.
 
 ## Open items waiting on Nawaz
-Nigeria / Guinea-Bissau inclusion; southern Sardinia 1015–16; Sokoto width; Bosphorus gap; unchecked weak V2 calls; approximate African card region names; relief image not re-encoded; Amānī vs Amīnī; whether natural/internal lines should be on by default in every version. Version 45 (Maximum): Caspian-basin provinces chosen by a "about a third or more drains to the Caspian" rule (no drainage data was reachable); not checked against the natural ring. Version 46/47: Turkmenistan kept whole in Complete (Nawaz's choice), so ~17,500 km² of it lies outside the natural ring. Version 49: ~0.76 million km² of Complete (the Ottoman lands north of the Danube and the Caucasus, plus the Turkmenistan strip) lies outside the natural ring; Natural + political not redrawn (its rule would now take all of Russia) — ask Nawaz how to treat partly-included states there. Offered: splitting the startup into steps so the map appears sooner on slow phones (engine restructuring).
+Nigeria / Guinea-Bissau inclusion; southern Sardinia 1015–16; Sokoto width; Bosphorus gap; unchecked weak V2 calls; approximate African card region names; relief image not re-encoded; Amānī vs Amīnī; whether natural/internal lines should be on by default in every version. Version 45 (Maximum): Caspian-basin provinces chosen by a "about a third or more drains to the Caspian" rule (no drainage data was reachable); not checked against the natural ring. Version 46/47: Turkmenistan kept whole in Complete (Nawaz's choice), so ~17,500 km² of it lies outside the natural ring. Offered: splitting the startup into steps so the map appears sooner on slow phones (engine restructuring).
