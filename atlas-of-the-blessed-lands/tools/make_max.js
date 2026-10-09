@@ -86,8 +86,9 @@ for(const g of G){ const f = topojson.feature(geo, g); const [[a0,b0],[a1,b1]] =
     for(const poly of mp){ try { ins += area(pc.intersection([poly], M)); } catch(e2){ ins += area(pc.intersection([poly.map(r => r.map(q => [q[0]+1e-6, q[1]+1e-6]))], M)); } } }
   if(ins < 50) continue;
   const id = String(g.id), pct = Math.min(100, Math.max(0.1, Math.round(ins/full*1000)/10));
-  states.push({id, n:g.properties.n, km2:ins, pct, core:!!C.x.states.find(s => s.id === id || s.n === g.properties.n),
-    add: WHOLE[id] ? 'whole' : PART[id] ? PART[id].why : undefined});
+  const core = !!C.x.states.find(s => s.id === id || s.n === g.properties.n);   /* since Version 46 Turkmenistan, Afghanistan and Pakistan are core: not counted as added */
+  states.push({id, n:g.properties.n, km2:ins, pct, core,
+    add: core ? undefined : WHOLE[id] ? 'whole' : PART[id] ? PART[id].why : undefined});
 }
 states.sort((a,b) => b.km2 - a.km2);
 C.m = {polys:M, km2, states, made:'Version 45: Complete + Nawaz’s list (maximum stable expansion)'};
