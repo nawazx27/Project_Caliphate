@@ -83,7 +83,7 @@ const PRESETS = [
   {id:"lands", n:"Lands & boundaries", tip:"Every classical region and the places sources name as limits", on:BASE_LAYERS.concat(["histreg","sham","filastin","hijaz","limits","jazirah","yemen","upper","iraq","misr","najd","bahrayn","tihamah","rum","habashah","haram","aqsa"])},
   {id:"status", n:"Sacred status", tip:"Only the numbered discs and the sacred places", on:BASE_LAYERS.concat(STAT_LAYERS, ["haram","aqsa","miqat","muq","tuwa","sites","links"])},
   {id:"roads", n:"Roads", tip:"Caravan and Hajj roads", on:BASE_LAYERS.concat(["trade","hajj","haram","aqsa","saba"])},
-  {id:"caliph", n:"Caliphate outline", tip:"The best-lands outline (my synthesis) inside your complete outline (your specification)", on:BASE_LAYERS.concat(STAT_LAYERS, ["histreg","caliph","caliphx","sham","filastin","hijaz","yemen","haram","aqsa","tuwa"]), b:[[16.0,-3.6],[78.0,44.3]], keep:["natb","intl"]},
+  {id:"caliph", n:"Caliphate outline", tip:"The best-lands outline (my synthesis) inside your complete outline (your specification)", on:BASE_LAYERS.concat(STAT_LAYERS, ["histreg","caliph","caliphx","sham","filastin","hijaz","yemen","haram","aqsa","tuwa"]), b:[[7.5,-3.6],[78.0,44.3]], keep:["natb","intl"]},
   {id:"everything", n:"Everything", tip:"Every layer at once", all:true}
 ];
 
