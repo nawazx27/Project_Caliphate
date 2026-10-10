@@ -254,3 +254,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Sources on the page: al-Andalus and Transoxiana Umayyad (from 711; about 705–715), Sicily and Malta Aghlabid (from 827 and 870) — the dates already in the Greater Caliphate's notes; no status in the sources.
 - View frames: Complete [[-18.5,-3.6],[78,45.6]], To Iraq [[-18.5,-3.6],[63.6,44.3]]; on desktop the whole outline does not fit the normal layout (use the wide-map button).
 - Tests: smoke test no errors; desktop and phone screenshots of all seven versions; close-ups of Sicily/Malta, Iberia/Morocco and Central Asia; no holes in Complete.
+
+## Version 54: Kyrgyzstan in the Complete outline
+- Nawaz (2026-10-10): "add krygyzstan to it aswell". tools/add_core_kyrgyzstan.js (run once): Kyrgyzstan, whole, into CALIPH.x (not To Iraq). Complete ≈ 19.7 million km² in 45 states. V2, Maximum and Greater held it already; now core there (Greater: joins the "Mā warāʾ al-Nahr · Farghāna" core card; Central Asia card keeps Kazakhstan).
+- Natural + political: by its rule now takes Kyrgyzstan whole (27.0 → 27.2 million km², 60 → 61 states); the ring unchanged. Complete outside the ring ≈ 1.44 million km² (Central Asia ≈ 0.79 million).
+- Page: Transoxiana "with Farghāna" (Uzbekistan, Tajikistan, Kyrgyzstan) said to have entered Islamic rule under the Umayyads (general knowledge, as in the Greater Caliphate's notes). Complete frame east edge 80.5°E.
+- Tests: smoke test no errors; desktop and phone screenshots of all seven versions; close-up of Central Asia.
