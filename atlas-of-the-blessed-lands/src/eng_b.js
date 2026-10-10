@@ -254,7 +254,7 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   /* each version's path is built the first time it is shown, not all seven at startup */
   const dx = dOf(CALIPH.x); CX.d = {full:dx};
   const lazyD = (k, f) => Object.defineProperty(CX.d, k, {configurable:true, enumerable:true, get(){ const v = f(); Object.defineProperty(CX.d, k, {value:v, enumerable:true}); return v; }});
-  lazyD('west', ()=>dOf(CALIPH.xw)); lazyD('gme', ()=>dOf(CALIPH.g)); lazyD('v2', ()=>dOf(CALIPH.v2)); lazyD('nat', ()=>dOf(NAT.main)); lazyD('natp', ()=>dOf(NAT.pol)); lazyD('max', ()=>dOf(CALIPH.m));
+  lazyD('west', ()=>dOf(CALIPH.xw)); lazyD('gme', ()=>dOf(CALIPH.g)); lazyD('v2', ()=>dOf(CALIPH.v2)); lazyD('nat', ()=>dOf(NAT.main)); lazyD('natp', ()=>dOf(NAT.pol)); lazyD('v3', ()=>dOf(CALIPH.x3));
   CX.clip = sdefs.append('clipPath').attr('id','caliphxclip').append('path').attr('d', dx);
   const gx = layerG(gEdges, 'caliphx');
   const openx = e=>{ e.stopPropagation(); select('caliphx'); };
@@ -263,7 +263,7 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   CX.line = gx.append('g').attr('clip-path','url(#landclip)').append('path').attr('class','caliphx-line').attr('d', dx);
   gEdges.node().insertBefore(gx.node(), g.node());
   const xl = {}, src = {full:CALIPH.x, west:CALIPH.xw, gme:CALIPH.g, v2:CALIPH.v2};
-  src.nat = NAT.main; src.natp = NAT.pol; src.max = CALIPH.m;
+  src.nat = NAT.main; src.natp = NAT.pol; src.v3 = CALIPH.x3;
   /* in the natural-borders version the band runs only along the land stretches of the ring: a wide clipped band along every coast
      inside the ring (the Red Sea, the Gulf, the Aegean) made zooming there several times slower, and the coast has its own line */
   const natLand = NAT.main.lines.filter(l=>l.k !== 'coast').map(l=>l.p);

@@ -298,7 +298,7 @@ console.log('territory', km2, 'km²;', islIn.length, 'islands inside');
 if(DEBUG) fs.writeFileSync(path.join(DEBUG, 'terr_main.json'), JSON.stringify({terr, loop: hand[0], ring: RING}));
 
 /* ---------- is the whole Complete outline inside? ---------- */
-{ const CAL = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/caliph.json'))).x.polys;
+{ const CJ = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/caliph.json'))), CAL = (CJ.x3 || CJ.x).polys;   /* Version 55: checked against Complete V3 */
   const outside = pc.difference(CAL, hand);   /* against the ring itself, so differences in the drawing of the coast do not count */
   const bits = outside.map(p => ({a: area([p]), c: d3.polygonCentroid(p[0]).map(R3)})).filter(b => b.a > 0).sort((a, b) => b.a - a.a);
   console.log('Complete outline outside the ring:', bits.reduce((t, b) => t + b.a, 0), 'km² in', bits.length, 'pieces; largest', JSON.stringify(bits.slice(0, 12))); }
@@ -347,7 +347,7 @@ const main = {km2, lines: out, states};
    is a present-day international border or a coast. Majority rule: a state comes in whole if more than half of it is inside the ring; every state
    in the Complete outline comes in whole too (Uganda, 48% inside the ring). In Kashmir the base map's de facto lines are used. ---------- */
 const polStates = (() => {
-  const CALX = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/caliph.json'))).x.states.map(s => s.id).filter(id => !['643','380'].includes(id));   /* Versions 51–53: Complete holds only small parts of Russia (Derbent, the Dagestan coast) and Italy (Sicily); they are not taken whole */
+  const CJX = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/caliph.json'))), CALX = (CJX.x3 || CJX.x).states.map(s => s.id)   /* Version 55: Natural + political is built on Complete V3 */.filter(id => !['643','380'].includes(id));   /* Versions 51–53: Complete holds only small parts of Russia (Derbent, the Dagestan coast) and Italy (Sicily); they are not taken whole */
   const ids = new Set(states.filter(s => s.pct > 50).map(s => s.id).concat(CALX));
   const geoms = C.filter(g => { const id = String(g.id); return ids.has(id) || (ids.has('CYP') && ['196','CYN','CNM'].includes(id)); });
   const merged = topojson.merge(geo, geoms).coordinates;

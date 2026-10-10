@@ -3,7 +3,7 @@
 This is Nawaz's project: an interactive map ("Atlas of the Blessed Lands"). Pick it up where it was left off.
 
 ## Start of every new session
-1. Read `notes.md` first (full history, version by version; latest is Version 54: Kyrgyzstan in Complete (Version 53: Algeria, Morocco without Western Sahara, Spain, Portugal, Uzbekistan, Tajikistan, Sicily, Malta; 52: ʿUthmān map; 51: Cyprus, Derbent, Arwad)).
+1. Read `notes.md` first (full history, version by version; latest is Version 55: Complete (V1) is the Version 47 outline (ends at Libya); Complete V3 holds all the later additions (Versions 48–54); To Iraq, V2, Greater and Natural + political are built on V3; Maximum removed).
 2. Then `SPEC.md` (what the atlas is, standing rules; it is behind, it stops around Version 34 — `notes.md` is more current) and `README.md` (how it is built).
 3. Run `npm install` once, then `node build.js` to make `index.html`. Edit files in `src/`, never `index.html`.
 

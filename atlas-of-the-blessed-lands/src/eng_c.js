@@ -129,7 +129,7 @@ function buildOverlay(){
   addLabel('caliphv2', [['Complete Caliphate V2'],['your complete outline with the lands on your map · history in the notes','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
   addLabel('caliphv2', [['Complete Caliphate V2'],['your specification · not from the sources','sub']], [66.0,46.6], {cls:'caliphlbl x big', minK:0.45, subK:0.45, pri:3, color:'--xcal'});
   addLabel('caliphv2', [['Complete Caliphate V2'],['your specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0.7, subK:0.7, pri:4, color:'--xcal'});
-  addLabel('caliphmax', [['Maximum'],['your complete outline with the lands on your list · your specification','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
+  addLabel('caliphv3', [['Complete V3'],['your complete outline with everything you added since · your specification','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
   addLabel('caliphnat', [['Natural borders'],['Dār al-Amān within the natural ring · your design','sub']], [2.0,26.2], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
   addLabel('caliphnp', [['Natural + political'],['the natural ring, with every state it cuts taken whole or left out · your design','sub']], [2.0,26.2], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
   addLabel('caliphnatx', [['Natural borders'],['your design · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0.7, subK:0.7, pri:4, color:'--xcal'});
@@ -192,7 +192,7 @@ function buildOverlay(){
   SITES.forEach(s=>addPoint(s.id==='tayyi'?'sham':'sites', s.ll, {sym:'square', color:'--site', name:s.n, sub:s.s, minK:s.k, subK:s.k*1.4, anchor:s.a, info:s.info||('site_'+s.id), pri:6, cls:'small', title:s.n}));
   addPoint('aqsa', QIBLA.aqsa, {sym:'diamond', color:'--sacred', name:"al-Masjid al-Aqṣā", sub:"Bayt al-Maqdis · Jerusalem", minK:0, subK:1.4, anchor:'r', info:'aqsa', title:'al-Masjid al-Aqṣā', pri:0, keep:true});
   /* Arwād (Aradus), off Ṭarṭūs: taken in ʿUthmān's time (Version 51, Nawaz's brief); too small for the base map, so it is marked, not shaded */
-  addPoint('caliphx', [35.858,34.856], {name:'Arwād', sub:'island · in your outline', minK:1.6, subK:2.8, anchor:'l', info:'caliphx', r:2.6, color:'--xcal', cls:'small', pri:8, title:'Arwād (Aradus): an island too small for the base map, inside your outline'});
+  addPoint('caliphxArwad', [35.858,34.856], {name:'Arwād', sub:'island · in your outline', minK:1.6, subK:2.8, anchor:'l', info:'caliphx', r:2.6, color:'--xcal', cls:'small', pri:8, title:'Arwād (Aradus): an island too small for the base map, inside your outline'});
   addPoint('caliphx', QIBLA.aqsa, {sym:'capital', info:'capital', title:'al-Quds (Jerusalem): capital of Dār al-Amān · your choice, not from the sources', minK:0, keep:true});
   addPoint('haram', QIBLA.makkah, {sym:'diamond', color:'--haram', minK:0, info:'makkah', title:'al-Masjid al-Ḥarām', keep:true});
   addPoint('haram', QIBLA.madinah, {sym:'diamond', color:'--haram', minK:0, info:'madinah', title:'al-Masjid al-Nabawī', keep:true});
@@ -235,7 +235,7 @@ function applyLayers(){
   const natMode = inNat();   /* the natural-borders version: its line, chokepoints and passes always go with it, and the internal lines until you switch them off */
   if((layerOn.natb || layerOn.intl || natMode) && !NAT_BUILT) buildNat();
   layerOn.caliphnat = natMode; layerOn.caliphnp = !!layerOn.caliphx && XV === 'natp'; layerOn.caliphnatx = natMode; layerOn.natbAny = !!layerOn.natb || natMode; layerOn.intlAny = natMode ? !INTL_OFF : !!layerOn.intl;
-  layerOn.caliphxe = !!layerOn.caliphx && XV !== 'west'; layerOn.caliphxw = !!layerOn.caliphx && XV === 'west'; layerOn.caliphg = false; layerOn.caliphxc = !!layerOn.caliphx && XV === 'full'; layerOn.caliphgl = !!layerOn.caliphx && XV === 'gme'; layerOn.caliphv2 = !!layerOn.caliphx && XV === 'v2'; layerOn.caliphmax = !!layerOn.caliphx && XV === 'max'; layerOn.caliphv2h = false;
+  layerOn.caliphxe = !!layerOn.caliphx && XV !== 'west'; layerOn.caliphxw = !!layerOn.caliphx && XV === 'west'; layerOn.caliphg = false; layerOn.caliphxc = !!layerOn.caliphx && XV === 'full'; layerOn.caliphgl = !!layerOn.caliphx && XV === 'gme'; layerOn.caliphv2 = !!layerOn.caliphx && XV === 'v2'; layerOn.caliphv3 = !!layerOn.caliphx && XV === 'v3'; layerOn.caliphxArwad = !!layerOn.caliphx && !['full','nat','natp'].includes(XV); layerOn.caliphv2h = false;
   /* natural borders: the Libya variant goes with Complete V2, the far-east line with the Greater Caliphate */
   layerOn.natbMain = layerOn.natbAny;
   document.querySelectorAll('[data-lyt]').forEach(b=>b.setAttribute('aria-pressed', b.dataset.lyt === 'natb' ? layerOn.natbAny : b.dataset.lyt === 'intl' ? layerOn.intlAny : !!layerOn[b.dataset.lyt]));
@@ -372,13 +372,13 @@ function setArrow(A, mx, my, tx, ty, r0, r1){
   A.text.attr('x', x1+ux*8+(right?2:-2)).attr('y', y1+uy*8+4).attr('text-anchor', right?'start':'end');
 }
 /* the Greater Caliphate seen whole is about the territory: the discs, cities and classical names wait until the reader zooms in */
-const QUIET_LBL = new Set(['base','caliph','caliphx','caliphgl','caliphv2','caliphmax','caliphnat','caliphnp','caliphnatx','caliphxe','caliphxc','caliphxw','natb','natbAny','natbMain','intl','intlAny']), QUIET_PTS = new Set(['haram','aqsa','caliphx','natb','natbAny']);
+const QUIET_LBL = new Set(['base','caliph','caliphx','caliphgl','caliphv2','caliphv3','caliphnat','caliphnp','caliphnatx','caliphxe','caliphxc','caliphxw','natb','natbAny','natbMain','intl','intlAny']), QUIET_PTS = new Set(['haram','aqsa','caliphx','caliphxArwad','natb','natbAny']);
 /* "Clean map": no numbered discs (with their leader lines and names), no dots, diamonds, stars or other point markers, no names of places, no qibla arrows, and none of the outline's own captions. Only the map, the outline and the names of regions, countries and seas stay. */
-const CLEAN_LBL = new Set(['caliph','caliphx','caliphgl','caliphv2','caliphmax','caliphnat','caliphnp','caliphnatx','caliphxe','caliphxc','caliphxw','natb','natbAny','natbMain','intl','intlAny']);
+const CLEAN_LBL = new Set(['caliph','caliphx','caliphgl','caliphv2','caliphv3','caliphnat','caliphnp','caliphnatx','caliphxe','caliphxc','caliphxw','natb','natbAny','natbMain','intl','intlAny']);
 function render(){
   const k = T.k;
   const clean = CLEAN && !!layerOn.caliphx;
-  const quiet = (XV === 'gme' || XV === 'v2' || XV === 'max' || XV === 'nat' || XV === 'natp') && !!layerOn.caliphx && k < 0.9;
+  const quiet = (XV === 'gme' || XV === 'v2' || XV === 'v3' || XV === 'nat' || XV === 'natp') && !!layerOn.caliphx && k < 0.9;
   const sc = `scale(${(1/k).toFixed(5)})`;
   sandPat.attr('patternTransform', sc); lavaPat.attr('patternTransform', sc);
   hSham.attr('patternTransform', `${sc} rotate(45)`); hHijaz.attr('patternTransform', `${sc} rotate(-45)`); hFil.attr('patternTransform', `${sc} rotate(30)`); hMisr.attr('patternTransform', `${sc} rotate(90)`); hDisp.attr('patternTransform', `${sc} rotate(-30)`);
