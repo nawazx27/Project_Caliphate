@@ -91,11 +91,11 @@ const SITES = [
   {id:"quba", n:"Qubāʾ", s:"first masjid of the Hijrah", ll:[39.6172,24.4393], a:"l", k:18, cert:"firm",
    body:`<p>The masjid built at Qubāʾ when the Prophet ﷺ arrived on the Hijrah, south of Madinah and inside its ḥaram.</p>`, src:["early"]},
   {id:"badr", n:"Badr", s:"2 AH", ll:[38.7908,23.7816], a:"r", k:2, cert:"firm",
-   body:`<p>Āl ʿImrān 3:123: ${q("وَلَقَدْ نَصَرَكُمُ اللَّهُ بِبَدْرٍ")}, "Allah had already given you victory at Badr". The wells of Badr lay on the coastal road used by the Makkan caravans to and from al-Shām.</p>`, src:["rev"]},
+   body:`<p>Āl ʿImrān 3:123: ${q("وَلَقَدْ نَصَرَكُمُ اللَّهُ بِبَدْرٍ")}, "And already had Allah given you victory at [the battle of] Badr" (Saheeh International). The wells of Badr lay on the coastal road used by the Makkan caravans to and from al-Shām.</p>`, src:["rev"]},
   {id:"hijr", n:"al-Ḥijr", s:"Hegra · Madāʾin Ṣāliḥ", ll:[37.9532,26.7919], a:"r", k:1.8, cert:"firm",
    body:`<p>Al-Ḥijr 15:80: ${q("وَلَقَدْ كَذَّبَ أَصْحَابُ الْحِجْرِ الْمُرْسَلِينَ")}. Al-Baghawī explains al-Ḥijr as the city of Thamūd, the people of Ṣāliḥ عليه السلام, between Madinah and al-Shām. It is identified with Hegra (Madāʾin Ṣāliḥ) near al-ʿUlā, on the road the Prophet ﷺ took to Tabūk.</p>`, src:["rev","early"]},
   {id:"madyan", n:"Madyan", s:"traditional site, uncertain", ll:[35.01,28.49], a:"r", k:2.2, cert:"uncertain",
-   body:`<p>Al-Aʿrāf 7:85: ${q("وَإِلَىٰ مَدْيَنَ أَخَاهُمْ شُعَيْبًا")}, "to Madyan their brother Shuʿayb". The Qur'an does not give the location. It is traditionally identified with al-Badʿ (Maghāʾir Shuʿayb) in north-west Arabia, a station on the early Egyptian Hajj road; this rests on later tradition.</p>`, src:["rev","classical"]},
+   body:`<p>Al-Aʿrāf 7:85: ${q("وَإِلَىٰ مَدْيَنَ أَخَاهُمْ شُعَيْبًا")}, "And to [the people of] Madyan [We sent] their brother Shuʿayb" (Saheeh International). The Qur'an does not give the location. It is traditionally identified with al-Badʿ (Maghāʾir Shuʿayb) in north-west Arabia, a station on the early Egyptian Hajj road; this rests on later tradition.</p>`, src:["rev","classical"]},
   {id:"mutah", n:"Muʾtah", s:"8 AH", ll:[35.7036,31.0628], a:"r", k:3, cert:"firm",
    body:`<p>Site of the expedition of 8 AH in which Zayd b. Ḥārithah, Jaʿfar b. Abī Ṭālib and ʿAbdullāh b. Rawāḥah رضي الله عنهم were killed (al-Bukhārī). It lies south of al-Karak in present-day Jordan.</p>`, src:["early"]},
   {id:"busra", n:"Buṣrā", s:"Bostra", ll:[36.4815,32.5186], a:"r", k:2.2, cert:"firm",
@@ -138,7 +138,7 @@ const INFO = {
     <p>Al-Ṭabarī's own verdict: it cannot be pinned to one land without a sound report, but all the commentators and historians agree it lies somewhere ${q("ما بين الفرات وعريش مصر")}, between the Euphrates and al-ʿArīsh of Egypt. Al-Baghawī adds al-Ḍaḥḥāk's view: Īliyāʾ and Bayt al-Maqdis.</p>`,
     refs:["Qur'an, al-Māʾidah 5:21","Tafsir of al-Ṭabarī and of al-Baghawī on 5:21"]},
   tuwa:{title:"The valley of Ṭuwā and Mount Sinai", ar:"الوادي المقدس طوى · طور سينين", src:["rev","classical"], cert:"uncertain", body:`
-    <p>Ṭā Hā 20:12: ${q("إِنَّكَ بِالْوَادِ الْمُقَدَّسِ طُوًى")}, "you are in the blessed valley of Ṭuwā" (Saheeh International, which renders the same Arabic "sacred valley" in al-Nāziʿāt 79:16). Al-Baghawī glosses <i>al-muqaddas</i> as "purified" and says Ṭuwā is the valley's name. Al-Qaṣaṣ 28:30 speaks of ${q("الْبُقْعَةِ الْمُبَارَكَةِ")}, "the blessed spot", and al-Tīn 95:2 swears by ${q("طُورِ سِينِينَ")}.</p>
+    <p>Ṭā Hā 20:12: ${q("إِنَّكَ بِالْوَادِ الْمُقَدَّسِ طُوًى")}, "you are in the blessed valley of Ṭuwā" (Saheeh International, which renders the same Arabic "sacred valley" in al-Nāziʿāt 79:16). Al-Baghawī glosses <i>al-muqaddas</i> as "purified" and says Ṭuwā is the valley's name. Al-Qaṣaṣ 28:30 speaks of ${q("الْبُقْعَةِ الْمُبَارَكَةِ")}, "a blessed spot", and al-Tīn 95:2 swears by ${q("طُورِ سِينِينَ")}.</p>
     <p>The Qur'an does not give the location. The marker shows the traditional identification at Jabal Mūsā in southern Sinai. That identification rests on later tradition, and other sites have been proposed.</p>`,
     refs:["Qur'an, Ṭā Hā 20:12; al-Qaṣaṣ 28:30; al-Tīn 95:2","Tafsir of al-Baghawī on 20:12"]},
   sham:{title:"Bilād al-Shām", ar:"بلاد الشام", src:["rev","early","classical"], cert:"approx", body:`
