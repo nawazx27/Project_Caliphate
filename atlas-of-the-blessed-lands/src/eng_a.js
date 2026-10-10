@@ -49,9 +49,9 @@ const LAYERS = [
   ]},
   {g:"Thought experiment", items:[
     {id:"caliph", name:"One outline around the best lands", sub:"A caliphate as a thought experiment · my synthesis", color:"--ink", cert:"uncertain", on:false, info:"caliph"},
-    {id:"caliphx", name:"Your complete outline", sub:"Arabia, the Levant, Iraq, Iran, Türkiye, the Caucasus, Cyprus, Egypt, Sudan and the Horn, with Libya, Greece and northern Uganda · not from the sources", color:"--xcal", cert:"uncertain", on:false, info:"caliphx"},
-    {id:"natb", name:"Natural line", sub:"The line of seas, deserts and mountain crests, drawn over any version; chokepoints and passes · your design", color:"--natb", cert:"approx", on:false, info:"natb"},
-    {id:"intl", name:"Internal lines", sub:"The Taurus divide; the Nile, Tigris and Euphrates; the Red Sea as the axis · your design", color:"--natb", cert:"approx", on:false, info:"intl"}
+    {id:"caliphx", name:"The core caliphate", sub:"the version chosen with the switch · the author’s specification, not from the sources", color:"--xcal", cert:"uncertain", on:false, info:"caliphx"},
+    {id:"natb", name:"Natural line", sub:"The line of seas, deserts and mountain crests, drawn over any version; chokepoints and passes · the author’s design", color:"--natb", cert:"approx", on:false, info:"natb"},
+    {id:"intl", name:"Internal lines", sub:"The Taurus divide; the Nile, Tigris and Euphrates; the Red Sea as the axis · the author’s design", color:"--natb", cert:"approx", on:false, info:"intl"}
   ]},
   {g:"Land", items:[
     {id:"relief", name:"Relief shading", sub:"Mountains and escarpments", color:"--muted", cert:"firm", on:true, info:null},
@@ -83,7 +83,7 @@ const PRESETS = [
   {id:"lands", n:"Lands & boundaries", tip:"Every classical region and the places sources name as limits", on:BASE_LAYERS.concat(["histreg","sham","filastin","hijaz","limits","jazirah","yemen","upper","iraq","misr","najd","bahrayn","tihamah","rum","habashah","haram","aqsa"])},
   {id:"status", n:"Sacred status", tip:"Only the numbered discs and the sacred places", on:BASE_LAYERS.concat(STAT_LAYERS, ["haram","aqsa","miqat","muq","tuwa","sites","links"])},
   {id:"roads", n:"Roads", tip:"Caravan and Hajj roads", on:BASE_LAYERS.concat(["trade","hajj","haram","aqsa","saba"])},
-  {id:"caliph", n:"Caliphate outline", tip:"The best-lands outline (my synthesis) inside your complete outline (your specification)", on:BASE_LAYERS.concat(STAT_LAYERS, ["histreg","caliph","caliphx","sham","filastin","hijaz","yemen","haram","aqsa","tuwa"]), b:[[16.0,-3.6],[78.0,44.3]], keep:["natb","intl"]},
+  {id:"caliph", n:"Caliphate outline", tip:"The best-lands outline (my synthesis) inside the core caliphate (the author’s specification)", on:BASE_LAYERS.concat(STAT_LAYERS, ["histreg","caliph","caliphx","sham","filastin","hijaz","yemen","haram","aqsa","tuwa"]), b:[[16.0,-3.6],[78.0,44.3]], keep:["natb","intl"]},
   {id:"everything", n:"Everything", tip:"Every layer at once", all:true}
 ];
 

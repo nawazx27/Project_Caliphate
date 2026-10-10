@@ -259,7 +259,7 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   const gx = layerG(gEdges, 'caliphx');
   const openx = e=>{ e.stopPropagation(); select('caliphx'); };
   CX.band = gx.append('g').attr('clip-path','url(#caliphxclip)').append('path').attr('class','caliphx-band').attr('data-sel','caliphx').attr('d', dx).on('click', openx);
-  CX.band.append('title').text('Your outline (your specification, not from the sources)');
+  CX.band.append('title').text('The core caliphate (the author’s specification, not from the sources)');
   CX.line = gx.append('g').attr('clip-path','url(#landclip)').append('path').attr('class','caliphx-line').attr('d', dx);
   gEdges.node().insertBefore(gx.node(), g.node());
   const xl = {}, src = {full:CALIPH.x, west:CALIPH.xw, gme:CALIPH.g, v2:CALIPH.v2};
@@ -294,7 +294,7 @@ function buildNat(){ if(NAT_BUILT) return; NAT_BUILT = true;
        (the Red Sea, the Gulf, the Aegean islands) made zooming several times slower */
     clipPathEl(g, 'nat-solid', by.solid);
     const hit = clipPathEl(g, 'route-hit nat-hit', by.solid).style('pointer-events','stroke').on('click', openN);
-    hit.append('title').text('The natural ring of Dār al-Amān · your design'); }
+    hit.append('title').text('The natural ring of Dār al-Amān · the author’s design'); }
   /* internal lines: the Taurus divide, the three rivers, the Red Sea as the axis */
   const gI = world.insert('g', ()=>gN.node()).attr('data-layer','intlAny');   /* under the ring, which runs along the Victoria Nile */
   NAT.intl.rivers.forEach(r=>{ clipPathEl(gI, 'intl-river', r.p).append('title').text(`${r.n} · a core waterway`);

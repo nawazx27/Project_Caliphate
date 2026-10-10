@@ -121,19 +121,19 @@ function buildOverlay(){
   addLabel('caliphxe', [['Khūzistān'],['al-Ahwāz','sub']], [49.2,31.55], {cls:'caliphlbl x', minK:1.1, subK:1.6, pri:4, color:'--xcal'});
   /* the country name, your choice: drawn behind every other label and never pushed aside by them */
   addLabel('caliphx', [['DĀR AL-AMĀN'],['دار الأمان','arl dar','1.3em']], DAR_AT, {cls:'darlbl', back:true, free:true, minK:0, maxK:2.6, subK:0, pri:-9});
-  addLabel('caliphgl', [['Greater Caliphate'],['the core caliphate, extended · your specification','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
-  addLabel('caliphgl', [['Greater Caliphate'],['your specification · not from the sources','sub']], [66.0,46.6], {cls:'caliphlbl x big', minK:0.45, subK:0.45, pri:3, color:'--xcal'});
-  addLabel('caliphgl', [['Greater Caliphate'],['your specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0.7, subK:0.7, pri:4, color:'--xcal'});
+  addLabel('caliphgl', [['Greater Caliphate'],['the core caliphate, extended · the author’s specification','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
+  addLabel('caliphgl', [['Greater Caliphate'],['the author’s specification · not from the sources','sub']], [66.0,46.6], {cls:'caliphlbl x big', minK:0.45, subK:0.45, pri:3, color:'--xcal'});
+  addLabel('caliphgl', [['Greater Caliphate'],['the author’s specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0.7, subK:0.7, pri:4, color:'--xcal'});
   (CALIPH.g.hist || []).forEach(h=>{ const big = h.km2 > 300000, mid = h.km2 > 40000;
     addLabel('caliphgl', [[h.n],[h.sub,'sub']], h.c, {cls:'caliphlbl x hist', minK: big ? 0.3 : mid ? 0.75 : 1.5, subK: big ? 0.55 : mid ? 1.1 : 2.2, pri:4, color:'--xcal'}); });
-  addLabel('caliphv2', [['Complete Caliphate V2'],['your complete outline with the lands on your map · history in the notes','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
-  addLabel('caliphv2', [['Complete Caliphate V2'],['your specification · not from the sources','sub']], [66.0,46.6], {cls:'caliphlbl x big', minK:0.45, subK:0.45, pri:3, color:'--xcal'});
-  addLabel('caliphv2', [['Complete Caliphate V2'],['your specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0.7, subK:0.7, pri:4, color:'--xcal'});
-  addLabel('caliphv3', [['Complete V3'],['your complete outline with everything you added since · your specification','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
-  addLabel('caliphnat', [['Natural borders'],['Dār al-Amān within the natural ring · your design','sub']], [2.0,26.2], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
-  addLabel('caliphnp', [['Natural + political'],['the natural ring, with every state it cuts taken whole or left out · your design','sub']], [2.0,26.2], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
-  addLabel('caliphnatx', [['Natural borders'],['your design · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0.7, subK:0.7, pri:4, color:'--xcal'});
-  addLabel('caliphxw', [['Your outline, to Iraq\u2019s border'],['your specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0, subK:0, pri:3, color:'--xcal'});
+  addLabel('caliphv2', [['Complete Caliphate V2'],['Complete V3 with the lands of a Greater Middle East map · history in the notes','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
+  addLabel('caliphv2', [['Complete Caliphate V2'],['the author’s specification · not from the sources','sub']], [66.0,46.6], {cls:'caliphlbl x big', minK:0.45, subK:0.45, pri:3, color:'--xcal'});
+  addLabel('caliphv2', [['Complete Caliphate V2'],['the author’s specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0.7, subK:0.7, pri:4, color:'--xcal'});
+  addLabel('caliphv3', [['Complete V3'],['the widest complete outline · the author’s specification','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
+  addLabel('caliphnat', [['Natural borders'],['Dār al-Amān within the natural ring · the author’s design','sub']], [2.0,26.2], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
+  addLabel('caliphnp', [['Natural + political'],['the natural ring, with every state it cuts taken whole or left out · the author’s design','sub']], [2.0,26.2], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
+  addLabel('caliphnatx', [['Natural borders'],['the author’s design · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0.7, subK:0.7, pri:4, color:'--xcal'});
+  addLabel('caliphxw', [['Complete V3, to Iraq\u2019s border'],['the author’s specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0, subK:0, pri:3, color:'--xcal'});
   /* natural borders and internal lines (your design): names only where the base map has none */
   /* the ring: each name sits just outside it, on the side away from the territory */
   /* region labels are always centred, so a name that belongs to the left or right of its line is moved sideways by half its width (estimated) plus a gap */
@@ -192,8 +192,8 @@ function buildOverlay(){
   SITES.forEach(s=>addPoint(s.id==='tayyi'?'sham':'sites', s.ll, {sym:'square', color:'--site', name:s.n, sub:s.s, minK:s.k, subK:s.k*1.4, anchor:s.a, info:s.info||('site_'+s.id), pri:6, cls:'small', title:s.n}));
   addPoint('aqsa', QIBLA.aqsa, {sym:'diamond', color:'--sacred', name:"al-Masjid al-Aqṣā", sub:"Bayt al-Maqdis · Jerusalem", minK:0, subK:1.4, anchor:'r', info:'aqsa', title:'al-Masjid al-Aqṣā', pri:0, keep:true});
   /* Arwād (Aradus), off Ṭarṭūs: taken in ʿUthmān's time (Version 51, Nawaz's brief); too small for the base map, so it is marked, not shaded */
-  addPoint('caliphxArwad', [35.858,34.856], {name:'Arwād', sub:'island · in your outline', minK:1.6, subK:2.8, anchor:'l', info:'caliphx', r:2.6, color:'--xcal', cls:'small', pri:8, title:'Arwād (Aradus): an island too small for the base map, inside your outline'});
-  addPoint('caliphx', QIBLA.aqsa, {sym:'capital', info:'capital', title:'al-Quds (Jerusalem): capital of Dār al-Amān · your choice, not from the sources', minK:0, keep:true});
+  addPoint('caliphxArwad', [35.858,34.856], {name:'Arwād', sub:'island · in the outline', minK:1.6, subK:2.8, anchor:'l', info:'caliphx', r:2.6, color:'--xcal', cls:'small', pri:8, title:'Arwād (Aradus): an island too small for the base map, inside the outline'});
+  addPoint('caliphx', QIBLA.aqsa, {sym:'capital', info:'capital', title:'al-Quds (Jerusalem): capital of Dār al-Amān · the author’s choice, not from the sources', minK:0, keep:true});
   addPoint('haram', QIBLA.makkah, {sym:'diamond', color:'--haram', minK:0, info:'makkah', title:'al-Masjid al-Ḥarām', keep:true});
   addPoint('haram', QIBLA.madinah, {sym:'diamond', color:'--haram', minK:0, info:'madinah', title:'al-Masjid al-Nabawī', keep:true});
   HARAM_PTS.forEach(h=>addPoint('haram', h.ll, {name:h.n, sub:h.s, minK:h.k, subK:h.k*1.4, anchor:h.a, info:h.info, r:3, hollow:!!h.out, color:'--haram', cls:'small', pri:3}));

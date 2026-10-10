@@ -70,7 +70,7 @@ const INFO_NEW = {
     <p>The three dotted rings mark the three reports. Their size is illustrative: no ring is a boundary. All three point to the south-eastern coast of Arabia.</p>`,
     refs:["Qur'an, al-Aḥqāf 46:21; tafsir of al-Baghawī on 46:21"]},
   habashah:{title:"al-Ḥabashah (Abyssinia)", ar:"الحبشة", src:["rev","early"], cert:"approx", body:`
-    <p>The Qur'an does not name al-Ḥabashah: the root ح ب ش does not occur in it (quran.ai concordance). The Sunnah does. The Prophet ﷺ announced the death of the Najāshī on the day he died, went out to the prayer ground and prayed over him with four takbīrs (al-Bukhārī 1245, Abū Hurayrah). And: "leave the Abyssinians alone as long as they leave you alone" (Abū Dāwūd 4302, graded ḥasan by al-Albānī).</p>
+    <p>The Qur'an does not name al-Ḥabashah: the root ح ب ش does not occur in it (quran.ai concordance). The Sunnah does. The Prophet ﷺ announced the death of the Najāshī on the day he died, went out to the prayer ground and prayed over him with four takbīrs (al-Bukhārī 1245, Abū Hurayrah). And: "Let the Abyssinians alone as long as they let you alone" (Abū Dāwūd 4302, graded ḥasan by al-Albānī).</p>
     <p>No sacred status is established for the land. The marker is Aksūm, which I use for the heart of the Najāshī's kingdom; that placement is my gloss from general history, not a text I fetched. The sea crossing of the first emigration to al-Ḥabashah is told in the sīrah, and I have not drawn it.</p>`,
     refs:[sn("bukhari",1245,"Al-Bukhārī 1245"),sn("abudawud",4302,"Abū Dāwūd 4302")]},
   rum:{title:"Bilād al-Rūm", ar:"بلاد الروم", src:["rev","early","classical"], cert:"uncertain", body:`
@@ -191,7 +191,7 @@ const STATUS = [
   where:`The dotted route is approximate. Sabaʾ's own note has the hadith on its ten sons.`,
   refs:["Qur'an 34:18; 106:1–4; tafsir of al-Baghawī",sn("tirmidhi",3222,"Al-Tirmidhī 3222")]},
  {n:20, name:"al-Ḥabashah", kinds:[], kind:"none", level:"rev", lvl:"Sunnah (a king and a people) · not in the Qur'an", ll:[38.72,14.13], off:[-18,-14], pri:4, minK:0, focus:17, goto:"habashah",
-  rests:`Not named in the Qur'an. Sunnah: the Prophet ﷺ prayed over the Najāshī on the day he died (al-Bukhārī 1245); "leave the Abyssinians alone as long as they leave you alone" (Abū Dāwūd 4302, ḥasan, al-Albānī).`,
+  rests:`Not named in the Qur'an. Sunnah: the Prophet ﷺ prayed over the Najāshī on the day he died (al-Bukhārī 1245); "Let the Abyssinians alone as long as they let you alone" (Abū Dāwūd 4302, ḥasan, al-Albānī).`,
   where:`No sacred status for the land is established. Aksūm is my marker for the kingdom's heart.`,
   refs:[sn("bukhari",1245,"Al-Bukhārī 1245"),sn("abudawud",4302,"Abū Dāwūd 4302")]},
  {n:21, name:"Bilād al-Rūm", kinds:[], kind:"none", level:"rev", lvl:"Qur'an names it · Sunnah: a virtue for an army", ll:[32.8,38.9], off:[0,0], pri:4, minK:0, focus:18, goto:"rum",
