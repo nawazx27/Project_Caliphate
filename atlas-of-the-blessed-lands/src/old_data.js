@@ -103,7 +103,7 @@ const SITES = [
   {id:"yarmuk", n:"al-Yarmūk", s:"15 AH · site approximate", ll:[35.95,32.78], a:"r", k:3.5, cert:"approx",
    body:`<p>The battle near the Yarmūk river in 15 AH (636 CE) that opened al-Shām to the Muslims in the time of ʿUmar رضي الله عنه. The exact battlefield is approximate.</p>`, src:["early"]},
   {id:"aqiq", n:"Wādī al-ʿAqīq", s:"\"this blessed valley\"", ll:[39.575,24.47], a:"l", k:30, cert:"firm",
-   body:`<p>ʿUmar رضي الله عنه heard the Prophet ﷺ say, while in Wādī al-ʿAqīq: "Someone came to me tonight from my Lord and said: pray in this blessed valley" (al-Bukhārī). The hadith names the valley west of Madinah, not its limits.</p>`, src:["rev"]},
+   body:`<p>ʿUmar رضي الله عنه heard the Prophet ﷺ say, while in Wādī al-ʿAqīq, that a messenger from his Lord had come to him that night and told him to pray "in this blessed valley" (al-Bukhārī 1534). The hadith names the valley west of Madinah, not its limits.</p>`, src:["rev"]},
   {id:"wajj", n:"Wajj", s:"ḥaram status disputed", ll:[40.40,21.25], a:"l", k:4, cert:"uncertain",
    body:`<p>Abū Dāwūd 2032 (al-Zubayr) reports the Prophet ﷺ declared the game and thorn trees of Wajj, the valley of al-Ṭāʾif, forbidden; al-Albānī grades it ḍaʿīf. Ibn Taymiyyah رحمه الله called it the only third place whose ḥaram status was disputed: al-Shāfiʿī accepted the report, while most scholars did not.</p>`, src:["classical"]}
 ];

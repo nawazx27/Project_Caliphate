@@ -33,7 +33,7 @@ const INFO_NEW = {
     refs:["Tafsir of al-Baghawī on al-Rūm 30:3",`Al-Iṣṭakhrī, <i>al-Masālik wa-l-Mamālik</i>, chapter <i>Arḍ al-Jazīrah</i> (<a href="https://shamela.ws/book/11680/66" target="_blank" rel="noopener">al-Shāmilah</a>)`]},
   iraq:{title:"al-ʿIrāq and the Sawād", ar:"العراق", src:["early","classical"], cert:"uncertain", body:`
     <p>I found no verse and no authentic hadith that calls Iraq a ḥaram, holy or blessed. What the Sunnah does give it is its <b>mīqāt</b>, Dhāt ʿIrq, which al-Bukhārī (1531) reports that ʿUmar رضي الله عنه fixed.</p>
-    <p>In Abū Dāwūd 2483 (ṣaḥīḥ, al-Albānī) the Prophet ﷺ said the matter would come to armed troops, one in al-Shām, one in Yemen and one in Iraq, and told the Companion to go to al-Shām, "the chosen land of Allah ﷻ". That is a statement about al-Shām, not a judgment on Iraq. Other authentic hadith warn of trials from the east (al-Bukhārī 7093). Commentators differ on whether "the east" and "Najd" there mean Iraq or central Arabia, and the warnings are about trials, not about a people.</p>
+    <p>In Abū Dāwūd 2483 (ṣaḥīḥ, al-Albānī) the Prophet ﷺ said the matter would come to armed troops, one in al-Shām, one in Yemen and one in Iraq, and told the Companion to go to al-Shām, "Allah's chosen land". That is a statement about al-Shām, not a judgment on Iraq. Other authentic hadith warn of trials from the east (al-Bukhārī 7093). Commentators differ on whether "the east" and "Najd" there mean Iraq or central Arabia, and the warnings are about trials, not about a people.</p>
     <p>Geography: <i>al-Sawād</i>, "the dark land", is the irrigated plain of the Tigris and Euphrates. Al-Iṣṭakhrī says that between Baghdad and al-Kūfah lies an unbroken <i>sawād</i>.</p>
     <p><b>On the map:</b> the shaded plain follows the two rivers with a margin on each side. Every edge is dotted: the geographers define al-ʿIrāq by named towns, and I could not re-read their formula in a source this session, so I draw no line I cannot source.</p>`,
     refs:[sn("bukhari",1531,"Al-Bukhārī 1531 (Dhāt ʿIrq)"),sn("abudawud",2483,"Abū Dāwūd 2483"),sn("bukhari",7093,"Al-Bukhārī 7093"),`Al-Iṣṭakhrī, chapter <i>al-ʿIrāq</i> (<a href="https://shamela.ws/book/11680/70" target="_blank" rel="noopener">al-Shāmilah</a>)`]},
@@ -75,7 +75,7 @@ const INFO_NEW = {
     refs:[sn("bukhari",1245,"Al-Bukhārī 1245"),sn("abudawud",4302,"Abū Dāwūd 4302")]},
   rum:{title:"Bilād al-Rūm", ar:"بلاد الروم", src:["rev","early","classical"], cert:"uncertain", body:`
     <p>The Qur'an names the Byzantines: ${q("غلبت الروم في أدنى الأرض")}, "the Byzantines have been defeated in the nearest land" (al-Rūm 30:2–3). Al-Baghawī's views on "the nearest land" are on the lettered badge at Adhriʿāt and Buṣrā.</p>
-    <p>In the Sunnah, "the first army of my community to invade Caesar's city will be forgiven" (al-Bukhārī 2924, from Umm Ḥarām). Muslim 2897 places the conquest of Constantinople among the events before the Hour. The virtue belongs to an army, not to the land.</p>
+    <p>In the Sunnah, "The first army amongst my followers who will invade Caesar's City will be forgiven their sins" (al-Bukhārī 2924, from Umm Ḥarām). Muslim 2897 places the conquest of Constantinople among the events before the Hour. The virtue belongs to an army, not to the land.</p>
     <p><b>On the map:</b> the land beyond the frontier fortresses (<i>al-thughūr</i>). Its dotted edge is the outer limit of al-Shām as Ibn Ḥawqal and Abū al-Fidāʾ draw it, and that frontier moved with the wars. The eastern edge toward Armenia is not taken from any source; the other edges are only where the land ends.</p>`,
     refs:["Qur'an, al-Rūm 30:2–4; tafsir of al-Baghawī on 30:3",sn("bukhari",2924,"Al-Bukhārī 2924"),sn("muslim",2897,"Muslim 2897")]},
   eschat:{title:"Places named in hadith about the end of time", src:["rev"], cert:"approx", body:`
@@ -103,7 +103,7 @@ const INFO_NEW = {
     <p>Ludd is Lydda, today Lod in Israel. The marker is the town.</p>`,
     refs:[sn("muslim","2937","Muslim 2937")]},
   eg_qust:{title:"Qusṭanṭīniyyah (Caesar's city)", ar:"القسطنطينية", src:["rev"], cert:"firm", body:`
-    <p>Al-Bukhārī 2924 (from Umm Ḥarām, the wife of ʿUbādah b. al-Ṣāmit): "The first army of my community to invade Caesar's city will be forgiven." Umm Ḥarām asked whether she would be among them, and he said she would not. Muslim 2897 places the conquest of Constantinople in the sequence of events before the Hour.</p>
+    <p>Al-Bukhārī 2924 (from Umm Ḥarām, the wife of ʿUbādah b. al-Ṣāmit): "The first army amongst my followers who will invade Caesar's City will be forgiven their sins." Umm Ḥarām asked whether she would be among them, and he said she would not. Muslim 2897 places the conquest of Constantinople in the sequence of events before the Hour.</p>
     <p>The marker is Istanbul. The virtue is for an army, and no sacred status attaches to the city.</p>`,
     refs:[sn("bukhari",2924,"Al-Bukhārī 2924"),sn("muslim",2897,"Muslim 2897")]},
   isra:{title:"al-Isrāʾ and the qibla", ar:"الإسراء والقبلة", src:["rev"], cert:"approx", body:`
@@ -115,7 +115,7 @@ const INFO_NEW = {
 /* ---------- sacred-status rows (numbers match the discs and the table) ---------- */
 const STATUS = [
  {n:1, name:"al-Masjid al-Ḥarām and the Ḥaram of Makkah", kinds:["haram","mub","fad"], kind:"haram", level:"rev", lvl:"Qur'an & Sunnah", ll:[39.8262,21.4225], off:[-17,-17], pri:1, minK:0, focus:4,
-  rests:`Qur'an: the Lord of this city ${q("الَّذِي حَرَّمَهَا")}, "who made it sacred" (27:91); ${q("حرما آمنا")}, "a safe sanctuary" (28:57); the first House, at Bakkah, ${q("مباركا")}, "blessed" (3:96). Sunnah: Allah ﷻ made it sacred on the day He created the heavens and the earth (al-Bukhārī 1834, Ibn ʿAbbās); one of the three masjids to which a journey is made (al-Bukhārī 1189); "the best of the land of Allah ﷻ" (al-Tirmidhī 3925, ḥasan ṣaḥīḥ gharīb).`,
+  rests:`Qur'an: the Lord of this city ${q("الَّذِي حَرَّمَهَا")}, "who made it sacred" (27:91); ${q("حرما آمنا")}, "a safe sanctuary" (28:57); the first House, at Bakkah, ${q("مباركا")}, "blessed" (3:96). Sunnah: Allah ﷻ made it sacred on the day He created the heavens and the earth (al-Bukhārī 1834, Ibn ʿAbbās); one of the three masjids to which a journey is made (al-Bukhārī 1189); the best of the land of Allah ﷻ (al-Tirmidhī 3925, which al-Tirmidhī calls ḥasan ṣaḥīḥ gharīb; also Ibn Mājah 3108).`,
   where:`<b>Fixed.</b> Boundary markers stand on the roads in. Al-Nawawī's distances, in mīl: al-Tanʿīm 3, the Yemen road 7, the Iraq road 7, the Ṭāʾif road 7, the al-Jiʿrānah road 9, the Jeddah road 10. Ibn Taymiyyah: the one ḥaram all agree on. Drawn in the inset.`,
   refs:[sn("bukhari",1834,"Al-Bukhārī 1834"),sn("bukhari",1189,"Al-Bukhārī 1189"),"Al-Tirmidhī 3925, Ibn Mājah 3108","Al-Nawawī, al-Majmūʿ (Islamweb fatwa 71668)","Ibn Taymiyyah, Majmūʿ al-Fatāwā 27/14–15"]},
  {n:2, name:"ʿArafah, Muzdalifah and Minā", kinds:["muq"], kind:"muq", level:"rev", lvl:"Qur'an & Sunnah", ll:[39.935,21.392], off:[18,16], pri:5, minK:7, focus:4,
@@ -123,7 +123,7 @@ const STATUS = [
   where:`<b>ʿArafah itself is outside the ḥaram</b>; Minā and Muzdalifah are inside it. The ḥaram line on the ʿArafah side runs at Baṭn Namirah.`,
   refs:["Qur'an, al-Baqarah 2:198; tafsir of al-Baghawī"]},
  {n:3, name:"The Ḥaram of Madinah and al-Masjid al-Nabawī", kinds:["haram","mub","fad"], kind:"haram", level:"rev", lvl:"Sunnah · rulings disputed", ll:[39.6111,24.4672], off:[-17,-17], pri:1, minK:0, focus:5,
-  rests:`Sunnah: "Madinah is a ḥaram from ʿAyr to Thawr" (al-Bukhārī 6755, Muslim 1370); the ground between its two lava fields is a sanctuary (Abū Hurayrah, Muslim 1372); the Prophet ﷺ prayed that Madinah be given twice the blessing of Makkah (al-Bukhārī 1885, Anas); one prayer in his mosque is better than a thousand elsewhere except al-Masjid al-Ḥarām (al-Bukhārī 1190, Abū Hurayrah).`,
+  rests:`Sunnah: Madinah is a sanctuary (ḥaram) from ʿAyr to Thawr (al-Bukhārī 6755, Muslim 1370); the ground between its two lava fields is a sanctuary (Abū Hurayrah, Muslim 1372, where he also made twelve mīl around it a ḥimā, a protected pasture); the Prophet ﷺ prayed that Madinah be given twice the blessing of Makkah (al-Bukhārī 1885, Anas); one prayer in his mosque is better than a thousand elsewhere except al-Masjid al-Ḥarām (al-Bukhārī 1190, Abū Hurayrah).`,
   where:`<b>Landmarks given, line approximate:</b> ʿAyr to the south, Thawr to the north, the two lava fields (Ḥarrat Wāqim in the east, Ḥarrat al-Wabarah in the west). Most scholars hold it is a true ḥaram; the Ḥanafī school is reported to differ (not re-checked here). Ibn Taymiyyah takes ʿAyr as a mountain near the mīqāt and Thawr as a hill near Uḥud, not the Thawr of Makkah.`,
   refs:[sn("bukhari",6755,"Al-Bukhārī 6755")+", "+sn("muslim",1370,"Muslim 1370")+" (al-Bukhārī 1870 has the same ʿAyr but leaves the second place unnamed)",sn("muslim",1372,"Muslim 1372"),sn("bukhari",1885,"Al-Bukhārī 1885"),sn("bukhari",1190,"Al-Bukhārī 1190")]},
  {n:4, name:"Masjid Qubāʾ", kinds:["fad"], kind:"fad", level:"rev", lvl:"Sunnah · Salaf differ on 9:108", ll:[39.6172,24.4393], off:[-16,14], pri:6, minK:4, focus:5,
@@ -131,11 +131,11 @@ const STATUS = [
   where:`A known masjid south of the Prophet's Mosque, inside Madinah's ḥaram.`,
   refs:[sn("bukhari",1193,"Al-Bukhārī 1193"),sn("muslim",1398,"Muslim 1398"),"Tafsir of al-Baghawī on 9:108"]},
  {n:5, name:"Wādī al-ʿAqīq", kinds:["mub"], kind:"mub", level:"rev", lvl:"Sunnah", ll:[39.575,24.47], off:[-18,-12], pri:7, minK:6, focus:5,
-  rests:`ʿUmar رضي الله عنه heard the Prophet ﷺ say, in Wādī al-ʿAqīq: "Someone came to me tonight from my Lord and said: pray in this blessed valley" (al-Bukhārī 1534).`,
+  rests:`ʿUmar رضي الله عنه heard the Prophet ﷺ say, in Wādī al-ʿAqīq, that a messenger from his Lord had come to him that night and told him to pray "in this blessed valley" (al-Bukhārī 1534).`,
   where:`The valley west of Madinah. The hadith names the valley, not its limits.`,
   refs:[sn("bukhari",1534,"Al-Bukhārī 1534")]},
  {n:6, name:"Uḥud", kinds:["fad"], kind:"fad", level:"rev", lvl:"Sunnah", ll:[39.615,24.505], off:[16,-12], pri:7, minK:6, focus:5,
-  rests:`"This is Ṭābah, and this is Uḥud, a mountain that loves us and that we love" (al-Bukhārī 4422, Abū Ḥumayd).`,
+  rests:`Returning from Tabūk, the Prophet ﷺ called Madinah Ṭābah and said Uḥud is a mountain that loves us and that we love (al-Bukhārī 4422, Abū Ḥumayd).`,
   where:`The mountain itself. The hill of Thawr that bounds Madinah's ḥaram lies behind it, on Ibn Taymiyyah's reading.`,
   refs:[sn("bukhari",4422,"Al-Bukhārī 4422")]},
  {n:7, name:"Wajj, the valley of al-Ṭāʾif", kinds:["haram"], kind:"haram", level:"disp", lvl:"Disputed", ll:[40.40,21.25], off:[14,16], pri:5, minK:2, focus:4,
@@ -155,7 +155,7 @@ const STATUS = [
   where:`Al-Baghawī identifies it as al-Shām in 21:71 and 21:81 and the towns of al-Shām in 34:18; for 7:137 he says "Miṣr and al-Shām", blessed with water, trees, fruit, fertility and abundance. No boundary beyond the name.`,
   refs:["Tafsir of al-Baghawī on 7:137, 21:71, 21:81, 34:18"]},
  {n:11, name:"al-Shām in the Sunnah", kinds:["fad"], kind:"fad", level:"rev", lvl:"Sunnah · Muʿādh: a Companion's reading", ll:[38.4,33.2], off:[18,16], pri:3, minK:0, focus:1,
-  rests:`"O Allah ﷻ, bless us in our Shām; O Allah ﷻ, bless us in our Yemen" (al-Bukhārī 1037). "Ṭūbā for al-Shām … the angels of al-Raḥmān spread their wings over it" (al-Tirmidhī 3954, Zayd b. Thābit; ḥasan, Darussalam). "Go to al-Shām, for it is the chosen land of Allah ﷻ, to which He draws His best servants" (Abū Dāwūd 2483, Ibn Ḥawālah; ṣaḥīḥ, al-Albānī). Muʿādh b. Jabal said the group that stays on the truth are in al-Shām (al-Bukhārī 3641): a Companion's understanding.`,
+  rests:`The Prophet ﷺ prayed for blessing on "our Sham and our Yemen" (al-Bukhārī 1037, Ibn ʿUmar). "Ṭūbā for al-Shām … the angels of al-Raḥmān spread their wings over it" (al-Tirmidhī 3954, Zayd b. Thābit; ḥasan, Darussalam). "Go to Syria, for it is Allah's chosen land, to which his best servants will be gathered" (Abū Dāwūd 2483, Ibn Ḥawālah; ṣaḥīḥ, al-Albānī). Muʿādh b. Jabal said the group that stays on the truth are in al-Shām (al-Bukhārī 3641): a Companion's understanding.`,
   where:`No text fixes al-Shām's boundary; see the geography layers.`,
   refs:[sn("bukhari",1037,"Al-Bukhārī 1037"),sn("tirmidhi",3954,"Al-Tirmidhī 3954"),sn("abudawud",2483,"Abū Dāwūd 2483"),sn("bukhari",3641,"Al-Bukhārī 3641")]},
  {n:12, name:"al-Ṭūr, the valley of Ṭuwā, the blessed spot", kinds:["muq","mub"], kind:"muq", level:"rev", lvl:"Qur'an: the status · tradition: the exact peak", ll:[33.975,28.539], off:[-18,-14], pri:2, minK:0, focus:20, goto:"tuwa",
@@ -167,11 +167,11 @@ const STATUS = [
   where:`Any place reading is a minority view; the oath is not established as a sacred status for a place.`,
   refs:["Tafsir of al-Baghawī on 95:1–3"]},
  {n:14, name:"al-Yaman", kinds:["fad"], kind:"fad", level:"rev", lvl:"Qur'an & Sunnah", ll:[45.9,15.7], off:[-18,-14], pri:3, minK:0, focus:16, goto:"yemen",
-  rests:`Sunnah: "Faith is Yamānī and wisdom is Yamānī" (al-Bukhārī 4388, Abū Hurayrah), said of its people; "O Allah ﷻ, bless us in our Yemen" (al-Bukhārī 1037). Qur'an: to Sabaʾ, ${q("بلدة طيبة ورب غفور")}, "A good land [have you], and a forgiving Lord" (34:15, Saheeh International).`,
+  rests:`Sunnah: "Belief is Yemenite and Wisdom is Yemenite" (al-Bukhārī 4388, Abū Hurayrah), said of its people; the Prophet ﷺ prayed for blessing on "our Sham and our Yemen" (al-Bukhārī 1037). Qur'an: to Sabaʾ, ${q("بلدة طيبة ورب غفور")}, "A good land [have you], and a forgiving Lord" (34:15, Saheeh International).`,
   where:`The texts name Yemen and Sabaʾ, not boundaries. Al-Aṣmaʿī's al-Ḥijāz ends at Yemen's marches (Tabālah, badge I).`,
   refs:[sn("bukhari",4388,"Al-Bukhārī 4388"),sn("bukhari",1037,"Al-Bukhārī 1037"),"Qur'an, Sabaʾ 34:15"]},
  {n:15, name:"Miṣr (Egypt)", kinds:["fad"], kind:"fad", level:"rev", lvl:"Sunnah: its people · tafsīr: the blessing", ll:[31.0,28.1], off:[-18,-14], pri:3, minK:0, focus:14, goto:"misr",
-  rests:`Sunnah: "you will conquer Egypt … treat its people well, for they have a covenant and kinship" (Muslim 2543, Abū Dharr). The Qur'an names it: ${q("ادخلوا مصر إن شاء الله آمنين")} (12:99). Al-Baghawī reads "the land We had blessed" in 7:137 as Miṣr and al-Shām.`,
+  rests:`Sunnah: "You would soon conquer Egypt … So when you conquer it, treat its inhabitants well", for "protection and blood-relationship" apply to them (Muslim 2543, Abū Dharr). The Qur'an names it: ${q("ادخلوا مصر إن شاء الله آمنين")} (12:99). Al-Baghawī reads the land "which We had blessed" in 7:137 as Miṣr and al-Shām.`,
   where:`No boundary text. Sinai's sacred places (12) lie in today's Egypt. Yāqūt's and al-Iṣṭakhrī's reckonings are on the Miṣr layer.`,
   refs:[sn("muslim","2543","Muslim 2543"),"Qur'an, Yūsuf 12:99; tafsir of al-Baghawī on 7:137"]},
  {n:16, name:"Iraq and the East", kinds:[], kind:"none", level:"rev", lvl:"Sunnah: warnings · which land: disputed", ll:[44.3661,33.3152], off:[-18,-16], pri:3, minK:0, focus:13, goto:"iraq",
