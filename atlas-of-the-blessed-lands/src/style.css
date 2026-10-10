@@ -120,6 +120,8 @@ path,line,polyline{vector-effect:non-scaling-stroke}
 .jund:hover{fill-opacity:.26}.jund.sel{fill-opacity:.36}
 .haramfill{fill:var(--haram);fill-opacity:.2;stroke:var(--haram);stroke-width:2;stroke-dasharray:8 5;cursor:pointer}
 .haramfill:hover,.haramfill.sel{fill-opacity:.34}
+.himaring{fill:var(--haram);fill-opacity:.05;stroke:var(--haram);stroke-width:1.6;stroke-dasharray:.5 4.5;stroke-linecap:round;cursor:pointer}
+.himaring:hover,.himaring.sel{fill-opacity:.08}
 .circ{fill:var(--hijaz);fill-opacity:.14;stroke:var(--hijaz);stroke-width:1.6;stroke-dasharray:.5 4.5;stroke-linecap:round;cursor:pointer}
 .circ:hover,.circ.sel{fill-opacity:.28}
 .ring3{fill:var(--yemen);fill-opacity:.14;stroke:var(--yemen);stroke-width:1.8;stroke-dasharray:.5 4.5;stroke-linecap:round;cursor:pointer}

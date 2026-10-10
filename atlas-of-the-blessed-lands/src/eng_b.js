@@ -306,6 +306,7 @@ function buildNat(){ if(NAT_BUILT) return; NAT_BUILT = true;
 }
 const gHaram = layerG(gTop, 'haram');
 gHaram.append('path').attr('class','haramfill').attr('data-sel','makkah').attr('d', ringD(MAKKAH_HARAM)).on('click', e=>{ e.stopPropagation(); select('makkah'); }).append('title').text('Ḥaram of Makkah (approximate outline)');
+gHaram.append('path').attr('class','himaring').attr('data-sel','madinah').attr('d', ringD(circleRing(QIBLA.madinah, HIMA_KM))).on('click', e=>{ e.stopPropagation(); select('madinah'); }).append('title').text('Ḥimā of Madinah: twelve mīl around it (Muslim 1372; approximate)');
 gHaram.append('path').attr('class','haramfill').attr('data-sel','madinah').attr('d', ringD(MADINAH_HARAM)).on('click', e=>{ e.stopPropagation(); select('madinah'); }).append('title').text('Ḥaram of Madinah (approximate outline)');
 layerG(gTop, 'aqsa').append('path').attr('class','aqsa').attr('data-sel','aqsa').attr('d', ringD(AQSA_ENCL)).on('click', e=>{ e.stopPropagation(); select('aqsa'); }).append('title').text('Enclosure of al-Masjid al-Aqṣā (approximate)');
 /* al-Aḥqāf: three reports, three rings */

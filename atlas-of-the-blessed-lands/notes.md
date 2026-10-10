@@ -278,3 +278,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
   - The al-Nuʿmān b. Bashīr hadith now names Musnad Aḥmad 18406 and Ḥudhayfah b. al-Yamān, from whom al-Nuʿmān reports it. Its grade: dorar.net shows al-Albānī "isnāduhu ḥasan" (Hidāyat al-Ruwāt); what he says in al-Silsilah al-Ṣaḥīḥah 5 was not confirmed.
 - Unverified: the Arabic «هُنَّ لَهُنَّ وَلِمَنْ أَتَى عَلَيْهِنَّ مِنْ غَيْرِ أَهْلِهِنَّ» was confirmed for al-Bukhārī 1524 only from a search summary.
 - Tests: desktop and phone screenshots of entries 3, 11, 14, 15 and the Complete outline; no errors; the new wording shows.
+
+## Version 57: the ḥimā of Madinah drawn
+- Nawaz (2026-10-10): "yes draw the circle" (the twelve-mīl ḥimā of Muslim 1372b, found in Version 56).
+- Map: a dotted ring of twelve mīl around the Prophet's Masjid, on the ḥaram layer, beneath the ḥaram outline; clicking it opens the Madinah notes. The mīl taken as about 1.85 km, so about 22 km (HIMA_KM in new_geom.js). The hadith gives a distance, not a line, and the length of the mīl is an estimate (Claude's synthesis); the notes say both. The Madinah chip and detail map widened to show the whole ring.
+- Notes: the Madinah ḥaram entry gains a paragraph and a Muslim 1372 reference; the "what I changed" bullet now says the ring is drawn.
+- Tests: desktop and phone screenshots of #madinah and entry 3; no errors.
