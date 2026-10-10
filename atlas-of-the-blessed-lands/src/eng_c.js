@@ -191,6 +191,8 @@ function buildOverlay(){
   MIQATS.forEach(m=>addPoint('miqat', m.ll, {sym:'ring', color:'--miqat', name:m.n, sub:m.s, minK:2.6, subK:5, anchor:m.a, info:'miqat', pri:5, title:m.n, keep:true}));
   SITES.forEach(s=>addPoint(s.id==='tayyi'?'sham':'sites', s.ll, {sym:'square', color:'--site', name:s.n, sub:s.s, minK:s.k, subK:s.k*1.4, anchor:s.a, info:s.info||('site_'+s.id), pri:6, cls:'small', title:s.n}));
   addPoint('aqsa', QIBLA.aqsa, {sym:'diamond', color:'--sacred', name:"al-Masjid al-Aqṣā", sub:"Bayt al-Maqdis · Jerusalem", minK:0, subK:1.4, anchor:'r', info:'aqsa', title:'al-Masjid al-Aqṣā', pri:0, keep:true});
+  /* Arwād (Aradus), off Ṭarṭūs: taken in ʿUthmān's time (Version 51, Nawaz's brief); too small for the base map, so it is marked, not shaded */
+  addPoint('caliphx', [35.858,34.856], {name:'Arwād', sub:'island · in your outline', minK:1.6, subK:2.8, anchor:'l', info:'caliphx', r:2.6, color:'--xcal', cls:'small', pri:8, title:'Arwād (Aradus): an island too small for the base map, inside your outline'});
   addPoint('caliphx', QIBLA.aqsa, {sym:'capital', info:'capital', title:'al-Quds (Jerusalem): capital of Dār al-Amān · your choice, not from the sources', minK:0, keep:true});
   addPoint('haram', QIBLA.makkah, {sym:'diamond', color:'--haram', minK:0, info:'makkah', title:'al-Masjid al-Ḥarām', keep:true});
   addPoint('haram', QIBLA.madinah, {sym:'diamond', color:'--haram', minK:0, info:'madinah', title:'al-Masjid al-Nabawī', keep:true});
