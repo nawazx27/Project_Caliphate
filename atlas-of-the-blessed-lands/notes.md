@@ -293,3 +293,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Corrected while trimming: the natural ring note said all of the complete outline lies inside the ring; Complete (V1) has a Turkmen strip outside (about 17,500 km²) and Complete V3 about 1.44 million km². Abū Dāwūd 4302 now quoted the same way everywhere ("Let … let you alone", sunnah.com's English).
 - Not changed: "I/my" for the atlas's own reasoning stays (it labels Claude's synthesis, as CLAUDE.md asks); every "not from the sources, not a ruling" stays.
 - Tests: no errors; desktop and phone screenshots of all seven versions; visible "your" left only in "Turn your phone sideways".
+
+## Version 59: three whole sections removed
+- Nawaz (2026-10-10), from the list offered in Version 58, approved removing: the Colophon, the "Changes from the earlier atlas" note (in "Reading these maps honestly"), and "What is firm, what is approximate, what is disputed". He kept the natural ring's "How it was drawn".
+- Done: the three are gone, with the Colophon link in the top menu. The footer line ("an approximate educational reconstruction, not a survey and not a fatwa") and the end ornament stay, without "definitive edition". Lost with the changes note: only the remark that "al-Juḥfah for Egypt" (from the earlier atlas) was dropped as unconfirmed; al-Juḥfah is still described only as the mīqāt for al-Shām.
+- The quran.ai grounding line now also lists 2:61 and 3:123 and al-Ṭabarī on 2:61 (fetched in Version 56).
+- Tests: no errors; desktop and phone screenshots of "Reading these maps honestly", "A caliphate outline" and the page end.
