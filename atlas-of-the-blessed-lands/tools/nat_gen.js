@@ -347,7 +347,7 @@ const main = {km2, lines: out, states};
    is a present-day international border or a coast. Majority rule: a state comes in whole if more than half of it is inside the ring; every state
    in the Complete outline comes in whole too (Uganda, 48% inside the ring). In Kashmir the base map's de facto lines are used. ---------- */
 const polStates = (() => {
-  const CALX = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/caliph.json'))).x.states.map(s => s.id).filter(id => id !== '643');   /* Version 51: Complete holds only Derbent of Russia; Russia is not taken whole */
+  const CALX = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/caliph.json'))).x.states.map(s => s.id).filter(id => !['643','724','380','860'].includes(id));   /* Versions 51–52: Complete holds only small parts of Russia (Derbent, the Dagestan coast), Spain, Italy and Uzbekistan; they are not taken whole */
   const ids = new Set(states.filter(s => s.pct > 50).map(s => s.id).concat(CALX));
   const geoms = C.filter(g => { const id = String(g.id); return ids.has(id) || (ids.has('CYP') && ['196','CYN','CNM'].includes(id)); });
   const merged = topojson.merge(geo, geoms).coordinates;

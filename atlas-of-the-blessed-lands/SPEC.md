@@ -17,6 +17,7 @@ Attach this zip to a new chat to continue work; edit `src/`, then `node build.js
    - (2026-10-09, Version 46, Nawaz's request) **Turkmenistan, Afghanistan and Pakistan**, whole (Pakistan with Azad Kashmir and Gilgit-Baltistan, as the base map draws it). Complete is now about 15.3 million km² in 34 states. A strip of Turkmenistan on the Amu Darya's right bank (~17,500 km²) lies outside the natural ring. See notes.md.
    - (2026-10-09, Version 48, Nawaz's request) **Tunisia**, whole, also in the To-Iraq version. Complete about 15.5 million km² in 35 states. See notes.md.
    - (2026-10-10, Version 51, Nawaz's Rashidun brief) the exact island of Cyprus in every version; **Derbent (Bāb al-Abwāb)** with the Samur valley strip (my drawing) in Complete and V2; **Arwād** marked with a dot (too small for the base map). See notes.md.
+   - (2026-10-10, Version 52, Nawaz's map of the caliphate under ʿUthmān) the north of **Algeria** and **Morocco**, the south-east coast of **Spain**, eastern **Sicily**, the **Dagestan** coast north of Derbent and a strip of southern **Uzbekistan**. Complete about 16.0 million km² in 41 states. See notes.md.
 3. **To Iraq's border** (toggle): the same, stopping at Iraq's eastern border (no Iran or South Caucasus). About 9.7 million km², 24.
 4. **Greater Caliphate** (toggle; formerly "Greater Middle East"), drawn in the core's colour as one territory:
    - the whole core;
