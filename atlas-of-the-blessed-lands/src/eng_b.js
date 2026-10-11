@@ -252,7 +252,7 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   /* each version's path is built the first time it is shown, not all seven at startup */
   const dx = dOf(CALIPH.x); CX.d = {full:dx};
   const lazyD = (k, f) => Object.defineProperty(CX.d, k, {configurable:true, enumerable:true, get(){ const v = f(); Object.defineProperty(CX.d, k, {value:v, enumerable:true}); return v; }});
-  lazyD('west', ()=>dOf(CALIPH.xw)); lazyD('gme', ()=>dOf(CALIPH.g)); lazyD('v2', ()=>dOf(CALIPH.v2)); lazyD('v3', ()=>dOf(CALIPH.x3));
+  lazyD('west', ()=>dOf(CALIPH.xw)); lazyD('gme', ()=>dOf(CALIPH.g)); lazyD('v2', ()=>dOf(CALIPH.v2)); lazyD('v3', ()=>dOf(CALIPH.x3)); lazyD('me', ()=>dOf(CALIPH.me));
   CX.clip = sdefs.append('clipPath').attr('id','caliphxclip').append('path').attr('d', dx);
   const gx = layerG(gEdges, 'caliphx');
   const openx = e=>{ e.stopPropagation(); select('caliphx'); };
@@ -261,14 +261,14 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   CX.line = gx.append('g').attr('clip-path','url(#landclip)').append('path').attr('class','caliphx-line').attr('d', dx);
   gEdges.node().insertBefore(gx.node(), g.node());
   const xl = {}, src = {full:CALIPH.x, west:CALIPH.xw, gme:CALIPH.g, v2:CALIPH.v2};
-  src.v3 = CALIPH.x3;
+  src.v3 = CALIPH.x3; src.me = CALIPH.me;
   CLIPS.push({els:[CX.band], key:XK, full:()=>CX.d[XK()], lines:()=> xl[XK()] || (xl[XK()] = projLines(src[XK()].polys.flat()))});
   CLIPS.push({els:[CX.line], key:()=>XK(), full:()=>CX.d[XK()], lines:()=> xl[XK()] || (xl[XK()] = projLines(src[XK()].polys.flat()))});
   /* the Greater Caliphate is drawn by the same elements in the core's colour (see setXV), so it reads as one territory */
   /* a faint wash over the land inside your outline, under every other colour */
   const gw = layerG(gFill, 'caliphx'); gFill.node().insertBefore(gw.node(), gFill.node().firstChild);
   CX.wash = gw.append('path').attr('class','caliphx-wash').attr('d', dx);
-  /* Complete Caliphate V2: the province history shading is not drawn since Version 41 (Nawaz: V2 in the same neutral colour as Complete and Greater);
+  /* V5 (Greater Middle East; Complete V2 before Version 66): the province history shading is not drawn since Version 41 (Nawaz: V2 in the same neutral colour as Complete and Greater);
      the history stays in the notes, and the page carries only each province's box (see build.js), so the layer is no longer built (Version 47) */
 }
 /* ---------- Dār al-Amān: natural borders and internal lines (your design, 2026-10-07; see tools/nat_gen.js) ----------

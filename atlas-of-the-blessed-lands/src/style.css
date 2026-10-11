@@ -519,6 +519,8 @@ body{background-image:var(--grain);background-size:160px;background-blend-mode:s
 .minilegend .lgnest small{color:var(--muted);font-size:10.5px}
 .xtoggle .sht{display:none}
 @media (max-width:760px){.xtoggle .lgt{display:none}.xtoggle .sht{display:inline}.xtoggle button{padding:5px 10px}}
+/* Version 66: six versions do not fit beside the key on the normal desktop map, so the bar there shows just V1 to V6 (the full name is the button's tooltip, the note's title and the key's line); the wide and full-screen maps keep the names */
+.atlas:not(.wide):not(.full) .xtoggle.onmap [data-xv] .lgt{display:none}.atlas:not(.wide):not(.full) .xtoggle.onmap [data-xv] .sht{display:inline}
 .ctable tr.grp td{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--xcal);padding-top:12px;border-bottom:1px solid var(--rule2)}
 .ctable tr.grp.g td{color:var(--xcal)}
 .ctable tr.sub td{color:var(--muted);font-style:italic}
