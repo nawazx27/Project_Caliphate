@@ -305,3 +305,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Done: the two version buttons are gone from both switches, with their notes, map captions, area paragraphs, table captions, search entries and code paths (setXV accepts full, west, gme, v2, v3). The page's version overview no longer lists them. build.js no longer inlines NAT.pol (page about 190 KB smaller); src/nat.json and tools/nat_gen.js are unchanged.
 - Kept (not asked to remove): the "Natural line" overlay, which draws the ring over any version and opens the ring's note, and the "Internal lines" overlay. The ring's note no longer points to a Natural borders button. Old links #natural-borders, #natural-political and #natural-libya now open the Natural line.
 - Tests: smoke test no errors; desktop and phone screenshots of the five versions, the Natural line, the Internal lines and the old #natural-borders link.
+
+## No more artifact (2026-10-11)
+- Nawaz: "Do not make this an artifact anymore." From now on the atlas is not published as a Claude artifact; each change is delivered as the rebuilt index.html and a zip. CLAUDE.md updated. The existing artifact link (last published as Version 60) was left as it is, pending his answer on whether to delete it.
