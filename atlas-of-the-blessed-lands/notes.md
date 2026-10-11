@@ -434,3 +434,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - The Complete outline is now 18.01 million km², smaller than "to Iraq's border" (18.15), so by the size rule they swap: V2 = Complete, V3 = to Iraq's border. Order: V1 14.03, V2 18.01, V3 18.15, V4 18.70, V5 25.47, V6 33.24, V7 37.19. Natural line note: about 2.05 million km² of V2 outside the ring.
 - Also checked before this (no change): V3 held all of Khwārazm, Transoxiana and Khorasan as drawn on the dashed-outline map (traced; outside: 0, 0 and ~30 km² of tracing error).
 - Tests: smoke test no errors; desktop and iPhone-size screenshots of all versions; the new edge drawn on his map.
+
+## Version 77: Tajikistan and Kyrgyzstan whole in V2 (Complete); V2 keeps its number
+- Nawaz (2026-10-11): "Include entire modern Tajikistan and Kyrgyzstan in v2". tools/v2_tjk_kgz_whole.js: both whole (the eastern Pamirs, Bishkek, Issyk-Kul and Naryn back in). In Kazakhstan Mawarāʾ al-Nahr stays as the red line of his map with the land round Isbījāb and Ṭarāz (Version 76); Uzbekistan and Turkmenistan whole.
+- V2 (Complete) is now 18.20 million km², slightly larger than V3 (to Iraq's border, 18.15). Asked, Nawaz chose to keep Complete as V2: from now on V2 and V3 keep their numbers even when their sizes change slightly (the versions paragraph and the outline note say so). Order of numbers: V1 14.03, V2 18.20, V3 18.15, V4 18.70, V5 25.47, V6 33.24, V7 37.19.
+- Natural line note: about 2.24 million km² of V2 outside the ring.
+- Tests: smoke test no errors; desktop and iPhone-size screenshots of all versions; close-up of Central Asia.
