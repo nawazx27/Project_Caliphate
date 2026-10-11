@@ -528,3 +528,8 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 ## Version 89 (2026-10-11): Version 88 undone
 - Nawaz: "Revert back to previous version". Version 88 (Uzbekistan and Kyrgyzstan whole in V2) was reverted with git; everything is as in Version 87: V2 holds Greater Khurāsān at its widest (Tajikistan whole; Uzbekistan 59%, Kyrgyzstan 21%, edges of Kazakhstan and China), 17.78 million km². tools/v2_uzb_kgz_whole.js is removed (it is in git history, commit "Version 88").
 - Tests: smoke test no errors; desktop and iPhone-size screenshots of all versions.
+
+## Version 90 (2026-10-11): a poster of V2
+- Nawaz: "Make a beautiful image of V2". Made posters/v2_poster.png (3200×2800) and posters/v2_poster.jpg (smaller, for sharing) with tools/poster_v2.js (it writes posters/v2_poster.html and renders it in the Playwright Chromium).
+- Design: the atlas's Mercator, base map and shaded relief; V2 in gold with a glowing gilt edge; the land outside muted; dark sea; classical region names in Latin and Arabic script; Makkah and al-Madīnah marked, al-Quds with the star; title cartouche "Dār al-Amān / al-Khilāfa al-Amīna", "Version 2 · about 17.78 million km²", and the line "Drawn to the author's specification, not from the sources and not a ruling"; compass rose and a 1,000 km scale bar (true at 25° N).
+- The map page itself is unchanged. The zip carries the JPG only (the PNG would push it past 30 MB); posters/v2_poster.html is a working file, not kept in git.
