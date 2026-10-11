@@ -471,3 +471,4 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - What is left is hairlines of 0–2 km² per country from the 0.001° (about 100 m) rounding of the outlines. That is the precision limit of the data, not missing land. Checked by point sampling where the clipping library failed (Egypt, Greece, Chad, Mauritania, Guinea-Bissau): no inland point missing.
 - The page is bigger because the coasts are now fully detailed (index.html 5.6 → 7.2 MB).
 - Tests: smoke test no errors; desktop and iPhone-size screenshots of all versions; close-up of the Aegean islands in V2.
+- Zip: the bigger page pushed it near 30 MB, so reference/phone_fullscreen_before_v64.png (an old before-screenshot, still in git) is also left out of the zip.
