@@ -4,7 +4,11 @@
    (orthographic, centre 92.56°E 50.53°N, fitted to the land pattern, 96% agreement) and traced: tools/data/xinjiang_trace.json.
    The white country borders on the maps are taken in and the shapes clipped to China, so the outer edge is the real border; the inner
    edges (towards Tibet, Qinghai and Gansu, and between the three provinces) are the maps' own, traced approximately.
-   Three V2 provinces, each with its history; China joins the V2 table as "China: Xinjiang (most of it)". Run once: node tools/add_v2_xinjiang.js */
+   Version 63 (2026-10-11): Nawaz sent a third map, of East Turkestan, and chose to redraw V2's Xinjiang to it. Its inset was matched to the
+   base map's borders (linear fit, mean error about 8 km; tools/data/xinjiang_trace.json, et) and is now the outer shape; the two earlier
+   maps only divide it into the three provinces. The map's East Turkestan reaches about 99°E, beyond Xinjiang's official eastern end
+   (about 96.4°E), so it takes in a strip of western Gansu.
+   Three V2 provinces, each with its history; China joins the V2 table as East Turkestan. Run once: node tools/add_v2_xinjiang.js */
 const fs = require('fs'), path = require('path');
 const ROOT = path.join(__dirname, '..');
 const topojson = require(path.join(ROOT, 'node_modules/topojson-client'));
@@ -44,10 +48,14 @@ function snap(shape){
   const cells = ct.coordinates.map(p => p.map(r => r.map(([x, y]) => [R3(GX0 + x*G), R3(GY1 - y*G)])));
   return cells.length ? clipCN(pc.union(R3mp(shape), cells)) : shape;
 }
-const ILI = snap(clipCN(T.m2_dark));
-const TARIM = R3mp(pc.difference(snap(clipCN(T.m1_dark)), ILI));
-const ALL = fillSmall(R3mp(pc.union(snap(clipCN(pc.union(R3mp(T.m1_dark), R3mp(T.m1_hatch), R3mp(T.m2_dark)))), ILI, TARIM)));
-const EAST = R3mp(pc.difference(ALL, TARIM, ILI)).filter(p => ringSr(p[0])*KM >= 2000);   /* slivers along the shared edges stay with their neighbours */
+/* polygon-clipping can fail on near-coincident edges: retry on a slightly coarser grid */
+const Rq = q => mp => mp.map(p => p.map(r => r.map(([x, y]) => [Math.round(x/q)*q, Math.round(y/q)*q].map(R3))));
+const safe = (op, ...args) => { for(const q of [0.001, 0.002, 0.004]){ try { return R3mp(pc[op](...args.map(Rq(q)))); } catch(e){ if(q === 0.004) throw e; } } };
+const ET = snap(clipCN(T.et));
+const ILI = safe('intersection', snap(clipCN(T.m2_dark)), ET);
+const TARIM = safe('difference', safe('intersection', snap(clipCN(T.m1_dark)), ET), ILI);
+const ALL = fillSmall(snap(clipCN(T.et))).filter(p => ringSr(p[0])*KM >= 50);   /* East Turkestan, as the third map draws it (inland slivers under 50 km² dropped) */
+const EAST = safe('difference', ALL, TARIM, ILI).filter(p => ringSr(p[0])*KM >= 2000);   /* slivers along the shared edges stay with their neighbours */
 const cen = mp => { let best = mp[0]; mp.forEach(p => { if(ringSr(p[0]) > ringSr(best[0])) best = p; }); const c = d3.geoCentroid({type:'Polygon', coordinates:[best[0]]}); return [R3(c[0]), R3(c[1])]; };
 const S = {
   yet:{t:'Yettishar (Wikipedia)', u:'https://en.wikipedia.org/wiki/Yettishar', k:'modern', s:'Yaqub Beg’s state in the Tarim basin, 1864/65–1877; Kashgar its capital'},
@@ -67,11 +75,11 @@ const UNITS = [
    notes:'Kashgar was a Karakhanid capital and Khotan was taken from its Buddhist kings about 1006; the eastern oases (Kucha, Korla) came under Muslim rule later. Yaqub Beg made Kashgar his capital in 1865; in 1873 he offered his allegiance to the Ottoman sultan ʿAbd al-ʿAzīz as caliph, received the title of Emir, and struck coins in his name. He died at Korla in 1877, and the Qing retook the region by 1878. The tie to a caliph was nominal both times.',
    uncertain:GK + 'the dates of the Chagatai, Moghulistan and Yarkand khanates, and the Qing conquest of 1759. The search found no source for the Karakhanids’ recognition of the Abbasids beyond the one used for southern Kazakhstan in this table.',
    sources:[S.kk, S.kho, S.yet, S.yetc, S.yetk]},
-  {shape:EAST, label:'Turfan, Ürümqi and eastern Xinjiang', cat:'dynasty', conf:'low',
+  {shape:EAST, label:'Turfan, Ürümqi and the east (with the strip of western Gansu the map takes in)', cat:'dynasty', conf:'low',
    who:'Yettishar under Yaqub Beg, who held Turfan, Ürümqi and Karashahr in the 1870s and gave his allegiance to the Ottoman sultan-caliph in 1873',
    dates:'1870s to 1877 (Yettishar, under the Ottoman caliph from 1873)', nominal:true,
    states:[{n:'Moghulistan and the Turfan khans', d:'15th–17th centuries', r:'no'}, {n:'Dungan risings (Ürümqi)', d:'1864–1870', r:'no'}, {n:'Yettishar (Yaqub Beg)', d:'1870s–1877', r:'yes'}],
-   notes:'The hatched part of the map: the lands Yettishar held for part of its existence. A coin-catalogue note lists Turfan, Ürümqi and Karashahr among Yaqub Beg’s lands. Hami (Kumul) in the far east, and much of northern Dzungaria, were probably never his; the map draws them hatched as well.',
+   notes:'The hatched part of the Yettishar map: the lands Yettishar held for part of its existence. A coin-catalogue note lists Turfan, Ürümqi and Karashahr among Yaqub Beg’s lands. Hami (Kumul) in the far east, and much of northern Dzungaria, were probably never his; the map draws them hatched as well. The East Turkestan map also takes in a strip of western Gansu, east of Xinjiang’s official boundary (to about 99°E), which Yettishar never held.',
    uncertain:'When exactly Yaqub Beg took Turfan and Ürümqi, and how far east his rule reached, was not confirmed. ' + GK + 'the Turfan basin was Buddhist under the Uyghur kingdom of Qocho until it became Muslim in the 15th century; Hami was a Muslim khanate under the Qing.',
    sources:[S.yet, S.yetc]},
   {shape:ILI, label:'The Ili region (Ili, Tacheng and Altay)', cat:'islamic', conf:'low',
@@ -90,9 +98,9 @@ const tot = area(ALL), hs = {};
 UNITS.forEach(u => { const km2 = area(u.shape); hs[u.cat] = (hs[u.cat] || 0) + km2;
   const {shape, ...rest} = u; C.v2.units.push({a3:'XJ', country:'China (Xinjiang)', ...rest, km2, c:cen(shape), polys:shape}); });
 Object.keys(hs).forEach(k => hs[k] = Math.round(100*hs[k]/tot));
-C.v2.states.push({id:'156_X', n:'China: Xinjiang, as the two maps draw it', km2:tot, pct:Math.round(100*tot/9596961), core:false, hs});   /* China's whole area (the base map stops at 104°E, so it cannot be measured here) */
+C.v2.states.push({id:'156_X', n:'China: East Turkestan (Xinjiang), as the map draws it', km2:tot, pct:Math.round(100*tot/9596961), core:false, hs});   /* China's whole area (the base map stops at 104°E, so it cannot be measured here) */
 C.v2.states.sort((a, b) => (b.core === true) - (a.core === true) || b.km2 - a.km2);
-C.v2.countries.push({a3:'XJ', n:'Xinjiang (China)', summary:'Two maps the author supplied: Yettishar, Yaqub Beg’s state of the 1860s–1870s (its core in the Tarim basin, and the lands it held for a time to the north and east), and the Ili Kazakh Autonomous Prefecture. The western Tarim basin came under the Muslim Karakhanids from the 10th century (Khotan about 1006), who recognised the Abbasid caliph; Yettishar recognised the Ottoman sultan as caliph from 1873. Ili had a Muslim sultanate of its own (1864–1871) but no caliph. The Qing ruled Xinjiang from 1759 and again from 1878; it is now part of China.'});
-C.v2.xinjiang = 'Version 62: Xinjiang (Yettishar and the Ili region) in Complete V2';
+C.v2.countries.push({a3:'XJ', n:'East Turkestan (Xinjiang, China)', summary:'East Turkestan (Uyghur شەرقىي تۈركىستان), the name used for the region by Uyghur nationalists, as the author’s map draws it: all of Xinjiang and a strip of western Gansu. Two further maps divide it here: Yettishar, Yaqub Beg’s state of the 1860s–1870s (its core in the Tarim basin, and the lands it held for a time to the north and east), and the Ili Kazakh Autonomous Prefecture. The western Tarim basin came under the Muslim Karakhanids from the 10th century (Khotan about 1006), who recognised the Abbasid caliph; Yettishar recognised the Ottoman sultan as caliph from 1873. Ili had a Muslim sultanate of its own (1864–1871) but no caliph. The Qing ruled Xinjiang from 1759 and again from 1878; it is now part of China.'});
+C.v2.xinjiang = 'Version 62–63: East Turkestan (Xinjiang), divided by the Yettishar and Ili maps, in Complete V2';
 fs.writeFileSync(F, JSON.stringify(C));
-console.log('Xinjiang', tot, 'km² (', Math.round(100*tot/area(CN)), '% of China ) | V2 +', gain, '->', C.v2.km2, '| units', UNITS.map(u => u.label.split(' (')[0] + ' ' + area(u.shape)).join('; '), '| hs', JSON.stringify(hs));
+console.log('Xinjiang', tot, 'km² (', Math.round(100*tot/9596961), '% of China ) | V2 +', gain, '->', C.v2.km2, '| units', UNITS.map(u => u.label.split(' (')[0] + ' ' + area(u.shape)).join('; '), '| hs', JSON.stringify(hs));
