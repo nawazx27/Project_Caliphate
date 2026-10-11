@@ -524,3 +524,10 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Texts: V2's note ("Greater Khurāsān at its widest (Versions 84–87)", with the sizes), CX_CORE, the versions paragraph, V5's line, search entry.
 - Unverified: the Express map's shading edges (blurred source); China 4,840 km² is mostly that map's error along the border, kept by the "leave no area out" rule.
 - Tests: smoke test no errors; desktop and iPhone-size screenshots of all versions; close-up of Central Asia.
+
+## Version 88 (2026-10-11): Uzbekistan and Kyrgyzstan whole in V2
+- Nawaz: "Add entire modern Uzbekistan and Kyrgyzstan to v2".
+- tools/v2_uzb_kgz_whole.js: V2 ∪ Uzbekistan (447,183 km²) ∪ Kyrgyzstan (198,708 km²), whole by today's borders; rows 860 and 417 at 100% replace the partial ones. The Kazakh and Chinese edges of the Khurāsān maps (Version 87) stay.
+- V2 17.78 → 18.12 million km² (+339,192); still just under V3 (18.16), so sizes stay in order. Natural line: V2 outside it about 2.13 million km².
+- Texts: V2's note ("Central Asia and Greater Khurāsān at its widest (Versions 84–88)"), CX_CORE, the versions paragraph, V5's line ("the rest of Kazakhstan"), search entry.
+- Tests: smoke test no errors; desktop and iPhone-size screenshots of all versions; close-up of Central Asia.
