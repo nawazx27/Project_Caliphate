@@ -490,3 +490,11 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Natural line: recomputed with the ring (NAT_DEBUG=<dir> node tools/nat_gen.js, then src/nat.json restored from git): V2 outside it 2.91 → 1.32 million km² (the Nile source lands, 1.31 million, and 6,357 km² of Khorasan's strip in Tajik Badakhshan). V5 unchanged at 5.46.
 - Afghanistan stays whole although the Transoxiana trace touches about 2,000 km² of its north-east (Wakhān/Badakhshan): Afghanistan whole is his earlier request.
 - Tests: smoke test no errors; desktop and iPhone-size screenshots of all versions; close-up of Central Asia.
+
+## Version 84 (2026-10-11): V2's north-east is Turkmenistan, Afghanistan and Pakistan, whole
+- Nawaz: "just keep Pakistan, Afghanistan and Turkmenistan with modern borders as whole and remove everything from that side for now".
+- tools/v2_three_whole.js: V2 takes Turkmenistan, Afghanistan and Pakistan whole (with Iran, already whole) and drops the traced Khorasan's parts beyond them: the strip in Tajikistan, the sliver in Uzbekistan and the Caspian water (12,503 km² in all). Turkmenistan's Khwārazm (Dashoguz) and the Amu Darya's right bank are back in. V5, V6, V7 unchanged (they keep the Caspian water of Version 82).
+- What is left in neighbouring countries is border noise from the 0.001° rounding (Uzbekistan 19 km², Tajikistan 11, China 6, Kazakhstan 3).
+- V2 17.23 → 17.30 million km²; sizes still in order (V1 14.03, V2 17.30, V3 18.16, V4 18.70, V5 25.49, V6 33.25, V7 37.21).
+- Texts: V2's note ("Turkmenistan, Afghanistan and Pakistan, whole (Version 84)"), CX_CORE, CX_SRC back to "with part of Khwārazm" for all, the versions paragraph, V5's line, search entry. Natural line: V2 outside it 1.33 million km² (the Nile lands and Zanzibar/Pemba, plus 17,542 km² of Turkmenistan on the Amu Darya's north-east bank).
+- Tests: smoke test no errors; desktop and iPhone-size screenshots of all versions; close-up of the north-east.
