@@ -506,3 +506,11 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - tools/v2_khorasan_strict.js: V2 keeps Iran, Turkmenistan, Afghanistan and Pakistan whole and unions the whole Khorasan outline, nothing cut (nothing of it outside V2). Rows 762_K (Badakhshan strip), 860_K, CAS_K (water) back. V2 17.30 → 17.31 million km².
 - Texts: V2's note ("How big Khurāsān was"), CX_CORE, versions paragraph, search entry; Natural line: V2 outside it about 1.34 million km² (adds the Badakhshan strip, 6,357 km²).
 - Tests: smoke test no errors; desktop and iPhone-size screenshots of all versions; close-up of the north-east.
+
+## Version 86 (2026-10-11): optimized: the page is less than half the size
+- Nawaz: "Optimize everything". Taken as: make it lighter and faster without changing anything on the map (said so to him).
+- Measured: index.html was 7.07 MB; 3.3 MB of it was the outline points (caliph.json, written out as long number lists since Version 81 restored the full coasts), 1.7 MB the base map (geo2.json), 0.9 MB the relief image.
+- build.js now packs every list of points (outlines, the Natural line, both base maps) as short text: whole-number steps, 5 bits a character (as in the polyline format); `unpackRings` (src/head.js) unpacks them on load. Lossless: checked value by value (456,783 values in the outlines and Natural line, 0 differences; both base maps byte-identical after unpacking). The source JSON files are unchanged.
+- index.html 7.07 → 3.16 MB. Opening time on a phone-size page at 4× CPU slowdown (local file, so download time not counted): about 7.4 s → 6.7 s; on mobile data the 3.9 MB less to download is the bigger gain.
+- A CPU profile of the startup shows no single big cost left (label measuring ~0.3 s, coastline detail levels ~0.26 s, drawing ~0.25 s each, unthrottled); those were already tuned in earlier versions, so they were left alone. Still on offer: splitting the startup so the map shows sooner on slow phones; re-encoding the relief image (would change how it looks slightly).
+- Tests: smoke test no errors; desktop and iPhone-size screenshots of all versions.

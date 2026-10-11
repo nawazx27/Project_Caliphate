@@ -228,7 +228,7 @@ FIQH.forEach(f=>gFiqh.append('path').attr('class','circ').attr('data-sel','hijaz
 const CX = {};   /* elements of the user's outline, swapped by the version switch */
 /* Dār al-Amān's natural line (your design; tools/nat_gen.js): one ring of coasts, rivers, cliffs, crests and watersheds round the whole
    Complete outline. Its territory is also a version of the outline: each polygon's ring is its coast and natural-boundary segments joined in order. */
-const NAT = JSON.parse(document.getElementById('nat').textContent);
+const NAT = unpackRings(JSON.parse(document.getElementById('nat').textContent));
 const NB_ALT = false;   /* the Libya variant was removed with the old line (Version 37) */
 let NAT_BUILT = false;
 let CLEAN = false;   /* "Clean map": while an outline is showing, the key, the outline's captions and markers, the scale, the compass and the coordinates are hidden */

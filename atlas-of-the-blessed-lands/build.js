@@ -5,15 +5,24 @@ const MIN = esb && !process.argv.includes('--nomin');
 const R = f => fs.readFileSync(f, 'utf8');
 const gen = JSON.stringify(JSON.parse(R('src/generated.json')));
 const relief = 'data:image/webp;base64,' + fs.readFileSync('relief_full.webp').toString('base64');
-const geo = R('geo2.json').trim();
-const geoLo = R('landlo.json').trim();
+/* the base maps are TopoJSON whose arcs are already whole-number steps; each arc is packed as text (marker \u0002, see below) */
+const packTopo = f => { const t = JSON.parse(R(f)); t.arcs = t.arcs.map(arc => '\u0002' + arc.map(([a, b]) => encNum(a) + encNum(b)).join('')); return JSON.stringify(t).replace(/</g, '\\u003c'); };
 /* outline data as a JSON block ("<" escaped so no string can close the script tag) */
 /* the V2 province shapes are not drawn on the page (since Version 41): it needs only each province's box, to zoom to it from the notes */
 const caliphD = JSON.parse(R('src/caliph.json'));
 (caliphD.v2.units || []).forEach(u=>{ let x0 = 180, y0 = 90, x1 = -180, y1 = -90; (u.polys || []).forEach(p=>p[0].forEach(([x,y])=>{ x0 = Math.min(x0,x); x1 = Math.max(x1,x); y0 = Math.min(y0,y); y1 = Math.max(y1,y); }));
   if(x1 > x0) u.b = [x0, y0, x1, y1]; delete u.polys; });
-const caliphJ = JSON.stringify(caliphD).replace(/</g, '\\u003c');
-const natJ = JSON.stringify(Object.assign(JSON.parse(R('src/nat.json')), {pol: undefined})).replace(/</g, '\\u003c');   /* Natural + political was removed in Version 60 */
+/* every list of points (all are at 0.001°) is packed into a short text: whole-number steps from the point before, written like the
+   polyline format (5 bits a character, from '?'); the page unpacks it on load (unpackRings in head.js). Lossless; the data is about a
+   third the size. Lists that are not exactly at 0.001° are left as they are. */
+const isRing = o => Array.isArray(o) && o.length >= 2 && Array.isArray(o[0]) && o[0].length === 2 && typeof o[0][0] === 'number';
+const at3 = r => r.every(q => q.length === 2 && q.every(v => Math.abs(v*1000 - Math.round(v*1000)) < 1e-6));
+const encNum = v => { v = v < 0 ? ~(v << 1) : v << 1; let t = ''; while(v >= 0x20){ t += String.fromCharCode((0x20 | (v & 0x1f)) + 63); v >>= 5; } return t + String.fromCharCode(v + 63); };
+const encRing = r => { let px = 0, py = 0, t = '\u0001'; for(const [x, y] of r){ const ix = Math.round(x*1000), iy = Math.round(y*1000); t += encNum(ix - px) + encNum(iy - py); px = ix; py = iy; } return t; };
+const pack = o => Array.isArray(o) ? (isRing(o) && at3(o) ? encRing(o) : o.map(pack)) : (o && typeof o === 'object') ? Object.fromEntries(Object.entries(o).map(([k, v]) => [k, pack(v)])) : o;
+const caliphJ = JSON.stringify(pack(caliphD)).replace(/</g, '\\u003c');
+const geo = packTopo('geo2.json'), geoLo = packTopo('landlo.json');
+const natJ = JSON.stringify(pack(Object.assign(JSON.parse(R('src/nat.json')), {pol: undefined}))).replace(/</g, '\\u003c');   /* Natural + political was removed in Version 60 */
 
 let js = [R('src/head.js'), R('src/old_data.js'), R('src/new_geom.js').replace('__GENERATED__', gen), R('src/new_info.js'), R('src/eng_a.js'), R('src/eng_b.js'), R('src/eng_c.js'), R('src/eng_d.js'), R('src/eng_e.js'), R('src/start.js')].join('\n');
 js = js.replace('__RELIEF__', relief) + '\n})();\n';
