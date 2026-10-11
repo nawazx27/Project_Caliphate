@@ -2,7 +2,7 @@
 const ov = svg.append('g');
 let ovGrat, ovBack, ovLead, ovMain, ovBadge, ovTop, qa1, qa2;
 let pts = [], lbls = [], sbs = [];
-let TIER = null, TIER_KEEP = false, flashPt = null, XV = 'full';   /* XV (Version 66 numbering by size): 'me' (V1, the Middle East), 'west' (V3, to Iraq's border), 'full' (V2, Complete), 'v3' (V5, Complete extended), 'v2' (V6, Greater Middle East), 'gme' (V7, Greater Caliphate). Before: 'full' (core, complete), 'west' (core to Iraq's border), 'gme' (the Greater Caliphate: the core, extended, in one colour), 'v2' (Complete V2) or 'nat' (the territory inside the natural line) */   /* XV: version of the user's outline, 'full' or 'west' (to Iraq's border) */   /* source-tier filter; pulse marker for search results */
+let TIER = null, TIER_KEEP = false, flashPt = null, XV = 'full';   /* XV (Version 66 numbering by size): 'me' (V1, the Middle East), 'west' (V2, to Iraq's border), 'full' (V3, Complete), 'v3' (V5, Complete extended), 'v2' (V6, Greater Middle East), 'gme' (V7, Greater Caliphate). Before: 'full' (core, complete), 'west' (core to Iraq's border), 'gme' (the Greater Caliphate: the core, extended, in one colour), 'v2' (Complete V2) or 'nat' (the territory inside the natural line) */   /* XV: version of the user's outline, 'full' or 'west' (to Iraq's border) */   /* source-tier filter; pulse marker for search results */
 const SHORT = {1:"al-Masjid al-Ḥarām",2:"ʿArafah · Muzdalifah · Minā",3:"al-Masjid al-Nabawī",4:"Qubāʾ",5:"al-ʿAqīq",6:"Uḥud",7:"Wajj",8:"",9:"The Holy Land",10:"The land We blessed",11:"al-Shām in the Sunnah",12:"al-Ṭūr · Ṭuwā",13:"The fig and the olive",14:"al-Yaman",15:"Miṣr",16:"Iraq and the East",17:"The mawāqīt",18:"al-Isrāʾ and the qibla",19:"Sabaʾ · Quraysh",20:"al-Ḥabashah",21:"Bilād al-Rūm",22:"End-of-time places"};
 /* short tags for the province labels when zoomed far out (the pattern of your ŠM, ḤJ, YM) */
 const REGION_TAG = {sham:'ŠM', hijaz:'ḤJ', yemen:'YM', jazirah:'JA', upper:'JZ', iraq:'ʿR', misr:'MṢ', najd:'NJ', rum:'RM', habashah:'ḤB'}, TAG_K = 0.45;
@@ -131,7 +131,7 @@ function buildOverlay(){
   addLabel('caliphv2', [['V6'],['the author’s specification · not from the sources','sub']], [66.0,46.6], {cls:'caliphlbl x big', minK:0.45, subK:0.45, pri:3, color:'--xcal'});
   addLabel('caliphv2', [['V6'],['the author’s specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0.7, subK:0.7, pri:4, color:'--xcal'});
   addLabel('caliphv3', [['V5'],['the widest complete outline · the author’s specification','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
-  addLabel('caliphxw', [['V3'],['the author’s specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0, subK:0, pri:3, color:'--xcal'});
+  addLabel('caliphxw', [['V2'],['the author’s specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0, subK:0, pri:3, color:'--xcal'});
   /* natural borders and internal lines (your design): names only where the base map has none */
   /* the ring: each name sits just outside it, on the side away from the territory */
   /* region labels are always centred, so a name that belongs to the left or right of its line is moved sideways by half its width (estimated) plus a gap */
