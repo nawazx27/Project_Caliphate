@@ -463,3 +463,11 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
   - the strip of Kyzylkum desert between that band and the lands already inside (it left a long inlet open to the Aral otherwise).
 - V2 18.82 → 18.88 million km² (+65,441 km²); Kazakhstan in V2 745,774 → 808,943 km². V2's note now says these towns are counted at the author's request; the Natural-line note now says about 2.92 million km² of V2 lies outside it.
 - Tests: smoke test no errors; desktop and iPhone-size screenshots of all versions; close-up of the lower Syr Darya.
+
+## Version 81 (2026-10-11): leave no area out
+- Nawaz, pointing at my Version 78 reply ("666 km² fell in China ... I left that out"): "You said you left this… I say leave no area that the lands I ask you about occupy". That 666 km² was already put back in Version 80. Made it a standing rule in CLAUDE.md: never clip a requested land to some countries, never drop pieces as fitting error or as too small.
+- Audit of every version: lands listed only in part (e.g. "Italy: Sicily", "Russia: Derbent ...", China and India in V7) are partial on purpose. But every land listed whole was missing a little: small islands and coastal slivers (pieces under 1 km² were dropped by earlier steps, and some islets were never added), from a few km² up to about 1,850 km² for Greece.
+- tools/whole_lands_complete.js puts each whole land's full shape back into every version that lists it and keeps every piece, however small. Gains (km²): V1 0, V2 +12,662, V3 +8,527, V4 0, V5 +9,443, V6 +4,726, V7 +14,388. V2 is now 18.89 million km².
+- What is left is hairlines of 0–2 km² per country from the 0.001° (about 100 m) rounding of the outlines. That is the precision limit of the data, not missing land. Checked by point sampling where the clipping library failed (Egypt, Greece, Chad, Mauritania, Guinea-Bissau): no inland point missing.
+- The page is bigger because the coasts are now fully detailed (index.html 5.6 → 7.2 MB).
+- Tests: smoke test no errors; desktop and iPhone-size screenshots of all versions; close-up of the Aegean islands in V2.
