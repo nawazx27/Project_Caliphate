@@ -122,16 +122,16 @@ function buildOverlay(){
   addLabel('caliphxe', [['Khūzistān'],['al-Ahwāz','sub']], [49.2,31.55], {cls:'caliphlbl x', minK:1.1, subK:1.6, pri:4, color:'--xcal'});
   /* the country name, your choice: drawn behind every other label and never pushed aside by them */
   addLabel('caliphx', [['DĀR AL-AMĀN'],['دار الأمان','arl dar','1.3em']], DAR_AT, {cls:'darlbl', back:true, free:true, minK:0, maxK:2.6, subK:0, pri:-9});
-  addLabel('caliphgl', [['V6 · Greater Caliphate'],['the core caliphate, extended · the author’s specification','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
-  addLabel('caliphgl', [['V6 · Greater Caliphate'],['the author’s specification · not from the sources','sub']], [66.0,46.6], {cls:'caliphlbl x big', minK:0.45, subK:0.45, pri:3, color:'--xcal'});
-  addLabel('caliphgl', [['V6 · Greater Caliphate'],['the author’s specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0.7, subK:0.7, pri:4, color:'--xcal'});
+  addLabel('caliphgl', [['V6'],['the core caliphate, extended · the author’s specification','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
+  addLabel('caliphgl', [['V6'],['the author’s specification · not from the sources','sub']], [66.0,46.6], {cls:'caliphlbl x big', minK:0.45, subK:0.45, pri:3, color:'--xcal'});
+  addLabel('caliphgl', [['V6'],['the author’s specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0.7, subK:0.7, pri:4, color:'--xcal'});
   (CALIPH.g.hist || []).forEach(h=>{ const big = h.km2 > 300000, mid = h.km2 > 40000;
     addLabel('caliphgl', [[h.n],[h.sub,'sub']], h.c, {cls:'caliphlbl x hist', minK: big ? 0.3 : mid ? 0.75 : 1.5, subK: big ? 0.55 : mid ? 1.1 : 2.2, pri:4, color:'--xcal'}); });
-  addLabel('caliphv2', [['V5 · Greater Middle East'],['V4 with the lands of a Greater Middle East map · history in the notes','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
-  addLabel('caliphv2', [['V5 · Greater Middle East'],['the author’s specification · not from the sources','sub']], [66.0,46.6], {cls:'caliphlbl x big', minK:0.45, subK:0.45, pri:3, color:'--xcal'});
-  addLabel('caliphv2', [['V5 · Greater Middle East'],['the author’s specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0.7, subK:0.7, pri:4, color:'--xcal'});
-  addLabel('caliphv3', [['V4 · Complete, extended'],['the widest complete outline · the author’s specification','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
-  addLabel('caliphxw', [['V2 · to Iraq\u2019s border'],['the author’s specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0, subK:0, pri:3, color:'--xcal'});
+  addLabel('caliphv2', [['V5'],['V4 with the lands of a Greater Middle East map · history in the notes','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
+  addLabel('caliphv2', [['V5'],['the author’s specification · not from the sources','sub']], [66.0,46.6], {cls:'caliphlbl x big', minK:0.45, subK:0.45, pri:3, color:'--xcal'});
+  addLabel('caliphv2', [['V5'],['the author’s specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0.7, subK:0.7, pri:4, color:'--xcal'});
+  addLabel('caliphv3', [['V4'],['the widest complete outline · the author’s specification','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
+  addLabel('caliphxw', [['V2'],['the author’s specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0, subK:0, pri:3, color:'--xcal'});
   /* natural borders and internal lines (your design): names only where the base map has none */
   /* the ring: each name sits just outside it, on the side away from the territory */
   /* region labels are always centred, so a name that belongs to the left or right of its line is moved sideways by half its width (estimated) plus a gap */
