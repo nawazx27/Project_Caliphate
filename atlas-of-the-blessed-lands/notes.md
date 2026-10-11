@@ -308,3 +308,4 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## No more artifact (2026-10-11)
 - Nawaz: "Do not make this an artifact anymore." From now on the atlas is not published as a Claude artifact; each change is delivered as the rebuilt index.html and a zip. CLAUDE.md updated. The existing artifact link (last published as Version 60) is left as it is (his choice): not deleted, never updated again.
+- Later the same day Nawaz changed his mind: "I would like to use it as an artifact so that it is only private to me." Publishing to the same artifact link is back in CLAUDE.md. The link already shows the current version (Version 60), so nothing needed republishing.
