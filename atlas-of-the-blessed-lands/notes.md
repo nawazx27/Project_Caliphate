@@ -299,3 +299,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Done: the three are gone, with the Colophon link in the top menu. The footer line ("an approximate educational reconstruction, not a survey and not a fatwa") and the end ornament stay, without "definitive edition". Lost with the changes note: only the remark that "al-Juḥfah for Egypt" (from the earlier atlas) was dropped as unconfirmed; al-Juḥfah is still described only as the mīqāt for al-Shām.
 - The quran.ai grounding line now also lists 2:61 and 3:123 and al-Ṭabarī on 2:61 (fetched in Version 56).
 - Tests: no errors; desktop and phone screenshots of "Reading these maps honestly", "A caliphate outline" and the page end.
+
+## Version 60: Natural borders and Natural + political removed
+- Nawaz (2026-10-11): "Remove natural and natural + political caliphate".
+- Done: the two version buttons are gone from both switches, with their notes, map captions, area paragraphs, table captions, search entries and code paths (setXV accepts full, west, gme, v2, v3). The page's version overview no longer lists them. build.js no longer inlines NAT.pol (page about 190 KB smaller); src/nat.json and tools/nat_gen.js are unchanged.
+- Kept (not asked to remove): the "Natural line" overlay, which draws the ring over any version and opens the ring's note, and the "Internal lines" overlay. The ring's note no longer points to a Natural borders button. Old links #natural-borders, #natural-political and #natural-libya now open the Natural line.
+- Tests: smoke test no errors; desktop and phone screenshots of the five versions, the Natural line, the Internal lines and the old #natural-borders link.

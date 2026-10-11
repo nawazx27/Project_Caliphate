@@ -235,7 +235,7 @@ const NB_ALT = false;   /* the Libya variant was removed with the old line (Vers
 let NAT_BUILT = false;
 let CLEAN = false;   /* "Clean map": while an outline is showing, the key, the outline's captions and markers, the scale, the compass and the coordinates are hidden */
 let INTL_OFF = false;   /* the internal lines come on with the natural borders unless you switch them off there */
-const inNat = () => !!layerOn.caliphx && XV === 'nat';   /* the natural-borders version is showing */
+const inNat = () => false;   /* the natural-borders version was removed in Version 60 */
 const XK = () => XV;   /* the key of the drawn version */
 ['main'].forEach(v=>{ const by = {}; NAT[v].lines.forEach(l=>{ const a = by[l.r] || (by[l.r] = []); for(let i = a.length ? 1 : 0; i < l.p.length; i++) a.push(l.p[i]); }); NAT[v].polys = Object.values(by).map(r=>[r]); });
 const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis to Kailash and from the Danube to the Tana, with a margin */
@@ -254,7 +254,7 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   /* each version's path is built the first time it is shown, not all seven at startup */
   const dx = dOf(CALIPH.x); CX.d = {full:dx};
   const lazyD = (k, f) => Object.defineProperty(CX.d, k, {configurable:true, enumerable:true, get(){ const v = f(); Object.defineProperty(CX.d, k, {value:v, enumerable:true}); return v; }});
-  lazyD('west', ()=>dOf(CALIPH.xw)); lazyD('gme', ()=>dOf(CALIPH.g)); lazyD('v2', ()=>dOf(CALIPH.v2)); lazyD('nat', ()=>dOf(NAT.main)); lazyD('natp', ()=>dOf(NAT.pol)); lazyD('v3', ()=>dOf(CALIPH.x3));
+  lazyD('west', ()=>dOf(CALIPH.xw)); lazyD('gme', ()=>dOf(CALIPH.g)); lazyD('v2', ()=>dOf(CALIPH.v2)); lazyD('v3', ()=>dOf(CALIPH.x3));
   CX.clip = sdefs.append('clipPath').attr('id','caliphxclip').append('path').attr('d', dx);
   const gx = layerG(gEdges, 'caliphx');
   const openx = e=>{ e.stopPropagation(); select('caliphx'); };
@@ -263,13 +263,8 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   CX.line = gx.append('g').attr('clip-path','url(#landclip)').append('path').attr('class','caliphx-line').attr('d', dx);
   gEdges.node().insertBefore(gx.node(), g.node());
   const xl = {}, src = {full:CALIPH.x, west:CALIPH.xw, gme:CALIPH.g, v2:CALIPH.v2};
-  src.nat = NAT.main; src.natp = NAT.pol; src.v3 = CALIPH.x3;
-  /* in the natural-borders version the band runs only along the land stretches of the ring: a wide clipped band along every coast
-     inside the ring (the Red Sea, the Gulf, the Aegean) made zooming there several times slower, and the coast has its own line */
-  const natLand = NAT.main.lines.filter(l=>l.k !== 'coast').map(l=>l.p);
-  lazyD('natband', ()=>natLand.map(p=>lineD(p)).join(''));
-  const BK = () => XK() === 'nat' ? 'natband' : XK();
-  CLIPS.push({els:[CX.band], key:BK, full:()=>CX.d[BK()], lines:()=> xl[BK()] || (xl[BK()] = BK() === 'natband' ? projLines(natLand) : projLines(src[XK()].polys.flat()))});
+  src.v3 = CALIPH.x3;
+  CLIPS.push({els:[CX.band], key:XK, full:()=>CX.d[XK()], lines:()=> xl[XK()] || (xl[XK()] = projLines(src[XK()].polys.flat()))});
   CLIPS.push({els:[CX.line], key:()=>XK(), full:()=>CX.d[XK()], lines:()=> xl[XK()] || (xl[XK()] = projLines(src[XK()].polys.flat()))});
   /* the Greater Caliphate is drawn by the same elements in the core's colour (see setXV), so it reads as one territory */
   /* a faint wash over the land inside your outline, under every other colour */

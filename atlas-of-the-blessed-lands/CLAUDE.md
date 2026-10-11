@@ -3,7 +3,7 @@
 This is Nawaz's project: an interactive map ("Atlas of the Blessed Lands"). Pick it up where it was left off.
 
 ## Start of every new session
-1. Read `notes.md` first (full history, version by version; latest is Version 58, fact-check round 2 (trimming; Version 56 was round 1, Qur'an and hadith; Version 57 drew the ḥimā of Madinah). Before that, Version 55: Complete (V1) is the Version 47 outline (ends at Libya); Complete V3 holds all the later additions (Versions 48–54); To Iraq, V2, Greater and Natural + political are built on V3; Maximum removed).
+1. Read `notes.md` first (full history, version by version; latest is Version 60, Natural borders and Natural + political removed (the Natural line and Internal lines overlays stay); Version 59 removed three sections; Version 58 was fact-check round 2 (trimming), Version 56 round 1 (Qur'an and hadith); Version 57 drew the ḥimā of Madinah. Before that, Version 55: Complete (V1) is the Version 47 outline (ends at Libya); Complete V3 holds all the later additions (Versions 48–54); To Iraq, V2 and Greater are built on V3; Maximum removed).
 2. Then `SPEC.md` (what the atlas is, standing rules; it is behind, it stops around Version 34 — `notes.md` is more current) and `README.md` (how it is built).
 3. Run `npm install` once, then `node build.js` to make `index.html`. Edit files in `src/`, never `index.html`.
 

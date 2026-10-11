@@ -130,9 +130,6 @@ function buildOverlay(){
   addLabel('caliphv2', [['Complete Caliphate V2'],['the author’s specification · not from the sources','sub']], [66.0,46.6], {cls:'caliphlbl x big', minK:0.45, subK:0.45, pri:3, color:'--xcal'});
   addLabel('caliphv2', [['Complete Caliphate V2'],['the author’s specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0.7, subK:0.7, pri:4, color:'--xcal'});
   addLabel('caliphv3', [['Complete V3'],['the widest complete outline · the author’s specification','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
-  addLabel('caliphnat', [['Natural borders'],['Dār al-Amān within the natural ring · the author’s design','sub']], [2.0,26.2], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
-  addLabel('caliphnp', [['Natural + political'],['the natural ring, with every state it cuts taken whole or left out · the author’s design','sub']], [2.0,26.2], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
-  addLabel('caliphnatx', [['Natural borders'],['the author’s design · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0.7, subK:0.7, pri:4, color:'--xcal'});
   addLabel('caliphxw', [['Complete V3, to Iraq\u2019s border'],['the author’s specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0, subK:0, pri:3, color:'--xcal'});
   /* natural borders and internal lines (your design): names only where the base map has none */
   /* the ring: each name sits just outside it, on the side away from the territory */

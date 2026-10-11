@@ -13,7 +13,7 @@ const caliphD = JSON.parse(R('src/caliph.json'));
 (caliphD.v2.units || []).forEach(u=>{ let x0 = 180, y0 = 90, x1 = -180, y1 = -90; (u.polys || []).forEach(p=>p[0].forEach(([x,y])=>{ x0 = Math.min(x0,x); x1 = Math.max(x1,x); y0 = Math.min(y0,y); y1 = Math.max(y1,y); }));
   if(x1 > x0) u.b = [x0, y0, x1, y1]; delete u.polys; });
 const caliphJ = JSON.stringify(caliphD).replace(/</g, '\\u003c');
-const natJ = JSON.stringify(JSON.parse(R('src/nat.json'))).replace(/</g, '\\u003c');
+const natJ = JSON.stringify(Object.assign(JSON.parse(R('src/nat.json')), {pol: undefined})).replace(/</g, '\\u003c');   /* Natural + political was removed in Version 60 */
 
 let js = [R('src/head.js'), R('src/old_data.js'), R('src/new_geom.js').replace('__GENERATED__', gen), R('src/new_info.js'), R('src/eng_a.js'), R('src/eng_b.js'), R('src/eng_c.js'), R('src/eng_d.js'), R('src/eng_e.js'), R('src/start.js')].join('\n');
 js = js.replace('__RELIEF__', relief) + '\n})();\n';
