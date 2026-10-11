@@ -480,3 +480,13 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - V7's rows that are partial by its outline (India, Bangladesh, Hungary, Slovakia, Croatia, the "rest of" France/Italy/Ukraine) were left as they are.
 - Sizes (million km²): V1 14.03, V2 18.90, V3 18.16, V4 18.70, V5 25.49, V6 33.25, V7 37.21.
 - Tests: smoke test no errors; desktop and iPhone-size screenshots of all versions; close-up of the south-east Caspian.
+
+## Version 83 (2026-10-11): V2 holds Greater Khurāsān, not Transoxiana
+- Nawaz: "remove transoxiana and leave greater khorasan in from v2". His answers: remove Khwārazm too (recommended); keep the rest of Turkmenistan (recommended).
+- tools/v2_khorasan_only.js: V2 (CALIPH.x) loses Uzbekistan, Tajikistan, Kyrgyzstan, the Kazakh part (Versions 72–80, incl. Jand/Yanghikant and the Syr Darya ribāṭ towns) and the China strip (Version 80); in Turkmenistan, the parts inside the traced Khwārazm and Transoxiana outlines (Dashoguz, the Amu Darya's right bank; 79,719 km² cut, some of it given back by the Khorasan outline). The traced Greater Khorasan outline (Version 74 trace) is kept whole: 7,540 km² in southern Tajikistan, 217 km² in Uzbekistan, and its Caspian water (Version 82).
+- Rows: Turkmenistan 395,136 km² (84%); Tajikistan Khorasan strip 7,540; Uzbekistan edge 217. Old flags (transoxTraced, tjkKgzWhole, locator, syrdarya, everything) removed from C.x.
+- V2 18.90 → 17.23 million km², so the versions are in size order again (V1 14.03, V2 17.23, V3 18.16, V4 18.70, V5 25.49, V6 33.25, V7 37.21); the page no longer says V2 is larger than V3 and V4.
+- Texts: V2's note rewritten (frontier posts kept; "Greater Khurāsān, not Transoxiana"; Muslim 2546 note kept; the Mawarāʾ al-Nahr extent paragraph removed from V2's note, it is in the Version 79 entry here); CX_CORE (V2 only), CX_SRC (V2 no longer mentions Transoxiana; "part of Khwārazm" only for V5–V7), the versions paragraph, V5's line ("adds Transoxiana and Khwārazm"), search entry.
+- Natural line: recomputed with the ring (NAT_DEBUG=<dir> node tools/nat_gen.js, then src/nat.json restored from git): V2 outside it 2.91 → 1.32 million km² (the Nile source lands, 1.31 million, and 6,357 km² of Khorasan's strip in Tajik Badakhshan). V5 unchanged at 5.46.
+- Afghanistan stays whole although the Transoxiana trace touches about 2,000 km² of its north-east (Wakhān/Badakhshan): Afghanistan whole is his earlier request.
+- Tests: smoke test no errors; desktop and iPhone-size screenshots of all versions; close-up of Central Asia.
