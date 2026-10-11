@@ -307,4 +307,4 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Tests: smoke test no errors; desktop and phone screenshots of the five versions, the Natural line, the Internal lines and the old #natural-borders link.
 
 ## No more artifact (2026-10-11)
-- Nawaz: "Do not make this an artifact anymore." From now on the atlas is not published as a Claude artifact; each change is delivered as the rebuilt index.html and a zip. CLAUDE.md updated. The existing artifact link (last published as Version 60) was left as it is, pending his answer on whether to delete it.
+- Nawaz: "Do not make this an artifact anymore." From now on the atlas is not published as a Claude artifact; each change is delivered as the rebuilt index.html and a zip. CLAUDE.md updated. The existing artifact link (last published as Version 60) is left as it is (his choice): not deleted, never updated again.
