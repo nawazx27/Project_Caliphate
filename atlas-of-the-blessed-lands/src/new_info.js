@@ -40,7 +40,7 @@ const INFO_NEW = {
   misr:{title:"Miṣr (Egypt) and Sinai", ar:"مصر", src:["rev","classical"], cert:"approx", body:`
     <p>The Qur'an names Miṣr: ${q("ادخلوا مصر إن شاء الله آمنين")}, "Enter Egypt, Allah ﷻ willing, safe [and secure]" (Yūsuf 12:99; also 10:87, 12:21, 43:51). The word also occurs in 2:61, but there it is <i>miṣran</i>, with tanwīn, and al-Ṭabarī reports Qatādah, al-Suddī, Mujāhid and Ibn Zayd reading it as "any town"; only Abū al-ʿĀliyah says Egypt, and al-Ṭabarī leaves the question open. Al-Baghawī reads "the eastern regions of the land and the western ones, which We had blessed" (al-Aʿrāf 7:137, Saheeh International) as Miṣr and al-Shām, blessed with water, trees, fruit and abundance.</p>
     <p>In the Sunnah (Muslim 2543, Abū Dharr) the Prophet ﷺ said the Muslims would conquer Egypt and told them to treat its people well, for they have a covenant (<i>dhimmah</i>) and kinship (<i>raḥim</i>). The status belongs to its people and, by tafsīr, to the land; no text draws a boundary.</p>
-    <p><b>Solid colour:</b> the Nile valley and Delta, the cultivated land. Al-Iṣṭakhrī describes the cultivation as running from the limit of Aswān to the limit of Alexandria.</p>
+    <p><b>Solid colour:</b> the Nile valley and Delta, the cultivated land. Al-Iṣṭakhrī describes towns and villages along the Nile from the limit of Aswān to where it reaches the sea.</p>
     <p><b>Hatching:</b> Yāqūt's reckoning of the whole land, ${q("طولها من الشجرتين اللتين كانتا بين رفح والعريش إلى أسوان، وعرضها من برقة إلى أيلة")}: its length from the two trees that stood between Rafaḥ and al-ʿArīsh to Aswān, and its width from Barqah to Aylah. On that reckoning Sinai lies inside Miṣr (my reading), and the west edge sits at Barqah in Libya, off the left of the usual view. Where this hatching crosses al-Shām's near al-ʿArīsh and Rafaḥ, the sources disagree about which land the strip belongs to.</p>`,
     refs:[`Yāqūt, <i>Muʿjam al-Buldān</i>, s.v. Miṣr (<a href="https://arabiclexicon.hawramani.com/%d9%85%d9%90%d8%b5%d9%92%d8%b1%d9%8f/" target="_blank" rel="noopener">text</a>)`,`Al-Iṣṭakhrī, <i>Diyār Miṣr</i> (<a href="https://shamela.ws/book/11680/52" target="_blank" rel="noopener">al-Shāmilah</a>)`,sn("muslim","2543","Muslim 2543"),"Qur'an, Yūsuf 12:99; al-Aʿrāf 7:137; tafsir of al-Baghawī"]},
   najd:{title:"Najd", ar:"نجد", src:["early","classical"], cert:"uncertain", body:`
@@ -55,7 +55,7 @@ const INFO_NEW = {
     refs:[sn("bukhari",892,"Al-Bukhārī 892")]},
   tihamah:{title:"Tihāmah", ar:"تهامة", src:["early","classical"], cert:"uncertain", body:`
     <p>Tihāmah is the low coastal plain of the Red Sea, below the Sarāt mountains. Al-Aṣmaʿī (via Yāqūt): ${q("فمكة تهامية والمدينة حجازية والطائف حجازية")}, Makkah is Tihāmī, Madinah and al-Ṭāʾif are Ḥijāzī. So Makkah lies in Tihāmah in the strict sense and in al-Ḥijāz in the wider sense; the map shows the two overlapping.</p>
-    <p>Also via Yāqūt: Tihāmah runs alongside the sea, and Makkah is of it; its edge toward al-Ḥijāz is the passes of al-ʿUrj; and its beginning on the Najd side is Dhāt ʿIrq.</p>
+    <p>Also via Yāqūt: Tihāmah runs alongside the sea, and Makkah is of it; its edge toward al-Ḥijāz is the passes of al-ʿArj; and its beginning on the Najd side is Dhāt ʿIrq.</p>
     <p><b>On the map:</b> a dotted belt from Bāb al-Mandab to near Yanbuʿ, clipped to the Arabian coast. Its inland edge follows the foot of the Sarāt roughly, and its northern end is my guess: no source I read fixes it.</p>`,
     refs:[`Yāqūt, <i>Muʿjam al-Buldān</i>, s.v. Tihāmah (<a href="https://arabiclexicon.hawramani.com/%d8%aa%d9%87%d9%8e%d8%a7%d9%85%d9%8e%d8%a9/" target="_blank" rel="noopener">text</a>) and s.v. al-Ḥijāz`]},
   saba:{title:"Sabaʾ and Maʾrib", ar:"سبأ · مأرب", src:["rev","early"], cert:"approx", body:`
@@ -209,6 +209,6 @@ STATUS.forEach(s=>{
 
 /* ---------- extra named limits ---------- */
 const LIMITS_NEW = [
-  {id:"P", n:"Aswān", ll:[32.90,24.09], layer:"misr", src:["classical"], cert:"approx", body:`<p>Yāqūt on Miṣr: ${q("طولها من الشجرتين اللتين كانتا بين رفح والعريش إلى أسوان")}, "its length runs from the two trees that were between Rafaḥ and al-ʿArīsh to Aswān". Al-Iṣṭakhrī describes the cultivation as running from the limit of Aswān to the limit of Alexandria. Aswān is the southern end of Miṣr on both.</p>`, refs:["Yāqūt, Muʿjam al-Buldān, s.v. Miṣr","Al-Iṣṭakhrī, Diyār Miṣr"]}
+  {id:"P", n:"Aswān", ll:[32.90,24.09], layer:"misr", src:["classical"], cert:"approx", body:`<p>Yāqūt on Miṣr: ${q("طولها من الشجرتين اللتين كانتا بين رفح والعريش إلى أسوان")}, "its length runs from the two trees that were between Rafaḥ and al-ʿArīsh to Aswān". Al-Iṣṭakhrī describes towns and villages along the Nile from the limit of Aswān to where it reaches the sea. Aswān is the southern end of Miṣr on both.</p>`, refs:["Yāqūt, Muʿjam al-Buldān, s.v. Miṣr","Al-Iṣṭakhrī, Diyār Miṣr"]}
 ];
 LIMITS_NEW.forEach(l=>{ INFO['lim_'+l.id] = {title:`${l.id} · ${l.n}`, src:l.src, cert:l.cert, body:l.body, refs:l.refs}; });

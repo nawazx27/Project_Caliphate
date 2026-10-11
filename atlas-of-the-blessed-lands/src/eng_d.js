@@ -180,7 +180,7 @@ function renderLimits(){
 const INSETS = [
   {id:"im", title:"Ḥaram of Makkah", note:"about 25 km across", b:[[39.60,21.29],[40.04,21.57]], info:"makkah", focus:4,
    shapes:[["haramfill",ringD(MAKKAH_HARAM)]], points:HARAM_PTS.filter(h=>h.info==='makkah'&&h.k<40).map(h=>({ll:h.ll,n:h.n,a:h.a,hollow:h.out,color:'--haram'})).concat([{ll:[39.8262,21.4225],n:"al-Masjid al-Ḥarām",a:"r",sym:"diamond",color:'--haram'},{ll:[39.8592,21.4575],n:"Ḥirāʾ",a:"r",sym:"square",color:'--site'},{ll:[39.8506,21.3772],n:"Thawr",a:"l",sym:"square",color:'--site'}])},
-  {id:"id", title:"Ḥaram of Madinah", note:"ʿAyr to Thawr, about 16 km · ḥimā twelve mīl", b:[[39.38,24.26],[39.84,24.67]], info:"madinah", focus:5,
+  {id:"id", title:"Ḥaram of Madinah", note:"ʿAyr to Thawr, about 17 km · ḥimā twelve mīl", b:[[39.38,24.26],[39.84,24.67]], info:"madinah", focus:5,
    shapes:[["himaring",ringD(circleRing(QIBLA.madinah, HIMA_KM))],["haramfill",ringD(MADINAH_HARAM)]], points:HARAM_PTS.filter(h=>h.info==='madinah'&&h.n!=="Uḥud").map(h=>({ll:h.ll,n:h.n,a:h.a,color:'--haram'})).concat([{ll:QIBLA.madinah,n:"al-Masjid al-Nabawī",a:"r",sym:"diamond",color:'--haram'},{ll:[39.6172,24.4393],n:"Qubāʾ",a:"l",sym:"square",color:'--site'}])},
   {id:"iq", title:"The mīqāts", note:"where iḥrām begins", b:[[38.6,20.2],[41.9,24.7]], info:"miqat", focus:6,
    shapes:[["haramfill",ringD(MAKKAH_HARAM)],["haramfill",ringD(MADINAH_HARAM)]], points:MIQATS.map(m=>({ll:m.ll,n:m.n,a:m.a,sym:"ring",color:'--miqat'})).concat([{ll:QIBLA.makkah,n:"Makkah",a:"r",sym:"diamond",color:'--haram'},{ll:QIBLA.madinah,n:"Madinah",a:"r",sym:"diamond",color:'--haram'}])},
