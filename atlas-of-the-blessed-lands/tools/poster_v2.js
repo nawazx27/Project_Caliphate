@@ -1,148 +1,226 @@
-/* A poster of V2 (2026-10-11, Nawaz: "Make a beautiful image of V2"). Draws the V2 outline (CALIPH.x) on the atlas's own base map and
-   shaded relief, in the atlas's Mercator, and saves posters/v2_poster.png (and the page it is drawn from, posters/v2_poster.html).
-   Run: node tools/poster_v2.js   (needs the Playwright Chromium the tests use) */
-const fs = require('fs'), path = require('path');
+/* V2 as an atlas plate (2026-10-11, Nawaz: "Can the poster be even more beautiful like an Atlas map?").
+   A classic atlas page: cream paper, the colour shaded relief (tools/relief/shadedrelief.jpg) warped into the atlas's Mercator by
+   tools/poster_relief.py, layered sea tints along the coasts, a 5° graticule with degrees in the margin and a chequered neat line,
+   today's countries in spaced capitals, the classical region names in red italic with their Arabic, cities, rivers and lakes; V2 shown
+   the atlas way, as a red boundary ribbon with the land outside it veiled. A locator globe, a legend and scale bars in km and miles.
+   Run: node tools/poster_v2.js  → posters/v2_atlas.png (3400×3400) and posters/v2_atlas.jpg */
+const fs = require('fs'), path = require('path'), {execFileSync} = require('child_process');
 const ROOT = path.join(__dirname, '..');
 const d3 = require(path.join(ROOT, 'node_modules/d3'));
 const topojson = require(path.join(ROOT, 'node_modules/topojson-client'));
 const geo = JSON.parse(fs.readFileSync(path.join(ROOT, 'geo2.json')));
 const C = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/caliph.json')));
-const W = 3200, H = 2800, M = 70;
-/* the outline's rings run the planar way round; d3 reads them on the sphere, so turn any ring that would cover the rest of the globe */
+const OUT = path.join(ROOT, 'posters'), TMP = path.join(OUT, 'tmp');
+fs.mkdirSync(TMP, {recursive:true});
+
+/* page and frame */
+const W = 3400, H = 3400, FX = 130, FY = 560, FW = W - 2*FX, FH = H - FY - 130;
+const LON0 = 3, LON1 = 82, LATTOP = 47.6;
+const k = FW / ((LON1 - LON0) * Math.PI/180);
+const proj = d3.geoMercator().scale(k).translate([0, 0]);
+const t0 = proj([LON0, LATTOP]); proj.translate([FX - t0[0], FY - t0[1]]);
+const [tx, ty] = proj.translate();
+const P = d3.geoPath(proj).digits(1);
+const xy = (lo, la) => proj([lo, la]);
+const latAt = y => (2*Math.atan(Math.exp((ty - y)/k)) - Math.PI/2) * 180/Math.PI;
+const LATBOT = latAt(FY + FH);
+
+/* the relief, warped to the frame */
+const relPng = path.join(TMP, 'relief.png');
+fs.writeFileSync(path.join(TMP, 'params.json'), JSON.stringify({k, tx, ty, x0:FX, y0:FY, w:FW, h:FH}));
+execFileSync('python3', ['-I', path.join(ROOT, 'tools/poster_relief.py'), path.join(TMP, 'params.json'), relPng, path.join(ROOT, 'tools/relief/shadedrelief.jpg')], {stdio:'inherit'});
+const relief = 'data:image/png;base64,' + fs.readFileSync(relPng).toString('base64');
+
+/* geometry */
 const fixRing = r => d3.geoArea({type:'Polygon', coordinates:[r]}) > 2*Math.PI ? r.slice().reverse() : r;
 const V2 = {type:'MultiPolygon', coordinates:C.x.polys.map(p => [fixRing(p[0]), ...p.slice(1).map(r => fixRing(r).slice().reverse())])};
-/* frame: V2's extent, with room at the bottom right (the Indian Ocean) for the title */
-const proj = d3.geoMercator().fitExtent([[M + 40, M + 60], [W - M - 40, H - M - 60]], {type:'MultiPoint', coordinates:[[6, 47], [79, 47], [6, -13], [79, -13]]});
-const P = d3.geoPath(proj).digits(1);
 const f = o => topojson.feature(geo, geo.objects[o]);
-const countries = f('countries'), lakes = f('lakes'), rivers = f('rivers');
 const land = topojson.merge(geo, geo.objects.countries.geometries);
 const borders = topojson.mesh(geo, geo.objects.countries, (a, b) => a !== b);
-const grat = d3.geoGraticule().step([10, 10])();
-/* relief: Mercator rows from 30° W to 104° E and 36.5° S to 60° N (as in src/eng_b.js) */
-const r0 = proj([-30, 60]), r1 = proj([104, -36.5]);
-const relief = 'data:image/webp;base64,' + fs.readFileSync(path.join(ROOT, 'relief_full.webp')).toString('base64');
-const BIG = ['Nile', 'Euphrates', 'Tigris', 'Dicle', 'Fırat', 'Amu Darya', 'Syr Darya', 'Indus', 'Blue Nile', 'White Nile', 'Atbara', 'Helmand', 'Kura', 'Aras', 'Zarafshan', 'Murghab', 'Hari'];
-const rivPath = P({type:'FeatureCollection', features:rivers.features});
-const PLACES = [
-  ['Makkah', 'مكة', 39.826, 21.4225, 'holy'], ['al-Madīnah', 'المدينة', 39.611, 24.467, 'holy'], ['al-Quds', 'القدس', 35.2355, 31.7779, 'capital'],
-  ['Dimashq', '', 36.29, 33.51], ['Baghdād', '', 44.36, 33.31], ['al-Qāhira', '', 31.24, 30.04], ['Istanbul', '', 28.98, 41.01], ['Ṭihrān', '', 51.39, 35.69],
-  ['Mashhad', '', 59.6, 36.3], ['Samarqand', '', 66.96, 39.65], ['Bukhārā', '', 64.42, 39.77, 'left'], ['Kābul', '', 69.17, 34.53], ['Karāchī', '', 67.0, 24.86],
-  ['al-Kharṭūm', '', 32.53, 15.5], ['Addis Ababa', '', 38.75, 9.03], ['Nairobi', '', 36.82, -1.29], ['Ṣanʿāʾ', '', 44.2, 15.35], ['Ṭarābulus', '', 13.19, 32.89],
-  ['Tūnis', '', 10.18, 36.8], ['Athens', '', 23.73, 37.98], ['Harāt', '', 62.2, 34.35], ['Masqaṭ', '', 58.4, 23.6], ['Bākū', '', 49.87, 40.41], ['Lahore', '', 74.35, 31.55],
-  ['Dar es Salaam', '', 39.28, -6.8], ['Muqdisho', '', 45.34, 2.05], ['Dushanbe', '', 68.77, 38.56], ['Tashkent', '', 69.24, 41.31], ['Ankara', '', 32.86, 39.93],
-  ['Iṣfahān', '', 51.67, 32.65], ['al-Riyāḍ', '', 46.72, 24.69], ['Kampala', '', 32.58, 0.35]];
-const REGIONS = [['al-Ḥijāz', 'الحجاز', 39.4, 26.3, 0], ['al-Shām', 'الشام', 38.2, 34.6, 0], ['al-ʿIrāq', 'العراق', 44.6, 32.2, 0], ['Miṣr', 'مصر', 29.4, 26.4, 0],
-  ['Khurāsān', 'خراسان', 61.5, 33.2, 0], ['Mā warāʾ al-Nahr', 'ما وراء النهر', 63.6, 41.5, -6], ['al-Yaman', 'اليمن', 47.5, 16.8, 0], ['Fāris', 'فارس', 54.0, 29.6, 0],
-  ['Bilād al-Rūm', 'بلاد الروم', 33.5, 38.8, 0], ['Ifrīqiya', 'إفريقية', 9.6, 33.6, 0], ['al-Ḥabasha', 'الحبشة', 39.5, 7.8, 0], ['Nūba', 'النوبة', 31.0, 19.5, 0],
-  ['al-Sind', 'السند', 68.2, 27.0, 0], ['Sijistān', 'سجستان', 63.6, 30.8, 0], ['Arrān', 'أران', 46.5, 40.6, 0]];
-const xy = (lo, la) => proj([lo, la]).map(v => v.toFixed(1));
-const star = fs.readFileSync(path.join(ROOT, 'src/star.path'), 'utf8').trim();
+const bigLand = {type:'MultiPolygon', coordinates:(land.geometry ? land.geometry : land).coordinates.filter(p => d3.geoArea({type:'Polygon', coordinates:p}) > 2.5e-4)};
+const lakes = f('lakes'), rivers = f('rivers');
+const grat = d3.geoGraticule().step([5, 5]).extent([[-10, -40], [100, 70]])();
 const km = (C.x.km2/1e6).toFixed(2);
-const places = PLACES.map(([n, ar, lo, la, k]) => { const [x, y] = xy(lo, la);
-  if (k === 'capital') return `<g transform="translate(${x},${y})"><path d="${star}" transform="scale(2.6)" class="star"/><text x="18" y="7" class="pl big">${n}</text><text x="18" y="38" class="ar">${ar}</text></g>`;
-  if (k === 'holy') return `<g transform="translate(${x},${y})"><circle r="9" class="holy"/><circle r="15" class="holyring"/><text x="22" y="7" class="pl big">${n}</text><text x="22" y="38" class="ar">${ar}</text></g>`;
-  if (k === 'left') return `<g transform="translate(${x},${y})"><circle r="5.5" class="dot"/><text x="-11" y="6" class="pl" text-anchor="end">${n}</text></g>`;
-  return `<g transform="translate(${x},${y})"><circle r="5.5" class="dot"/><text x="11" y="6" class="pl">${n}</text></g>`; }).join('\n');
-const regions = REGIONS.map(([n, ar, lo, la, rot]) => { const [x, y] = xy(lo, la); return `<g transform="translate(${x},${y}) rotate(${rot})"><text class="rg" text-anchor="middle">${n}</text><text class="rgar" y="40" text-anchor="middle">${ar}</text></g>`; }).join('\n');
+
+/* labels */
+const COUNTRIES = [  /* name, lon, lat, size, inside V2 */
+  ['SAUDI ARABIA', 47.6, 22.6, 34, 1], ['LIBYA', 17.5, 27.2, 40, 1], ['SUDAN', 29.6, 15.6, 40, 1], ['SOUTH SUDAN', 30.4, 7.6, 30, 1], ['ETHIOPIA', 39.6, 10.8, 36, 1],
+  ['SOMALIA', 45.6, 5.0, 30, 1], ['KENYA', 37.9, 0.9, 30, 1], ['TANZANIA', 33.4, -4.4, 30, 1], ['UGANDA', 32.6, 2.0, 22, 1], ['ERITREA', 38.0, 16.2, 20, 1],
+  ['OMAN', 56.4, 20.4, 28, 1], ['SYRIA', 37.8, 35.8, 26, 1], ['TÜRKİYE', 34.5, 39.4, 40, 1], ['IRAN', 56.8, 32.5, 44, 1], ['TURKMENISTAN', 59.0, 39.4, 26, 1],
+  ['UZBEKISTAN', 61.0, 43.0, 24, 0], ['TAJIKISTAN', 72.4, 38.3, 22, 1], ['KYRGYZSTAN', 74.8, 41.7, 22, 0], ['KAZAKHSTAN', 66.0, 46.2, 34, 0],
+  ['AFGHANISTAN', 66.2, 33.4, 32, 1], ['PAKISTAN', 69.8, 29.8, 34, 1], ['INDIA', 77.5, 22.5, 40, 0], ['GREECE', 21.9, 39.7, 24, 1], ['ITALY', 13.2, 42.4, 28, 0],
+  ['ALGERIA', 6.8, 28.0, 36, 0], ['CHAD', 18.6, 15.6, 34, 0], ['NIGER', 8.6, 17.4, 32, 0], ['CENTRAL AFRICAN REP.', 20.6, 6.7, 22, 0], ['D.R. CONGO', 23.0, -3.0, 34, 0],
+  ['GEORGIA', 43.4, 42.2, 20, 1], ['AZERBAIJAN', 48.0, 41.0, 18, 1], ['RUSSIA', 44.0, 46.6, 32, 0], ['UKRAINE', 32.5, 47.0, 28, 0], ['BULGARIA', 25.2, 42.8, 18, 0],
+  ['ZAMBIA', 27.5, -13.0, 26, 0], ['IRAQ', 43.5, 33.6, 28, 1], ['EGYPT', 28.6, 24.2, 34, 1], ['JORDAN', 36.9, 31.0, 16, 1]];
+const REGIONS = [  /* classical names: Latin, Arabic, lon, lat, rotate */
+  ['al-Ḥijāz', 'الحجاز', 39.0, 26.6, 0], ['al-Shām', 'الشام', 40.2, 34.7, 0], ['al-ʿIrāq', 'العراق', 45.4, 31.6, 0], ['Miṣr', 'مصر', 30.4, 27.4, 0],
+  ['Khurāsān', 'خراسان', 64.2, 36.7, 0], ['Mā warāʾ al-Nahr', 'ما وراء النهر', 64.4, 41.5, -6], ['al-Yaman', 'اليمن', 45.2, 16.9, 0], ['Fāris', 'فارس', 52.8, 29.3, 0],
+  ['Bilād al-Rūm', 'بلاد الروم', 31.5, 37.8, 0], ['Ifrīqiya', 'إفريقية', 10.4, 35.0, 0], ['al-Ḥabasha', 'الحبشة', 38.2, 7.4, 0], ['al-Nūba', 'النوبة', 31.4, 19.6, 0],
+  ['al-Sind', 'السند', 68.4, 26.6, 0], ['Sijistān', 'سجستان', 62.4, 30.6, 0], ['Arrān', 'أران', 46.9, 39.7, 0], ['Barqa', 'برقة', 22.2, 31.0, 0], ['al-Jibāl', 'الجبال', 48.6, 34.6, 0]];
+const SEAS = [  /* name, classical, lon, lat, size, rotate */
+  ['MEDITERRANEAN SEA', 'Baḥr al-Rūm', 19.5, 34.3, 44, 0], ['BLACK SEA', 'Baḥr al-Aswad', 34.0, 43.4, 34, 0], ['RED SEA', 'Baḥr al-Qulzum', 37.9, 21.4, 28, 58],
+  ['PERSIAN GULF', 'Baḥr Fāris', 51.6, 27.0, 24, 32], ['ARABIAN SEA', '', 63.0, 16.0, 46, 0], ['CASPIAN SEA', '', 50.8, 42.0, 26, 72], ['GULF OF ADEN', '', 48.6, 12.4, 22, 14],
+  ['INDIAN OCEAN', 'Baḥr al-Hind', 47.8, -9.9, 42, 0], ['ARAL SEA', '', 59.6, 45.3, 16, 0]];
+const PLACES = [  /* name, lon, lat, kind: cap = capital, holy, quds, city; dx side */
+  ['Makkah', 39.826, 21.4225, 'holy', 'مكة'], ['al-Madīnah', 39.611, 24.467, 'holy', 'المدينة'], ['al-Quds', 35.2355, 31.7779, 'quds', 'القدس', 'L'],
+  ['Dimashq', 36.29, 33.51, 'cap'], ['Baghdād', 44.36, 33.31, 'cap'], ['al-Qāhira', 31.24, 30.04, 'cap'], ['Istanbul', 28.98, 41.01, 'city'], ['Ankara', 32.86, 39.93, 'cap'],
+  ['Ṭihrān', 51.39, 35.69, 'cap'], ['Mashhad', 59.6, 36.3, 'city'], ['Samarqand', 66.96, 39.65, 'city'], ['Bukhārā', 64.42, 39.77, 'city', '', 'L'], ['Kābul', 69.17, 34.53, 'cap'],
+  ['Islamabad', 73.05, 33.68, 'cap'], ['Karāchī', 67.0, 24.86, 'city'], ['Lahore', 74.35, 31.55, 'city'], ['al-Kharṭūm', 32.53, 15.5, 'cap'], ['Addis Ababa', 38.75, 9.03, 'cap'],
+  ['Nairobi', 36.82, -1.29, 'cap'], ['Kampala', 32.58, 0.35, 'cap'], ['Dodoma', 35.74, -6.17, 'cap'], ['Dar es Salaam', 39.28, -6.8, 'city'], ['Muqdisho', 45.34, 2.05, 'cap'],
+  ['Ṣanʿāʾ', 44.2, 15.35, 'cap'], ['Masqaṭ', 58.4, 23.6, 'cap'], ['al-Riyāḍ', 46.72, 24.69, 'cap'], ['Ṭarābulus', 13.19, 32.89, 'cap'], ['Tūnis', 10.18, 36.8, 'cap'],
+  ['Athens', 23.73, 37.98, 'cap'], ['Baku', 49.87, 40.41, 'cap'], ['Tbilisi', 44.79, 41.72, 'cap', '', 'L'], ['Yerevan', 44.51, 40.18, 'cap', '', 'L'], ['Ashgabat', 58.38, 37.95, 'cap'],
+  ['Dushanbe', 68.77, 38.56, 'cap'], ['Tashkent', 69.24, 41.31, 'cap'], ['Harāt', 62.2, 34.35, 'city'], ['Iṣfahān', 51.67, 32.65, 'city'], ['Bayrūt', 35.5, 33.89, 'cap', '', 'L'],
+  ['ʿAmmān', 35.93, 31.95, 'cap'], ['al-Kuwayt', 47.98, 29.37, 'cap'], ['Abū Ẓabī', 54.37, 24.45, 'cap', '', 'L'], ['al-Dawḥa', 51.53, 25.29, 'cap', '', 'L'], ['Asmara', 38.93, 15.32, 'cap'],
+  ['Juba', 31.58, 4.85, 'cap'], ['Kigali', 30.06, -1.94, 'cap', '', 'L'], ['Gitega', 29.93, -3.43, 'cap', '', 'L'], ['Jibūtī', 43.15, 11.59, 'cap'], ['Hargeisa', 44.06, 9.56, 'city'],
+  ['Nīqūsiya', 33.36, 35.17, 'cap'], ['Basra', 47.78, 30.51, 'city'], ['Bishkek', 74.59, 42.87, 'cap'], ['Alexandria', 29.92, 31.2, 'city', '', 'L'], ['Benghazi', 20.07, 32.12, 'city']];
+const H2 = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+const lbl = [];
+for (const [n, lo, la, sz, inV] of COUNTRIES) { const [x, y] = xy(lo, la);
+  lbl.push(`<text x="${x.toFixed(1)}" y="${y.toFixed(1)}" class="cty ${inV ? 'in' : 'out'}" style="font-size:${sz}px;letter-spacing:${(sz*0.32).toFixed(1)}px" text-anchor="middle">${H2(n)}</text>`); }
+for (const [n, ar, lo, la, rot] of REGIONS) { const [x, y] = xy(lo, la);
+  lbl.push(`<g transform="translate(${x.toFixed(1)},${y.toFixed(1)}) rotate(${rot})"><text class="rg" text-anchor="middle">${H2(n)}</text><text class="rgar" y="38" text-anchor="middle">${ar}</text></g>`); }
+for (const [n, cl, lo, la, sz, rot] of SEAS) { const [x, y] = xy(lo, la);
+  lbl.push(`<g transform="translate(${x.toFixed(1)},${y.toFixed(1)}) rotate(${rot})"><text class="sea" style="font-size:${sz}px;letter-spacing:${(sz*0.3).toFixed(1)}px" text-anchor="middle">${n}</text>${cl ? `<text class="seacl" y="${(sz*0.95).toFixed(0)}" style="font-size:${Math.max(20, sz*0.62).toFixed(0)}px" text-anchor="middle">${cl}</text>` : ''}</g>`); }
+for (const [n, lo, la, kind, ar, side] of PLACES) { const [x, y] = xy(lo, la), L = side === 'L', a = L ? 'end' : 'start';
+  let sym, cls = 'pl', dx = 13;
+  if (kind === 'holy') { sym = `<circle r="10" class="holy"/><circle r="4" fill="#fff"/>`; cls = 'pl big'; dx = 18; }
+  else if (kind === 'quds') { sym = `<path d="M0,-15L4.4,-6L14.3,-4.6L7.1,2.3L8.8,12.1L0,7.5L-8.8,12.1L-7.1,2.3L-14.3,-4.6L-4.4,-6Z" class="quds"/>`; cls = 'pl big'; dx = 18; }
+  else if (kind === 'cap') sym = `<rect x="-6.5" y="-6.5" width="13" height="13" class="cap"/><circle r="2.6" fill="#fff"/>`;
+  else sym = `<circle r="5.5" class="city"/>`;
+  lbl.push(`<g transform="translate(${x.toFixed(1)},${y.toFixed(1)})">${sym}<text x="${L ? -dx : dx}" y="8" class="${cls}" text-anchor="${a}">${H2(n)}</text>${ar ? `<text x="${L ? -dx : dx}" y="42" class="ar" text-anchor="${a}">${ar}</text>` : ''}</g>`); }
+
+/* margin: degrees and a chequered neat line (1° segments) */
+const marg = [];
+for (let lo = Math.ceil(LON0); lo <= LON1; lo++) { const x0 = xy(lo, 0)[0], x1 = xy(lo + 1, 0)[0]; if (x1 > FX + FW + 0.5) break;
+  const c = lo % 2 ? '#2b2620' : '#f6efdc';
+  marg.push(`<rect x="${x0.toFixed(1)}" y="${FY - 16}" width="${(x1 - x0).toFixed(1)}" height="12" fill="${c}"/><rect x="${x0.toFixed(1)}" y="${FY + FH + 4}" width="${(x1 - x0).toFixed(1)}" height="12" fill="${c}"/>`);
+  if (lo % 5 === 0) { const t = `${lo}°E`; marg.push(`<text x="${x0.toFixed(1)}" y="${FY - 30}" class="deg" text-anchor="middle">${t}</text><text x="${x0.toFixed(1)}" y="${FY + FH + 52}" class="deg" text-anchor="middle">${t}</text>`); } }
+for (let la = Math.ceil(LATBOT); la < LATTOP; la++) { const y0 = xy(0, la)[1], y1 = Math.max(xy(0, la + 1)[1], FY); if (y0 > FY + FH + 0.5) continue;
+  const c = la % 2 ? '#2b2620' : '#f6efdc', yb = Math.min(y0, FY + FH);
+  marg.push(`<rect x="${FX - 16}" y="${y1.toFixed(1)}" width="12" height="${(yb - y1).toFixed(1)}" fill="${c}"/><rect x="${FX + FW + 4}" y="${y1.toFixed(1)}" width="12" height="${(yb - y1).toFixed(1)}" fill="${c}"/>`);
+  if (la % 5 === 0) { const t = la === 0 ? 'Equator' : `${Math.abs(la)}°${la > 0 ? 'N' : 'S'}`;
+    marg.push(`<text x="${FX - 30}" y="${(y0 + 9).toFixed(1)}" class="deg" text-anchor="end">${t}</text><text x="${FX + FW + 30}" y="${(y0 + 9).toFixed(1)}" class="deg">${t}</text>`); } }
+
+/* locator globe */
+const gR = 190, gproj = d3.geoOrthographic().rotate([-42, -22]).scale(gR).translate([0, 0]).clipAngle(90), G = d3.geoPath(gproj).digits(1);
+const globe = `<g transform="translate(${FX + 250},${FY - 300})">
+  <circle r="${gR + 14}" fill="none" stroke="#7a5c2e" stroke-width="2"/><circle r="${gR}" fill="url(#globeSea)"/>
+  <path d="${G(d3.geoGraticule().step([30, 30])())}" fill="none" stroke="#5c88a3" stroke-opacity=".35" stroke-width="1"/>
+  <path d="${G(land)}" fill="#e3d8b6" stroke="#8a7a58" stroke-width=".8"/>
+  <path d="${G(V2)}" fill="#b3202a" fill-opacity=".85" stroke="#6e0f15" stroke-width="1.2"/>
+  <circle r="${gR}" fill="url(#globeShade)"/></g>`;
+
+/* scale bars (true at 25° N) */
+const pxKm = (xy(51, 25)[0] - xy(50, 25)[0]) / (111.32*Math.cos(25*Math.PI/180));
+const bar = (len, unit, perKm, y) => { const w = len*perKm*pxKm, n = 4; let s = '';
+  for (let i = 0; i < n; i++) s += `<rect x="${(i*w/n).toFixed(1)}" y="${y}" width="${(w/n).toFixed(1)}" height="10" fill="${i % 2 ? '#f6efdc' : '#2b2620'}" stroke="#2b2620" stroke-width="1.2"/>`;
+  for (let i = 0; i <= n; i++) s += `<text x="${(i*w/n).toFixed(1)}" y="${y + 38}" class="sbt" text-anchor="middle">${len*i/n}${i === n ? ' ' + unit : ''}</text>`;
+  return s; };
+
 const fonts = fs.readFileSync(path.join(ROOT, 'test-fonts.css'), 'utf8').replace(/url\('node_modules/g, `url('file://${ROOT}/node_modules`);
-/* scale bar: 1,000 km measured at 25° N */
-const sb0 = proj([50, 25]), sb1 = proj([50 + 1000/(111.32*Math.cos(25*Math.PI/180)), 25]), sbw = sb1[0] - sb0[0];
+const LW = 1020, LH = 760, LX = [FX + FW - LW - 50, xy(0, 9.5)[1]];   /* legend box, in the Arabian Sea / Indian Ocean */
 const html = `<!doctype html><html><head><meta charset="utf-8"><style>${fonts}
-body{margin:0;background:#0d1b26}
-svg text{font-family:'Alegreya',serif;font-variant-ligatures:none;font-feature-settings:'liga' 0,'dlig' 0,'calt' 0}
-.sea{fill:url(#seaG)}
-.grat{fill:none;stroke:#7fa3b5;stroke-opacity:.16;stroke-width:1.2}
-.landout{fill:#b9ad93}
-.relief{mix-blend-mode:overlay;opacity:.95}
-.v2fill{fill:url(#v2G)}
-.border{fill:none;stroke:#6b5a3c;stroke-opacity:.35;stroke-width:1.4;stroke-dasharray:7 5}
-.coast{fill:none;stroke:#3d4f5a;stroke-opacity:.55;stroke-width:1.3}
-.lake{fill:#5f8ea3;stroke:#3d6576;stroke-width:.8}
-.riv{fill:none;stroke:#4f88a3;stroke-opacity:.75;stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
-.glow{fill:none;stroke:#f2c94c;stroke-opacity:.35;stroke-width:22;filter:url(#blur)}
-.edge1{fill:none;stroke:#8a6414;stroke-width:7;stroke-linejoin:round}
-.edge2{fill:none;stroke:#f3d27a;stroke-width:2.6;stroke-linejoin:round}
-.pl{font-size:27px;fill:#2a2116;paint-order:stroke;stroke:#f6ecd2;stroke-width:6px;stroke-opacity:.85;font-weight:500}
-.pl.big{font-size:36px;font-weight:700;fill:#1d1408}
-.ar{font-family:'Amiri',serif;font-size:30px;fill:#5a3f10;paint-order:stroke;stroke:#f6ecd2;stroke-width:6px;stroke-opacity:.85}
-.dot{fill:#2a2116;stroke:#f6ecd2;stroke-width:2.5}
-.holy{fill:#1e6b4f;stroke:#f6ecd2;stroke-width:3}
-.holyring{fill:none;stroke:#1e6b4f;stroke-width:2.5}
-.star{fill:#b8860b;stroke:#3b2a05;stroke-width:.35}
-.rg{font-size:40px;font-style:italic;letter-spacing:4px;fill:#6b4a12;fill-opacity:.82;paint-order:stroke;stroke:#f6ecd2;stroke-width:5px;stroke-opacity:.5}
-.rgar{font-family:'Amiri',serif;font-size:32px;fill:#6b4a12;fill-opacity:.7}
-.sealbl{font-size:42px;font-style:italic;letter-spacing:10px;fill:#a9c9d6;fill-opacity:.7}
-.frame1{fill:none;stroke:#c9a227;stroke-width:6}
-.frame2{fill:none;stroke:#c9a227;stroke-width:1.6}
-.t1{font-size:132px;font-weight:700;fill:#f3d27a;letter-spacing:6px}
-.t1ar{font-family:'Amiri',serif;font-size:112px;fill:#f3d27a}
-.t2{font-size:50px;font-style:italic;fill:#e9dcc0}
-.t2ar{font-family:'Amiri',serif;font-size:56px;fill:#e9dcc0}
-.t3{font-family:'Alegreya Sans SC',sans-serif;font-size:36px;letter-spacing:6px;fill:#c9a227}
-.t4{font-family:'Alegreya Sans',sans-serif;font-size:26px;fill:#b9b09a}
-.sb{fill:#f3d27a}.sbt{font-family:'Alegreya Sans',sans-serif;font-size:26px;fill:#e9dcc0}
+body{margin:0;background:#efe5cc}
+svg text{font-family:'Alegreya',serif;font-variant-ligatures:none}
+.paper{fill:url(#paper)}
+.cty{font-family:'Alegreya Sans SC',sans-serif;font-weight:500;paint-order:stroke;stroke-linejoin:round}
+.cty.in{fill:#4a3b2a;stroke:#f3ead2;stroke-width:5px;stroke-opacity:.6}
+.cty.out{fill:#6d6a62;stroke:#eeeee8;stroke-width:5px;stroke-opacity:.55}
+.rg{font-size:40px;font-style:italic;fill:#a01d24;letter-spacing:2px;paint-order:stroke;stroke:#fbf3dc;stroke-width:6px;stroke-opacity:.75;stroke-linejoin:round}
+.rgar{font-family:'Amiri',serif;font-size:31px;fill:#a01d24;fill-opacity:.85;paint-order:stroke;stroke:#fbf3dc;stroke-width:5px;stroke-opacity:.7}
+.sea{font-style:italic;fill:#2f6a8c;fill-opacity:.85}
+.seacl{font-style:italic;fill:#2f6a8c;fill-opacity:.75}
+.pl{font-size:27px;fill:#1f1a14;paint-order:stroke;stroke:#fbf6e6;stroke-width:6px;stroke-opacity:.85;stroke-linejoin:round}
+.pl.big{font-size:36px;font-weight:700}
+.ar{font-family:'Amiri',serif;font-size:30px;fill:#1f4d3a;paint-order:stroke;stroke:#fbf6e6;stroke-width:6px;stroke-opacity:.85}
+.city{fill:#fbf6e6;stroke:#1f1a14;stroke-width:3}
+.cap{fill:#1f1a14;stroke:#fbf6e6;stroke-width:1.5}
+.holy{fill:#1e6b4f;stroke:#fbf6e6;stroke-width:3}
+.quds{fill:#c99a1e;stroke:#3b2a05;stroke-width:2}
+.deg{font-family:'Alegreya Sans',sans-serif;font-size:28px;fill:#4a3f30}
+.sbt{font-family:'Alegreya Sans',sans-serif;font-size:24px;fill:#2b2620}
+.lg{font-family:'Alegreya Sans',sans-serif;font-size:27px;fill:#2b2620}
+.lgh{font-family:'Alegreya Sans SC',sans-serif;font-size:32px;letter-spacing:5px;fill:#7a1219}
 </style></head><body>
 <svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
 <defs>
- <radialGradient id="seaG" cx="45%" cy="40%" r="80%"><stop offset="0" stop-color="#1d4a5f"/><stop offset=".6" stop-color="#143447"/><stop offset="1" stop-color="#0b1f2c"/></radialGradient>
- <linearGradient id="v2G" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7e7b9"/><stop offset=".5" stop-color="#f1d896"/><stop offset="1" stop-color="#e8c77a"/></linearGradient>
- <filter id="blur" x="-5%" y="-5%" width="110%" height="110%"><feGaussianBlur stdDeviation="10"/></filter>
- <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="6" stdDeviation="14" flood-color="#000" flood-opacity=".55"/></filter>
- <clipPath id="frameclip"><rect x="${M}" y="${M}" width="${W-2*M}" height="${H-2*M}"/></clipPath>
- <clipPath id="landclip"><path d="${P(land)}"/></clipPath>
- <clipPath id="v2clip"><path d="${P(V2)}"/></clipPath>
+ <radialGradient id="paper" cx="50%" cy="45%" r="75%"><stop offset="0" stop-color="#f8f0db"/><stop offset=".75" stop-color="#efe3c4"/><stop offset="1" stop-color="#e2d2aa"/></radialGradient>
+ <radialGradient id="globeSea" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#cfe4ef"/><stop offset="1" stop-color="#8db6cd"/></radialGradient>
+ <radialGradient id="globeShade" cx="35%" cy="30%" r="75%"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#1b2a33" stop-opacity=".45"/></radialGradient>
+ <filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="7"/><feColorMatrix values="0 0 0 0 .45  0 0 0 0 .38  0 0 0 0 .25  0 0 0 .07 0"/></filter>
+ <clipPath id="frame"><rect x="${FX}" y="${FY}" width="${FW}" height="${FH}"/></clipPath>
+ <clipPath id="landc"><path d="${P(land)}"/></clipPath>
+ <clipPath id="v2c"><path d="${P(V2)}"/></clipPath>
+ <mask id="outside"><rect x="0" y="0" width="${W}" height="${H}" fill="#fff"/><path d="${P(V2)}" fill="#000"/></mask>
 </defs>
-<rect width="${W}" height="${H}" fill="#0b1720"/>
-<g clip-path="url(#frameclip)">
- <rect x="${M}" y="${M}" width="${W-2*M}" height="${H-2*M}" class="sea"/>
- <path d="${P(grat)}" class="grat"/>
- <path d="${P(land)}" class="landout"/>
- <path d="${P(V2)}" class="glow"/>
- <path d="${P(V2)}" class="v2fill"/>
- <image href="${relief}" x="${r0[0]}" y="${r0[1]}" width="${r1[0]-r0[0]}" height="${r1[1]-r0[1]}" preserveAspectRatio="none" class="relief"/>
- <path d="${P(borders)}" class="border"/>
- <path d="${rivPath}" class="riv"/>
- <path d="${P(lakes)}" class="lake"/>
- <path d="${P(land)}" class="coast"/>
- <path d="${P(V2)}" class="edge1"/>
- <path d="${P(V2)}" class="edge2"/>
- ${regions}
- ${places}
- <text class="sealbl" text-anchor="middle" transform="translate(${xy(18,35.6)[0]},${xy(18,35.6)[1]})">MEDITERRANEAN</text>
- <text class="sealbl" text-anchor="middle" transform="translate(${xy(62,15.5)[0]},${xy(62,15.5)[1]})">ARABIAN SEA</text>
- <text class="sealbl" text-anchor="middle" transform="translate(${xy(38.3,20.2)[0]},${xy(38.3,20.2)[1]}) rotate(58)" style="font-size:28px;letter-spacing:6px">RED SEA</text>
- <text class="sealbl" text-anchor="middle" transform="translate(${xy(51,42.3)[0]},${xy(51,42.3)[1]}) rotate(80)" style="font-size:30px;letter-spacing:6px">CASPIAN</text>
+<rect width="${W}" height="${H}" class="paper"/>
+<rect width="${W}" height="${H}" filter="url(#grain)"/>
+<g clip-path="url(#frame)">
+ <rect x="${FX}" y="${FY}" width="${FW}" height="${FH}" fill="#9cc3da"/>
+ <path d="${P(bigLand)}" fill="none" stroke="#acd0e3" stroke-width="150" stroke-linejoin="round"/>
+ <path d="${P(bigLand)}" fill="none" stroke="#bad8e8" stroke-width="84" stroke-linejoin="round"/>
+ <path d="${P(bigLand)}" fill="none" stroke="#c9e1ee" stroke-width="40" stroke-linejoin="round"/>
+ <path d="${P(land)}" fill="none" stroke="#d8eaf3" stroke-width="14" stroke-linejoin="round"/>
+ <g clip-path="url(#landc)"><image href="${relief}" x="${FX}" y="${FY}" width="${FW}" height="${FH}" preserveAspectRatio="none" style="filter:saturate(.92) contrast(1.04)"/></g>
+ <path d="${P(land)}" fill="#f6f2e6" fill-opacity=".52" mask="url(#outside)"/>
+ <path d="${P(grat)}" fill="none" stroke="#3f6f8f" stroke-opacity=".38" stroke-width="1.3"/>
+ <path d="${P(rivers)}" fill="none" stroke="#3d7fb0" stroke-width="2" stroke-opacity=".85" stroke-linejoin="round" stroke-linecap="round"/>
+ <path d="${P(lakes)}" fill="#a9cfe4" stroke="#3d7fb0" stroke-width="1.4"/>
+ <path d="${P(borders)}" fill="none" stroke="#fbf6e6" stroke-opacity=".8" stroke-width="6"/>
+ <path d="${P(borders)}" fill="none" stroke="#6a4f78" stroke-width="2.4" stroke-dasharray="14 5 3 5"/>
+ <path d="${P(land)}" fill="none" stroke="#2f5f7d" stroke-width="2.2" stroke-opacity=".9"/>
+ <g clip-path="url(#v2c)"><path d="${P(V2)}" fill="none" stroke="#c2262f" stroke-opacity=".32" stroke-width="56" stroke-linejoin="round"/></g>
+ <path d="${P(V2)}" fill="none" stroke="#fbf6e6" stroke-width="9" stroke-linejoin="round" stroke-opacity=".9"/>
+ <path d="${P(V2)}" fill="none" stroke="#9c1a22" stroke-width="5" stroke-linejoin="round"/>
+ ${lbl.join('\n ')}
+ <g transform="translate(${LX[0]},${LX[1]})">
+  <rect width="${LW}" height="${LH}" fill="#fbf6e6" fill-opacity=".95" stroke="#2b2620" stroke-width="2.5"/>
+  <rect x="10" y="10" width="${LW - 20}" height="${LH - 20}" fill="none" stroke="#2b2620" stroke-width="1"/>
+  <text x="${LW/2}" y="68" class="lgh" text-anchor="middle">LEGEND · مفتاح</text>
+  <g transform="translate(50,120)">
+   <rect width="90" height="38" fill="#c2262f" fill-opacity=".32"/><line x1="0" y1="2" x2="90" y2="2" stroke="#9c1a22" stroke-width="5"/>
+   <text x="115" y="30" class="lg">Boundary of V2, Dār al-Amān (the author’s specification)</text>
+   <line x1="0" y1="92" x2="90" y2="92" stroke="#6a4f78" stroke-width="2.4" stroke-dasharray="14 5 3 5"/><text x="115" y="101" class="lg">International boundary (today)</text>
+   <circle cx="45" cy="150" r="10" class="holy"/><circle cx="45" cy="150" r="4" fill="#fff"/><text x="115" y="160" class="lg">The two Ḥarams: Makkah and al-Madīnah</text>
+   <path transform="translate(45,206)" d="M0,-15L4.4,-6L14.3,-4.6L7.1,2.3L8.8,12.1L0,7.5L-8.8,12.1L-7.1,2.3L-14.3,-4.6L-4.4,-6Z" class="quds"/><text x="115" y="218" class="lg">al-Quds, the capital the author names</text>
+   <rect x="38.5" y="257.5" width="13" height="13" class="cap"/><circle cx="45" cy="264" r="2.6" fill="#fff"/><text x="115" y="274" class="lg">National capital (today)</text>
+   <circle cx="45" cy="318" r="5.5" class="city"/><text x="115" y="328" class="lg">Other city</text>
+   <text x="45" y="388" text-anchor="middle" class="rg" style="font-size:34px">Miṣr</text><text x="115" y="384" class="lg">Classical region name (red italic, with its Arabic)</text>
+  </g>
+  <g transform="translate(60,${LH - 150})">${bar(1000, 'km', 1, 0)}</g>
+  <g transform="translate(60,${LH - 82})">${bar(600, 'miles', 1.609344, 0)}</g>
+  <text x="${LW - 50}" y="${LH - 128}" class="lg" text-anchor="end" style="font-size:23px">Mercator projection</text>
+  <text x="${LW - 50}" y="${LH - 96}" class="lg" text-anchor="end" style="font-size:23px">scales true at 25° N</text>
+ </g>
 </g>
-<g filter="url(#shadow)">
- <rect x="${W-M-1180}" y="${H-M-640}" width="1110" height="580" rx="6" fill="#0e2230" fill-opacity=".92" stroke="#c9a227" stroke-width="3"/>
- <rect x="${W-M-1164}" y="${H-M-624}" width="1078" height="548" rx="4" fill="none" stroke="#c9a227" stroke-width="1.2"/>
+<rect x="${FX}" y="${FY}" width="${FW}" height="${FH}" fill="none" stroke="#2b2620" stroke-width="3"/>
+<rect x="${FX - 16}" y="${FY - 16}" width="${FW + 32}" height="${FH + 32}" fill="none" stroke="#2b2620" stroke-width="2"/>
+<rect x="${FX - 4}" y="${FY - 4}" width="${FW + 8}" height="${FH + 8}" fill="none" stroke="#2b2620" stroke-width="1.2"/>
+${marg.join('\n')}
+${globe}
+<g text-anchor="middle">
+ <text x="${W/2}" y="160" style="font-family:'Alegreya Sans SC';font-size:40px;letter-spacing:16px;fill:#7a1219">ATLAS OF THE BLESSED LANDS · PLATE II</text>
+ <text x="${W/2}" y="300" style="font-size:150px;font-weight:700;letter-spacing:10px;fill:#2b2620">DĀR AL-AMĀN</text>
+ <text x="${W/2}" y="400" style="font-family:'Amiri';font-size:76px;fill:#7a1219">دار الأمان · الخلافة الأمينة</text>
+ <text x="${W/2}" y="466" style="font-size:40px;font-style:italic;fill:#4a3f30">al-Khilāfa al-Amīna · Version 2 · about ${km} million km²</text>
 </g>
-<g transform="translate(${W-M-625},${H-M-640})" text-anchor="middle">
- <text y="140" class="t1">Dār al-Amān</text>
- <text y="282" class="t1ar">دار الأمان</text>
- <text y="358" class="t2">al-Khilāfa al-Amīna</text>
- <text y="424" class="t2ar">الخلافة الأمينة</text>
- <text y="484" class="t3">VERSION 2 · ABOUT ${km} MILLION KM²</text>
- <text y="530" class="t4">Drawn to the author’s specification, not from the sources and not a ruling · Atlas of the Blessed Lands</text>
+<g transform="translate(${W - FX - 250},${FY - 300})">
+ <circle r="150" fill="none" stroke="#7a5c2e" stroke-width="2"/><circle r="138" fill="none" stroke="#7a5c2e" stroke-width="1" stroke-dasharray="2 6"/>
+ ${[0, 45, 90, 135, 180, 225, 270, 315].map(a => { const L = a % 90 ? 70 : 128, w = a % 90 ? 12 : 20; return `<g transform="rotate(${a})"><path d="M0,${-L}L${w},0L0,0Z" fill="#2b2620"/><path d="M0,${-L}L${-w},0L0,0Z" fill="${a ? '#d9c9a0' : '#9c1a22'}" stroke="#2b2620" stroke-width="1"/></g>`; }).join('')}
+ <circle r="9" fill="#9c1a22" stroke="#2b2620" stroke-width="1.5"/>
+ <text y="-162" text-anchor="middle" style="font-family:'Alegreya Sans SC';font-size:40px;fill:#7a1219">N</text>
 </g>
-<g filter="url(#shadow)"><rect x="${M+40}" y="${H-M-560}" width="${Math.max(380, sbw+120)}" height="520" rx="6" fill="#0e2230" fill-opacity=".9" stroke="#c9a227" stroke-width="2.5"/></g>
-<g transform="translate(${M+100},${H-M-130})">
- <rect width="${sbw/2}" height="12" class="sb"/><rect x="${sbw/2}" width="${sbw/2}" height="12" fill="none" stroke="#f3d27a" stroke-width="2"/>
- <text y="52" class="sbt">0</text><text x="${sbw/2}" y="52" class="sbt" text-anchor="middle">500</text><text x="${sbw}" y="52" class="sbt" text-anchor="middle">1,000 km</text>
-</g>
-<g transform="translate(${M+40+Math.max(380, sbw+120)/2},${H-M-330})" style="color:#f3d27a">${fs.readFileSync(path.join(ROOT, 'src/rose.svg'), 'utf8').replace(/var\(--ink\)/g, '#f3d27a').replace('width="34" height="34"', 'width="240" height="240" x="-120" y="-120"')}<text y="-135" text-anchor="middle" style="font-family:'Alegreya Sans SC';font-size:40px;fill:#f3d27a">N</text></g>
-<rect x="${M}" y="${M}" width="${W-2*M}" height="${H-2*M}" class="frame1"/>
-<rect x="${M-22}" y="${M-22}" width="${W-2*M+44}" height="${H-2*M+44}" class="frame2"/>
+<text x="${W/2}" y="${H - 48}" text-anchor="middle" style="font-size:27px;font-style:italic;fill:#5a4d3a">Drawn to the author’s specification: not from the sources and not a ruling. Base map: Natural Earth; borders as of today.</text>
 </svg></body></html>`;
-fs.mkdirSync(path.join(ROOT, 'posters'), {recursive:true});
-const htmlFile = path.join(ROOT, 'posters/v2_poster.html');
+const htmlFile = path.join(TMP, 'v2_atlas.html');
 fs.writeFileSync(htmlFile, html);
 (async () => {
   const {chromium} = require(path.join(ROOT, 'node_modules/playwright'));
   const b = await chromium.launch({executablePath:'/opt/pw-browsers/chromium'});
   const p = await b.newPage({viewport:{width:W, height:H}});
-  await p.goto('file://' + htmlFile); await p.evaluate(() => document.fonts.ready); await p.waitForTimeout(1500);
-  await p.screenshot({path:path.join(ROOT, 'posters/v2_poster.png')});
-  await b.close(); console.log('posters/v2_poster.png', W + 'x' + H);
+  await p.goto('file://' + htmlFile, {timeout:600000}); await p.evaluate(() => document.fonts.ready); await p.waitForTimeout(3000);
+  await p.screenshot({path:path.join(OUT, 'v2_atlas.png'), timeout:600000});
+  await b.close();
+  execFileSync('python3', ['-I', '-c', `from PIL import Image; Image.open('${path.join(OUT, 'v2_atlas.png')}').convert('RGB').save('${path.join(OUT, 'v2_atlas.jpg')}', quality=82, optimize=True)`]);
+  console.log('posters/v2_atlas.png and .jpg', W + 'x' + H, '| lat', LATBOT.toFixed(1), 'to', LATTOP);
 })();
