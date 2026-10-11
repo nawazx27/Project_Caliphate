@@ -677,6 +677,52 @@ html.fullmap,html.fullmap body{overflow:hidden!important;overscroll-behavior:non
   .atlas.full .sheethead .grip{display:none}
   .atlas.full .sheethead .st,.atlas.full .sheethead button{margin-top:4px}
 }
+/* Version 64: phone and tablet full screen like a maps app. The map fills the screen edge to edge; the search bar and the
+   chip rows float over it; the buttons sit in one column at the bottom right, within reach of the thumb; no frame. */
+@media (max-width:980px), (orientation:landscape) and (max-height:520px){
+  .atlas.full .mapbars{position:absolute;left:0;right:0;top:0;z-index:30;background:none;border:0;margin:0;pointer-events:none;
+    padding:calc(10px + var(--st)) calc(12px + var(--sr)) 0 calc(12px + var(--sl));gap:8px}
+  .atlas.full .mapbars > *{pointer-events:auto}
+  .atlas.full .mapcol{position:relative}
+  .atlas.full .mapframe,.atlas.full .corner{display:none}
+  .atlas.full .mapwrap::after{display:none}
+  .atlas.full .find .mag{left:16px}
+  .atlas.full .find input{height:46px;padding:0 16px 0 44px;font-size:16px;border:1px solid var(--rule2);box-shadow:0 3px 14px -5px rgba(0,0,0,.5)}
+  .atlas.full .viewbar .lab{display:none}
+  .atlas.full .mapbars .viewbar{padding:0;margin:0 calc(-12px - var(--sr)) 0 calc(-12px - var(--sl));padding:0 calc(12px + var(--sr)) 2px calc(12px + var(--sl))}
+  .atlas.full .mapbars .seg{background:none;border:0;padding:0;gap:6px;box-shadow:none}
+  .atlas.full .mapbars .seg button,.atlas.full .xtoggle.onmap button{flex:none;background:var(--surface);color:var(--ink);border:1px solid var(--rule2);
+    box-shadow:0 2px 8px -4px rgba(0,0,0,.45);padding:6px 14px;font-size:14px;border-radius:999px}
+  .atlas.full .mapbars .seg button.on{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+  /* the version chips: one row under the views, scrolling sideways, no box round them */
+  .atlas.full .xtoggle.onmap{top:calc(var(--st) + 112px);left:0;right:0;transform:none;width:auto;max-width:none;display:flex;flex-wrap:nowrap;
+    justify-content:flex-start;gap:6px;overflow-x:auto;scrollbar-width:none;padding:0 calc(12px + var(--sr)) 4px calc(12px + var(--sl));
+    background:none;border:0;border-radius:0;box-shadow:none;z-index:29}
+  .atlas.full .xtoggle.onmap::-webkit-scrollbar{display:none}
+  .atlas.full .xtoggle.onmap[hidden]{display:none}
+  .atlas.full .xtoggle.onmap .xl,.atlas.full .xtoggle.onmap .xbreak{display:none}
+  .atlas.full .xtoggle.onmap button[aria-pressed="true"]{background:var(--xcal);color:var(--surface);border-color:var(--xcal)}
+  .atlas.full .xtoggle.onmap button.lyt{font-size:13px;padding:6px 12px}
+  .atlas.full .xtoggle.onmap button.lyt[aria-pressed="true"]{background:color-mix(in srgb,var(--natb) 18%,var(--surface));color:var(--natb);border-color:var(--natb)}
+  /* one column of round buttons, bottom right */
+  .atlas.full .mapctl{top:auto;bottom:calc(22px + var(--sb));right:calc(12px + var(--sr));gap:8px;align-items:flex-end}
+  .atlas.full .mapctl button{width:46px;height:46px;border-radius:50%;box-shadow:0 3px 12px -5px rgba(0,0,0,.55)}
+  .atlas.full .mapctl .mob{width:auto;min-width:46px;padding:0 16px;border-radius:999px;font-size:13px}
+  .atlas.full .scale{background:none;box-shadow:none;padding:0;left:calc(12px + var(--sl));bottom:calc(18px + var(--sb))}
+  .atlas.full .scale .north{display:none}
+  .atlas.full .fulltip{top:calc(var(--st) + 166px);bottom:auto}
+}
+/* touch screens zoom by pinching: no plus and minus buttons there, as in map apps */
+@media (hover:none) and (pointer:coarse){
+  .atlas.full #zin,.atlas.full #zout{display:none}
+}
+/* sideways phone: no search bar, so the chip rows move up */
+@media (orientation:landscape) and (max-height:520px){
+  .atlas.full .mapbars{padding-top:calc(8px + var(--st))}
+  .atlas.full .xtoggle.onmap{top:calc(var(--st) + 52px)}
+  .atlas.full .mapctl{bottom:calc(12px + var(--sb))}
+  .atlas.full .mapctl button{width:40px;height:40px}
+}
 /* desktop full screen: map with the notes and layers panel beside it */
 @media (min-width:981px) and (min-height:521px){
   .atlas.full{grid-template-columns:minmax(0,1fr) 380px;grid-template-rows:100%}

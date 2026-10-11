@@ -284,7 +284,7 @@ function frameZ(){
 let chrome = [];
 function measureChrome(){
   const r = wrapEl.getBoundingClientRect(); chrome = [];
-  wrapEl.querySelectorAll('.mapctl,.minilegend,.scale,.coords,.xtoggle:not([hidden])').forEach(el=>{ const b = el.getBoundingClientRect(); if(b.width && b.height) chrome.push({x:b.left-r.left-4, y:b.top-r.top-4, w:b.width+8, h:b.height+8}); });
+  [...wrapEl.querySelectorAll('.mapctl,.minilegend,.scale,.coords,.xtoggle:not([hidden])'), ...document.querySelectorAll('.atlas.full .mapbars .find, .atlas.full .mapbars .viewbar:not(.tierbar)')].forEach(el=>{ const b = el.getBoundingClientRect(); if(b.width && b.height) chrome.push({x:b.left-r.left-4, y:b.top-r.top-4, w:b.width+8, h:b.height+8}); });
 }
 function size(){ const r = wrapEl.getBoundingClientRect(); W = Math.max(200, r.width); H = Math.max(200, r.height); zoom.extent([[0,0],[W,H]]);
   /* the smallest zoom shows the whole sheet; a little slack lets the map move up, down and sideways at every zoom */

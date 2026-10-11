@@ -55,6 +55,13 @@ function sheetMode(){ return mobileQ.matches || (fullOn && !deskQ.matches); }
 function openSheet(id){ if(!sheetMode()) return; document.querySelectorAll('.sheet').forEach(s=>s.classList.toggle('open', s.id===id)); }
 function closeSheets(){ document.querySelectorAll('.sheet').forEach(s=>s.classList.remove('open')); }
 document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click', closeSheets));
+/* drag a bottom sheet down by its head to close it, as in map apps (Version 64) */
+const sideSheets = window.matchMedia('(orientation:landscape) and (max-height:520px)');
+document.querySelectorAll('.sheet .sheethead').forEach(h=>{ const s = h.parentElement; let y0 = null, dy = 0;
+  h.addEventListener('touchstart', e=>{ if(sideSheets.matches || !s.classList.contains('open') || e.touches.length !== 1) return; y0 = e.touches[0].clientY; dy = 0; s.style.transition = 'none'; }, {passive:true});
+  h.addEventListener('touchmove', e=>{ if(y0 === null) return; dy = Math.max(0, e.touches[0].clientY - y0); s.style.transform = `translateY(${dy}px)`; }, {passive:true});
+  const end = ()=>{ if(y0 === null) return; y0 = null; s.style.transition = ''; s.style.transform = ''; if(dy > 70) closeSheets(); };
+  h.addEventListener('touchend', end); h.addEventListener('touchcancel', end); });
 document.getElementById('openLayers').onclick = ()=>{ const s=document.getElementById('layerscard'); s.classList.contains('open') ? closeSheets() : openSheet('layerscard'); };
 document.getElementById('openNotes').onclick = ()=>{ const s=document.getElementById('infocard'); s.classList.contains('open') ? closeSheets() : openSheet('infocard'); };
 document.addEventListener('keydown', e=>{ if(e.key!=='Escape') return; if(document.querySelector('.sheet.open')){ closeSheets(); return; } if(e.target && e.target.id === 'placeq') return; if(fullOn) exitFull(); });
