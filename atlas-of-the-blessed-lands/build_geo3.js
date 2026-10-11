@@ -1,4 +1,4 @@
-// v10 base map: the Greater Middle East sheet, 18°W–78°E and 5°S–46°N.
+// v65: the whole Earth; outside the old sheet (OLD) a coarser tier of detail. Earlier: v10 base map: the Greater Middle East sheet, 18°W–78°E and 5°S–46°N.
 // Full detail inside the atlas core (19°–64°E, 4°S–44.5°N); lighter simplification outside it, where the map is
 // only ever seen at small scale. Also writes landlo.json, a much simpler land outline for decorative strokes.
 const fs = require('fs');
@@ -9,7 +9,8 @@ const cur = JSON.parse(fs.readFileSync('geo2_v6.json','utf8'));
 const fc = JSON.parse(fs.readFileSync('ne_10m_admin_0_countries.geojson','utf8'));
 const LK = JSON.parse(fs.readFileSync('lakes.geojson','utf8'));
 const RV = JSON.parse(fs.readFileSync('rivers.geojson','utf8'));
-const SH = {w:-30, s:-36.5, e:104, n:60};   /* v12: widened so the Greater Caliphate's historical lands sit inside the sheet with room around them; v13: south edge 12.5°S so all three Comoros islands are drawn (Mayotte, from 12.6°S, stays outside) */
+const OLD = {w:-30, s:-36.5, e:104, n:60};   /* the sheet of Versions 12–64 */
+const SH = {w:-180, s:-85, e:180, n:85};   /* v65: the whole Earth (Mercator is cut at 85° N and S, as web maps are) */   /* v12: widened so the Greater Caliphate's historical lands sit inside the sheet with room around them; v13: south edge 12.5°S so all three Comoros islands are drawn (Mayotte, from 12.6°S, stays outside) */
 const CORE = {w:17, s:-6, e:66, n:46};      // full detail here (a little wider than the old sheet)
 const REGION = [[[SH.w,SH.s],[SH.e,SH.s],[SH.e,SH.n],[SH.w,SH.n],[SH.w,SH.s]]];
 const round = x => Math.round(x*1e4)/1e4;
@@ -43,12 +44,22 @@ const prevLakesK = prevLakes.filter(f=>!LAKES_REDO.has(f.properties.n));
 const haveL = new Set(prevLakesK.map(f=>f.properties.n));
 const outLakes = LK.features.filter(f=>f.geometry && LAKES_OUT.has(f.properties.name) && !haveL.has(f.properties.name))
   .map(f=>({type:'Feature', properties:{n:f.properties.name}, geometry: clipToRegion(f.geometry, 0.002)})).filter(f=>f.geometry);
-const lakes = {type:'FeatureCollection', features: prevLakesK.concat(outLakes)};
+const lbb = f => f.bbox || bbox(f.geometry);
+const crossesOld = b => b[0] < OLD.w || b[2] > OLD.e || b[1] < OLD.s || b[3] > OLD.n;
+const centreOut = b => { const x = (b[0]+b[2])/2, y = (b[1]+b[3])/2; return x < OLD.w || x > OLD.e || y < OLD.s || y > OLD.n; };
+/* v65: the larger lakes of the rest of the world; lakes held clipped at the old sheet's edge are taken whole */
+const LKW = LK.features.filter(f=>f.geometry && f.properties.scalerank <= 4 && f.properties.name && crossesOld(lbb(f)));
+const wholeL = new Set(LKW.filter(f=>!centreOut(lbb(f))).map(f=>f.properties.name));
+const worldLakes = LKW.filter(f=>centreOut(lbb(f)) || haveL.has(f.properties.name)).map(f=>({type:'Feature', properties:{n:f.properties.name}, geometry: clipToRegion(f.geometry, 0.004)})).filter(f=>f.geometry);
+const wl = new Set(worldLakes.map(f=>f.properties.n));
+const lakes = {type:'FeatureCollection', features: prevLakesK.concat(outLakes).filter(f=>!wl.has(f.properties.n)).concat(worldLakes)};
+console.log('world lakes', worldLakes.length);
 console.log('lakes', lakes.features.length, '+', outLakes.map(f=>f.properties.n).join(', '));
 const RIVERS_NEW = ['Dnipro','Dniester','Southern Bug','Prut','Tisa','Sava','Morava','Olt','Mures','Evros','Donets','Desna','Pripyat','Kama','Oka','Ob','Tejo','Duero','Ebro','Guadalquivir','Guadiana','Rhône','Po','Loire','Seine','Rhine','Elbe','Oder','Vistula','Salween','Yamuna','Chambal','Son','Gandak','Krishna','Cauvery','Tapi','Lualaba','Rufiji','Yangtze','Mekong','Zambezi','Limpopo','Orange','Kasai','Cuanza','Cunene','Okavango'];
 const RIVERS_OUT = new Set([...RIVERS_NEW, 'Niger','Sénégal','Benue','Indus','Ganges','Danube','Volga','Syr  Darya','Ural','Irtysh','Tobol','Ishim','Sutlej','Chenab','Jhelum','Brahmaputra','Tarim','Gambia','Don','Kuban','Narmada','Volta','Ubangi','Congo']);
 const linesOf = g => g.type === 'LineString' ? [g.coordinates] : g.coordinates;
 const inSheet = c => c[0] > SH.w && c[0] < SH.e && c[1] > SH.s && c[1] < SH.n;
+const outOld = c => c[0] < OLD.w || c[0] > OLD.e || c[1] < OLD.s || c[1] > OLD.n;
 const outsideOld = c => !(c[0] > 19 && c[0] < 64 && c[1] > -4 && c[1] < 44.5);
 const cut = (ls, keep) => { const parts = []; let p = []; for(const c of ls){ if(keep(c)) p.push([round(c[0]),round(c[1])]); else { if(p.length > 1) parts.push(p); p = []; } } if(p.length > 1) parts.push(p); return parts; };
 const NEWR = new Set(RIVERS_NEW);
@@ -62,14 +73,22 @@ function rdpL(pts, eps){ if(pts.length < 3) return pts; const keep = new Uint8Ar
     if(md > eps){ keep[mi] = 1; st.push([a,mi],[mi,b]); } }
   return pts.filter((_,i)=>keep[i]); }
 outRivers.forEach(f=>{ if(NEWR.has(f.properties.n)) f.geometry.coordinates = f.geometry.coordinates.map(l=>rdpL(l, 0.015)).filter(l=>l.length > 1); });
-const rivers = {type:'FeatureCollection', features: prevRivers.concat(outRivers)};
+/* v65: the larger rivers of the rest of the world, outside the old sheet only (inside it the set above stays as it was) */
+const haveR = new Set(prevRivers.concat(outRivers).map(f=>f.properties.n));
+const byName = {};
+RV.features.filter(f=>f.geometry && f.properties.scalerank <= 4 && f.properties.name && !haveR.has(f.properties.name)).forEach(f=>{
+  const parts = linesOf(f.geometry).flatMap(ls=>cut(ls, outOld)).map(l=>rdpL(l, 0.02)).filter(l=>l.length > 1);
+  if(parts.length) (byName[f.properties.name] || (byName[f.properties.name] = [])).push(...parts); });
+const worldRivers = Object.entries(byName).map(([n, c])=>({type:'Feature', properties:{n}, geometry:{type:'MultiLineString', coordinates:c}}));
+console.log('world rivers', worldRivers.length);
+const rivers = {type:'FeatureCollection', features: prevRivers.concat(outRivers, worldRivers)};
 console.log('rivers', rivers.features.length, '+', outRivers.map(f=>f.properties.n).join(', '));
 const deserts = tc.feature(old, old.objects.deserts);
 const disputed = tc.feature(cur, cur.objects.disputed);
 
 let topo = ts.topology({countries, disputed, lakes, rivers, deserts}, 1e5);
 topo = tsimp.presimplify(topo, tsimp.sphericalTriangleArea);
-const T_CORE = +process.argv[2] || 2e-10, T_OUT = +process.argv[3] || 3e-9, T_MID = +process.argv[7] || 3e-9;
+const T_CORE = +process.argv[2] || 2e-10, T_OUT = +process.argv[3] || 3e-9, T_MID = +process.argv[7] || 3e-9, T_FAR = +process.argv[9] || 3e-7;
 topo.arcs = topo.arcs.map(a=>{
   let sx = 0, sy = 0; a.forEach(p=>{ sx += p[0]; sy += p[1]; }); const cx = sx/a.length, cy = sy/a.length;
   const inCore = cx > CORE.w && cx < CORE.e && cy > CORE.s && cy < CORE.n;
@@ -79,7 +98,8 @@ topo.arcs = topo.arcs.map(a=>{
     || (cx > -10 && cx < 45 && cy > 34 && cy < 50) || (cx > -2 && cx < 24 && cy > 0 && cy < 24) || (cx > 66 && cx < 93 && cy > 6 && cy < 32) || (cx > 73 && cx < 91 && cy > 35 && cy < 44)
     /* v35: the whole of Africa is inside the Natural borders outline, so its southern coasts get the middle tier too */
     || (cx > -20 && cx < 52 && cy > -36.5 && cy < -6);
-  const thr = inCore ? T_CORE : inMid ? T_MID : T_OUT;
+  const far = cx < OLD.w || cx > OLD.e || cy < OLD.s || cy > OLD.n;   /* v65: the rest of the world */
+  const thr = inCore ? T_CORE : inMid ? T_MID : far ? T_FAR : T_OUT;
   return a.filter(p=>p[2] >= thr).map(p=>[p[0],p[1]]);
 });
 topo = tc.quantize(topo, +process.argv[4] || 1.2e5);
@@ -92,7 +112,11 @@ const g2 = JSON.parse(out);
 // countries again (not just merged land), so the simple file can also give simplified borders
 let lt = ts.topology({countries: tc.feature(g2, g2.objects.countries)}, 1e5);
 lt = tsimp.presimplify(lt, tsimp.sphericalTriangleArea);
-lt = tsimp.simplify(lt, +process.argv[5] || 6e-9);
+{ /* v65: outside the old sheet the simple outline is much coarser (it is only drawn while zoomed out) */
+  const tIn = +process.argv[5] || 6e-9, tFar = +process.argv[10] || 2e-5;
+  lt.arcs = lt.arcs.map(a=>{ let sx = 0, sy = 0; a.forEach(p=>{ sx += p[0]; sy += p[1]; }); const cx = sx/a.length, cy = sy/a.length;
+    const far = cx < OLD.w || cx > OLD.e || cy < OLD.s || cy > OLD.n;
+    return a.filter((p, i)=>i === 0 || i === a.length-1 || p[2] >= (far ? tFar : tIn)); }); }
 lt = tsimp.filter(lt, tsimp.filterWeight(lt, +process.argv[6] || 4e-7, tsimp.sphericalRingArea));
 lt.arcs = lt.arcs.map(a=>a.map(p=>[p[0],p[1]]));
 lt = tc.quantize(lt, 4e4);

@@ -3,8 +3,10 @@ const proj = d3.geoMercator().fitSize([1000,1000], {type:"MultiPoint", coordinat
 const P = ll => proj(ll);
 const gp = d3.geoPath(proj);
 /* the map sheet: everything the base map covers */
-const SHEET = {w:-30, s:-36.5, e:104, n:60};   /* the Atlantic to Burma, the Cape of Good Hope to the Baltic: v35 added the south so the whole of Africa sits inside the Natural borders outline */
+const SHEET = {w:-180, s:-85, e:180, n:85};   /* Version 65: the whole Earth (Mercator is cut at 85° N and S, as web maps are) */
 const SHEET_NW = () => P([SHEET.w, SHEET.n]), SHEET_SE = () => P([SHEET.e, SHEET.s]);
+/* the shaded relief covers the old sheet of Versions 12–64: the Atlantic to Burma, the Cape of Good Hope to the Baltic */
+const RELIEF_BOX = {w:-30, s:-36.5, e:104, n:60};
 const lineD = pts => "M" + pts.map(p=>P(p).map(v=>v.toFixed(2)).join(",")).join("L");
 const ringD = pts => lineD(pts) + "Z";
 const runsRing = runs => { const out=[]; runs.forEach((r,i)=>r.p.forEach((pt,j)=>{ if(i>0&&j===0) return; out.push(pt); })); return out; };
@@ -51,11 +53,11 @@ const gWL = world.append('g').attr('class','wlg');
 });
 gWL.append('use').attr('href','#landLoP').attr('class','coastglow g1');
 world.append('use').attr('href','#landMP').attr('class','land');
-const r0 = SHEET_NW(), r1 = SHEET_SE();   /* relief covers the whole sheet, in Mercator rows */
+const r0 = P([RELIEF_BOX.w, RELIEF_BOX.n]), r1 = P([RELIEF_BOX.e, RELIEF_BOX.s]);   /* relief covers the old sheet, in Mercator rows */
 const gRelief = world.append('g').attr('data-layer','relief');
-/* the relief image's edges fade to neutral grey (no effect under the overlay blend), so it meets the flat land beyond 8°N and 26°E without a seam */
+/* the relief image's edges fade to neutral grey (no effect under the overlay blend), so it meets the flat land beyond it without a seam */
 /* no clip: the relief's sea is neutral grey, which the overlay blend leaves unchanged, and a clip on this many points is costly to paint */
-const RELIEF_W = r1[0]-r0[0], RELIEF_PX = 2680;   /* the relief picture is 2680 pixels wide and covers the whole sheet */
+const RELIEF_W = r1[0]-r0[0], RELIEF_PX = 2680;   /* the relief picture is 2680 pixels wide and covers the old sheet */
 const reliefImg = gRelief.append('image').attr('class','relief').attr('href', RELIEF).attr('x', r0[0]).attr('y', r0[1]).attr('width', r1[0]-r0[0]).attr('height', r1[1]-r0[1]).attr('preserveAspectRatio','none');
 world.append('g').attr('data-layer','desert').selectAll('path').data(deserts.features).join('path').attr('class','desert').attr('d', gpP);
 const gCountries = world.append('g').attr('data-layer','modern');
@@ -168,10 +170,10 @@ function simplifyD(d, eps){
 }
 /* used below k 0.6, below k 1.5, and from there on; each coarse copy is made the first time it is needed, and the
    other one a moment after the page has settled, so opening the page does not wait for both */
-const LAND_EPS = [0.8, 0.3], LAND_LODC = [null, null, LAND_D];
+const LAND_EPS = [3, 0.8, 0.3], LAND_LODC = [null, null, null, LAND_D];   /* Version 65: a coarsest copy for the whole-world view */
 const landLOD = lv => LAND_LODC[lv] || (LAND_LODC[lv] = simplifyD(LAND_D, LAND_EPS[lv]));
 const whenIdle = f => (window.requestIdleCallback ? requestIdleCallback(f, {timeout:4000}) : setTimeout(f, 1500));
-let landLv = 2, VIEW_SET = false;   /* VIEW_SET: the opening view is in place, so the right coarse coastline can be chosen */
+let landLv = 3, VIEW_SET = false;   /* VIEW_SET: the opening view is in place, so the right coarse coastline can be chosen */
 const CLIPS = [];   /* {els, lines(), full(), key()}: strokes swapped for their clipped stretch close in */
 CLIPS.push({els: BORD.els, key: ()=> T.k < 2.2 ? 'lo' : 'full', full: ()=> BORD[T.k < 2.2 ? 'lo' : 'full'],
   lines: ()=> BORD.pl || (BORD.pl = borders.coordinates.map(r=>Float64Array.from(r.flat())))});   /* already projected */
@@ -180,11 +182,7 @@ disputed.features.forEach(f=>gDisp.append('path').attr('class','dispfill').attr(
 const gEdges = world.append('g');
 const gRoutes = world.append('g');
 const gTop = world.append('g');
-/* the edge of the map sheet: beyond the area the base map covers, show the page, not empty sea */
-const gSheet = world.append('g').attr('class','sheetedge');
-{ const outer = ringD([[-40,80],[130,80],[130,-60],[-40,-60]]);
-  const inner = ringD([[SHEET.w,SHEET.s],[SHEET.w,SHEET.n],[SHEET.e,SHEET.n],[SHEET.e,SHEET.s]]);
-  gSheet.append('path').attr('class','offsheet').attr('d', outer + inner).attr('fill-rule','evenodd'); }
+/* Version 65: the base map covers the whole Earth, so there is no longer a sheet edge to mask */
 const layerG = (parent, id) => parent.append('g').attr('data-layer', id);
 
 function region(id, runs, colorVar, infoKey, title, parent){

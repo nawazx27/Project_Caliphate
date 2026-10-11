@@ -7,7 +7,7 @@
     "build": "node build.js",
     "build:nomin": "node build.js --nomin",
     "data:outlines": "node tools/make_data_mod.js && node --stack-size=30000 caliph_gen.js",
-    "data:map": "node build_geo3.js 0 6e-8 1e5 1.5e-6 3e-4 0 4e-9",
+    "data:map": "node build_geo3.js 0 6e-8 2.7e5 1.5e-6 3e-4 0 4e-9 1e-6 1e-5",
     "data:natural": "node --stack-size=30000 tools/nat_gen.js"
   },
   "keywords": [],

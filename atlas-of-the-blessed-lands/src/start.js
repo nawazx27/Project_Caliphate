@@ -12,7 +12,7 @@ if(document.fonts && document.fonts.ready) document.fonts.ready.then(()=>{ measu
 let rt; window.addEventListener('resize', ()=>{ clearTimeout(rt); rt = setTimeout(()=>{ const c = T.invert([W/2,H/2]); size(); wrapSel.call(zoom.transform, d3.zoomIdentity.translate(W/2 - T.k*c[0], H/2 - T.k*c[1]).scale(T.k)); renderInsets(); if(!sheetMode()) document.querySelectorAll('.sheet').forEach(s=>s.classList.remove('open')); }, 150); });
 openToken(location.hash.slice(1), true);
 { const ml = document.getElementById('maploading'); if(ml) ml.classList.add('done'); }
-setTimeout(()=>whenIdle(()=>{ landLOD(0); landLOD(1); }), 1200);   /* the coarse coastlines, ready before they are needed */
+setTimeout(()=>whenIdle(()=>{ landLOD(0); landLOD(1); landLOD(2); }), 1200);   /* the coarse coastlines, ready before they are needed */
 /* rows of chips that scroll sideways fade at the edge that has more */
 { const rows = [...document.querySelectorAll('.viewbar, .focus, .toc')];
   const fade = el=>{ const more = el.scrollWidth - el.clientWidth > 4; el.classList.toggle('fadeR', more && el.scrollLeft + el.clientWidth < el.scrollWidth - 4); el.classList.toggle('fadeL', more && el.scrollLeft > 4); };

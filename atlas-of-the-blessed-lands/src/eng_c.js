@@ -89,6 +89,7 @@ function buildOverlay(){
   HIST_LBL.forEach(s=>addLabel('histreg', [[s[0]], s[1]?[s[1],'arl','1.3em']:null], [s[2],s[3]], {cls:'hist', minK:s[4], subK:s[4]+0.5, pri:15, color:'--gold'}));
   PASSES.forEach(s=>addPoint('base', [s[1],s[2]], {sym:'pass', name:s[0], minK:s[3], anchor:s[4], cls:'small', pri:13, title:s[0]}));
   COUNTRY_LBL.forEach(c=>addLabel('modern', [[c[0]]], [c[1],c[2]], {cls:'country', minK:c[3], pri:24}));
+  WORLD_LBL.forEach(c=>addLabel('modern', [[c[0]]], [c[1],c[2]], {cls:'country', minK:c[3], pri:25}));
   /* province (region) labels: smaller than the country name; zoomed far out each shows a short tag instead */
   const R = (layer, name, ar, ll, col, o) => { o = Object.assign({cls:'region', color:col, pri:2}, o||{});
     const tag = REGION_TAG[layer], mk = o.minK||0;
@@ -287,11 +288,11 @@ function measureChrome(){
   [...wrapEl.querySelectorAll('.mapctl,.minilegend,.scale,.coords,.xtoggle:not([hidden])'), ...document.querySelectorAll('.atlas.full .mapbars .find, .atlas.full .mapbars .viewbar:not(.tierbar)')].forEach(el=>{ const b = el.getBoundingClientRect(); if(b.width && b.height) chrome.push({x:b.left-r.left-4, y:b.top-r.top-4, w:b.width+8, h:b.height+8}); });
 }
 function size(){ const r = wrapEl.getBoundingClientRect(); W = Math.max(200, r.width); H = Math.max(200, r.height); zoom.extent([[0,0],[W,H]]);
-  /* the smallest zoom shows the whole sheet; a little slack lets the map move up, down and sideways at every zoom */
+  /* Version 65: the map is the whole Earth and always fills the screen, as in a maps app: the smallest zoom is the one at which
+     the world just covers the view (on a tall phone that shows about half the world's width; pan sideways for the rest) */
   const s0 = SHEET_NW(), s1 = SHEET_SE(), sw = s1[0]-s0[0], sh = s1[1]-s0[1];
-  coverK = Math.max(W/sw, H/sh); const containK = Math.min(W/sw, H/sh);
-  const px = sw*0.05, py = sh*0.06;
-  zoom.translateExtent([[s0[0]-px, s0[1]-py], [s1[0]+px, s1[1]+py]]).scaleExtent([containK*0.9, 3000]);
+  coverK = Math.max(W/sw, H/sh);
+  zoom.translateExtent([s0, s1]).scaleExtent([coverK, 3000]);
   /* the moving layer is drawn a quarter-view larger on every side, so panning never shows a blank edge */
   OX = Math.round(W*0.25); OY = Math.round(H*0.25);
   Object.assign(svgEl.style, {inset:'auto', left:-OX+'px', top:-OY+'px', width:(W+2*OX)+'px', height:(H+2*OY)+'px', transformOrigin:`${OX}px ${OY}px`});
@@ -336,14 +337,14 @@ function update(light){ clearTimeout(idleZ); idleZ = 0; R = T; LIGHT = !!light; 
   if(light) armIdle(IDLE_MS);   /* a light redraw is only for the gesture: the full one follows when it ends */
 }
 const sandPat = d3.select('#sand'), lavaPat = d3.select('#lava'), hSham = d3.select('#h-sham'), hHijaz = d3.select('#h-hijaz'), hFil = d3.select('#h-fil'), hMisr = d3.select('#h-misr'), hDisp = d3.select('#h-disp');
-const GSTEPS = [0.0001,0.0002,0.0005,0.001,0.002,0.005,0.01,0.02,0.05,0.1,0.2,0.5,1,2,5,10];
+const GSTEPS = [0.0001,0.0002,0.0005,0.001,0.002,0.005,0.01,0.02,0.05,0.1,0.2,0.5,1,2,5,10,20,30];
 function updateGrat(k){
   if(!layerOn.graticule){ ovGrat.selectAll('text').remove(); ovGrat.selectAll('path.gtick').attr('d',''); return; }
   const tl = T.invert([-OX,-OY]), br = T.invert([W+OX,H+OY]);   /* lines cover the drawn margin too */
   const a0 = proj.invert(tl), b0 = proj.invert(br); if(!a0||!b0) return;
   const c = proj.invert(T.invert([W/2,H/2])); const lat0 = Math.max(-80, Math.min(80, c[1]));
   const pa = P([c[0], lat0]), pb = P([c[0]+1, lat0]); const pxDeg = (pb[0]-pa[0])*k;
-  let step = 10; for(const s of GSTEPS){ if(s*pxDeg >= 96){ step = s; break; } }
+  let step = 30; for(const s of GSTEPS){ if(s*pxDeg >= 96){ step = s; break; } }
   const lonMin = a0[0], lonMax = b0[0], latMax = a0[1], latMin = b0[1];
   const i0 = Math.ceil(lonMin/step), i1 = Math.floor(lonMax/step), j0 = Math.ceil(latMin/step), j1 = Math.floor(latMax/step);
   const dig = step>=1 ? 0 : Math.min(4, Math.ceil(-Math.log10(step)-1e-9));
@@ -383,7 +384,7 @@ function render(){
   /* Where the shaded relief is drawn at 56-100% of its own size the browser's smooth shrinking (it builds shrunken copies each redraw) costs
      about as much as everything else on the map together; plain sampling there looks the same to the eye and costs a third as much */
   reliefImg.style('image-rendering', (k * RELIEF_W / RELIEF_PX >= 0.56 && k * RELIEF_W / RELIEF_PX < 1) ? 'pixelated' : null);
-  if(VIEW_SET){ const lv = k < 0.6 ? 0 : k < 1.5 ? 1 : 2; if(lv !== landLv){ landLv = lv; landMP.attr('d', landLOD(lv)); } }   /* coarser land outline while zoomed out */
+  if(VIEW_SET){ const lv = k < 0.25 ? 0 : k < 0.6 ? 1 : k < 1.5 ? 2 : 3; if(lv !== landLv){ landLv = lv; landMP.attr('d', landLOD(lv)); } }   /* coarser land outline while zoomed out */
   gWL.style('display', k < 6 && !LIGHT ? null : 'none');   /* the simplified coast would drift from the real one close in */
   BORD.els[0].style('display', LIGHT ? 'none' : null);   /* the border halo goes too in a light redraw */
   /* borders and outlines: the whole line when far out, only the stretch near the view close in */
