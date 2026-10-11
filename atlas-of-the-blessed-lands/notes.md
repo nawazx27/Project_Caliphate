@@ -472,3 +472,11 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - The page is bigger because the coasts are now fully detailed (index.html 5.6 → 7.2 MB).
 - Tests: smoke test no errors; desktop and iPhone-size screenshots of all versions; close-up of the Aegean islands in V2.
 - Zip: the bigger page pushed it near 30 MB, so reference/phone_fullscreen_before_v64.png (an old before-screenshot, still in git) is also left out of the zip.
+
+## Version 82 (2026-10-11): the Caspian water in Khorasan; Bahrain whole
+- Nawaz: "Include the Caspian water in Khorasan too". The Greater Khorasan outline traced from reference/transoxiana_khwarazm_khorasan.webp runs over the south-east Caspian (53.6–54.0 E, 36.8–38.9 N: Gorgan Bay and the Turkmen shore), about 4,720 km² of water that the land-only outlines left out.
+- tools/khorasan_caspian.js adds it to every version that holds all of Khorasan's land: V2, V5, V6, V7 (V1, V3, V4 do not hold Khorasan). A row "Caspian Sea: the Khorasan shore ... (water)" is listed; its share column reads "water"; the state counts leave it out. The version areas now count that water.
+- Found while checking: Bahrain was stored at 92% (islets left off) so Version 81's fix skipped it; Western Sahara in V7 was at 99%. Both are now whole (tools/whole_lands_complete.js names them; Bahrain 682 km², 100%). The table caption no longer says Bahrain's islets are left off.
+- V7's rows that are partial by its outline (India, Bangladesh, Hungary, Slovakia, Croatia, the "rest of" France/Italy/Ukraine) were left as they are.
+- Sizes (million km²): V1 14.03, V2 18.90, V3 18.16, V4 18.70, V5 25.49, V6 33.25, V7 37.21.
+- Tests: smoke test no errors; desktop and iPhone-size screenshots of all versions; close-up of the south-east Caspian.
