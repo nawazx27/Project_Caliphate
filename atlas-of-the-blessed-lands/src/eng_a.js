@@ -66,7 +66,7 @@ const LAYERS = [
   ]}
 ];
 const LAYER_IDS = []; LAYERS.forEach(g=>g.items.forEach(l=>LAYER_IDS.push(l.id)));
-/* V5 (Greater Middle East; Complete V2 before Version 66): how each added land was held, province by province (see v2_history.json) */
+/* V6 (Greater Middle East; Complete V2 before Version 66): how each added land was held, province by province (see v2_history.json) */
 const V2CAT = {
   direct:{label:'Ruled by a caliphate, directly', tip:'governors, garrisons and taxes of a counted caliphate'},
   dynasty:{label:'Ruled by a dynasty under a caliph', tip:'a dynasty that named the caliph in the khutbah or on its coins, or was invested by him'},
