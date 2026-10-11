@@ -268,7 +268,7 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   /* a faint wash over the land inside your outline, under every other colour */
   const gw = layerG(gFill, 'caliphx'); gFill.node().insertBefore(gw.node(), gFill.node().firstChild);
   CX.wash = gw.append('path').attr('class','caliphx-wash').attr('d', dx);
-  /* V6 (Greater Middle East; Complete V2 before Version 66): the province history shading is not drawn since Version 41 (Nawaz: V2 in the same neutral colour as Complete and Greater);
+  /* V6 (Greater Middle East; Complete V2 before Version 66): the province history shading is not drawn since Version 41 (Nawaz: V3 in the same neutral colour as Complete and Greater);
      the history stays in the notes, and the page carries only each province's box (see build.js), so the layer is no longer built (Version 47) */
 }
 /* ---------- Dār al-Amān: natural borders and internal lines (your design, 2026-10-07; see tools/nat_gen.js) ----------
