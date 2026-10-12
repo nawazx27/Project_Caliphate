@@ -17,7 +17,7 @@ fs.mkdirSync(TMP, {recursive:true});
 
 /* page and frame */
 const W = 3400, H = 3400, FX = 130, FY = 560, FW = W - 2*FX, FH = H - FY - 130;
-const LON0 = 3, LON1 = 82, LATTOP = 48.8;
+const LON0 = 3, LON1 = 82, LATTOP = 47.6;
 const k = FW / ((LON1 - LON0) * Math.PI/180);
 const proj = d3.geoMercator().scale(k).translate([0, 0]);
 const t0 = proj([LON0, LATTOP]); proj.translate([FX - t0[0], FY - t0[1]]);
@@ -52,7 +52,7 @@ const COUNTRIES = [  /* name, lon, lat, size, inside V2 */
   ['UZBEKISTAN', 61.0, 43.0, 24, 0], ['TAJIKISTAN', 72.9, 37.75, 22, 1], ['KYRGYZSTAN', 74.8, 41.7, 22, 0], ['KAZAKHSTAN', 66.0, 46.2, 34, 0],
   ['AFGHANISTAN', 66.2, 33.4, 32, 1], ['PAKISTAN', 69.8, 29.8, 34, 1], ['INDIA', 77.5, 22.5, 40, 0], ['GREECE', 21.9, 39.7, 24, 1], ['ITALY', 13.2, 42.4, 28, 0],
   ['ALGERIA', 6.8, 28.0, 36, 0], ['CHAD', 18.6, 15.6, 34, 0], ['NIGER', 8.6, 17.4, 32, 0], ['CENTRAL AFRICAN REP.', 20.6, 6.7, 22, 0], ['D.R. CONGO', 23.0, -3.0, 34, 0],
-  ['GEORGIA', 43.4, 42.2, 20, 1], ['AZERBAIJAN', 48.0, 41.0, 18, 1], ['RUSSIA', 44.0, 46.6, 32, 0], ['UKRAINE', 32.5, 47.0, 28, 0], ['BULGARIA', 25.5, 42.6, 18, 1], ['ROMANIA', 24.9, 45.9, 24, 1], ['SERBIA', 20.9, 44.0, 16, 1], ['CRIMEA', 34.2, 45.3, 12, 1],
+  ['GEORGIA', 43.4, 42.2, 20, 1], ['AZERBAIJAN', 48.0, 41.0, 18, 1], ['RUSSIA', 44.0, 46.6, 32, 0], ['UKRAINE', 32.5, 47.0, 28, 0], ['BULGARIA', 25.5, 42.6, 18, 1],
   ['ZAMBIA', 27.5, -13.0, 26, 0], ['IRAQ', 43.5, 33.6, 28, 1], ['EGYPT', 28.6, 24.2, 34, 1], ['JORDAN', 36.9, 31.0, 16, 1]];
 const REGIONS = [  /* classical names: Latin, Arabic, lon, lat, rotate */
   ['al-Ḥijāz', 'الحجاز', 39.0, 26.6, 0], ['al-Shām', 'الشام', 40.2, 34.7, 0], ['al-ʿIrāq', 'العراق', 45.4, 31.6, 0], ['Miṣr', 'مصر', 30.4, 27.4, 0],

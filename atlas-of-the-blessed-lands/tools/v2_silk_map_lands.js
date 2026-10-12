@@ -1,4 +1,6 @@
-/* Version 103 (2026-10-12, Nawaz, with the silk-flag map again: "include all the lands in the image in v2 light shaded, the dark
+/* UNDONE in Version 104: Nawaz explained that Greater Turkey on that map is the flag plus the light-shaded lands edged in red
+   (Bulgaria, Syria, Mesopotamia), not every colour of the old map. Kept for the record; do not run.
+   Version 103 (2026-10-12, Nawaz, with the silk-flag map again: "include all the lands in the image in v2 light shaded, the dark
    shaded everything associated with greater turkey ... i want that in v2"). The old map under the flag colours, besides the lands
    already in V2: Romania (yellow), Serbia of 1913 (green, which held Kosovo and North Macedonia), and, at the very top edge under
    the "Sébastopol" label, the southern tip of Crimea (yellow). Each is added whole to V2 (CALIPH.x) and V2N (CALIPH.xn): Romania,
