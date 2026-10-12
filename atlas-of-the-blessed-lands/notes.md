@@ -663,3 +663,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Texts (src/eng_e.js, src/body.html): the Greater Turkey paragraphs rewritten around the Misak-ı Millî map and its seven numbered lands (Versions 96–105, with what was added and taken out); the V2/V2N lists ("so that, with Türkiye, Cyprus, Georgia, Syria and Iraq, Greater Turkey as the Misak-ı Millî map draws it lies inside"); sizes V2 about 17.78, V2N about 17.93 million km². Posters: BULGARIA label drawn as outside; redrawn.
 - Told Nawaz that Bulgaria is out, and that it can come back at a word.
 - Tests: smoke test and all eight versions at desktop and iPhone size, no errors; close-up of the Aegean and Thrace in V2.
+
+## 2026-10-12, after Version 105: posters only on request
+- Nawaz: "You do not need to do the posters every time. Just do it when I say so." Saved in CLAUDE.md (After EVERY change, step 2b): the posters are redrawn only when he asks. The posters now in posters/ match Version 105.
