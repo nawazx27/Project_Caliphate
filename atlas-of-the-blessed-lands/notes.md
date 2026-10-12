@@ -547,3 +547,11 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - V2 17.78 → 17.93 million km² (+143,928), still below V3 (18.16). Natural line: V2 outside it about 1.94 million km².
 - Texts: V2's note ("Natural frontiers (Version 92)"), CX_CORE, the versions paragraph, the ring note, search keywords. The atlas poster (posters/v2_atlas.png) redrawn.
 - Tests: smoke test no errors; desktop and iPhone-size screenshots of all versions; close-ups of the Punjab and Central Asia.
+
+## Version 93 (2026-10-12): V2 and V2N side by side
+- Nawaz: "Simultaneously make a V2 without the natural border like the one we had in the previous version". He chose the names V2 and V2N (recommended): no other version changes its number.
+- V2 (CALIPH.x) is back to the Version 91 outline (17.78 million km², Greater Khurāsān at its widest); V2N (CALIPH.xn, new) is the Version 92 outline with the natural frontiers (17.93 million km²). The V2N data is exactly what tools/v2_natural_frontiers.js made (it now writes C.x; to remake V2N run it on V2 and move the result to C.xn).
+- Engine: XV 'fulln' (src/eng_b.js lazyD and src, src/eng_c.js layers like V2, src/eng_e.js cxData, XNAME/XNUM 'V2N', links #outline-v2n and #outline-v2-natural, CX_SRC as for V2, a search entry); a V2N button after V2 in both version bars (src/body.html). V2's button title now says it ends at Tunisia's (not Libya's) western border.
+- Texts: V2's texts back to Version 91; V2N's note (CX_LEAD.fulln) is V2's with the natural-frontiers paragraph and CX_CORE(true, true); the versions paragraph and the ring note mention V2N (about 1.94 million km² of it outside the Natural line).
+- Posters: tools/poster_v2.js takes "n" for V2N: posters/v2_atlas.png (V2) and posters/v2n_atlas.png (V2N, "Plate II · V2N"), with JPGs. The posters are in git but no longer in the zip (it would pass 30 MB); they are sent to Nawaz directly.
+- Tests: smoke test no errors; desktop and iPhone-size screenshots of all eight buttons (V2N included); close-ups of Central Asia in V2 and V2N.

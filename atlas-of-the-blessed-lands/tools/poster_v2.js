@@ -3,7 +3,8 @@
    tools/poster_relief.py, layered sea tints along the coasts, a 5° graticule with degrees in the margin and a chequered neat line,
    today's countries in spaced capitals, the classical region names in red italic with their Arabic, cities, rivers and lakes; V2 shown
    the atlas way, as a red boundary ribbon with the land outside it veiled. A locator globe, a legend and scale bars in km and miles.
-   Run: node tools/poster_v2.js  → posters/v2_atlas.png (3400×3400) and posters/v2_atlas.jpg */
+   Run: node tools/poster_v2.js  → posters/v2_atlas.png (3400×3400) and posters/v2_atlas.jpg;
+        node tools/poster_v2.js n → posters/v2n_atlas.png and .jpg, the same plate for V2N (V2 with natural frontiers, Version 93) */
 const fs = require('fs'), path = require('path'), {execFileSync} = require('child_process');
 const ROOT = path.join(__dirname, '..');
 const d3 = require(path.join(ROOT, 'node_modules/d3'));
@@ -11,6 +12,7 @@ const topojson = require(path.join(ROOT, 'node_modules/topojson-client'));
 const geo = JSON.parse(fs.readFileSync(path.join(ROOT, 'geo2.json')));
 const C = JSON.parse(fs.readFileSync(path.join(ROOT, 'src/caliph.json')));
 const OUT = path.join(ROOT, 'posters'), TMP = path.join(OUT, 'tmp');
+const NF = process.argv[2] === 'n', XD = NF ? C.xn : C.x, NAME = NF ? 'v2n_atlas' : 'v2_atlas';
 fs.mkdirSync(TMP, {recursive:true});
 
 /* page and frame */
@@ -26,21 +28,21 @@ const latAt = y => (2*Math.atan(Math.exp((ty - y)/k)) - Math.PI/2) * 180/Math.PI
 const LATBOT = latAt(FY + FH);
 
 /* the relief, warped to the frame */
-const relPng = path.join(TMP, 'relief.png');
-fs.writeFileSync(path.join(TMP, 'params.json'), JSON.stringify({k, tx, ty, x0:FX, y0:FY, w:FW, h:FH}));
-execFileSync('python3', ['-I', path.join(ROOT, 'tools/poster_relief.py'), path.join(TMP, 'params.json'), relPng, path.join(ROOT, 'tools/relief/shadedrelief.jpg')], {stdio:'inherit'});
+const relPng = path.join(TMP, NAME + '_relief.png');
+fs.writeFileSync(path.join(TMP, NAME + '_params.json'), JSON.stringify({k, tx, ty, x0:FX, y0:FY, w:FW, h:FH}));
+execFileSync('python3', ['-I', path.join(ROOT, 'tools/poster_relief.py'), path.join(TMP, NAME + '_params.json'), relPng, path.join(ROOT, 'tools/relief/shadedrelief.jpg')], {stdio:'inherit'});
 const relief = 'data:image/png;base64,' + fs.readFileSync(relPng).toString('base64');
 
 /* geometry */
 const fixRing = r => d3.geoArea({type:'Polygon', coordinates:[r]}) > 2*Math.PI ? r.slice().reverse() : r;
-const V2 = {type:'MultiPolygon', coordinates:C.x.polys.map(p => [fixRing(p[0]), ...p.slice(1).map(r => fixRing(r).slice().reverse())])};
+const V2 = {type:'MultiPolygon', coordinates:XD.polys.map(p => [fixRing(p[0]), ...p.slice(1).map(r => fixRing(r).slice().reverse())])};
 const f = o => topojson.feature(geo, geo.objects[o]);
 const land = topojson.merge(geo, geo.objects.countries.geometries);
 const borders = topojson.mesh(geo, geo.objects.countries, (a, b) => a !== b);
 const bigLand = {type:'MultiPolygon', coordinates:(land.geometry ? land.geometry : land).coordinates.filter(p => d3.geoArea({type:'Polygon', coordinates:p}) > 2.5e-4)};
 const lakes = f('lakes'), rivers = f('rivers');
 const grat = d3.geoGraticule().step([5, 5]).extent([[-10, -40], [100, 70]])();
-const km = (C.x.km2/1e6).toFixed(2);
+const km = (XD.km2/1e6).toFixed(2);
 
 /* labels */
 const COUNTRIES = [  /* name, lon, lat, size, inside V2 */
@@ -179,7 +181,7 @@ svg text{font-family:'Alegreya',serif;font-variant-ligatures:none}
   <text x="${LW/2}" y="68" class="lgh" text-anchor="middle">LEGEND · مفتاح</text>
   <g transform="translate(50,120)">
    <rect width="90" height="38" fill="#c2262f" fill-opacity=".32"/><line x1="0" y1="2" x2="90" y2="2" stroke="#9c1a22" stroke-width="5"/>
-   <text x="115" y="30" class="lg">Boundary of V2, Dār al-Amān (the author’s specification)</text>
+   <text x="115" y="30" class="lg">Boundary of V2${NF ? 'N' : ''}, Dār al-Amān (the author’s specification)</text>
    <line x1="0" y1="92" x2="90" y2="92" stroke="#6a4f78" stroke-width="2.4" stroke-dasharray="14 5 3 5"/><text x="115" y="101" class="lg">International boundary (today)</text>
    <circle cx="45" cy="150" r="10" class="holy"/><circle cx="45" cy="150" r="4" fill="#fff"/><text x="115" y="160" class="lg">The two Ḥarams: Makkah and al-Madīnah</text>
    <path transform="translate(45,206)" d="M0,-15L4.4,-6L14.3,-4.6L7.1,2.3L8.8,12.1L0,7.5L-8.8,12.1L-7.1,2.3L-14.3,-4.6L-4.4,-6Z" class="quds"/><text x="115" y="218" class="lg">al-Quds, the capital the author names</text>
@@ -199,10 +201,10 @@ svg text{font-family:'Alegreya',serif;font-variant-ligatures:none}
 ${marg.join('\n')}
 ${globe}
 <g text-anchor="middle">
- <text x="${W/2}" y="160" style="font-family:'Alegreya Sans SC';font-size:40px;letter-spacing:16px;fill:#7a1219">ATLAS OF THE BLESSED LANDS · PLATE II</text>
+ <text x="${W/2}" y="160" style="font-family:'Alegreya Sans SC';font-size:40px;letter-spacing:16px;fill:#7a1219">ATLAS OF THE BLESSED LANDS · PLATE II${NF ? ' · V2N' : ''}</text>
  <text x="${W/2}" y="300" style="font-size:150px;font-weight:700;letter-spacing:10px;fill:#2b2620">DĀR AL-AMĀN</text>
  <text x="${W/2}" y="400" style="font-family:'Amiri';font-size:76px;fill:#7a1219">دار الأمان · الخلافة الأمينة</text>
- <text x="${W/2}" y="466" style="font-size:40px;font-style:italic;fill:#4a3f30">al-Khilāfa al-Amīna · Version 2 · about ${km} million km²</text>
+ <text x="${W/2}" y="466" style="font-size:40px;font-style:italic;fill:#4a3f30">al-Khilāfa al-Amīna · Version 2${NF ? 'N, with natural frontiers' : ''} · about ${km} million km²</text>
 </g>
 <g transform="translate(${W - FX - 250},${FY - 300})">
  <circle r="150" fill="none" stroke="#7a5c2e" stroke-width="2"/><circle r="138" fill="none" stroke="#7a5c2e" stroke-width="1" stroke-dasharray="2 6"/>
@@ -212,15 +214,15 @@ ${globe}
 </g>
 <text x="${W/2}" y="${H - 48}" text-anchor="middle" style="font-size:27px;font-style:italic;fill:#5a4d3a">Drawn to the author’s specification: not from the sources and not a ruling. Base map: Natural Earth; borders as of today.</text>
 </svg></body></html>`;
-const htmlFile = path.join(TMP, 'v2_atlas.html');
+const htmlFile = path.join(TMP, NAME + '.html');
 fs.writeFileSync(htmlFile, html);
 (async () => {
   const {chromium} = require(path.join(ROOT, 'node_modules/playwright'));
   const b = await chromium.launch({executablePath:'/opt/pw-browsers/chromium'});
   const p = await b.newPage({viewport:{width:W, height:H}});
   await p.goto('file://' + htmlFile, {timeout:600000}); await p.evaluate(() => document.fonts.ready); await p.waitForTimeout(3000);
-  await p.screenshot({path:path.join(OUT, 'v2_atlas.png'), timeout:600000});
+  await p.screenshot({path:path.join(OUT, NAME + '.png'), timeout:600000});
   await b.close();
-  execFileSync('python3', ['-I', '-c', `from PIL import Image; Image.open('${path.join(OUT, 'v2_atlas.png')}').convert('RGB').save('${path.join(OUT, 'v2_atlas.jpg')}', quality=82, optimize=True)`]);
-  console.log('posters/v2_atlas.png and .jpg', W + 'x' + H, '| lat', LATBOT.toFixed(1), 'to', LATTOP);
+  execFileSync('python3', ['-I', '-c', `from PIL import Image; Image.open('${path.join(OUT, NAME + '.png')}').convert('RGB').save('${path.join(OUT, NAME + '.jpg')}', quality=82, optimize=True)`]);
+  console.log('posters/' + NAME + '.png and .jpg', W + 'x' + H, '| lat', LATBOT.toFixed(1), 'to', LATTOP);
 })();
