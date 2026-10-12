@@ -390,7 +390,7 @@ function render(){
   gWL.style('display', k < 6 && !LIGHT ? null : 'none');   /* the simplified coast would drift from the real one close in */
   BORD.els[0].style('display', LIGHT ? 'none' : null);   /* the border halo goes too in a light redraw */
   /* borders and outlines: the whole line when far out, only the stretch near the view close in */
-  { const close = k >= 4, vx0 = T.invertX(-OX), vx1 = T.invertX(W+OX), vy0 = T.invertY(-OY), vy1 = T.invertY(H+OY);
+  { const close = k >= 0.9, vx0 = T.invertX(-OX), vx1 = T.invertX(W+OX), vy0 = T.invertY(-OY), vy1 = T.invertY(H+OY);
     CLIPS.forEach(c=>{ const key = c.key();
       if(!close){ if(c.state !== 'full' || c.k0 !== key){ c.state = 'full'; c.k0 = key; const d = c.full(); c.els.forEach(el=>el.attr('d', d)); } return; }
       const b = c.box;

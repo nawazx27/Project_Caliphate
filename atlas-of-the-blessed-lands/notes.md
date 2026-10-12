@@ -623,3 +623,11 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - tools/add_kastellorizo.js: the islands (11.75 km²) added to every version that holds Greece whole (V2, V2N, V3, V5, V6, V7), row 300_K; stored as CALIPH.extraLand and drawn as land (src/eng_b.js: an extra land path and part of the land clip), with the label "Kastellorizo · Meis" (src/eng_a.js ISLAND_LBL, from zoom 6). The base map is unchanged, so the islands are not in the posters' land layer (too small to show there anyway).
 - Tests: smoke test and all eight versions at desktop and iPhone size, no errors; close-up of the islands in V2.
 - Zip: part1 passed the 30 MiB sending limit (30.2), so the reference images now go in a fifth zip, part5-reference.
+
+## Version 101 (2026-10-12): the map's lag fixed
+- Nawaz: "The map is very slow, poorly optimized and very laggy".
+- Measured (Chromium trace, eight zoom redraws, phone size at 3x pixel density and desktop size): some redraws took 23–26 SECONDS, almost all in the browser's PrePaint step. Cause: Version 100 put the Kastellorizo islands into the land clip (#landclip) as a second shape beside the <use> of the coastline; a clip path made of two shapes sent the browser onto a very slow path for every clipped layer. Proved by removing that one shape in the live page: the 24-second redraw fell to 0.36 s.
+- Fix (src/eng_b.js, src/eng_c.js): the islands are now part of the land outline itself (landMP, at every level of detail), and the land clip is again a single <use>. Redraws after the fix: phone size 20–330 ms, desktop size 35–450 ms (headless Chromium, no GPU).
+- Also: borders and outlines are cut to the area near the view from zoom 0.9 instead of 4 (CLIPS in src/eng_c.js); painting time on the test set 6.5 s → 6.0 s.
+- What the rest of the time is (measured by hiding layers one by one): mostly the browser painting the version's outline band and dashed line (a 40,000-point outline; about a quarter each) and the national borders with their halo (about a third). Removing their clipping, dashes or fixed-width strokes saved under 10% each, so the look was left as it is; going further would mean drawing the map on a canvas instead of SVG (a large rewrite, offered to Nawaz).
+- Tests: smoke test and all eight versions at desktop and iPhone size, no errors; close-ups at mid zoom.
