@@ -39,7 +39,10 @@ const sdefs = svg.append('defs');
 /* the main map has its own copy of the land outline (landMP), so it can be swapped for coarser copies while zoomed out;
    the detail maps keep using the full one (landP) */
 const landMP = sdefs.append('path').attr('id','landMP').attr('d', LAND_D);
-sdefs.append('clipPath').attr('id','landclip').append('use').attr('href','#landMP');
+const landClipEl = sdefs.append('clipPath').attr('id','landclip'); landClipEl.append('use').attr('href','#landMP');
+/* Version 100: islands the base map does not draw (Kastellorizo, Ro, Strongyli, Psomi; tools/kastellorizo.py) are drawn as land too */
+const EXTRA_LAND_D = CALIPH.extraLand ? CALIPH.extraLand.polys.map(poly=>poly.map(rg=>ringD(rg)).join('')).join('') : '';
+if(EXTRA_LAND_D) landClipEl.append('path').attr('d', EXTRA_LAND_D);
 sdefs.append('path').attr('id','landLoP').attr('d', gp(landLo));
 sdefs.append('clipPath').attr('id','arabclip').append('path').attr('d', gpP(arabLand));
 svg.append('rect').attr('width','100%').attr('height','100%').attr('fill','var(--sea)');
@@ -53,6 +56,7 @@ const gWL = world.append('g').attr('class','wlg');
 });
 gWL.append('use').attr('href','#landLoP').attr('class','coastglow g1');
 world.append('use').attr('href','#landMP').attr('class','land');
+if(EXTRA_LAND_D) world.append('path').attr('class','land').attr('d', EXTRA_LAND_D);
 const r0 = P([RELIEF_BOX.w, RELIEF_BOX.n]), r1 = P([RELIEF_BOX.e, RELIEF_BOX.s]);   /* relief covers the old sheet, in Mercator rows */
 const gRelief = world.append('g').attr('data-layer','relief');
 /* the relief image's edges fade to neutral grey (no effect under the overlay blend), so it meets the flat land beyond it without a seam */

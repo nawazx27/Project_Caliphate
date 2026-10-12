@@ -248,7 +248,7 @@ const HIST_LBL = [   /* historical-geographical regions: names only, placed appr
   ["Fāris","فارس",53.4,29.2,0.9],["Dārfūr","دارفور",24.2,14.6,0.6],["Kurdufān","كردفان",29.6,12.4,0.7],["Sinnār","سنار",34.4,12.4,1.1],["Bilād al-Bujah","بلاد البجة",35.6,20.4,1.0],["Dasht-i Qipchāq","",58.6,49.4,0.45],["Bilād al-Turk","بلاد الترك",78.4,46.9,0.6],["Bilād al-Ṣīn","بلاد الصين",86.2,38.2,0.6],["Bulghār","بلغار",50.2,54.2,1.0]
 ];
 const PASSES = [["Khyber Pass",71.15,34.07,1.5,"r"],["Bolan Pass",67.62,29.86,2.0,"r"],["Darial Pass · Bāb al-Lān",44.64,42.74,1.8,"r"],["Cilician Gates",34.77,37.29,2.4,"l"],["Salang Pass",69.06,35.32,2.4,"l"],["Khunjerab Pass",75.42,36.85,2.0,"r"]];
-const ISLAND_LBL = [["Canary Islands · al-Khālidāt",-15.6,29.45,0.8],["Madeira",-16.95,33.05,1.4],["Cape Verde",-24.0,15.6,1.0],["Mayūrqah · Majorca",2.95,39.75,1.4],["Ṣiqilliyah · Sicily",14.2,37.65,1.2],
+const ISLAND_LBL = [["Kastellorizo · Meis",29.556,36.122,6],["Canary Islands · al-Khālidāt",-15.6,29.45,0.8],["Madeira",-16.95,33.05,1.4],["Cape Verde",-24.0,15.6,1.0],["Mayūrqah · Majorca",2.95,39.75,1.4],["Ṣiqilliyah · Sicily",14.2,37.65,1.2],
   ["Sardāniyah · Sardinia",9.0,40.15,1.4],["Iqrīṭish · Crete",24.9,35.3,1.3],["Rūdis · Rhodes",28.05,36.3,2.4],["Māliṭah · Malta",14.43,35.95,2.4],["Suquṭrā · Socotra",53.95,12.55,1.2],
   ["Zanjibār · Zanzibar",39.3,-6.05,1.4],["Sarandīb · Sri Lanka",80.7,7.9,0.8],["Maldives",73.4,3.7,1.4]];
 const SEA_LBL = [
