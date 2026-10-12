@@ -30,7 +30,10 @@ L.append('**How it was found (my method):** population from Meta\'s High Resolut
          'inhabited cells less than about 90 m apart are counted as one settlement. V2 is taken as meant: every country listed whole is in to its real borders '
          'and coasts, other countries are out, and in the partly included countries (Uzbekistan, Kyrgyzstan, Kazakhstan, China; India in V2N) the drawn line decides. '
          'Real borders: Overture Maps country areas (from OpenStreetMap). Names: Overture Maps places (towns, villages, neighbourhoods) inside each settlement. '
-         'China has no Meta population data: there, Overture building outlines were used instead. Numbers of people are estimates from the grid, not a census.\n')
+         'China has no Meta population data: there, Overture building outlines were used instead (no settlement there is cut). Numbers of people are estimates from the grid, not a census. '
+         'In thickly settled countryside (the Rwandan and Ugandan highlands, the Khorezm and Fergana oases, Punjab) houses run on almost without a break, so one "settlement" can be a whole populated district: '
+         'there the number on the near side counts the countryside too, and the number on the far side is the better measure of the people cut off. '
+         'Where a settlement is marked "at least", it reaches beyond the largest window measured (about 80 km across).\n')
 for v, title in [('x', 'V2'), ('xn', 'V2N')]:
     A = sorted([s for s in S if s['v'] == v and s['kind'] == 'new'], key=lambda s: -(s['in'] + s['out']))
     B = sorted([s for s in S if s['v'] == v and s['kind'] == 'border'], key=lambda s: -(s['in'] + s['out']))
