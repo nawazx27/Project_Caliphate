@@ -3,6 +3,7 @@ Run: python3 tools/split_report.py <scratch dir>"""
 import json, sys, os
 D = sys.argv[1]
 S = json.load(open(os.path.join(D, 'splits_named.json')))
+NB = json.load(open(os.path.join(D, 'neighbours_named.json'))) if os.path.exists(os.path.join(D, 'neighbours_named.json')) else []
 CN = {'UZ':'Uzbekistan','KG':'Kyrgyzstan','KZ':'Kazakhstan','CN':'China','IN':'India','TM':'Turkmenistan','TJ':'Tajikistan','PK':'Pakistan',
       'CD':'DR Congo','UG':'Uganda','RW':'Rwanda','BI':'Burundi','TZ':'Tanzania','ZM':'Zambia','MW':'Malawi','MZ':'Mozambique','KE':'Kenya',
       'SS':'South Sudan','SD':'Sudan','TD':'Chad','CF':'Central African Republic','LY':'Libya','DZ':'Algeria','TN':'Tunisia','NE':'Niger',
@@ -35,11 +36,20 @@ for v, title in [('x', 'V2'), ('xn', 'V2N')]:
     B = sorted([s for s in S if s['v'] == v and s['kind'] == 'border'], key=lambda s: -(s['in'] + s['out']))
     L.append(f'\n## {title}\n')
     L.append(f'### A. Cut by the author\'s own lines ({len(A)} settlements; about {ppl(sum(s["in"] for s in A))} people were inside and {ppl(sum(s["out"] for s in A))} outside)\n')
-    L.append('Since Version 106 every one of these is whole INSIDE ' + title + ': the line now goes round it.\n')
+    L.append('Since Version 106 every one of these is whole INSIDE ' + title + ': the line now goes round it (checked again after the change: none is cut any more).\n')
     L.append('| # | Settlement | Country | People inside before | People outside before (now added) | Places in it (inside · outside before) | Where |\n|---|---|---|---|---|---|---|')
     for i, s in enumerate(A, 1):
         c = ', '.join(CN.get(k, k) for k in sorted(set(s['cin']) | set(s['cout'])))
         L.append(f"| {i} | {nm(s)} | {c} | {ppl(s['in'])} | {ppl(s['out'])} | {hoods(s,'in') or '–'} · {hoods(s,'out') or '–'} | {s['lat']:.3f} N, {s['lon']:.3f} E |")
+    C2 = sorted([s for s in NB if s['v'] == v], key=lambda s: -(s['in'] + s['out']))
+    if C2:
+        L.append(f'\n### A2. Neighbours taken in whole ({len(C2)} settlements; about {ppl(sum(s["out"] for s in C2))} people)\n')
+        L.append('The new line round the settlements in A is drawn smooth (gaps of up to about 300 m between houses closed, so that a town goes in as one piece); '
+                 'where it then touched a neighbouring village, that village was taken in whole as well.\n')
+        L.append('| # | Settlement | Country | People already inside | People added | Places in it | Where |\n|---|---|---|---|---|---|---|')
+        for i, s in enumerate(C2, 1):
+            c = ', '.join(CN.get(k, k) for k in sorted(s['cin']))
+            L.append(f"| {i} | {nm(s)} | {c} | {ppl(s['in'])} | {ppl(s['out'])} | {hoods(s,'in') or '–'} | {s['lat']:.3f} N, {s['lon']:.3f} E |")
     L.append(f'\n### B. Across an existing international border ({len(B)} settlements; about {ppl(sum(s["in"] for s in B))} people inside and {ppl(sum(s["out"] for s in B))} outside)\n')
     L.append('Here ' + title + ' follows a border that already exists, so ' + title + ' does not newly divide anyone; these are towns that have grown together across it. '
              'NOT changed: adding the outer halves would mean adding parts of countries that are not in ' + title + ' (for the author to decide).\n')
@@ -47,6 +57,7 @@ for v, title in [('x', 'V2'), ('xn', 'V2N')]:
     for i, s in enumerate(B, 1):
         ci = ', '.join(f"{CN.get(k,k)}: {ppl(x)}" for k, x in sorted(s['cin'].items(), key=lambda t: -t[1]))
         co = ', '.join(f"{CN.get(k,k)}: {ppl(x)}" for k, x in sorted(s['cout'].items(), key=lambda t: -t[1]))
+        if s.get('trunc'): ci, co = 'at least ' + ci, 'at least ' + co
         L.append(f"| {i} | {nm(s)} | {ci} | {co} | {hoods(s,'in') or '–'} · {hoods(s,'out') or '–'} | {s['lat']:.3f} N, {s['lon']:.3f} E |")
 out = os.path.join(os.path.dirname(__file__), '..', 'reports', 'settlements_on_the_line.md')
 open(out, 'w').write('\n'.join(L) + '\n'); print('written', out)
