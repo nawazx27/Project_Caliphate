@@ -1,7 +1,7 @@
 /* Version 106 (2026-10-12, Nawaz): keep every settlement that V2's / V2N's own lines cut in two whole, inside.
    Adds the outer parts listed in tools/data/split_settlements.geojson (made by tools/split_settlements.py) to CALIPH.x and
    CALIPH.xn, piece by piece, and updates the rows of the partly included countries (km² and share).
-   Run: node tools/v2_whole_settlements.js */
+   Run: node tools/v2_whole_settlements.js [additions.geojson] */
 const fs = require('fs'), path = require('path');
 const ROOT = path.join(__dirname, '..');
 const topojson = require(path.join(ROOT, 'node_modules/topojson-client'));
@@ -9,7 +9,7 @@ const pc = require(path.join(ROOT, 'node_modules/polygon-clipping'));
 const d3 = require(path.join(ROOT, 'node_modules/d3'));
 const geo = JSON.parse(fs.readFileSync(path.join(ROOT, 'geo2.json')));
 const F = path.join(ROOT, 'src/caliph.json'), C = JSON.parse(fs.readFileSync(F));
-const ADD = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/split_settlements.geojson')));
+const ADD = JSON.parse(fs.readFileSync(process.argv[2] || path.join(__dirname, 'data/split_settlements.geojson')));   // a later pass may give its own file
 const KM = 6371.0088**2;
 const ringSr = r => { const a = d3.geoArea({type:'Polygon', coordinates:[r]}); return Math.min(a, 4*Math.PI - a); };
 const area = mp => Math.round(mp.reduce((t, poly) => t + ringSr(poly[0]) - poly.slice(1).reduce((h, r) => h + ringSr(r), 0), 0) * KM);
