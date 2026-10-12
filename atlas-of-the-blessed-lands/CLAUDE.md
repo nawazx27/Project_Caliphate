@@ -19,6 +19,11 @@ This is Nawaz's project: an interactive map ("Atlas of the Blessed Lands"). Pick
 - The outlines are a thought experiment / Nawaz's specification, not from the sources and not a ruling. Say so wherever it matters.
 - LEAVE NO AREA OUT (Nawaz, 2026-10-11): when he asks for a land, take ALL the area it occupies, even where it crosses into another modern country (e.g. China). Never clip a traced or requested region to a set of countries, never drop pieces as "fitting error" or because they are small (islands, slivers), and never leave out towns or strips he names. If a part seems doubtful, include it and tell him, rather than leaving it out.
 
+## Web access and tools (since 2026-10-12)
+- The cloud environment allows sunnah.com, dorar.net, www.iranicaonline.org, en.wikipedia.org, archive.org, www.naturalearthdata.com, portal.opentopography.org and download.geofabrik.de (Nawaz set Network access to Custom).
+- sunnah.com, dorar.net and iranicaonline.org answer plain curl/WebFetch with a Cloudflare "Just a moment" 403; open them with the Playwright Chromium instead (executablePath /opt/pw-browsers/chromium, a normal desktop user agent, wait about 10 s), which gets through. Use this to check hadith numbers and gradings directly.
+- The setup script installs scipy, shapely, pyproj and rasterio for Python.
+
 ## After EVERY change
 1. `node build.js`
 2. Check it with a screenshot at desktop size AND phone size (scripts in `tests/`, e.g. `tests/shot2.js`, `tests/smoke.js`; they were written for Linux, paths like `/opt/pw-browsers/chromium` may need changing on Windows).
