@@ -120,7 +120,6 @@ function buildOverlay(){
   addLabel('caliph', [['One outline around every best land'],['a thought experiment · my synthesis','sub']], [31.2,32.75], {cls:'caliphlbl', minK:0, subK:0, pri:3, color:'--ink'});
   addLabel('caliphxe', [['ʿIrāq al-ʿAjam'],['the old Jibāl','sub']], [50.2,34.15], {cls:'caliphlbl x', minK:0.9, subK:1.3, pri:4, color:'--xcal'});
   addLabel('caliphxe', [['Khūzistān'],['al-Ahwāz','sub']], [49.2,31.55], {cls:'caliphlbl x', minK:1.1, subK:1.6, pri:4, color:'--xcal'});
-  addLabel('gtr', [['Greater Turkey'],['Misak-ı Millî · the author’s maps','sub']], [38.6,38.35], {cls:'caliphlbl gtr', minK:0.9, subK:1.3, pri:4, color:'--gtr'});
   /* the country name, your choice: drawn behind every other label and never pushed aside by them */
   addLabel('caliphx', [['DĀR AL-AMĀN'],['دار الأمان','arl dar','1.3em']], DAR_AT, {cls:'darlbl', back:true, free:true, minK:0, maxK:2.6, subK:0, pri:-9});
   addLabel('caliphgl', [['V7'],['the core caliphate, extended · the author’s specification','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
@@ -212,7 +211,7 @@ function buildOverlay(){
 /* Label sizes. Every write is done first and then every read, so the browser lays the page out once per pass, not
    once per label; a label inside a hidden layer reports 0 and keeps its earlier size. Each label needs its box with its
    second line ("full") and without it ("main"); a place label needs both for text on either side of its dot. Region
-   labels and place labels are measured in the same passes, so there are four layouts, not six. */
+   labels and place labels are measured in the same passes, and the left-hand boxes are mirrored, so there are two layouts, not six. */
 const bx = r => ({x:r.x, y:r.y, w:r.width, h:r.height});
 function measure(){
   sbs.forEach(b=>{ b.tx.style('display', null).attr('text-anchor','start'); });
@@ -225,8 +224,10 @@ function measure(){
       const r = l.t.node().getBBox(); const o = l[key] || (l[key] = {full:null, main:null}); if(r.width > 0 || !o[part]) o[part] = bx(r); });
   };
   pass(lbls, 'start', true, 'full'); pass(lbls, 'start', false, 'main');   /* place labels to the right of the dot, and region labels */
-  pass(pts, 'end', true, 'full');    pass(pts, 'end', false, 'main');      /* place labels to the left */
-  pts.forEach(l=>{ l.side = null; });
+  /* place labels to the left: every line of a label starts at x = 0, so with the text anchored at its end each box is the
+     start-anchored box mirrored about x = 0 (Version 98: this saves two of the four layout passes when the page opens) */
+  const mir = r => r && {x:-(r.x + r.w), y:r.y, w:r.w, h:r.h};
+  pts.forEach(l=>{ const R = l.bbR; if(R) l.bbL = {full:mir(R.full) || (l.bbL && l.bbL.full) || null, main:mir(R.main) || (l.bbL && l.bbL.main) || null}; l.side = null; });
 }
 
 /* ---------------- layers, zoom, update ---------------- */
@@ -234,7 +235,7 @@ function applyLayers(){
   const natMode = inNat();   /* the natural-borders version: its line, chokepoints and passes always go with it, and the internal lines until you switch them off */
   if((layerOn.natb || layerOn.intl || natMode) && !NAT_BUILT) buildNat();
   layerOn.caliphnat = natMode; layerOn.caliphnp = !!layerOn.caliphx && XV === 'natp'; layerOn.caliphnatx = natMode; layerOn.natbAny = !!layerOn.natb || natMode; layerOn.intlAny = natMode ? !INTL_OFF : !!layerOn.intl;
-  layerOn.caliphxe = !!layerOn.caliphx && XV !== 'west'; layerOn.caliphxw = !!layerOn.caliphx && XV === 'west'; layerOn.caliphg = false; layerOn.caliphxc = !!layerOn.caliphx && (XV === 'full' || XV === 'fulln'); layerOn.gtr = layerOn.caliphxc; layerOn.caliphgl = !!layerOn.caliphx && XV === 'gme'; layerOn.caliphv2 = !!layerOn.caliphx && XV === 'v2'; layerOn.caliphv3 = !!layerOn.caliphx && XV === 'v3'; layerOn.caliphxArwad = !!layerOn.caliphx && !['full','fulln','nat','natp'].includes(XV); layerOn.caliphv2h = false;
+  layerOn.caliphxe = !!layerOn.caliphx && XV !== 'west'; layerOn.caliphxw = !!layerOn.caliphx && XV === 'west'; layerOn.caliphg = false; layerOn.caliphxc = !!layerOn.caliphx && (XV === 'full' || XV === 'fulln'); layerOn.caliphgl = !!layerOn.caliphx && XV === 'gme'; layerOn.caliphv2 = !!layerOn.caliphx && XV === 'v2'; layerOn.caliphv3 = !!layerOn.caliphx && XV === 'v3'; layerOn.caliphxArwad = !!layerOn.caliphx && !['full','fulln','nat','natp'].includes(XV); layerOn.caliphv2h = false;
   /* natural borders: the Libya variant goes with Complete V2, the far-east line with the Greater Caliphate */
   layerOn.natbMain = layerOn.natbAny;
   document.querySelectorAll('[data-lyt]').forEach(b=>b.setAttribute('aria-pressed', b.dataset.lyt === 'natb' ? layerOn.natbAny : b.dataset.lyt === 'intl' ? layerOn.intlAny : !!layerOn[b.dataset.lyt]));
@@ -371,9 +372,9 @@ function setArrow(A, mx, my, tx, ty, r0, r1){
   A.text.attr('x', x1+ux*8+(right?2:-2)).attr('y', y1+uy*8+4).attr('text-anchor', right?'start':'end');
 }
 /* the Greater Caliphate seen whole is about the territory: the discs, cities and classical names wait until the reader zooms in */
-const QUIET_LBL = new Set(['base','caliph','caliphx','caliphgl','caliphv2','caliphv3','caliphnat','caliphnp','caliphnatx','caliphxe','caliphxc','caliphxw','gtr','natb','natbAny','natbMain','intl','intlAny']), QUIET_PTS = new Set(['haram','aqsa','caliphx','caliphxArwad','natb','natbAny']);
+const QUIET_LBL = new Set(['base','caliph','caliphx','caliphgl','caliphv2','caliphv3','caliphnat','caliphnp','caliphnatx','caliphxe','caliphxc','caliphxw','natb','natbAny','natbMain','intl','intlAny']), QUIET_PTS = new Set(['haram','aqsa','caliphx','caliphxArwad','natb','natbAny']);
 /* "Clean map": no numbered discs (with their leader lines and names), no dots, diamonds, stars or other point markers, no names of places, no qibla arrows, and none of the outline's own captions. Only the map, the outline and the names of regions, countries and seas stay. */
-const CLEAN_LBL = new Set(['caliph','caliphx','caliphgl','caliphv2','caliphv3','caliphnat','caliphnp','caliphnatx','caliphxe','caliphxc','caliphxw','gtr','natb','natbAny','natbMain','intl','intlAny']);
+const CLEAN_LBL = new Set(['caliph','caliphx','caliphgl','caliphv2','caliphv3','caliphnat','caliphnp','caliphnatx','caliphxe','caliphxc','caliphxw','natb','natbAny','natbMain','intl','intlAny']);
 function render(){
   const k = T.k;
   const clean = CLEAN && !!layerOn.caliphx;
@@ -530,14 +531,28 @@ function updateScale(){
   document.getElementById('scalebar').style.width = (best*pxPerKm).toFixed(0)+'px';
   document.getElementById('scaletxt').textContent = best<1 ? (best*1000)+' m' : best+' km';
 }
+function safeInsets(w, h){
+  const s = {l:0, t:0, r:0, b:0};
+  chrome.forEach(c=>{
+    if(c.y < h*0.3 && c.w > w*0.3) s.t = Math.max(s.t, c.y + c.h);                                   /* bars across the top */
+    else if(c.x < w*0.3 && c.h > h*0.25 && c.y < h*0.5) s.l = Math.max(s.l, c.x + c.w);              /* the open key */
+    else if(c.x + c.w > w*0.8 && c.w < w*0.2 && c.y < h*0.5) s.r = Math.max(s.r, w - c.x);           /* the zoom buttons */
+  });
+  if(w - s.l - s.r < w*0.5) s.l = s.r = 0;
+  if(h - s.t - s.b < h*0.5) s.t = s.b = 0;
+  return s;
+}
 function boundsT(b, w, h, pad, wide, fitH){
   const p0 = P([b[0][0], b[1][1]]), p1 = P([b[1][0], b[0][1]]);
   const dx = p1[0]-p0[0], dy = p1[1]-p0[1];
   /* ordinary views always fill the frame with mapped area; a 'wide' view may show the sheet's edge */
   /* fitH: on a tall (phone) frame, fit the box's height and let the reader pan sideways */
-  const fit = (fitH && h > w*1.15) ? h/dy : Math.min(w/dx, h/dy);
+  /* Version 98: the box is framed in the part of the map left clear by the bars along the top, the key down the left and the
+     buttons down the right, so a version or a place opens whole and in view rather than half under the controls */
+  const s = safeInsets(w, h), fw = w - s.l - s.r, fh = h - s.t - s.b;
+  const fit = (fitH && h > w*1.15) ? fh/dy : Math.min(fw/dx, fh/dy);
   const k = Math.max(wide ? zoom.scaleExtent()[0] : coverK, fit * (pad||0.92));
-  let tx = w/2 - k*(p0[0]+dx/2), ty = h/2 - k*(p0[1]+dy/2);
+  let tx = s.l + fw/2 - k*(p0[0]+dx/2), ty = s.t + fh/2 - k*(p0[1]+dy/2);
   /* keep the view on the sheet: d3's zoom.transform does not apply the translate limits by itself */
   const s0 = SHEET_NW(), s1 = SHEET_SE();
   if((s1[0]-s0[0])*k >= w) tx = Math.min(-s0[0]*k, Math.max(w - s1[0]*k, tx));

@@ -1,8 +1,8 @@
 /* Version 97 (2026-10-12, Nawaz: "Greater turkey should look like this", three maps and the Misak-ı Millî; he chose "Balkans out,
    maps' part only"). V2 (CALIPH.x) and V2N (CALIPH.xn) go back to their Version 95 land (the Ottoman Balkans of Version 96 taken out)
    and gain only the part of Bulgaria, and a sliver of North Macedonia, that his maps colour red (tools/data/greater_turkey.geojson,
-   made by tools/greater_turkey.py). Greater Turkey itself, the union of what his maps colour, is stored as CALIPH.gtr (clipped to V2's
-   land) and drawn on V2 and V2N as a named outline; all of it already lies inside V2 apart from that Bulgarian part.
+   made by tools/greater_turkey.py). Greater Turkey itself, the union of what his maps colour, was stored as CALIPH.gtr and drawn as a dotted
+   outline in Version 97 only (removed in Version 98 at his request); all of it already lies inside V2 apart from that Bulgarian part.
    Run: node tools/v2_greater_turkey.js base.json   (base.json: the Version 95 data, e.g.
    git show 9c00a88:atlas-of-the-blessed-lands/src/caliph.json > base.json) */
 const fs = require('fs'), path = require('path');
@@ -51,7 +51,7 @@ for (const k of ['x', 'xn']) {
   console.log(k, 'Version 96', before, '-> Version 97', V.km2, '| Bulgaria', bg, '| N. Macedonia', mk);
 }
 let G = R3mp(pc.intersection(OUTLINE, R3mp(C.x.polys)));
-C.gtr = {polys:G, km2:area(G), n:'Greater Turkey (Misak-ı Millî), as the author’s maps draw it'};
+const gtrKm = area(G);   /* Version 98: no longer stored or drawn (Nawaz: remove the red dotted line) */
 let out = 0; try { out = area(R3mp(pc.difference(OUTLINE, R3mp(C.x.polys)))); } catch (e) { out = -1; }
-console.log('Greater Turkey on land in V2', C.gtr.km2, '| its traced outline outside V2 (sea and the silk’s ragged edge)', out, '| V3', C.xw.km2);
+console.log('Greater Turkey on land in V2', gtrKm, '| its traced outline outside V2 (sea and the silk’s ragged edge)', out, '| V3', C.xw.km2);
 fs.writeFileSync(F, JSON.stringify(C));

@@ -22,6 +22,23 @@ const encRing = r => { let px = 0, py = 0, t = '\u0001'; for(const [x, y] of r){
 const pack = o => Array.isArray(o) ? (isRing(o) && at3(o) ? encRing(o) : o.map(pack)) : (o && typeof o === 'object') ? Object.fromEntries(Object.entries(o).map(([k, v]) => [k, pack(v)])) : o;
 const caliphJ = JSON.stringify(pack(caliphD)).replace(/</g, '\\u003c');
 const geo = packTopo('geo2.json'), geoLo = packTopo('landlo.json');
+/* Version 98: the two coarse coastlines drawn when zoomed out (landLOD levels 0 and 1 in src/eng_b.js) are made here once,
+   with the same projection, data and simplifyD as the page, instead of on the reader's phone each time the page opens */
+const landLodJ = (() => {
+  const d3n = require('./node_modules/d3'), tj = require('./node_modules/topojson-client'), g = JSON.parse(R('geo2.json'));
+  const src = R('src/eng_b.js'), grab = (a, b) => src.slice(src.indexOf(a), src.indexOf(b));
+  const simplifyD = new Function(grab('function parseD(', 'function clipRing(') + grab('function simplifyD(', '/* used below k') + 'return simplifyD;')();
+  const proj = d3n.geoMercator().fitSize([1000,1000], {type:"MultiPoint", coordinates:[[27,9],[61,41]]});
+  const t = g.transform, sx = t ? t.scale[0] : 1, sy = t ? t.scale[1] : 1, tx = t ? t.translate[0] : 0, ty = t ? t.translate[1] : 0;
+  const geoP = {type:'Topology', objects:g.objects, arcs:g.arcs.map(arc => { let x = 0, y = 0;
+    return arc.map(p => { if(t){ x += p[0]; y += p[1]; } else { x = p[0]; y = p[1]; } return proj([x*sx + tx, y*sy + ty]); }); })};
+  const landD = d3n.geoPath()(tj.merge(geoP, geoP.objects.countries.geometries));
+  /* packed like the outlines: each ring is 'Z' (closed) or 'O', then whole-number steps in hundredths of a pixel */
+  const packD = d => (d.match(/M[^M]*/g) || []).map(r => { const z = /Z\s*$/.test(r); let px = 0, py = 0, t = z ? 'Z' : 'O';
+    for(const m of r.matchAll(/[ML]\s*(-?[\d.]+(?:e-?\d+)?)[ ,]+(-?[\d.]+(?:e-?\d+)?)/g)){ const x = Math.round(+m[1]*100), y = Math.round(+m[2]*100); t += encNum(x - px) + encNum(y - py); px = x; py = y; }
+    return t; });
+  return JSON.stringify({n:landD.length, lod:[simplifyD(landD, 3), simplifyD(landD, 0.8)].map(packD)}).replace(/</g, '\\u003c');
+})();
 const natJ = JSON.stringify(pack(Object.assign(JSON.parse(R('src/nat.json')), {pol: undefined}))).replace(/</g, '\\u003c');   /* Natural + political was removed in Version 60 */
 
 let js = [R('src/head.js'), R('src/old_data.js'), R('src/new_geom.js').replace('__GENERATED__', gen), R('src/new_info.js'), R('src/eng_a.js'), R('src/eng_b.js'), R('src/eng_c.js'), R('src/eng_d.js'), R('src/eng_e.js'), R('src/start.js')].join('\n');
@@ -49,6 +66,7 @@ ${R('src/body.html')}
 <script type="application/json" id="geolo">${geoLo}</script>
 <script type="application/json" id="caliph">${caliphJ}</script>
 <script type="application/json" id="nat">${natJ}</script>
+<script type="application/json" id="landlod">${landLodJ}</script>
 <script>
 ${js}</script>
 `;

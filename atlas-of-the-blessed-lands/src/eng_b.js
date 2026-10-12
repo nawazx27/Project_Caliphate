@@ -171,6 +171,13 @@ function simplifyD(d, eps){
 /* used below k 0.6, below k 1.5, and from there on; each coarse copy is made the first time it is needed, and the
    other one a moment after the page has settled, so opening the page does not wait for both */
 const LAND_EPS = [3, 0.8, 0.3], LAND_LODC = [null, null, null, LAND_D];   /* Version 65: a coarsest copy for the whole-world view */
+/* Version 98: the two coarsest copies come ready-made with the page (build.js); they are used only if they were made from this same coastline */
+{ const pre = JSON.parse(document.getElementById('landlod').textContent);
+  const unpackD = rings => rings.map(s => { let i = 1, x = 0, y = 0, out = '';
+    const num = () => { let r = 0, sh = 0, b; do { b = s.charCodeAt(i++) - 63; r |= (b & 0x1f) << sh; sh += 5; } while(b >= 0x20); return (r & 1) ? ~(r >> 1) : r >> 1; };
+    while(i < s.length){ x += num(); y += num(); out += (out ? 'L' : 'M') + (x/100).toFixed(2) + ',' + (y/100).toFixed(2); }
+    return out + (s[0] === 'Z' ? 'Z' : ''); }).join('');
+  if(pre.n === LAND_D.length){ LAND_LODC[0] = unpackD(pre.lod[0]); LAND_LODC[1] = unpackD(pre.lod[1]); } }
 const landLOD = lv => LAND_LODC[lv] || (LAND_LODC[lv] = simplifyD(LAND_D, LAND_EPS[lv]));
 const whenIdle = f => (window.requestIdleCallback ? requestIdleCallback(f, {timeout:4000}) : setTimeout(f, 1500));
 let landLv = 3, VIEW_SET = false;   /* VIEW_SET: the opening view is in place, so the right coarse coastline can be chosen */
@@ -260,10 +267,6 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   CX.band.append('title').text('The core caliphate (the author’s specification, not from the sources)');
   CX.line = gx.append('g').attr('clip-path','url(#landclip)').append('path').attr('class','caliphx-line').attr('d', dx);
   gEdges.node().insertBefore(gx.node(), g.node());
-  /* Greater Turkey (Version 97): the union of the author's maps (tools/greater_turkey.py), a named dotted outline on V2 and V2N */
-  { const gt = layerG(gEdges, 'gtr'), dg = dOf(CALIPH.gtr);
-    const el = gt.append('g').attr('clip-path','url(#landclip)').append('path').attr('class','gtr-line').attr('d', dg);
-    let gl = null; CLIPS.push({els:[el], key:()=>'', full:()=>dg, lines:()=> gl || (gl = projLines(CALIPH.gtr.polys.flat()))}); }
   const xl = {}, src = {full:CALIPH.x, west:CALIPH.xw, gme:CALIPH.g, v2:CALIPH.v2};
   src.v3 = CALIPH.x3; src.me = CALIPH.me; src.me2 = CALIPH.me2; src.fulln = CALIPH.xn;
   CLIPS.push({els:[CX.band], key:XK, full:()=>CX.d[XK()], lines:()=> xl[XK()] || (xl[XK()] = projLines(src[XK()].polys.flat()))});

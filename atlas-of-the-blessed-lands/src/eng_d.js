@@ -24,7 +24,6 @@ const FOCUS = [
   {n:"Qusṭanṭīniyyah · Istanbul", info:"eg_qust", b:[[28.55,40.84],[29.42,41.26]]},
   {n:"Türkiye and Thrace", b:[[25.6,35.6],[45.0,42.3]]},
   {n:"Greater Iraq: Iraq, Khuzestan and ʿIrāq al-ʿAjam", info:"caliphx", b:[[38.5,29.0],[55.6,37.6]], layer:"caliphx"},
-  {n:"Greater Turkey (Misak-ı Millî)", info:"caliphx", b:[[21.5,33.0],[47.5,44.6]], layer:"caliphx", xv:['full','fulln']},
   {n:"Iran", b:[[43.8,24.8],[63.5,40.0]]},
   {n:"The Caucasus: Georgia, Armenia, Azerbaijan", b:[[39.6,38.2],[51.2,43.9]]},
   {n:"V7", b:[[-19.0,-12.5],[93.5,56.5]], chip:true, gc:true}

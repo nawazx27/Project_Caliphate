@@ -1,7 +1,7 @@
 /* Atlas of the Blessed Lands, v4.
    Layout: masthead and key finding; working map with side panel (notes + layers; slide-up sheets on phones);
    four detail maps; then the reading sections: status table, named limits, evidence tiers, today's map, honesty notes. */
-:root{--gold:#8F6F2E; --grain:url("__GRAIN__"); --xcal:#77701A; --gtr:#A12A3C; --wline:#86A9B3;
+:root{--gold:#8F6F2E; --grain:url("__GRAIN__"); --xcal:#77701A; --wline:#86A9B3;
   --bg:#EDEFE9; --surface:#F7F8F4; --surface2:#F1F3EE; --ink:#1B2725; --muted:#56635D; --rule:#D3D9D2; --rule2:#C2CBC3;
   --sea:#BED4DA; --glow:#D6E6EA; --land:#ECE7D9; --land-edge:#8E9893; --border:#4F5B57; --river:#4F8BA3; --halo:#F7F8F4;
   --sham:#2C7756; --hijaz:#975F0E; --haram:#B0271D; --muq:#674A98; --jaz:#33579A; --yemen:#8A5A2B; --sacred:#7B5B12;
@@ -15,7 +15,7 @@
   --font-ar:"Amiri", "Noto Naskh Arabic", "Geeza Pro", "Traditional Arabic", serif;
   --font-mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--gold:#D2AE67; --xcal:#D4CB6A; --gtr:#E8838F; --wline:#24505B;
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--gold:#D2AE67; --xcal:#D4CB6A; --wline:#24505B;
   --bg:#0E1413; --surface:#151D1B; --surface2:#121917; --ink:#E3E8E4; --muted:#9CA9A3; --rule:#27322E; --rule2:#34413C;
   --sea:#0B1E24; --glow:#123039; --land:#212A28; --land-edge:#4B5853; --border:#A3AEA9; --river:#4A8DA6; --halo:#131A19;
   --sham:#5DC293; --hijaz:#E4A748; --haram:#F2695C; --muq:#AC92E4; --jaz:#80A0E6; --yemen:#D69C66; --sacred:#E2C46A;
@@ -24,7 +24,7 @@
   --upper:#5CC3CB; --iraq:#A9C768; --misr:#D6A57A; --najd:#CBB78B; --bahr:#79B8DB; --tiham:#6CD0DA; --rum:#9DB3DB; --eschat:#E58B8B; --hab:#D2B27A;
   --st-haram:#F2695C; --st-muq:#AC92E4; --st-mub:#5CC9BF; --st-fad:#E4B04A; --st-none:#9AA6A0; --st-on:#0F1514;
   --chip:#1F2926; --accent:#5DC293; --relief-op:.85; --shadow:0 -10px 30px rgba(0,0,0,.5); --card-shadow:0 1px 0 rgba(0,0,0,.2),0 8px 24px -14px rgba(0,0,0,.6); color-scheme:dark}}
-:root[data-theme="dark"]{--gold:#D2AE67; --xcal:#D4CB6A; --gtr:#E8838F; --wline:#24505B;
+:root[data-theme="dark"]{--gold:#D2AE67; --xcal:#D4CB6A; --wline:#24505B;
   --bg:#0E1413; --surface:#151D1B; --surface2:#121917; --ink:#E3E8E4; --muted:#9CA9A3; --rule:#27322E; --rule2:#34413C;
   --sea:#0B1E24; --glow:#123039; --land:#212A28; --land-edge:#4B5853; --border:#A3AEA9; --river:#4A8DA6; --halo:#131A19;
   --sham:#5DC293; --hijaz:#E4A748; --haram:#F2695C; --muq:#AC92E4; --jaz:#80A0E6; --yemen:#D69C66; --sacred:#E2C46A;
@@ -448,8 +448,6 @@ table.lt{border-collapse:collapse;width:100%;min-width:900px;font-size:14.5px;li
 .caliphx-band:hover,.caliphx-band.sel{stroke-opacity:.45}
 .caliphx-line{fill:none;stroke:var(--xcal);stroke-width:1.8px;stroke-dasharray:7 4 1.5 4;stroke-linecap:round;vector-effect:non-scaling-stroke;pointer-events:none}
 .lbl.caliphlbl.x{fill:var(--xcal)}
-.gtr-line{fill:none;stroke:var(--gtr);stroke-width:2.2px;stroke-dasharray:1 3.4;stroke-linecap:round;vector-effect:non-scaling-stroke;pointer-events:none}
-.lbl.caliphlbl.gtr{fill:var(--gtr)}
 .caliphlimits{margin-top:18px}
 .caliphlimits .note{max-width:none}
 @media (min-width:1101px){.caliphlimits .note{columns:2;column-gap:34px}.caliphlimits .note > *{break-inside:avoid}}
