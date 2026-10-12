@@ -18,6 +18,7 @@ This is Nawaz's project: an interactive map ("Atlas of the Blessed Lands"). Pick
 - Hadith only with collection, number and grading (sunnah.com, dorar.net). Leave out anything not verified; `notes.md` lists what was verified and what was not.
 - The outlines are a thought experiment / Nawaz's specification, not from the sources and not a ruling. Say so wherever it matters.
 - LEAVE NO AREA OUT (Nawaz, 2026-10-11): when he asks for a land, take ALL the area it occupies, even where it crosses into another modern country (e.g. China). Never clip a traced or requested region to a set of countries, never drop pieces as "fitting error" or because they are small (islands, slivers), and never leave out towns or strips he names. If a part seems doubtful, include it and tell him, rather than leaving it out.
+- ADD WHAT HE NAMES, NO NATURAL-BORDER LIMITS (Nawaz, 2026-10-12): "from now on, add all the lands I tell you to add and I don't care about natural borders restricting it... we can expand on it later". Every land he asks for goes in whole (every shaded region of a map he sends, whatever its colour, and every place in its list); natural frontiers, crests or rivers never trim or hold back an addition. They are used only when he asks for them.
 
 ## Web access and tools (since 2026-10-12)
 - The cloud environment allows sunnah.com, dorar.net, www.iranicaonline.org, en.wikipedia.org, archive.org, www.naturalearthdata.com, portal.opentopography.org and download.geofabrik.de (Nawaz set Network access to Custom).
