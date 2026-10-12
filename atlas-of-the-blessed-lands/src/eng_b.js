@@ -260,6 +260,10 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   CX.band.append('title').text('The core caliphate (the author’s specification, not from the sources)');
   CX.line = gx.append('g').attr('clip-path','url(#landclip)').append('path').attr('class','caliphx-line').attr('d', dx);
   gEdges.node().insertBefore(gx.node(), g.node());
+  /* Greater Turkey (Version 97): the union of the author's maps (tools/greater_turkey.py), a named dotted outline on V2 and V2N */
+  { const gt = layerG(gEdges, 'gtr'), dg = dOf(CALIPH.gtr);
+    const el = gt.append('g').attr('clip-path','url(#landclip)').append('path').attr('class','gtr-line').attr('d', dg);
+    let gl = null; CLIPS.push({els:[el], key:()=>'', full:()=>dg, lines:()=> gl || (gl = projLines(CALIPH.gtr.polys.flat()))}); }
   const xl = {}, src = {full:CALIPH.x, west:CALIPH.xw, gme:CALIPH.g, v2:CALIPH.v2};
   src.v3 = CALIPH.x3; src.me = CALIPH.me; src.me2 = CALIPH.me2; src.fulln = CALIPH.xn;
   CLIPS.push({els:[CX.band], key:XK, full:()=>CX.d[XK()], lines:()=> xl[XK()] || (xl[XK()] = projLines(src[XK()].polys.flat()))});

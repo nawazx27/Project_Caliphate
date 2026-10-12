@@ -17,7 +17,7 @@ fs.mkdirSync(TMP, {recursive:true});
 
 /* page and frame */
 const W = 3400, H = 3400, FX = 130, FY = 560, FW = W - 2*FX, FH = H - FY - 130;
-const LON0 = 2.3, LON1 = 82.7, LATTOP = 49.4;   /* Version 96: was 3–82 and 47.6; widened so Moldova's north and Tanzania's south both fit */
+const LON0 = 3, LON1 = 82, LATTOP = 47.6;
 const k = FW / ((LON1 - LON0) * Math.PI/180);
 const proj = d3.geoMercator().scale(k).translate([0, 0]);
 const t0 = proj([LON0, LATTOP]); proj.translate([FX - t0[0], FY - t0[1]]);
@@ -43,6 +43,8 @@ const bigLand = {type:'MultiPolygon', coordinates:(land.geometry ? land.geometry
 const lakes = f('lakes'), rivers = f('rivers');
 const grat = d3.geoGraticule().step([5, 5]).extent([[-10, -40], [100, 70]])();
 const km = (XD.km2/1e6).toFixed(2);
+/* Greater Turkey (Version 97): the author's maps, a dotted line inside V2 (its stretches along V2's own edge are masked out) */
+const GTR = {type:'MultiPolygon', coordinates:C.gtr.polys.map(p => [fixRing(p[0]), ...p.slice(1).map(r => fixRing(r).slice().reverse())])};
 
 /* labels */
 const COUNTRIES = [  /* name, lon, lat, size, inside V2 */
@@ -52,13 +54,13 @@ const COUNTRIES = [  /* name, lon, lat, size, inside V2 */
   ['UZBEKISTAN', 61.0, 43.0, 24, 0], ['TAJIKISTAN', 72.9, 37.75, 22, 1], ['KYRGYZSTAN', 74.8, 41.7, 22, 0], ['KAZAKHSTAN', 66.0, 46.2, 34, 0],
   ['AFGHANISTAN', 66.2, 33.4, 32, 1], ['PAKISTAN', 69.8, 29.8, 34, 1], ['INDIA', 77.5, 22.5, 40, 0], ['GREECE', 21.9, 39.7, 24, 1], ['ITALY', 13.2, 42.4, 28, 0],
   ['ALGERIA', 6.8, 28.0, 36, 0], ['CHAD', 18.6, 15.6, 34, 0], ['NIGER', 8.6, 17.4, 32, 0], ['CENTRAL AFRICAN REP.', 20.6, 6.7, 22, 0], ['D.R. CONGO', 23.0, -3.0, 34, 0],
-  ['GEORGIA', 43.4, 42.2, 20, 1], ['AZERBAIJAN', 48.0, 41.0, 18, 1], ['RUSSIA', 44.0, 46.6, 32, 0], ['UKRAINE', 33.2, 48.5, 28, 0], ['BULGARIA', 25.5, 42.6, 18, 1], ['ROMANIA', 25.0, 46.1, 26, 1], ['SERBIA', 20.9, 43.8, 16, 1], ['MOLDOVA', 28.6, 47.6, 13, 1],
+  ['GEORGIA', 43.4, 42.2, 20, 1], ['AZERBAIJAN', 48.0, 41.0, 18, 1], ['RUSSIA', 44.0, 46.6, 32, 0], ['UKRAINE', 32.5, 47.0, 28, 0], ['BULGARIA', 25.5, 42.6, 18, 1],
   ['ZAMBIA', 27.5, -13.0, 26, 0], ['IRAQ', 43.5, 33.6, 28, 1], ['EGYPT', 28.6, 24.2, 34, 1], ['JORDAN', 36.9, 31.0, 16, 1]];
 const REGIONS = [  /* classical names: Latin, Arabic, lon, lat, rotate */
   ['al-Ḥijāz', 'الحجاز', 39.0, 26.6, 0], ['al-Shām', 'الشام', 40.2, 34.7, 0], ['al-ʿIrāq', 'العراق', 45.4, 31.6, 0], ['Miṣr', 'مصر', 30.4, 27.4, 0],
   ['Khurāsān', 'خراسان', 64.2, 36.7, 0], ['Mā warāʾ al-Nahr', 'ما وراء النهر', 64.4, 41.5, -6], ['al-Yaman', 'اليمن', 45.2, 16.9, 0], ['Fāris', 'فارس', 52.8, 29.3, 0],
   ['Bilād al-Rūm', 'بلاد الروم', 31.5, 37.8, 0], ['Ifrīqiya', 'إفريقية', 10.4, 35.0, 0], ['al-Ḥabasha', 'الحبشة', 38.2, 7.4, 0], ['al-Nūba', 'النوبة', 31.4, 19.6, 0],
-  ['al-Sind', 'السند', 68.4, 26.6, 0], ['Sijistān', 'سجستان', 62.4, 30.6, 0], ['Arrān', 'أران', 46.9, 39.7, 0], ['Barqa', 'برقة', 22.2, 31.0, 0], ['al-Jibāl', 'الجبال', 48.6, 34.6, 0], ['Rūm-ėli', 'روم ايلى', 21.0, 42.0, 0]];
+  ['al-Sind', 'السند', 68.4, 26.6, 0], ['Sijistān', 'سجستان', 62.4, 30.6, 0], ['Arrān', 'أران', 46.9, 39.7, 0], ['Barqa', 'برقة', 22.2, 31.0, 0], ['al-Jibāl', 'الجبال', 48.6, 34.6, 0]];
 const SEAS = [  /* name, classical, lon, lat, size, rotate */
   ['MEDITERRANEAN SEA', 'Baḥr al-Rūm', 19.5, 34.3, 44, 0], ['BLACK SEA', 'Baḥr al-Aswad', 34.0, 43.4, 34, 0], ['RED SEA', 'Baḥr al-Qulzum', 37.9, 21.4, 28, 58],
   ['PERSIAN GULF', 'Baḥr Fāris', 51.6, 27.0, 24, 32], ['ARABIAN SEA', '', 63.0, 16.0, 46, 0], ['CASPIAN SEA', '', 50.8, 42.0, 26, 72], ['GULF OF ADEN', '', 48.6, 12.4, 22, 14],
@@ -70,7 +72,7 @@ const PLACES = [  /* name, lon, lat, kind: cap = capital, holy, quds, city; dx s
   ['Islamabad', 73.05, 33.68, 'cap'], ['Karāchī', 67.0, 24.86, 'city'], ['Lahore', 74.35, 31.55, 'city'], ['al-Kharṭūm', 32.53, 15.5, 'cap'], ['Addis Ababa', 38.75, 9.03, 'cap'],
   ['Nairobi', 36.82, -1.29, 'cap'], ['Kampala', 32.58, 0.35, 'cap'], ['Dodoma', 35.74, -6.17, 'cap'], ['Dar es Salaam', 39.28, -6.8, 'city'], ['Muqdisho', 45.34, 2.05, 'cap'],
   ['Ṣanʿāʾ', 44.2, 15.35, 'cap'], ['Masqaṭ', 58.4, 23.6, 'cap'], ['al-Riyāḍ', 46.72, 24.69, 'cap'], ['Ṭarābulus', 13.19, 32.89, 'cap'], ['Tūnis', 10.18, 36.8, 'cap'],
-  ['Athens', 23.73, 37.98, 'cap'], ['Sofia', 23.32, 42.70, 'cap', '', 'L'], ['Bucureşti', 26.10, 44.43, 'cap'], ['Beograd', 20.46, 44.82, 'cap'], ['Sarajevo', 18.41, 43.86, 'cap', '', 'L'], ['Chişinău', 28.86, 47.01, 'cap'], ['Baku', 49.87, 40.41, 'cap'], ['Tbilisi', 44.79, 41.72, 'cap', '', 'L'], ['Yerevan', 44.51, 40.18, 'cap', '', 'L'], ['Ashgabat', 58.38, 37.95, 'cap'],
+  ['Athens', 23.73, 37.98, 'cap'], ['Baku', 49.87, 40.41, 'cap'], ['Tbilisi', 44.79, 41.72, 'cap', '', 'L'], ['Yerevan', 44.51, 40.18, 'cap', '', 'L'], ['Ashgabat', 58.38, 37.95, 'cap'],
   ['Dushanbe', 68.77, 38.56, 'cap'], ['Tashkent', 69.24, 41.31, 'cap'], ['Harāt', 62.2, 34.35, 'city'], ['Iṣfahān', 51.67, 32.65, 'city'], ['Bayrūt', 35.5, 33.89, 'cap', '', 'L'],
   ['ʿAmmān', 35.93, 31.95, 'cap'], ['al-Kuwayt', 47.98, 29.37, 'cap'], ['Abū Ẓabī', 54.37, 24.45, 'cap', '', 'L'], ['al-Dawḥa', 51.53, 25.29, 'cap', '', 'L'], ['Asmara', 38.93, 15.32, 'cap'],
   ['Juba', 31.58, 4.85, 'cap'], ['Kigali', 30.06, -1.94, 'cap', '', 'L'], ['Gitega', 29.93, -3.43, 'cap', '', 'L'], ['Jibūtī', 43.15, 11.59, 'cap'], ['Hargeisa', 44.06, 9.56, 'city'],
@@ -120,7 +122,7 @@ const bar = (len, unit, perKm, y) => { const w = len*perKm*pxKm, n = 4; let s = 
   return s; };
 
 const fonts = fs.readFileSync(path.join(ROOT, 'test-fonts.css'), 'utf8').replace(/url\('node_modules/g, `url('file://${ROOT}/node_modules`);
-const LW = 1020, LH = 760, LX = [FX + FW - LW - 50, xy(0, 9.5)[1]];   /* legend box, in the Arabian Sea / Indian Ocean */
+const LW = 1020, LH = 830, LX = [FX + FW - LW - 50, xy(0, 9.5)[1]];   /* legend box, in the Arabian Sea / Indian Ocean */
 const html = `<!doctype html><html><head><meta charset="utf-8"><style>${fonts}
 body{margin:0;background:#efe5cc}
 svg text{font-family:'Alegreya',serif;font-variant-ligatures:none}
@@ -153,6 +155,7 @@ svg text{font-family:'Alegreya',serif;font-variant-ligatures:none}
  <clipPath id="frame"><rect x="${FX}" y="${FY}" width="${FW}" height="${FH}"/></clipPath>
  <clipPath id="landc"><path d="${P(land)}"/></clipPath>
  <clipPath id="v2c"><path d="${P(V2)}"/></clipPath>
+ <mask id="gtm"><rect x="0" y="0" width="${W}" height="${H}" fill="#fff"/><path d="${P(V2)}" fill="none" stroke="#000" stroke-width="22" stroke-linejoin="round"/></mask>
  <mask id="outside"><rect x="0" y="0" width="${W}" height="${H}" fill="#fff"/><path d="${P(V2)}" fill="#000"/></mask>
 </defs>
 <rect width="${W}" height="${H}" class="paper"/>
@@ -174,6 +177,9 @@ svg text{font-family:'Alegreya',serif;font-variant-ligatures:none}
  <g clip-path="url(#v2c)"><path d="${P(V2)}" fill="none" stroke="#c2262f" stroke-opacity=".32" stroke-width="56" stroke-linejoin="round"/></g>
  <path d="${P(V2)}" fill="none" stroke="#fbf6e6" stroke-width="9" stroke-linejoin="round" stroke-opacity=".9"/>
  <path d="${P(V2)}" fill="none" stroke="#9c1a22" stroke-width="5" stroke-linejoin="round"/>
+ <g mask="url(#gtm)"><path d="${P(GTR)}" fill="none" stroke="#fbf6e6" stroke-width="9" stroke-opacity=".8" stroke-linejoin="round"/><path d="${P(GTR)}" fill="none" stroke="#7d1240" stroke-width="5" stroke-dasharray="1 11" stroke-linecap="round" stroke-linejoin="round"/></g>
+ <text x="${xy(38.4, 38.45)[0]}" y="${xy(38.4, 38.45)[1]}" text-anchor="middle" class="rg" style="font-size:30px;fill:#7d1240">Greater Turkey</text>
+ <text x="${xy(38.4, 38.45)[0]}" y="${xy(38.4, 38.45)[1] + 30}" text-anchor="middle" class="lg" style="font-size:20px;font-style:italic;fill:#7d1240">Misak-ı Millî · the author’s maps</text>
  ${lbl.join('\n ')}
  <g transform="translate(${LX[0]},${LX[1]})">
   <rect width="${LW}" height="${LH}" fill="#fbf6e6" fill-opacity=".95" stroke="#2b2620" stroke-width="2.5"/>
@@ -188,6 +194,7 @@ svg text{font-family:'Alegreya',serif;font-variant-ligatures:none}
    <rect x="38.5" y="257.5" width="13" height="13" class="cap"/><circle cx="45" cy="264" r="2.6" fill="#fff"/><text x="115" y="274" class="lg">National capital (today)</text>
    <circle cx="45" cy="318" r="5.5" class="city"/><text x="115" y="328" class="lg">Other city</text>
    <text x="45" y="388" text-anchor="middle" class="rg" style="font-size:34px">Miṣr</text><text x="115" y="384" class="lg">Classical region name (red italic, with its Arabic)</text>
+   <line x1="0" y1="438" x2="90" y2="438" stroke="#7d1240" stroke-width="5" stroke-dasharray="1 11" stroke-linecap="round"/><text x="115" y="447" class="lg">Greater Turkey, as the author’s maps draw it</text>
   </g>
   <g transform="translate(60,${LH - 150})">${bar(1000, 'km', 1, 0)}</g>
   <g transform="translate(60,${LH - 82})">${bar(600, 'miles', 1.609344, 0)}</g>

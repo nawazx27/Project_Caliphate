@@ -120,6 +120,7 @@ function buildOverlay(){
   addLabel('caliph', [['One outline around every best land'],['a thought experiment · my synthesis','sub']], [31.2,32.75], {cls:'caliphlbl', minK:0, subK:0, pri:3, color:'--ink'});
   addLabel('caliphxe', [['ʿIrāq al-ʿAjam'],['the old Jibāl','sub']], [50.2,34.15], {cls:'caliphlbl x', minK:0.9, subK:1.3, pri:4, color:'--xcal'});
   addLabel('caliphxe', [['Khūzistān'],['al-Ahwāz','sub']], [49.2,31.55], {cls:'caliphlbl x', minK:1.1, subK:1.6, pri:4, color:'--xcal'});
+  addLabel('gtr', [['Greater Turkey'],['Misak-ı Millî · the author’s maps','sub']], [38.6,38.35], {cls:'caliphlbl gtr', minK:0.9, subK:1.3, pri:4, color:'--gtr'});
   /* the country name, your choice: drawn behind every other label and never pushed aside by them */
   addLabel('caliphx', [['DĀR AL-AMĀN'],['دار الأمان','arl dar','1.3em']], DAR_AT, {cls:'darlbl', back:true, free:true, minK:0, maxK:2.6, subK:0, pri:-9});
   addLabel('caliphgl', [['V7'],['the core caliphate, extended · the author’s specification','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
@@ -233,7 +234,7 @@ function applyLayers(){
   const natMode = inNat();   /* the natural-borders version: its line, chokepoints and passes always go with it, and the internal lines until you switch them off */
   if((layerOn.natb || layerOn.intl || natMode) && !NAT_BUILT) buildNat();
   layerOn.caliphnat = natMode; layerOn.caliphnp = !!layerOn.caliphx && XV === 'natp'; layerOn.caliphnatx = natMode; layerOn.natbAny = !!layerOn.natb || natMode; layerOn.intlAny = natMode ? !INTL_OFF : !!layerOn.intl;
-  layerOn.caliphxe = !!layerOn.caliphx && XV !== 'west'; layerOn.caliphxw = !!layerOn.caliphx && XV === 'west'; layerOn.caliphg = false; layerOn.caliphxc = !!layerOn.caliphx && (XV === 'full' || XV === 'fulln'); layerOn.caliphgl = !!layerOn.caliphx && XV === 'gme'; layerOn.caliphv2 = !!layerOn.caliphx && XV === 'v2'; layerOn.caliphv3 = !!layerOn.caliphx && XV === 'v3'; layerOn.caliphxArwad = !!layerOn.caliphx && !['full','fulln','nat','natp'].includes(XV); layerOn.caliphv2h = false;
+  layerOn.caliphxe = !!layerOn.caliphx && XV !== 'west'; layerOn.caliphxw = !!layerOn.caliphx && XV === 'west'; layerOn.caliphg = false; layerOn.caliphxc = !!layerOn.caliphx && (XV === 'full' || XV === 'fulln'); layerOn.gtr = layerOn.caliphxc; layerOn.caliphgl = !!layerOn.caliphx && XV === 'gme'; layerOn.caliphv2 = !!layerOn.caliphx && XV === 'v2'; layerOn.caliphv3 = !!layerOn.caliphx && XV === 'v3'; layerOn.caliphxArwad = !!layerOn.caliphx && !['full','fulln','nat','natp'].includes(XV); layerOn.caliphv2h = false;
   /* natural borders: the Libya variant goes with Complete V2, the far-east line with the Greater Caliphate */
   layerOn.natbMain = layerOn.natbAny;
   document.querySelectorAll('[data-lyt]').forEach(b=>b.setAttribute('aria-pressed', b.dataset.lyt === 'natb' ? layerOn.natbAny : b.dataset.lyt === 'intl' ? layerOn.intlAny : !!layerOn[b.dataset.lyt]));
@@ -370,9 +371,9 @@ function setArrow(A, mx, my, tx, ty, r0, r1){
   A.text.attr('x', x1+ux*8+(right?2:-2)).attr('y', y1+uy*8+4).attr('text-anchor', right?'start':'end');
 }
 /* the Greater Caliphate seen whole is about the territory: the discs, cities and classical names wait until the reader zooms in */
-const QUIET_LBL = new Set(['base','caliph','caliphx','caliphgl','caliphv2','caliphv3','caliphnat','caliphnp','caliphnatx','caliphxe','caliphxc','caliphxw','natb','natbAny','natbMain','intl','intlAny']), QUIET_PTS = new Set(['haram','aqsa','caliphx','caliphxArwad','natb','natbAny']);
+const QUIET_LBL = new Set(['base','caliph','caliphx','caliphgl','caliphv2','caliphv3','caliphnat','caliphnp','caliphnatx','caliphxe','caliphxc','caliphxw','gtr','natb','natbAny','natbMain','intl','intlAny']), QUIET_PTS = new Set(['haram','aqsa','caliphx','caliphxArwad','natb','natbAny']);
 /* "Clean map": no numbered discs (with their leader lines and names), no dots, diamonds, stars or other point markers, no names of places, no qibla arrows, and none of the outline's own captions. Only the map, the outline and the names of regions, countries and seas stay. */
-const CLEAN_LBL = new Set(['caliph','caliphx','caliphgl','caliphv2','caliphv3','caliphnat','caliphnp','caliphnatx','caliphxe','caliphxc','caliphxw','natb','natbAny','natbMain','intl','intlAny']);
+const CLEAN_LBL = new Set(['caliph','caliphx','caliphgl','caliphv2','caliphv3','caliphnat','caliphnp','caliphnatx','caliphxe','caliphxc','caliphxw','gtr','natb','natbAny','natbMain','intl','intlAny']);
 function render(){
   const k = T.k;
   const clean = CLEAN && !!layerOn.caliphx;
