@@ -14,7 +14,7 @@ Only kind == 'new' (people of the same country on both sides) is used; settlemen
 listed in the report but not changed.
 Run: python3 tools/split_settlements.py <scratch dir>"""
 import json, sys, os
-from shapely.geometry import shape, mapping
+from shapely.geometry import shape, mapping, Polygon
 from shapely.ops import unary_union
 D = sys.argv[1]
 F = json.load(open(os.path.join(D, 'scan2_final.json')))
@@ -25,7 +25,11 @@ for cell, ss in F.items():
         if s['kind'] != 'new' or not s.get('fout'): continue
         n = N.get((s['v'], s['lon'], s['lat']), {})
         m = (n.get('main') or [{}])[0]
-        g = shape(s['fout']).buffer(0.0006).simplify(0.0002)   # ~60 m margin so rounding to 0.001 deg cannot cut it again
+        # the whole settlement as one solid shape: its outline with the gaps between houses closed (~300 m) and holes filled,
+        # plus a ~60 m margin round its outer part so rounding to 0.001 deg cannot cut it again
+        whole = shape(s['fp']).union(shape(s['fout']).buffer(0.0006)).buffer(0.003).buffer(-0.0025)
+        whole = unary_union([Polygon(q.exterior) for q in getattr(whole, 'geoms', [whole])])
+        g = whole.simplify(0.0002)
         feats.append({'type': 'Feature', 'geometry': mapping(g), 'properties': {
             'v': s['v'], 'lon': s['lon'], 'lat': s['lat'], 'people_in': round(s['in']), 'people_out': round(s['out']),
             'country': sorted(set(s['cin']) | set(s['cout'])), 'name': m.get('en') or m.get('name'), 'name_local': m.get('name'),

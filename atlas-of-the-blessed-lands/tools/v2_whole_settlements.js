@@ -25,6 +25,7 @@ for (const k of ['x', 'xn']) {
       try { X = R3mp(pc.union(X, [poly])); n++; } catch (e) { fail++; }
     }
   }
+  X = X.map(p => [p[0], ...p.slice(1).filter(r => ringSr(r)*KM >= 5000)]);   // small holes left between added pieces are filled, as in the other tools
   V.polys = X; V.km2 = area(X);
   // rows of the partly included countries: share now inside
   for (const s of V.states) {
