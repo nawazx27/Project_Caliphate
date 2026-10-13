@@ -29,7 +29,7 @@ for (const k of ['x', 'xn']) {
   V.polys = X; V.km2 = area(X);
   // rows of the partly included countries: share now inside
   for (const s of V.states) {
-    const m = /^(\d{3})_[A-Z]$/.exec(s.id); if (!m || !['860','417','398','156','356'].includes(m[1])) continue;
+    const m = /^(\d{3})_[A-Z]$/.exec(s.id); if (!m || !['860','417','398','156','356','191','688','705','642','380'].includes(m[1])) continue;
     try { const cg = country(m[1]); const inside = area(R3mp(pc.intersection(cg, X))); s.km2 = inside; s.pct = Math.round(1000*inside/area(cg))/10; } catch (e) {}
   }
   console.log(k, before, '->', V.km2, '(+', V.km2 - before, ') pieces added', n, 'failed', fail);

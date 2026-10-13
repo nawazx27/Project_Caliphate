@@ -9,7 +9,7 @@ CN = {'UZ':'Uzbekistan','KG':'Kyrgyzstan','KZ':'Kazakhstan','CN':'China','IN':'I
       'SS':'South Sudan','SD':'Sudan','TD':'Chad','CF':'Central African Republic','LY':'Libya','DZ':'Algeria','TN':'Tunisia','NE':'Niger',
       'EG':'Egypt','ET':'Ethiopia','ER':'Eritrea','DJ':'Djibouti','SO':'Somalia','GR':'Greece','BG':'Bulgaria','MK':'North Macedonia',
       'AL':'Albania','TR':'Türkiye','GE':'Georgia','RU':'Russia','AM':'Armenia','AZ':'Azerbaijan','IR':'Iran','AF':'Afghanistan','IQ':'Iraq',
-      'SY':'Syria','IL':'Israel','JO':'Jordan','LB':'Lebanon','SA':'Saudi Arabia','YE':'Yemen','OM':'Oman','AE':'United Arab Emirates','?':'(no country)'}
+      'SY':'Syria','IL':'Israel','JO':'Jordan','LB':'Lebanon','SA':'Saudi Arabia','YE':'Yemen','OM':'Oman','AE':'United Arab Emirates','?':'(no country)','RS':'Serbia','HR':'Croatia','SI':'Slovenia','IT':'Italy','RO':'Romania','BA':'Bosnia and Herzegovina','ME':'Montenegro','XK':'Kosovo','HU':'Hungary','UA':'Ukraine','MD':'Moldova'}
 def nm(s):
     m = (s.get('main') or [{}])[0]
     n = m.get('en') or m.get('name') or 'unnamed settlement'
@@ -24,7 +24,7 @@ def hoods(s, side):
     seen = []; [seen.append(x) for x in names if x not in seen]
     return ', '.join(seen[:25]) + (' …' if len(seen) > 25 else '')
 L = []
-L.append('# Settlements on the line: V2 and V2N (Version 106)\n')
+L.append('# Settlements on the line: V2 and V2N (Versions 106–107)\n')
 L.append('Settlements (cities, towns, villages, hamlets, neighbourhoods; rural and urban) that the edge of V2 or V2N cuts in two, with the people on each side.\n')
 L.append('**How it was found (my method):** population from Meta\'s High Resolution Settlement Layer (people per ~30 m cell, census-based, about 2015–2020); '
          'inhabited cells less than about 90 m apart are counted as one settlement. V2 is taken as meant: every country listed whole is in to its real borders '

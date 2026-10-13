@@ -1,5 +1,4 @@
-# Version 106: the settlement scan (Meta HRSL population + Overture country areas). Run in a scan folder holding v2.json, members.json, ov_country.parquet; see notes.md Version 106.
-# Settlements split by V2 / V2N as V2 is MEANT: whole member countries in (to their real borders and coasts), non-member countries out,
+# Version 107: the settlement scan, with the Balkan countries that are only partly inside judged against the OpenStreetMap outline (balkan_north.geojson) plus the towns taken in. See notes.md Versions 106-107.
 # and in the partly included countries (Uzbekistan, Kyrgyzstan, Kazakhstan, China; India in V2N) the drawn line decides.
 # Population: Meta High Resolution Settlement Layer (~30 m). Real borders: Overture Maps country areas (from OpenStreetMap).
 import json, sys, os, time, numpy as np, shapely, pyarrow.parquet as pq
@@ -24,6 +23,18 @@ for c,land,wkb in zip(t.column('country').to_pylist(),t.column('is_land').to_pyl
     g=shapely.from_wkb(wkb)
     for p in getattr(g,'geoms',[g]): parts.append(p); pcc.append(c)
 TC=STRtree(parts)
+# Balkan countries only partly inside (Version 107): their homes count as inside unless they lie in the part north of the
+# Sava-Danube-Kupa line (or, for Italy, outside the Trieste piece), from the OpenStreetMap outline itself
+BN=json.load(open('balkan_north.geojson'))['features'] if os.path.exists('balkan_north.geojson') else []
+BNC={f['properties']['cc'] for f in BN}
+BNG=[g for f in BN for g in getattr(shape(f['geometry']),'geoms',[shape(f['geometry'])])]
+TBN=STRtree(BNG) if BNG else None
+import glob
+ADDG={'x':[],'xn':[]}
+for fn in sorted(glob.glob('/home/user/Project_Caliphate/atlas-of-the-blessed-lands/tools/data/balkan_settlements*.geojson')):
+    for f in json.load(open(fn))['features']:
+        g=shape(f['geometry']); ADDG[f['properties']['v']].extend(getattr(g,'geoms',[g]))
+ADDT={k:STRtree(v) for k,v in ADDG.items() if v}
 M=0.04; DIL=3
 def ras(geoms,bounds,tr,shp):
     b=box(*bounds); gs=[]
@@ -58,6 +69,12 @@ def do(cell, margin=M):
         m_n=ras([parts[i] for i in idx if pcc[i] not in whole and pcc[i] not in part],wb,tr,shp)
         vin=ras([GE[k][i] for i in TV[k].query(b)],wb,tr,shp)
         intended=np.where(m_w&~m_n&~m_p,True,np.where(m_n&~m_w&~m_p,False,vin))
+        if TBN is not None:
+            m_pb=ras([parts[i] for i in idx if pcc[i] in BNC],wb,tr,shp)
+            if m_pb.any():
+                north=ras([BNG[i] for i in TBN.query(b)],wb,tr,shp)
+                added=ras([ADDG[k][i] for i in ADDT[k].query(b)],wb,tr,shp) if ADDG[k] else np.zeros(shp,bool)
+                intended=np.where(m_pb&~m_w,(~north)|added,intended)   # towns taken in whole on the Balkan line count too
         valid=m_w|m_n|m_p
         flags[k]=(intended,valid,m_p)
     cc_list=sorted(set(pcc[i] for i in idx))
