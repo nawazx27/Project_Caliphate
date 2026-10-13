@@ -2,7 +2,7 @@
    Adds the pieces of tools/data/central_asia_frontiers.geojson (made by tools/ca_frontiers.py) to each version, piece by piece:
    V2N's frontiers (for V2 and V2-B), the land between the Amu Darya, the Aral and the Syr Darya, and Kazakhstan's land to the Chu.
    Then V2 and V2-B take V2N's names for the rows it had, and the rows of the partly included countries are recounted.
-   Run: node tools/v2_ca_frontiers.js */
+   Run: node tools/v2_ca_frontiers.js   (with "rows" to only recount the rows after the whole-town passes) */
 const fs = require('fs'), path = require('path');
 const ROOT = path.join(__dirname, '..');
 const topojson = require(path.join(ROOT, 'node_modules/topojson-client'));
@@ -23,15 +23,19 @@ const NAMES = {
   '398_K': 'Kazakhstan: the Turkistan region, to the Karatau range and the Moyynkum and Kyzylkum sands; the south bank of the Syr Darya to the Aral Sea (Qyzylorda region); and the Zhambyl region south of the Chu (Taraz)',
 };
 const N = Object.fromEntries(C.xn.states.map(s => [s.id, s]));
+const rowsOnly = process.argv[2] === 'rows';
 for (const k of ['x', 'xb', 'xn']) {
   const V = C[k], before = V.km2;
   let X = R3mp(V.polys), n = 0, fail = 0;
-  for (const f of ADD) {
+  if (!rowsOnly) for (const f of ADD) {
     if (k === 'xn' && f.properties.role === 'v2n') continue;
     for (const poly of R3mp(asMp(f.geometry))) { try { X = R3mp(pc.union(X, [poly])); n++; } catch (e) { fail++; } }
   }
-  X = X.map(p => [p[0], ...p.slice(1).filter(r => ringSr(r)*KM >= 5000)]);
-  V.polys = X; V.km2 = area(X);
+  if (!rowsOnly) { X = X.map(p => [p[0], ...p.slice(1).filter(r => ringSr(r)*KM >= 5000)]); V.polys = X; V.km2 = area(X); }
+  // Baikonur (Kazakh land leased to Russia): the town and the lease south of the Syr Darya, inside since the river line
+  { const kab = country('KAB'); let inside = 0; try { inside = area(R3mp(pc.intersection(kab, X))); } catch (e) {}
+    V.states = V.states.filter(s => s.id !== 'KAB_S');
+    if (inside > 0) V.states.push({id: 'KAB_S', n: 'Baikonur (Kazakh land leased to Russia): the town and the lease south of the Syr Darya', km2: inside, pct: Math.round(1000*inside/area(kab))/10}); }
   for (const id of ['417_K', '398_K', '156_K', '356_P', '860_K']) {
     let s = V.states.find(s => s.id === id);
     if (!s) { s = {...N[id]}; V.states.push(s); }
