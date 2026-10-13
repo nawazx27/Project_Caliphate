@@ -967,12 +967,13 @@ a:hover{text-decoration-color:var(--gold)}
 /* ---------- second finishing pass (2026-10-07): lapis sea and a gilt outline ----------
    The outline of the caliphate turns from olive to the gold of the title cartouche, the sea deepens toward lapis,
    and the land inside the outline is washed a little more warmly, so the territory reads at a glance. */
-:root{--xcal:#8A6815; --sea:#AFCBD4; --glow:#CCE1E7; --land:#EEE8D7; --xwash:.09; --xband:.34}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--xcal:#E2BC5C; --sea:#09192A; --glow:#10304A; --land:#222927; --xwash:.12; --xband:.38}}
-:root[data-theme="dark"]{--xcal:#E2BC5C; --sea:#09192A; --glow:#10304A; --land:#222927; --xwash:.12; --xband:.38}
+:root{--xcal:#8A6815; --xline:#7A5A0C; --sea:#AFCBD4; --glow:#CCE1E7; --land:#EEE8D7; --xwash:.10; --xband:.30}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--xcal:#E2BC5C; --xline:#EAC872; --sea:#09192A; --glow:#10304A; --land:#222927; --xwash:.13; --xband:.34}}
+:root[data-theme="dark"]{--xcal:#E2BC5C; --xline:#EAC872; --sea:#09192A; --glow:#10304A; --land:#222927; --xwash:.13; --xband:.34}
 .caliphx-wash{fill:var(--xcal);fill-opacity:var(--xwash)}
 .caliphx-band{stroke-opacity:var(--xband)}
-.caliphx-line{stroke-width:2px}
+.caliphx-line{stroke-width:2.6px;stroke-dasharray:none;stroke:var(--xline)}   /* Version 122: a solid, slightly bolder line in a deeper gold (cleaner than the dash-dot, and quicker to paint) */
+.caliphx-band{stroke-width:15px}   /* a wider, softer band of colour just inside the line */
 /* the outline switch: gold on the chosen version */
 .xtoggle{border-color:var(--gilt)}
 .xtoggle button[aria-pressed="true"]{background:var(--xcal);color:var(--surface);box-shadow:0 1px 0 color-mix(in srgb,var(--ink) 18%,transparent)}
