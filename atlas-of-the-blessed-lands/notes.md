@@ -726,3 +726,7 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - V4 (16.49 million km²) is now smaller than V2 (18.13) and V3 (18.16); the numbers stay as they are (as decided for V2 and V3 in Version 77); told Nawaz, renumbering offered.
 - Texts: V4's note, the versions paragraph, the V4 button title, the search entry.
 - Tests: smoke test and all versions at desktop and iPhone size, no errors; V4 overview. Posters not redrawn.
+
+## Version 113 (2026-10-13): text fix: the Black Sea coast clause was in V5's note
+- Nawaz asked: "Does the v2 include greater caucasus?" Checking it showed that Version 109 had put "Russia's Black Sea coast on the southern side of the Caucasus crest" into CX_CORE3 (V5's description, next to its Derbent clause) instead of CX_CORE (V2, V2-B, V2N). Moved (src/eng_e.js). Data unchanged.
+- Answer given (checked against V2's outline): V2 holds the Greater Caucasus only up to its crest: the whole southern slope (Georgia's and Azerbaijan's mountains, with their land beyond the crest such as Kazbegi and Quba, and since Version 109 Russia's Black Sea side from Anapa to Sochi). The northern slope in Russia (Karachay-Cherkessia, Kabardino-Balkaria with Elbrus, North Ossetia, Ingushetia, Chechnya, Dagestan with Derbent and Makhachkala, Adygea) is outside; border peaks on the crest (Shkhara, Tebulosmta, Bazardüzü) sit on the line. V5–V7 hold Derbent, the Samur valley and the Dagestan coast. Offered: the whole range.
