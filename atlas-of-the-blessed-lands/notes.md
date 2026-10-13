@@ -719,3 +719,10 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - tools/v1_horn.js now also adds Djibouti (262), whole, to V1 and V4 (+21,944 km² each): V1 14,818,466 km² (30 rows), V4 19,486,274 (37 rows). The whole Horn of Africa is inside both.
 - Texts: V1's and V4's notes, the versions paragraph, the V1 button title, the search entries.
 - Tests: smoke test and all versions at desktop and iPhone size, no errors; close-up of Djibouti in V1. Posters not redrawn.
+
+## Version 112 (2026-10-13): Morocco, Western Sahara and Algeria out of V4
+- Nawaz: "Remove Western Sahara, Morocco and Algeria from v4".
+- tools/v4_no_maghrib_west.js: Morocco (504, which in the base map includes the part of Western Sahara Morocco holds), the rest of Western Sahara (732) and Algeria (012) taken out of V4 (CALIPH.me2); rows 504, 504_W, 732, 012 removed. V4 19,486,274 → 16,491,458 km² (33 rows); nothing of the three left inside; Tunisia, Libya and Sudan untouched. V4 is now V1 with Tunisia, Afghanistan and Pakistan.
+- V4 (16.49 million km²) is now smaller than V2 (18.13) and V3 (18.16); the numbers stay as they are (as decided for V2 and V3 in Version 77); told Nawaz, renumbering offered.
+- Texts: V4's note, the versions paragraph, the V4 button title, the search entry.
+- Tests: smoke test and all versions at desktop and iPhone size, no errors; V4 overview. Posters not redrawn.
