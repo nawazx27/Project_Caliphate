@@ -18,6 +18,7 @@ const R3mp = mp => mp.map(p => p.map(r => r.map(q => [R3(q[0]), R3(q[1])])));
 const asMp = g => g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
 const country = id => R3mp(asMp(topojson.feature(geo, geo.objects.countries.geometries.find(g => String(g.id) === id)).geometry));
 for (const k of ['x', 'xn', 'xb']) {
+  if (!C[k]) continue;   // V2N (xn) was merged into V2 in Version 118
   const V = C[k], before = V.km2;
   let X = R3mp(V.polys), n = 0, fail = 0;
   for (const f of ADD.features.filter(f => f.properties.v === k)) {

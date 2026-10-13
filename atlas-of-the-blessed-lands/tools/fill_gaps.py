@@ -16,7 +16,8 @@ geo = json.loads(subprocess.check_output(['node', '-e', "const fs=require('fs'),
 land = unary_union([shape(f['geometry']).buffer(0) for f in geo['features']])
 lakes = unary_union([shape(f['geometry']).buffer(0) for f in json.load(open(os.path.join(P, 'lakes.geojson')))['features']])
 C = json.load(open(os.path.join(P, 'src/caliph.json')))
-for k in (sys.argv[1].split(',') if len(sys.argv) > 1 else ['x', 'xb', 'xn']):
+for k in (sys.argv[1].split(',') if len(sys.argv) > 1 else ['x', 'xb']):
+    if k not in C: continue
     m = MultiPolygon([Polygon(p[0], p[1:]) for p in C[k]['polys']]).buffer(0)
     gap = m.buffer(R, quad_segs=4).buffer(-R, quad_segs=4).difference(m).intersection(land).difference(lakes)
     mb = m.buffer(0.005); fill, other = [], []

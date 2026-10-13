@@ -22,6 +22,7 @@ const RU = R3mp(asMp(topojson.feature(geo, geo.objects.countries.geometries.find
 const ruIn = (X, b) => { try { return area(pc.intersection(pc.intersection(RU, b), X)); } catch (e) { return null; } };
 const rowsOnly = process.argv[2] === 'rows';
 for (const k of ['x', 'xb', 'xn']) {
+  if (!C[k]) continue;   // V2N (xn) was merged into V2 in Version 118
   const V = C[k], before = V.km2;
   let X = R3mp(V.polys), fail = 0;
   if (!rowsOnly) {

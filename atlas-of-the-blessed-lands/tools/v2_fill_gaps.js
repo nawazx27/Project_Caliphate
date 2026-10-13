@@ -12,7 +12,8 @@ const area = mp => Math.round(mp.reduce((t, poly) => t + ringSr(poly[0]) - poly.
 const R3 = v => Math.round(v*1000)/1000;
 const R3mp = mp => mp.map(p => p.map(r => r.map(q => [R3(q[0]), R3(q[1])])));
 const asMp = g => g.type === 'Polygon' ? [g.coordinates] : g.coordinates.filter(Array.isArray);
-for (const k of (process.argv[2] || 'x,xb,xn').split(',')) {
+for (const k of (process.argv[2] || 'x,xb').split(',')) {
+  if (!C[k]) continue;
   const V = C[k], before = V.km2;
   const ADD = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', `gaps_${k}.geojson`))).features.filter(f => f.properties.fill);
   let X = R3mp(V.polys), n = 0, fail = 0;

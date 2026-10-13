@@ -24,9 +24,10 @@ const NAMES = {
   '156_K': 'China: the part of Greater Khurāsān as the author’s maps draw it (the widest of them), with the Tashkurgan pocket (Version 117, a gap filled)',
   '398_K': 'Kazakhstan: the Turkistan region, to the Karatau range and the Moyynkum and Kyzylkum sands; the south bank of the Syr Darya to the Aral Sea (Qyzylorda region); and the Zhambyl region south of the Chu (Taraz)',
 };
-const N = Object.fromEntries(C.xn.states.map(s => [s.id, s]));
+const N = Object.fromEntries((C.xn || C.x).states.map(s => [s.id, s]));   // xn (V2N) was merged into V2 in Version 118
 const rowsOnly = process.argv[2] === 'rows';
 for (const k of ['x', 'xb', 'xn']) {
+  if (!C[k]) continue;
   const V = C[k], before = V.km2;
   let X = R3mp(V.polys), n = 0, fail = 0;
   if (!rowsOnly) for (const f of ADD) {
