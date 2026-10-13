@@ -51,7 +51,7 @@ function addPoint(layer, ll, o){
   else g.append('circle').attr('class','dot').attr('r', o.r||3.2).style('fill', o.hollow? 'var(--halo)' : c).style('stroke', o.hollow? c : null);
   if(o.info) g.on('click', e=>{ e.stopPropagation(); select(o.info); }); else g.style('cursor','default');
   if(o.title) g.append('title').text(o.title);
-  const pt = {g, v:P(ll), layer, minK:o.minK||0, keep:!!o.keep, vis:false};
+  const pt = {g, v:P(ll), layer, minK:o.minK||0, keep:!!o.keep, vis:false, sym:o.sym||null};
   pts.push(pt);
   if(o.name){
     const right = o.anchor!=='l';
@@ -121,7 +121,8 @@ function buildOverlay(){
   addLabel('caliphxe', [['ʿIrāq al-ʿAjam'],['the old Jibāl','sub']], [50.2,34.15], {cls:'caliphlbl x', minK:0.9, subK:1.3, pri:4, color:'--xcal'});
   addLabel('caliphxe', [['Khūzistān'],['al-Ahwāz','sub']], [49.2,31.55], {cls:'caliphlbl x', minK:1.1, subK:1.6, pri:4, color:'--xcal'});
   /* the country name, your choice: drawn behind every other label and never pushed aside by them */
-  addLabel('caliphx', [['DĀR AL-AMĀN'],['دار الأمان','arl dar','1.3em']], DAR_AT, {cls:'darlbl', back:true, free:true, minK:0, maxK:2.6, subK:0, pri:-9});
+  { const dl = addLabel('caliphx', [['DĀR AL-AMĀN'],['دار الأمان','arl dar','1.3em']], DAR_AT, {cls:'darlbl', back:true, free:true, minK:0, maxK:2.6, subK:0, pri:-9});
+    if(dl) dl.alts = [DAR_AT, [44.5, 23.5], [31.5, 21.0], [45.5, 19.5], [33.0, 17.5], [47.0, 26.5], [29.0, 22.5], [30.0, 17.0], [30.5, 12.5], [31.0, 9.0]]; }   /* all over lands every version holds */
   addLabel('caliphgl', [['V7'],['the core caliphate, extended · the author’s specification','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
   addLabel('caliphgl', [['V7'],['the author’s specification · not from the sources','sub']], [66.0,46.6], {cls:'caliphlbl x big', minK:0.45, subK:0.45, pri:3, color:'--xcal'});
   addLabel('caliphgl', [['V7'],['the author’s specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0.7, subK:0.7, pri:4, color:'--xcal'});
@@ -437,19 +438,21 @@ function render(){
   const bc = [];
   sbs.forEach(b=>{ b.show = false; });
   const order0 = sbs.filter(b=>!quiet && !clean && layerOn[b.layer] && k >= b.minK && (TIER !== 'rev' || b.level === 'rev')).sort((a,b)=>a.pri-b.pri);
+  /* Version 121: zoomed far out the discs are drawn smaller (their offsets too), so they no longer cover the lands they mark */
+  const ds = k < 0.3 ? 0.62 : k < 0.9 ? 0.8 : 1;
   for(const b of order0){
-    const sx = T.applyX(b.v[0]), sy = T.applyY(b.v[1]), bx = sx + b.off[0], by = sy + b.off[1];
+    const sx = T.applyX(b.v[0]), sy = T.applyY(b.v[1]), bx = sx + b.off[0]*ds, by = sy + b.off[1]*ds, r = 15*ds;
     if(bx < 14 || bx > W-14 || by < 14 || by > H-14) continue;
-    const box = {x:bx-15, y:by-15, w:30, h:30};
+    const box = {x:bx-r, y:by-r, w:2*r, h:2*r};
     if(chromeHit(box)) continue;
-    if(bc.some(c=>Math.hypot(c.x-bx, c.y-by) < 31)) continue;
+    if(bc.some(c=>Math.hypot(c.x-bx, c.y-by) < 31*ds)) continue;
     bc.push({x:bx, y:by}); placed.push(box); b.show = true; b.pos = [sx,sy,bx,by];
   }
   sbs.forEach(b=>{
     b.g.style('display', b.show ? null : 'none');
     const far = b.show && b.far;
     b.lead.style('display', far ? null : 'none'); b.dot.style('display', far ? null : 'none');
-    if(b.show){ const [sx,sy,bx,by] = b.pos; b.g.attr('transform', `translate(${bx.toFixed(1)},${by.toFixed(1)})`);
+    if(b.show){ const [sx,sy,bx,by] = b.pos; b.g.attr('transform', `translate(${bx.toFixed(1)},${by.toFixed(1)})${ds < 1 ? ` scale(${ds})` : ''}`);
       if(far){ b.lead.attr('d', `M${sx.toFixed(1)},${sy.toFixed(1)}L${bx.toFixed(1)},${by.toFixed(1)}`); b.dot.attr('transform', `translate(${sx.toFixed(1)},${sy.toFixed(1)})`); } }
   });
   /* 1b. a short name beside each disc once there is room */
@@ -471,6 +474,9 @@ function render(){
     /* in a source-tier view the lettered limits are the evidence, so they show earlier and only for that tier */
     const mk = (TIER && p.badge) ? Math.min(p.minK, 0.55) : p.minK;
     let vis = (p.layer==='base' || layerOn[p.layer]) && k >= mk && !(TIER && p.tiers && !p.tiers.includes(TIER)) && (!quiet || QUIET_PTS.has(p.layer)) && !clean, x = 0, y = 0;
+    /* Version 121: zoomed far out (the whole region on a phone) the small site symbols (diamonds, triangles, squares, rings) wait for the
+       first zoom step, as their names already did; the numbered discs, the capital's star and the city dots stay */
+    if(vis && k < 0.25 && p.sym && p.sym !== 'capital' && p.sym !== 'badge') vis = false;
     if(vis){ x = T.applyX(p.v[0]); y = T.applyY(p.v[1]); if(!p.keep && bc.some(c=>Math.hypot(c.x-x, c.y-y) < 21)) vis = false; }
     if(vis && p.badge){ if(bdg.some(c=>Math.hypot(c[0]-x, c[1]-y) < 17)) vis = false; else bdg.push([x,y]); }
     p.vis = vis; p.g.style('display', vis ? null : 'none');
@@ -482,9 +488,21 @@ function render(){
   const shown = new Set();
   for(const l of order){
     const px = T.applyX(l.v[0]), py = T.applyY(l.v[1]) + l.dy;
-    if(l.free){   /* the country name: drawn where it is, behind the rest; labels placed after it keep clear of it */
-      const fb = k >= l.subK ? l.bbC.full : l.bbC.main; placed.push({x:px + l.dx + fb.x - 4, y:py + fb.y - 2, w:fb.w + 8, h:fb.h + 4});   /* smaller labels give way to it */
-      l.t.attr('transform', `translate(${(px + l.dx).toFixed(1)},${py.toFixed(1)})`); l.subs.forEach(s=>s.style('display', k >= l.subK ? null : 'none')); shown.add(l); continue; }
+    if(l.free){   /* the country name: drawn behind the rest; labels placed after it keep clear of it */
+      /* Version 121: it takes the first of a few nearby spots (over the Red Sea, central Arabia, the Nubian desert, Najd) that is clear
+         of the discs and markers already placed, so it no longer runs through them */
+      const fb = k >= l.subK ? l.bbC.full : l.bbC.main;
+      let fx = px + l.dx, fy = py;
+      /* the clear spot, or else the one that covers least of them */
+      const over = b => placed.reduce((t, p)=>t + Math.max(0, Math.min(b.x+b.w, p.x+p.w) - Math.max(b.x, p.x)) * Math.max(0, Math.min(b.y+b.h, p.y+p.h) - Math.max(b.y, p.y)), 0);
+      /* each spot is tried at full size and then a little smaller (as the discs are), before the next spot: the name stays over the lands */
+      let best = Infinity, fs = 1;
+      const boxAt = (x, y, sc) => ({x:x + (fb.x - 4)*sc, y:y + (fb.y - 2)*sc, w:(fb.w + 8)*sc, h:(fb.h + 4)*sc});
+      outer: for(const ll of (l.alts || [])){ const q = P(ll), x = T.applyX(q[0]) + l.dx, y = T.applyY(q[1]) + l.dy;
+        for(const sc of [1, 0.82, 0.68]){ const bx = boxAt(x, y, sc); if(!inView(bx)) continue;
+          const o = over(bx) / sc; if(o < best){ best = o; fx = x; fy = y; fs = sc; } if(o === 0) break outer; } }
+      placed.push(boxAt(fx, fy, fs));   /* smaller labels give way to it */
+      l.t.attr('transform', `translate(${fx.toFixed(1)},${fy.toFixed(1)})${fs < 1 ? ` scale(${fs})` : ''}`); l.subs.forEach(s=>s.style('display', k >= l.subK ? null : 'none')); shown.add(l); continue; }
     if(px < -300 || px > W+300 || py < -80 || py > H+80) continue;
     const withSub = l.subs.length && k >= l.subK;
     const cands = [];
