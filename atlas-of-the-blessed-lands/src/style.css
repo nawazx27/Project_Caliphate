@@ -88,6 +88,7 @@ h1 .ar{font-family:var(--font-ar);font-weight:400;font-size:.6em;color:var(--mut
 @media (max-width:760px){.mapwrap{height:min(76svh,720px);min-height:420px;margin-inline:-6px}}
 #map{display:block;width:100%;height:100%;cursor:grab;user-select:none;-webkit-user-select:none}
 #map:active{cursor:grabbing}
+.mapwrap.moving #mapmove,.mapwrap.moving .country,.mapwrap.moving .caliph-band,.mapwrap.moving .caliphx-band,.mapwrap.moving .route-hit{pointer-events:none!important}   /* Version 119: no hit testing while the map moves (the rest inherits it from #mapmove) */
 .land{fill:var(--land);stroke:var(--land-edge);stroke-width:.8;pointer-events:none}
 .coastglow{fill:none;stroke:var(--glow);stroke-linejoin:round;pointer-events:none}
 .coastglow.g1{stroke-width:4;stroke-opacity:.9}

@@ -342,7 +342,7 @@ function setXV(v){
   const lg = document.getElementById('legend');
   if(lg){ if(WIDEV(v) && XV !== v){ if(!WIDEV(XV)) keyWasOpen = lg.open; lg.open = false; } else if(!WIDEV(v) && WIDEV(XV) && keyWasOpen !== null){ lg.open = keyWasOpen; keyWasOpen = null; } }
   XV = v;
-  const dd = CX.d[XK()]; [CX.clip, CX.wash].forEach(el=>el && el.attr('d', dd));
+  CX.lk = CX.lk2(); const dd = CX.lod(XK(), cxLv()); [CX.clip, CX.wash].forEach(el=>el && el.attr('d', dd));
   /* band and line follow in render (clipped close in) */
   renderCX();
   const h2 = infoEl.querySelector('h2'); if(h2 && /^(V[1-6]$|Your (complete )?outline|The complete outline|Core caliphate|Greater Caliphate|Complete Caliphate|Complete V3, to Iraq|Natural borders|Natural \+ political)/.test(h2.textContent)) showInfo('caliphx');

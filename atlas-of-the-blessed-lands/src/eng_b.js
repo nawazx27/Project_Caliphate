@@ -182,6 +182,7 @@ const LAND_EPS = [3, 0.8, 0.3], LAND_LODC = [null, null, null, LAND_D];   /* Ver
     while(i < s.length){ x += num(); y += num(); out += (out ? 'L' : 'M') + (x/100).toFixed(2) + ',' + (y/100).toFixed(2); }
     return out + (s[0] === 'Z' ? 'Z' : ''); }).join('');
   if(pre.n === LAND_D.length){ LAND_LODC[0] = unpackD(pre.lod[0]); LAND_LODC[1] = unpackD(pre.lod[1]); } }
+const cxLv = () => T.k < 0.25 ? 0 : T.k < 0.6 ? 1 : T.k < 1.5 ? 2 : 3;   /* the level of detail for the zoom (the coastline's steps) */
 const landLOD = lv => LAND_LODC[lv] || (LAND_LODC[lv] = simplifyD(LAND_D, LAND_EPS[lv]));
 const whenIdle = f => (window.requestIdleCallback ? requestIdleCallback(f, {timeout:4000}) : setTimeout(f, 1500));
 let landLv = 3, VIEW_SET = false;   /* VIEW_SET: the opening view is in place, so the right coarse coastline can be chosen */
@@ -273,8 +274,18 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   gEdges.node().insertBefore(gx.node(), g.node());
   const xl = {}, src = {full:CALIPH.x, west:CALIPH.xw, gme:CALIPH.g, v2:CALIPH.v2};
   src.v3 = CALIPH.x3; src.me = CALIPH.me; src.me2 = CALIPH.me2; src.fullb = CALIPH.xb;
-  CLIPS.push({els:[CX.band], key:XK, full:()=>CX.d[XK()], lines:()=> xl[XK()] || (xl[XK()] = projLines(src[XK()].polys.flat()))});
-  CLIPS.push({els:[CX.line], key:()=>XK(), full:()=>CX.d[XK()], lines:()=> xl[XK()] || (xl[XK()] = projLines(src[XK()].polys.flat()))});
+  /* Version 119: while zoomed out the outline is drawn from a coarser copy, as the coastline is (same steps and tolerances, under a pixel
+     on screen); the outline has grown to about 46,000 points, and painting all of them at the whole-region view was most of a redraw */
+  CX.lodC = {};
+  /* a coarse copy is made in a quiet moment, not while the page opens or a version is switched: until it is ready the full outline is drawn,
+     and the next redraw picks the copy up */
+  CX.lod = (key, lv) => { if(lv >= 3) return CX.d[key]; const c = CX.lodC[key] || (CX.lodC[key] = []);
+    if(c[lv]) return c[lv];
+    if(!c['q'+lv]){ c['q'+lv] = 1; whenIdle(()=>{ c[lv] = simplifyD(CX.d[key], LAND_EPS[lv]); }); }
+    return CX.d[key]; };
+  CX.lk2 = () => { const k = XK(), lv = cxLv(); return k + '|' + lv + (lv >= 3 || (CX.lodC[k] && CX.lodC[k][lv]) ? '' : '*'); };   /* '*': the coarse copy is not ready yet */
+  CLIPS.push({els:[CX.band], key:CX.lk2, full:()=>CX.lod(XK(), cxLv()), lines:()=> xl[XK()] || (xl[XK()] = projLines(src[XK()].polys.flat()))});
+  CLIPS.push({els:[CX.line], key:CX.lk2, full:()=>CX.lod(XK(), cxLv()), lines:()=> xl[XK()] || (xl[XK()] = projLines(src[XK()].polys.flat()))});
   /* the Greater Caliphate is drawn by the same elements in the core's colour (see setXV), so it reads as one territory */
   /* a faint wash over the land inside your outline, under every other colour */
   const gw = layerG(gFill, 'caliphx'); gFill.node().insertBefore(gw.node(), gFill.node().firstChild);

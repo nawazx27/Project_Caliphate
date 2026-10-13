@@ -257,7 +257,11 @@ let R = d3.zoomIdentity, rafZ = 0, idleZ = 0, lastCommit = 0, lastZ = 0, dueZ = 
 const svgEl = document.getElementById('mapmove'), wrapSel = d3.select(wrapEl);   /* svgEl: the HTML wrapper that moves; moving the <svg> itself forces a full repaint */
 const CHROME_SEL = '.mapctl,.minilegend,.scale,.coords,.xtoggle,button,a,input,select,summary,label';
 const zfilter = e => (!e.ctrlKey || e.type === 'wheel') && !e.button && !(e.target && e.target.closest && e.target.closest(CHROME_SEL));
-const zoom = d3.zoom().scaleExtent([0.2, 3000]).filter(zfilter).on('zoom', e=>{ T = e.transform; lastZ = performance.now(); if(!rafZ) rafZ = requestAnimationFrame(frameZ); });
+/* Version 119: while the map moves, its shapes do not answer the pointer: the browser otherwise tests the finger or mouse against
+   every clickable shape (the countries' 120,000-point click areas, the outline) after each frame, about a quarter of the work */
+let MOVING = false;
+const setMoving = on => { if(on !== MOVING){ MOVING = on; wrapEl.classList.toggle('moving', on); } };
+const zoom = d3.zoom().scaleExtent([0.2, 3000]).filter(zfilter).on('zoom', e=>{ T = e.transform; lastZ = performance.now(); setMoving(true); if(!rafZ) rafZ = requestAnimationFrame(frameZ); });
 /* The map is redrawn when the gesture has really stopped. The timer only asks "has it been quiet for a moment?": a
    late timer (the page was busy drawing) must not fire in the middle of a gesture and start another slow redraw, so
    when it runs late, or the browser says input is waiting, it looks once more shortly. A mouse wheel sends a step
@@ -337,6 +341,7 @@ function update(light){ clearTimeout(idleZ); idleZ = 0; R = T; LIGHT = !!light; 
   /* time this redraw until it reaches the screen (two frames on), to learn how heavy it is on this device */
   if(!timing){ timing = true; requestAnimationFrame(()=>requestAnimationFrame(()=>{ timing = false; redrawMs = 0.6*redrawMs + 0.4*Math.min(2000, performance.now() - t0); })); }
   if(light) armIdle(IDLE_MS);   /* a light redraw is only for the gesture: the full one follows when it ends */
+  else setMoving(false);   /* back on with the full redraw (in the same style pass; a separate one later costs more) */
 }
 const sandPat = d3.select('#sand'), lavaPat = d3.select('#lava'), hSham = d3.select('#h-sham'), hHijaz = d3.select('#h-hijaz'), hFil = d3.select('#h-fil'), hMisr = d3.select('#h-misr'), hDisp = d3.select('#h-disp');
 const GSTEPS = [0.0001,0.0002,0.0005,0.001,0.002,0.005,0.01,0.02,0.05,0.1,0.2,0.5,1,2,5,10,20,30];
@@ -387,6 +392,7 @@ function render(){
      about as much as everything else on the map together; plain sampling there looks the same to the eye and costs a third as much */
   reliefImg.style('image-rendering', (k * RELIEF_W / RELIEF_PX >= 0.56 && k * RELIEF_W / RELIEF_PX < 1) ? 'pixelated' : null);
   if(VIEW_SET){ const lv = k < 0.25 ? 0 : k < 0.6 ? 1 : k < 1.5 ? 2 : 3; if(lv !== landLv){ landLv = lv; landMP.attr('d', landLOD(lv)); } }   /* coarser land outline while zoomed out */
+  if(CX.clip){ const key = CX.lk2(); if(key !== CX.lk){ CX.lk = key; const dd = CX.lod(XK(), cxLv()); CX.clip.attr('d', dd); CX.wash.attr('d', dd); } }   /* the outline's clip and wash follow its level of detail */
   gWL.style('display', k < 6 && !LIGHT ? null : 'none');   /* the simplified coast would drift from the real one close in */
   BORD.els[0].style('display', LIGHT ? 'none' : null);   /* the border halo goes too in a light redraw */
   /* borders and outlines: the whole line when far out, only the stretch near the view close in */
