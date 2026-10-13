@@ -20,6 +20,8 @@ const asMp = g => g.type === 'Polygon' ? [g.coordinates] : g.coordinates.filter(
 const country = id => R3mp(asMp(topojson.feature(geo, geo.objects.countries.geometries.find(g => String(g.id) === id)).geometry));
 const NAMES = {
   '860_K': 'Uzbekistan: Greater Khurāsān as the author’s maps draw it, with all the land between the Amu Darya and the Syr Darya (the Kyzylkum, Nukus and Karakalpakstan east of the Amu)',
+  '417_K': 'Kyrgyzstan: the Fergana valley to its mountain crests (Batken, Osh and Jalal-Abad regions), the Talas valley (Version 117, a gap filled) and the Khurāsān maps’ edge',
+  '156_K': 'China: the part of Greater Khurāsān as the author’s maps draw it (the widest of them), with the Tashkurgan pocket (Version 117, a gap filled)',
   '398_K': 'Kazakhstan: the Turkistan region, to the Karatau range and the Moyynkum and Kyzylkum sands; the south bank of the Syr Darya to the Aral Sea (Qyzylorda region); and the Zhambyl region south of the Chu (Taraz)',
 };
 const N = Object.fromEntries(C.xn.states.map(s => [s.id, s]));
