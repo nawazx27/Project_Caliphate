@@ -174,14 +174,16 @@ function simplifyD(d, eps){
 }
 /* used below k 0.6, below k 1.5, and from there on; each coarse copy is made the first time it is needed, and the
    other one a moment after the page has settled, so opening the page does not wait for both */
-const LAND_EPS = [3, 0.8, 0.3], LAND_LODC = [null, null, null, LAND_D];   /* Version 65: a coarsest copy for the whole-world view */
+const LAND_EPS = [3, 0.8, 0.3], LAND_LODC = [null, null, null, LAND_D];
+let PRE_CX = null;   /* Version 123: V2's coarse outline copies made by build.js */   /* Version 65: a coarsest copy for the whole-world view */
 /* Version 98: the two coarsest copies come ready-made with the page (build.js); they are used only if they were made from this same coastline */
 { const pre = JSON.parse(document.getElementById('landlod').textContent);
   const unpackD = rings => rings.map(s => { let i = 1, x = 0, y = 0, out = '';
     const num = () => { let r = 0, sh = 0, b; do { b = s.charCodeAt(i++) - 63; r |= (b & 0x1f) << sh; sh += 5; } while(b >= 0x20); return (r & 1) ? ~(r >> 1) : r >> 1; };
     while(i < s.length){ x += num(); y += num(); out += (out ? 'L' : 'M') + (x/100).toFixed(2) + ',' + (y/100).toFixed(2); }
     return out + (s[0] === 'Z' ? 'Z' : ''); }).join('');
-  if(pre.n === LAND_D.length){ LAND_LODC[0] = unpackD(pre.lod[0]); LAND_LODC[1] = unpackD(pre.lod[1]); } }
+  if(pre.n === LAND_D.length){ LAND_LODC[0] = unpackD(pre.lod[0]); LAND_LODC[1] = unpackD(pre.lod[1]); }
+  if(pre.cx) PRE_CX = {n:pre.cx.n, lod:pre.cx.lod.map(unpackD)}; }
 const cxLv = () => T.k < 0.25 ? 0 : T.k < 0.6 ? 1 : T.k < 1.5 ? 2 : 3;   /* the level of detail for the zoom (the coastline's steps) */
 const landLOD = lv => LAND_LODC[lv] || (LAND_LODC[lv] = simplifyD(LAND_D, LAND_EPS[lv]));
 const whenIdle = f => (window.requestIdleCallback ? requestIdleCallback(f, {timeout:4000}) : setTimeout(f, 1500));
@@ -262,21 +264,23 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   /* the user's expanded outline: their specification, not from the sources; two versions share one set of elements */
   const dOf = o => o.polys.map(poly=>poly.map(rg=>ringD(rg)).join('')).join('');
   /* each version's path is built the first time it is shown, not all seven at startup */
-  const dx = dOf(CALIPH.x); CX.d = {full:dx};
+  /* Version 123: V2's full path is built when first needed too (the opening view uses the coarse copies made by build.js) */
+  CX.d = {};
   const lazyD = (k, f) => Object.defineProperty(CX.d, k, {configurable:true, enumerable:true, get(){ const v = f(); Object.defineProperty(CX.d, k, {value:v, enumerable:true}); return v; }});
-  lazyD('west', ()=>dOf(CALIPH.xw)); lazyD('gme', ()=>dOf(CALIPH.g)); lazyD('v2', ()=>dOf(CALIPH.v2)); lazyD('v3', ()=>dOf(CALIPH.x3)); lazyD('me', ()=>dOf(CALIPH.me)); lazyD('me2', ()=>dOf(CALIPH.me2)); lazyD('fullb', ()=>dOf(CALIPH.xb));
-  CX.clip = sdefs.append('clipPath').attr('id','caliphxclip').append('path').attr('d', dx);
+  lazyD('full', ()=>dOf(CALIPH.x)); lazyD('west', ()=>dOf(CALIPH.xw)); lazyD('gme', ()=>dOf(CALIPH.g)); lazyD('v2', ()=>dOf(CALIPH.v2)); lazyD('v3', ()=>dOf(CALIPH.x3)); lazyD('me', ()=>dOf(CALIPH.me)); lazyD('me2', ()=>dOf(CALIPH.me2)); lazyD('fullb', ()=>dOf(CALIPH.xb));
+  CX.clip = sdefs.append('clipPath').attr('id','caliphxclip').append('path').attr('d', '');
   const gx = layerG(gEdges, 'caliphx');
   const openx = e=>{ e.stopPropagation(); select('caliphx'); };
-  CX.band = gx.append('g').attr('clip-path','url(#caliphxclip)').append('path').attr('class','caliphx-band').attr('data-sel','caliphx').attr('d', dx).on('click', openx);
+  CX.band = gx.append('g').attr('clip-path','url(#caliphxclip)').append('path').attr('class','caliphx-band').attr('data-sel','caliphx').attr('d', '').on('click', openx);
   CX.band.append('title').text('The core caliphate (the author’s specification, not from the sources)');
-  CX.line = gx.append('g').attr('clip-path','url(#landclip)').append('path').attr('class','caliphx-line').attr('d', dx);
+  CX.line = gx.append('g').attr('clip-path','url(#landclip)').append('path').attr('class','caliphx-line').attr('d', '');
   gEdges.node().insertBefore(gx.node(), g.node());
   const xl = {}, src = {full:CALIPH.x, west:CALIPH.xw, gme:CALIPH.g, v2:CALIPH.v2};
   src.v3 = CALIPH.x3; src.me = CALIPH.me; src.me2 = CALIPH.me2; src.fullb = CALIPH.xb;
   /* Version 119: while zoomed out the outline is drawn from a coarser copy, as the coastline is (same steps and tolerances, under a pixel
      on screen); the outline has grown to about 46,000 points, and painting all of them at the whole-region view was most of a redraw */
   CX.lodC = {};
+  if(PRE_CX && PRE_CX.n === CALIPH.x.polys.flat().reduce((t, r)=>t + r.length, 0)) CX.lodC.full = [PRE_CX.lod[0], PRE_CX.lod[1]];   /* drawn until the full path is needed */
   /* a coarse copy is made in a quiet moment, not while the page opens or a version is switched: until it is ready the full outline is drawn,
      and the next redraw picks the copy up */
   CX.lod = (key, lv) => { if(lv >= 3) return CX.d[key]; const c = CX.lodC[key] || (CX.lodC[key] = []);
@@ -289,7 +293,7 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   /* the Greater Caliphate is drawn by the same elements in the core's colour (see setXV), so it reads as one territory */
   /* a faint wash over the land inside your outline, under every other colour */
   const gw = layerG(gFill, 'caliphx'); gFill.node().insertBefore(gw.node(), gFill.node().firstChild);
-  CX.wash = gw.append('path').attr('class','caliphx-wash').attr('d', dx);
+  CX.wash = gw.append('path').attr('class','caliphx-wash').attr('d', '');
   /* V6 (Greater Middle East; Complete V2 before Version 66): the province history shading is not drawn since Version 41 (Nawaz: V3 in the same neutral colour as Complete and Greater);
      the history stays in the notes, and the page carries only each province's box (see build.js), so the layer is no longer built (Version 47) */
 }

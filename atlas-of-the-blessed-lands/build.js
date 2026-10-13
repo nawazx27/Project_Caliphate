@@ -37,7 +37,11 @@ const landLodJ = (() => {
   const packD = d => (d.match(/M[^M]*/g) || []).map(r => { const z = /Z\s*$/.test(r); let px = 0, py = 0, t = z ? 'Z' : 'O';
     for(const m of r.matchAll(/[ML]\s*(-?[\d.]+(?:e-?\d+)?)[ ,]+(-?[\d.]+(?:e-?\d+)?)/g)){ const x = Math.round(+m[1]*100), y = Math.round(+m[2]*100); t += encNum(x - px) + encNum(y - py); px = x; py = y; }
     return t; });
-  return JSON.stringify({n:landD.length, lod:[simplifyD(landD, 3), simplifyD(landD, 0.8)].map(packD)}).replace(/</g, '\\u003c');
+  /* Version 123: the same two coarse copies of V2's outline (the version the page opens with), so the opening view does not wait for
+     its full 46,000-point path; n (its number of points) lets the page check they were made from this same outline */
+  const ringD = rg => 'M' + rg.map(p => proj(p).map(v => v.toFixed(2)).join(',')).join('L') + 'Z';
+  const cxD = caliphD.x.polys.map(poly => poly.map(ringD).join('')).join(''), cxN = caliphD.x.polys.flat().reduce((t, r) => t + r.length, 0);
+  return JSON.stringify({n:landD.length, lod:[simplifyD(landD, 3), simplifyD(landD, 0.8)].map(packD), cx:{n:cxN, lod:[simplifyD(cxD, 3), simplifyD(cxD, 0.8)].map(packD)}}).replace(/</g, '\\u003c');
 })();
 const natJ = JSON.stringify(pack(Object.assign(JSON.parse(R('src/nat.json')), {pol: undefined}))).replace(/</g, '\\u003c');   /* Natural + political was removed in Version 60 */
 

@@ -79,9 +79,16 @@ function addStatusBadge(s){
   g.on('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); open(); } });
   sbs.push({g, lead, dot, tx, level:s.level, hasName:!!SHORT[s.n], tw:60, v:P(s.ll), off:s.off||[0,0], pri:s.pri||5, minK:s.minK||0, layer:KIND[s.kind].layer, far:Math.hypot((s.off||[0,0])[0],(s.off||[0,0])[1])>12, show:false});
 }
-function buildOverlay(){
+/* Version 123: when the page opens the overlay (names, markers, discs) is first set up empty, so the map itself reaches the screen
+   sooner; it is built a moment later (see src/start.js). OVERLAY_LATER is true only during that first opening. */
+let OVERLAY_LATER = false;
+function emptyOverlay(){
   ov.selectAll('*').remove(); pts = []; lbls = []; sbs = [];
   ovGrat = ov.append('g'); ovBack = ov.append('g'); ovLead = ov.append('g'); ovMain = ov.append('g'); ovBadge = ov.append('g'); ovTop = ov.append('g');
+}
+function buildOverlay(){
+  if(OVERLAY_LATER){ emptyOverlay(); return; }
+  emptyOverlay();
   SEA_LBL.forEach(s=>addLabel('base', [[s[0]], s[1]?[s[1],'sub']:null], [s[2],s[3]], {cls:'sea', pri:20, minK:s[4]||0, subK:Math.max(1.2,s[4]||0)}));
   RIVER_LBL.forEach(s=>addLabel('base', [[s[0]]], [s[1],s[2]], {cls:'sea small', minK:s[3]||1.2, pri:22}));
   PHYS_LBL.forEach(s=>addLabel('base', [[s[0]]], [s[1],s[2]], {cls:'phys', minK:s[3], pri:18}));
@@ -527,7 +534,7 @@ function render(){
   }
   lbls.forEach(l=>l.t.style('display', shown.has(l) ? null : 'none'));
   /* 4. qibla arrows at Madinah */
-  const showQ = layerOn.links && k >= 1.8 && !clean;
+  const showQ = layerOn.links && k >= 1.8 && !clean && !!qa1;
   d3.select(ovTop.node()).selectAll('.qg').style('display', showQ ? null : 'none');
   if(showQ){
     const mad = P(QIBLA.madinah), mx = T.applyX(mad[0]), my = T.applyY(mad[1]);

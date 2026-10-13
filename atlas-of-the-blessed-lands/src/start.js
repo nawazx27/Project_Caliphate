@@ -1,4 +1,8 @@
 /* ---------------- start ---------------- */
+/* Version 123: on the usual openings (no link, or a link to a version) the names and markers are built just after the map is
+   on screen; any other link (a place, a note) builds everything at once, as before, since it may point at a marker */
+const LATER_OK = !location.hash || /^#outline-/.test(location.hash);
+OVERLAY_LATER = LATER_OK;
 size();
 renderStatusTable();
 renderLimits();
@@ -12,6 +16,7 @@ if(document.fonts && document.fonts.ready) document.fonts.ready.then(()=>{ measu
 let rt; window.addEventListener('resize', ()=>{ clearTimeout(rt); rt = setTimeout(()=>{ const c = T.invert([W/2,H/2]); size(); wrapSel.call(zoom.transform, d3.zoomIdentity.translate(W/2 - T.k*c[0], H/2 - T.k*c[1]).scale(T.k)); renderInsets(); if(!sheetMode()) document.querySelectorAll('.sheet').forEach(s=>s.classList.remove('open')); }, 150); });
 openToken(location.hash.slice(1), true);
 { const ml = document.getElementById('maploading'); if(ml) ml.classList.add('done'); }
+if(OVERLAY_LATER) requestAnimationFrame(()=>setTimeout(()=>{ OVERLAY_LATER = false; buildOverlay(); applyLayers(); update(); }, 0));
 setTimeout(()=>whenIdle(()=>{ landLOD(0); landLOD(1); landLOD(2); }), 1200);   /* the coarse coastlines, ready before they are needed */
 /* Version 120: every version's outline is built in quiet moments after the page opens, one per idle slot, so switching versions is
    instant (the first switch to a version used to build it on the spot and stall the page for a second or two on a phone) */
