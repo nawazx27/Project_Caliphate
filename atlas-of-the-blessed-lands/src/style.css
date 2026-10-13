@@ -519,6 +519,7 @@ body{background-image:var(--grain);background-size:160px;background-blend-mode:s
 .minilegend .lgnest small{color:var(--muted);font-size:10.5px}
 .xtoggle .sht{display:none}
 @media (max-width:760px){.xtoggle .lgt{display:none}.xtoggle .sht{display:inline}.xtoggle button{padding:5px 10px}}
+@media (max-width:480px){.xtoggle button{padding:5px 7px}}@media (max-width:400px){.xtoggle button{padding:5px 5px}}   /* Version 108: nine version buttons (V2-B added) on one row on phones */
 .ctable tr.grp td{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--xcal);padding-top:12px;border-bottom:1px solid var(--rule2)}
 .ctable tr.grp.g td{color:var(--xcal)}
 .ctable tr.sub td{color:var(--muted);font-style:italic}

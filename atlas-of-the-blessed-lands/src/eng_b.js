@@ -263,7 +263,7 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   /* each version's path is built the first time it is shown, not all seven at startup */
   const dx = dOf(CALIPH.x); CX.d = {full:dx};
   const lazyD = (k, f) => Object.defineProperty(CX.d, k, {configurable:true, enumerable:true, get(){ const v = f(); Object.defineProperty(CX.d, k, {value:v, enumerable:true}); return v; }});
-  lazyD('west', ()=>dOf(CALIPH.xw)); lazyD('gme', ()=>dOf(CALIPH.g)); lazyD('v2', ()=>dOf(CALIPH.v2)); lazyD('v3', ()=>dOf(CALIPH.x3)); lazyD('me', ()=>dOf(CALIPH.me)); lazyD('me2', ()=>dOf(CALIPH.me2)); lazyD('fulln', ()=>dOf(CALIPH.xn));
+  lazyD('west', ()=>dOf(CALIPH.xw)); lazyD('gme', ()=>dOf(CALIPH.g)); lazyD('v2', ()=>dOf(CALIPH.v2)); lazyD('v3', ()=>dOf(CALIPH.x3)); lazyD('me', ()=>dOf(CALIPH.me)); lazyD('me2', ()=>dOf(CALIPH.me2)); lazyD('fulln', ()=>dOf(CALIPH.xn)); lazyD('fullb', ()=>dOf(CALIPH.xb));
   CX.clip = sdefs.append('clipPath').attr('id','caliphxclip').append('path').attr('d', dx);
   const gx = layerG(gEdges, 'caliphx');
   const openx = e=>{ e.stopPropagation(); select('caliphx'); };
@@ -272,7 +272,7 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   CX.line = gx.append('g').attr('clip-path','url(#landclip)').append('path').attr('class','caliphx-line').attr('d', dx);
   gEdges.node().insertBefore(gx.node(), g.node());
   const xl = {}, src = {full:CALIPH.x, west:CALIPH.xw, gme:CALIPH.g, v2:CALIPH.v2};
-  src.v3 = CALIPH.x3; src.me = CALIPH.me; src.me2 = CALIPH.me2; src.fulln = CALIPH.xn;
+  src.v3 = CALIPH.x3; src.me = CALIPH.me; src.me2 = CALIPH.me2; src.fulln = CALIPH.xn; src.fullb = CALIPH.xb;
   CLIPS.push({els:[CX.band], key:XK, full:()=>CX.d[XK()], lines:()=> xl[XK()] || (xl[XK()] = projLines(src[XK()].polys.flat()))});
   CLIPS.push({els:[CX.line], key:()=>XK(), full:()=>CX.d[XK()], lines:()=> xl[XK()] || (xl[XK()] = projLines(src[XK()].polys.flat()))});
   /* the Greater Caliphate is drawn by the same elements in the core's colour (see setXV), so it reads as one territory */
