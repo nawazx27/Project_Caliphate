@@ -445,9 +445,19 @@ document.querySelectorAll('[data-xv]').forEach(b=>b.addEventListener('click', e=
   const v = b.dataset.xv;
   if(!layerOn.caliphx && b.closest('.insec')){ openOutline(v); return; }
   const wasG = WIDEV(XV);
-  setXV(v); if(b.closest('.onmap')){ showInfo('caliphx'); markSel(null); }
-  if(WIDEV(v)) showGME(); else if(wasG) leaveAutoWide();   /* back to the normal layout, same centre */
+  /* Version 120: the outline cross-fades into the new version, and the view glides to frame it unless the reader is zoomed in close
+     (then the view stays, so a detail can be compared between versions) */
+  const swap = ()=>{ setXV(v); if(b.closest('.onmap')){ showInfo('caliphx'); markSel(null); }
+    if(WIDEV(v)) showGME(); else if(wasG) leaveAutoWide(glide); else glide(); };
+  const glide = ()=>{ const bb = v === 'west' ? WEST_B : v === 'me' ? ME_B : PRESETS.find(p=>p.id==='caliph').b, t = boundsT(bb, W, H);
+    if(T.k < t.k * 2.5) go(bb); };
+  const layers = [...document.querySelectorAll('[data-layer="caliphx"]')];
+  if(reduced || v === XV || !layers.length || !layers[0].animate){ swap(); return; }
+  const tok = ++xFadeTok, fade = (from, to, ms, ease, keep) => layers.forEach(el=>{ el.getAnimations().forEach(a=>a.cancel()); el.animate([{opacity:from},{opacity:to}], {duration:ms, easing:ease, fill:keep ? 'forwards' : 'none'}); });
+  fade(1, 0.12, 140, 'ease-in', true);
+  setTimeout(()=>{ if(tok !== xFadeTok) return; swap(); fade(0.12, 1, 320, 'ease-out', false); }, 140);   /* a later click wins */
 }));
+let xFadeTok = 0;
 renderCX();
 { const tb = document.getElementById('caliphrows');
   if(tb) tb.innerHTML = CALIPH.states.map(s=>`<tr><td>${s.n}</td><td class="num">${kmTxt(s.km2)}</td><td class="num">${pctTxt(s)}</td></tr>`).join('')
