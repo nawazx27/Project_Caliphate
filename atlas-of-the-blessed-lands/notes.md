@@ -706,3 +706,10 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Texts: CX_CORE adds "Russia's Black Sea coast on the southern side of the Caucasus crest"; a paragraph "The Caucasus and the Caspian follow their natural border (Version 109)" in V2 and V2N (V2-B takes V2's); the Khurāsān paragraph says its Caspian water is out again; V2N size and ring figures. Posters not redrawn.
 - Lost time: two background runs of the whole-town pass were stopped by time limits before saving; the pass now saves as it goes.
 - Tests: smoke test and all versions at desktop and iPhone size, no errors; V2-B/V2/V2N panels; close-up of the Caucasus and the Caspian in V2.
+
+## Version 110 (2026-10-13): Eritrea, Somaliland and Somalia in V1
+- Nawaz: "Add Eritrea, somaliland and Somalia to v1".
+- tools/v1_horn.js: Eritrea (232), Somaliland (SOL) and Somalia (706), each whole, added to V1 (CALIPH.me) and also to V4 (CALIPH.me2), which is defined as V1 with six more lands, so it keeps holding all of V1 (my choice, told to Nawaz). +764,905 km² each; nothing of the three missing after. V1 14,031,617 → 14,796,522 km² (29 rows); V4 18,699,425 → 19,464,330 (36 rows). Sizes still in order (V4 19.46 < V5 25.49).
+- Djibouti, between Eritrea, Ethiopia and Somaliland, was not asked for and is left out (now a gap surrounded by V1); offered to Nawaz.
+- Texts: V1's and V4's notes, the versions paragraph, the V1 button title and both search entries.
+- Tests: smoke test and all versions at desktop and iPhone size, no errors; close-up of the Horn in V1. Posters not redrawn.
