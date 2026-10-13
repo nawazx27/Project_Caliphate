@@ -713,3 +713,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Djibouti, between Eritrea, Ethiopia and Somaliland, was not asked for and is left out (now a gap surrounded by V1); offered to Nawaz.
 - Texts: V1's and V4's notes, the versions paragraph, the V1 button title and both search entries.
 - Tests: smoke test and all versions at desktop and iPhone size, no errors; close-up of the Horn in V1. Posters not redrawn.
+
+## Version 111 (2026-10-13): Djibouti in V1 too
+- Nawaz: "Sure" (to adding Djibouti, the gap left between Eritrea, Ethiopia and Somaliland in Version 110).
+- tools/v1_horn.js now also adds Djibouti (262), whole, to V1 and V4 (+21,944 km² each): V1 14,818,466 km² (30 rows), V4 19,486,274 (37 rows). The whole Horn of Africa is inside both.
+- Texts: V1's and V4's notes, the versions paragraph, the V1 button title, the search entries.
+- Tests: smoke test and all versions at desktop and iPhone size, no errors; close-up of Djibouti in V1. Posters not redrawn.

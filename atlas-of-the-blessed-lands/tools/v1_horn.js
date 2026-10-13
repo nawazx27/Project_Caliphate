@@ -1,6 +1,7 @@
 /* Version 110 (2026-10-13, Nawaz: "Add Eritrea, somaliland and Somalia to v1").
    Adds Eritrea (232), Somaliland (SOL) and Somalia (706), each whole, to V1 (CALIPH.me) and to V4 (CALIPH.me2), which is V1 with
-   six more lands. Djibouti, between them, was not asked for and stays out. Run: node tools/v1_horn.js */
+   six more lands. Version 111 (Nawaz: "Sure", to adding Djibouti): Djibouti (262) too, so the Horn has no gap.
+   Run: node tools/v1_horn.js (it can be run again; the rows are replaced) */
 const fs = require('fs'), path = require('path');
 const ROOT = path.join(__dirname, '..');
 const topojson = require(path.join(ROOT, 'node_modules/topojson-client'));
@@ -15,7 +16,7 @@ const R3 = v => Math.round(v*1000)/1000;
 const R3mp = mp => mp.map(p => p.map(r => r.map(q => [R3(q[0]), R3(q[1])])));
 const asMp = g => g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
 const country = id => R3mp(asMp(topojson.feature(geo, geo.objects.countries.geometries.find(g => String(g.id) === id)).geometry));
-const ADD = [['232', 'Eritrea'], ['SOL', 'Somaliland'], ['706', 'Somalia']];
+const ADD = [['232', 'Eritrea'], ['SOL', 'Somaliland'], ['706', 'Somalia'], ['262', 'Djibouti']];
 for (const k of ['me', 'me2']) {
   const V = C[k], before = V.km2;
   let X = R3mp(V.polys), fail = 0;
