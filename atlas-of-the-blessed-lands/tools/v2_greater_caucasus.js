@@ -1,6 +1,6 @@
-/* Version 114 (2026-10-13, Nawaz: the whole Greater Caucasus in V2; his choice: the North Caucasus republics whole + all the mountains;
+/* Version 114 (2026-10-13, Nawaz: the whole Greater Caucasus in V2; his final choice: down to the northern foot of the mountains, so the line looks like Georgia's and Azerbaijan's border further up;
    V2, V2-B and V2N). Adds the pieces of tools/data/greater_caucasus.geojson (made by tools/greater_caucasus.py) piece by piece.
-   Rows: one per republic (643_AD ... 643_DA) and one per krai's mountains (643_KDA, 643_STA). Run: node tools/v2_greater_caucasus.js */
+   Row 643_GC (the range down to the foot of its mountains, Nawaz's final choice). Run: node tools/v2_greater_caucasus.js */
 const fs = require('fs'), path = require('path');
 const ROOT = path.join(__dirname, '..');
 const pc = require(path.join(ROOT, 'node_modules/polygon-clipping'));
