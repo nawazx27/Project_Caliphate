@@ -17,7 +17,7 @@ const R3 = v => Math.round(v*1000)/1000;
 const R3mp = mp => mp.map(p => p.map(r => r.map(q => [R3(q[0]), R3(q[1])])));
 const asMp = g => g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
 const country = id => R3mp(asMp(topojson.feature(geo, geo.objects.countries.geometries.find(g => String(g.id) === id)).geometry));
-for (const k of ['x', 'xn']) {
+for (const k of ['x', 'xn', 'xb']) {
   const V = C[k], before = V.km2;
   let X = R3mp(V.polys), n = 0, fail = 0;
   for (const f of ADD.features.filter(f => f.properties.v === k)) {
@@ -29,7 +29,7 @@ for (const k of ['x', 'xn']) {
   V.polys = X; V.km2 = area(X);
   // rows of the partly included countries: share now inside
   for (const s of V.states) {
-    const m = /^(\d{3})_[A-Z]$/.exec(s.id); if (!m || !['860','417','398','156','356','191','688','705','642','380'].includes(m[1])) continue;
+    const m = /^(\d{3})_[A-Z]$/.exec(s.id); if (!m || !['860','417','398','156','356','191','688','705','642','380','643'].includes(m[1])) continue;
     try { const cg = country(m[1]); const inside = area(R3mp(pc.intersection(cg, X))); s.km2 = inside; s.pct = Math.round(1000*inside/area(cg))/10; } catch (e) {}
   }
   console.log(k, before, '->', V.km2, '(+', V.km2 - before, ') pieces added', n, 'failed', fail);

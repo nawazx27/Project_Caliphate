@@ -24,7 +24,9 @@ mos = np.zeros(((y1 - y0 + 1) * TS, (x1 - x0 + 1) * TS), np.float32)
 for y in range(y0, y1 + 1):
     for x in range(x0, x1 + 1):
         t = rd.get(Z, x, y)
-        a = np.asarray(Image.open(io.BytesIO(t)).convert('RGB')).astype(np.float64)
+        im = Image.open(io.BytesIO(t)).convert('RGB')
+        if im.size != (TS, TS): im = im.resize((TS, TS), Image.NEAREST)   # some tiles (mostly sea) are stored at 256 px
+        a = np.asarray(im).astype(np.float64)
         h = -10000 + (a[..., 0] * 65536 + a[..., 1] * 256 + a[..., 2]) * 0.1   # Terrain-RGB (Mapbox) decoding
         mos[(y - y0) * TS:(y - y0 + 1) * TS, (x - x0) * TS:(x - x0 + 1) * TS] = h
     print('row', y - y0 + 1, 'of', y1 - y0 + 1, flush=True)
