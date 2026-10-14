@@ -954,3 +954,8 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - tools/manqishlaq_ustyurt.py (needs scratchpad v127/kz_div_areas.parquet) → tools/data/manqishlaq_ustyurt.geojson: Mangystau region (KZ-47 districts, 164,559 km²) + all of Uzbekistan; tools/v2_manqishlaq_ustyurt.js adds it to V2 and V2-B (+235,915). Towns (split/mq_loop.sh): 1 village. Gaps 15 slivers (41 km²); fill_enclosed: none; India rerun; rows (v2_khorasan_classical.js rows): 860 whole, 398_K 554,281 (20.5%).
 - V2 18,971,889 → 19,207,844 km² (19.21 million); V2-B 18,623,120 → 18,859,075 (18.86). Ring: V2 about 2.89 million outside it, V2-B 2.88.
 - Texts: CX_CORE clause, new paragraph "Manqishlāq and the Ustyurt (Version 141)", ring paragraph, versions paragraph. Posters not redrawn.
+
+## Version 142 (2026-10-14): the pocket north of the Ustyurt filled (V2, V2-B)
+- Nawaz, screenshot of V2 between Mangystau and the Aral: "Fill this small pocket". Read as the bay of Kazakhstan (southern Baiganin/Shalkar) open only to the north, with the small wedge west of the Aral in its corner; fill_gaps had not listed it (too wide for its 50 km closing).
+- tools/data/ustyurt_pocket.geojson (convex hull of V2 in 55.9–59.4 E, 44.9–46.8 N minus V2, within Kazakhstan; 20,817 km²), tools/v2_ustyurt_pocket.js into V2 and V2-B (+20,771). Gaps 4 slivers (58); enclosed none; India rerun; rows (398_K 575,108, 21.3%); towns (split/pk_loop.sh): none cut.
+- V2 19,207,844 → 19,228,672 km² (19.23 million); V2-B 18,859,075 → 18,879,903 (18.88). Ring: V2 about 2.91 million outside it, V2-B 2.9. Posters not redrawn.
