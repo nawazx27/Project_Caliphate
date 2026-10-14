@@ -853,3 +853,10 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - V2 18,797,436 → 18,944,387 km² (18.94 million); V2-B 18,448,667 → 18,595,618 (18.60). Ring: V2 about 2.62 million km² outside it, V2-B 2.61.
 - Texts: CX_CORE (Caucasus clause back to V5's Dagestan block; Kazakhstan clause), new paragraph "Connected to the Caspian, and the Caucasus as in V5 again (Version 127)", ring paragraph, versions paragraph. Older Version 124–126 paragraphs kept as history.
 - Tests: smoke.js, v2bpanel.js, vers.js; close-ups of Kazakhstan and the Caucasus in V2-B. Posters not redrawn.
+
+## Version 128 (2026-10-14): the notch north of Beyneu filled (V2, V2-B)
+- Nawaz, screenshot of V2 with a line over the notch Version 127 left between the Beyneu and Aral districts (reference/v128_fill_request.jpg): "Fill this region".
+- tools/kz_fill_stroke.py (needs scratchpad v127/kz_div_areas.parquet), tools/v2_kz_fill.js: line georeferenced from the screenshot's graticule (45 N y 950, 50 N y 345, 55 E x 163, 60 E x 575): 54.24 E 46.24 N → 61.76 E 47.77 N. Shalkar district 56% south of it → whole (Version 125's rule; Shalkar town in). The rest under his line (Baiganin about 19,600 km², Zhylyoi about 1,800 km²) taken exactly up to his line, since he asked for the whole region (Baiganin itself is only 33% south of it). +83,633 km²; gaps: 4 slivers (19 km²). Towns: buildings along the new line fetched (split/kz2_buildings.py), none cut.
+- Row 398_K 654,702 km² (24.2%). V2 18,944,387 → 19,028,039 km² (19.03 million); V2-B 18,595,618 → 18,679,270 (18.68). Ring: V2 about 2.71 million km² outside it, V2-B 2.69.
+- Texts: CX_CORE Kazakhstan clause, new paragraph "The notch north of Beyneu filled (Version 128)", ring paragraph, versions paragraph sizes.
+- Tests: smoke.js, v2bpanel.js, vers.js; close-up of western Kazakhstan in V2. Posters not redrawn.
