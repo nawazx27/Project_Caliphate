@@ -20,6 +20,8 @@ parts = [F[str(r['id'])] for r in C[k]['states'] if str(r['id']) in F]
 for f in ['khorasan_classical', 'manqishlaq_ustyurt', 'ustyurt_pocket', 'caucasus_v5', 'lake_albert_drc', 'lake_albert_shore']:
     p = os.path.join(D, f + '.geojson')
     if os.path.exists(p): parts += [shape(g['geometry']).buffer(0) for g in json.load(open(p))['features'] if g['properties'].get('role', 'add') == 'add']
+import glob   # the border towns taken whole (tools/whole_slivers_places.py) must be wholly inside too
+for p in sorted(glob.glob(os.path.join(D, 'whole_slivers_places*_%s.geojson' % k))): parts += [shape(g['geometry']).buffer(0) for g in json.load(open(p))['features']]
 p = os.path.join(D, 'outline144_%s.geojson' % k)   # all the version held in Version 144 stays in
 if os.path.exists(p): parts += [shape(g['geometry']).buffer(0) for g in json.load(open(p))['features']]
 T = unary_union(parts)

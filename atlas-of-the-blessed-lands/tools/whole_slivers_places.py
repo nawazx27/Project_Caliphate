@@ -30,7 +30,7 @@ for i in hit:
     a = A(g)
     if a <= 0 or a > 100: continue
     f = A(g.intersection(N)) / a
-    if 0.001 < f < 0.999 and A(g.difference(N).difference(T).intersection(land)) > 0.5 * A(g.difference(N)):
+    if 0.05 < f < 0.95 and A(g.difference(N).difference(T).intersection(land)) > 0.5 * A(g.difference(N)):
         take.append(g); rows.append((a, (names[i] or {}).get('primary'), cc[i]))
 print(k, 'places cut by the new edge', len(take))
 for a, n, c in sorted(rows, reverse=True)[:25]: print('  ', n, c, round(a, 1), 'km2')
