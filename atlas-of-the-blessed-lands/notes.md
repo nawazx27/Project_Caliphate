@@ -860,3 +860,10 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Row 398_K 654,702 km² (24.2%). V2 18,944,387 → 19,028,039 km² (19.03 million); V2-B 18,595,618 → 18,679,270 (18.68). Ring: V2 about 2.71 million km² outside it, V2-B 2.69.
 - Texts: CX_CORE Kazakhstan clause, new paragraph "The notch north of Beyneu filled (Version 128)", ring paragraph, versions paragraph sizes.
 - Tests: smoke.js, v2bpanel.js, vers.js; close-up of western Kazakhstan in V2. Posters not redrawn.
+
+## Version 129 (2026-10-14): on to Atyrau (V2, V2-B)
+- Nawaz sent back the Version 128 close-up (reference/v129_line_request.jpg) with a red line from the Caspian coast at Atyrau to Shalkar district's NW corner, no words; read as the same request (fill south of it); told him so.
+- tools/kz_fill_line2.py, tools/v2_kz_fill2.js: line placed from the picture's projection (56.0 E 45.0 N at x 512 y 480, 38.7 px/deg; checked: Baku 49.88 E 40.41 N, Shalkar's northern tip 59.57 E 48.91 N): 51.76 E 47.15 N → 58.84 E 48.09 N. Districts ≥50% south whole: Atyrau city okrug 0.74, Zhylyoi 0.98, Makat 0.70, Baiganin 0.72; Kyzylkoga and Mugalzhar slivers under the line up to it (Version 128's rule). +76,615 km²; gaps 5 slivers (13 km²). Towns (split/kz3_buildings.py, kz_loop.sh): 13 settlements over two passes, about 200 buildings outside.
+- Row 398_K 731,325 km² (27%). V2 19,028,039 → 19,104,662 km² (19.10 million); V2-B 18,679,270 → 18,755,892 (18.76). Ring: V2 about 2.78 million km² outside it, V2-B 2.77.
+- Texts: CX_CORE Kazakhstan clause, new paragraph "On to Atyrau (Version 129)", ring paragraph, sizes.
+- Tests: smoke.js, v2bpanel.js, vers.js; close-up of western Kazakhstan in V2. Posters not redrawn.
