@@ -822,3 +822,15 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - V2 18,558,080 → 18,679,222 km² (about 18.68 million); V2-B 18,209,314 → 18,330,455 (18.33). Ring: V2 about 2.36 million km² outside it, V2-B 2.35.
 - Texts: CX_CORE's Caucasus clause; a paragraph "A straight line across the North Caucasus (Version 124)" after Version 115's; ring paragraph; versions paragraph (V2 sentence, sizes).
 - Tests: smoke.js, v2bpanel.js, vers.js; close-up of the Caucasus in V2-B. Posters not redrawn.
+
+## Version 125 (2026-10-14): the North Caucasus line along district borders (V2, V2-B)
+- Nawaz: "The straight line doesn't look good. Rather, it should have the shape of the borders of Georgia and Armenia." Asked how; he chose "Real district borders (Recommended)".
+- tools/caucasus_districts.py: the 23 Overture districts (counties) crossed by Version 124's straight line (tools/data/ru_districts_on_line.geojson); each with ≥50% of its area south of the line is taken whole, the rest left out whole. Output tools/data/caucasus_districts.geojson (154,872 km²; 10 in, 13 out).
+  - In: Novorossiysk 0.98, Seversky 0.85, Kochubeyevsky 0.78, Andropovsky 0.76, Adygeysk 0.74, Abinsky 0.65, Belorechensky 0.64, Nogaysky 0.63, Tarumovsky 0.57, Koshekhablsky 0.53.
+  - Out: Giaginsky 0.50 (just under), Neftekumsk 0.49, Alexandrovsky 0.48, Anapa Urban Okrug 0.35, Krymsky 0.34, Teuchezhsky 0.31, Budyonnovsky 0.30, Novokubansky 0.25, Uspensky 0.25, Takhtamukaysky 0.23, Novoselitsky 0.23, Kurganinsky 0.12, Armavir 0.00.
+- tools/v2_caucasus_districts.js: in x and xb, all of Russia in box(35,40,50,48) is replaced by Version 123's Russian land (git 3bd55ea: Black Sea coast and V5's Dagestan block) plus the district area; row 643_N recounted ("rows" mode). Version 124's straight-line towns went with it.
+- Towns on the new line (scratchpad split/cd_loop.sh): 33 settlements over three passes (27, 5, 1; largest Afipsky), about 1,700 buildings outside; the fourth check found none cut. tools/data/caucasus_districts_settlements_pass1–3.geojson.
+- Gaps: two real slivers filled (about 55 km²); the bends where a district stayed out are the line's shape, not gaps (Nawaz: "only real gaps").
+- V2 18,679,222 → 18,679,873 km² (still about 18.68 million); V2-B 18,330,455 → 18,331,104 (18.33); 643_N 154,705 km². Ring unchanged at about 2.36 / 2.35 million km²; the Caucasus part outside it about 147,000 km².
+- Texts: CX_CORE's Caucasus clause; new paragraph "The line along district borders (Version 125)" with the Version 124 paragraph shortened; ring paragraph; versions paragraph.
+- Tests: smoke.js, v2bpanel.js, vers.js; close-up of the Caucasus in V2-B. Posters not redrawn. Open question still with Nawaz: the Taman peninsula (outside).
