@@ -834,3 +834,13 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - V2 18,679,222 → 18,679,873 km² (still about 18.68 million); V2-B 18,330,455 → 18,331,104 (18.33); 643_N 154,705 km². Ring unchanged at about 2.36 / 2.35 million km²; the Caucasus part outside it about 147,000 km².
 - Texts: CX_CORE's Caucasus clause; new paragraph "The line along district borders (Version 125)" with the Version 124 paragraph shortened; ring paragraph; versions paragraph.
 - Tests: smoke.js, v2bpanel.js, vers.js; close-up of the Caucasus in V2-B. Posters not redrawn. Open question still with Nawaz: the Taman peninsula (outside).
+
+## Version 126 (2026-10-14): the Taman peninsula and all of Uzbekistan (V2, V2-B)
+- Nawaz, with a screenshot of V2 circling the Taman peninsula, Anapa and the lower Kuban (reference/v126_taman_request.jpg): "It should cover this land and add entire modern Uzbekistan".
+- Taman: his circle was georeferenced from the outline's corners (Anapa tip 37.237 E 44.99 N at px 282,1150; Abinsky's NW corner 38.217 E 45.189 N at px 545,1083) and taken by whole districts (tools/taman_districts.py, needs the Overture RU counties parquet, scratchpad v125/ru_div_areas.parquet): Anapa, Krymsky, Temryuksky 100% inside the circle; Slavyansky 56%, Krasnoarmeysky 28%, both taken whole (doubtful → include and tell him); Krasnodar city 6% (the circle's end grazing it) left out (my reading). Crimea/Kerch outside the circle. tools/data/taman_districts.geojson (8,386 km²); applied by tools/v2_taman_uzbekistan.js; row 643_N 162,852 km² (renamed: from the Taman peninsula and the lower Kuban). tools/v2_caucasus_districts.js must now only be run with "rows".
+- Towns on the new line: 2 settlements at the edge of Krasnodar's okrug (38.68 E 45.08 N, a large village of about 5,000 buildings, and one tiny one) taken whole; the second check found none cut.
+- Uzbekistan whole (geo2) in V2 and V2-B: row 860_K replaced by 860 (447,183 km², 100%); about 109,000 km² more (Ustyurt, northern Kyzylkum, the Uzbek Aral bed). tools/v2_ca_frontiers.js rows now skips 860_K when 860 exists.
+- Gaps: 9 slivers filled (about 25 km²). A notch of Kazakhstan between Uzbekistan's Ustyurt and Turkmenistan (about 1,700 km², 55.7 E 41.5 N) is a border bend (outline on two sides), not filled; asked Nawaz.
+- V2 18,679,873 → 18,797,436 km² (18.80 million); V2-B 18,331,104 → 18,448,667 (18.45). Ring: V2 about 2.47 million km² outside it, V2-B 2.46.
+- Texts: CX_CORE (Caucasus clause, Uzbekistan whole), new paragraph "The Taman peninsula and all of Uzbekistan (Version 126)", ring paragraph, versions paragraph (sizes, V2 and V5 sentences).
+- Tests: smoke.js, v2bpanel.js, vers.js; close-ups of Taman and Uzbekistan in V2. Posters not redrawn.
