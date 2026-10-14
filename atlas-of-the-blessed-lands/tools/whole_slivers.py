@@ -1,10 +1,10 @@
 """Version 145 (2026-10-14, Nawaz: "i said i want everything in!!!"). Outlines are stored on a 0.001° grid (about 110 m; build.js),
 so an outline that follows a coast or border exactly leaves hairline slivers of the lands it holds outside it (about 390 km² in all
 in V2 after Version 144). This takes, for V2 and V2-B, every land the version holds (each country listed whole, plus the partial lands'
-own shapes: classical Khurāsān, Manqishlāq and the Ustyurt, the Ustyurt pocket, V5's Dagestan block, Lake Albert), finds what is still
+own shapes: classical Khurāsān, the whole outline as it was in Version 144 (tools/data/outline144_<v>.geojson), Manqishlāq and the Ustyurt, the Ustyurt pocket, V5's Dagestan block, Lake Albert), finds what is still
 outside, and widens each sliver by W degrees (default 0.001°, about 110 m) beyond the coast or border, so the rounded edge lies outside
 the true one. Writes tools/data/whole_slivers_<v>.geojson. Run: python3 tools/whole_slivers.py <x|xb> [W]; then
-node tools/v2_whole_slivers.js <x|xb>. My method; Nawaz's rule."""
+python3 tools/whole_slivers_apply.py <x|xb>. My method; Nawaz's rule."""
 import json, os, subprocess, sys
 from shapely.geometry import shape, MultiPolygon, Polygon, mapping
 from shapely.ops import unary_union
@@ -20,10 +20,14 @@ parts = [F[str(r['id'])] for r in C[k]['states'] if str(r['id']) in F]
 for f in ['khorasan_classical', 'manqishlaq_ustyurt', 'ustyurt_pocket', 'caucasus_v5', 'lake_albert_drc', 'lake_albert_shore']:
     p = os.path.join(D, f + '.geojson')
     if os.path.exists(p): parts += [shape(g['geometry']).buffer(0) for g in json.load(open(p))['features'] if g['properties'].get('role', 'add') == 'add']
+p = os.path.join(D, 'outline144_%s.geojson' % k)   # all the version held in Version 144 stays in
+if os.path.exists(p): parts += [shape(g['geometry']).buffer(0) for g in json.load(open(p))['features']]
 T = unary_union(parts)
 miss = T.difference(X)
-print(k, 'held lands outside the outline', round(A(miss), 2) if not miss.is_empty else 0, 'km2')
-piece = miss.buffer(W).difference(X) if not miss.is_empty else miss
+print(k, 'held lands outside the outline', round(A(miss) * 1e6) if not miss.is_empty else 0, 'm2')
+if os.environ.get('LIST'):
+    for q in sorted(getattr(miss, 'geoms', [miss]), key=lambda q: -A(q))[:12]: print('  ', round(A(q), 4), [round(v, 3) for v in q.bounds])
+piece = miss.buffer(W) if not miss.is_empty else miss   # not minus X: a sliver in a notch narrower than the grid must fill the notch
 out = {'type': 'FeatureCollection', 'features': [] if piece.is_empty else [{'type': 'Feature', 'properties': {'v': k}, 'geometry': mapping(piece)}]}
 json.dump(out, open(os.path.join(D, 'whole_slivers_%s.geojson' % k), 'w'))
 if not piece.is_empty:
