@@ -17,7 +17,7 @@ const R3 = v => Math.round(v*1000)/1000;
 const R3mp = mp => mp.map(p => p.map(r => r.map(q => [R3(q[0]), R3(q[1])])));
 const asMp = g => g.type === 'Polygon' ? [g.coordinates] : g.coordinates.filter(Array.isArray);
 const RUc = pc.intersection(R3mp(asMp(topojson.feature(geo, geo.objects.countries.geometries.find(g => String(g.id) === '643')).geometry)), [[[[35, 40], [50, 40], [50, 48], [35, 48], [35, 40]]]]);
-const rowsOnly = process.argv[2] === 'rows';
+const rowsOnly = process.argv[2] === 'rows';   // since Version 126 only use "rows": a full run would drop the Taman districts (tools/v2_taman_uzbekistan.js)
 for (const k of ['x', 'xb']) {
   if (!C[k]) continue;
   const V = C[k], before = V.km2;
@@ -30,7 +30,7 @@ for (const k of ['x', 'xb']) {
   }
   let ru = null; try { ru = area(pc.intersection(RUc, X)); } catch (e) {}
   V.states = V.states.filter(s => !['643_C', '643_D', '643_N'].includes(s.id));
-  V.states.push({id: '643_N', n: 'Russia: the North Caucasus to the district borders along a line from Anapa to the Kizlyar Bay (with the Black Sea coast and V5’s Dagestan block)', km2: ru, pct: null});
+  V.states.push({id: '643_N', n: 'Russia: the North Caucasus to district borders from the Taman peninsula and the lower Kuban to the Kizlyar Bay (with the Black Sea coast and V5’s Dagestan block)', km2: ru, pct: null});
   V.states.sort((a, b) => b.km2 - a.km2);
   console.log(k, before, '->', V.km2, '(', V.km2 - before, ') failed', fail, '643_N', ru);
 }

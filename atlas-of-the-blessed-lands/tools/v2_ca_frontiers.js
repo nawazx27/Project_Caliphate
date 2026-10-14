@@ -40,6 +40,7 @@ for (const k of ['x', 'xb', 'xn']) {
     V.states = V.states.filter(s => s.id !== 'KAB_S');
     if (inside > 0) V.states.push({id: 'KAB_S', n: 'Baikonur (Kazakh land leased to Russia): the town and the lease south of the Syr Darya', km2: inside, pct: Math.round(1000*inside/area(kab))/10}); }
   for (const id of ['417_K', '398_K', '156_K', '356_P', '860_K']) {
+    if (id === '860_K' && V.states.some(s => s.id === '860')) continue;   // Version 126: Uzbekistan whole
     let s = V.states.find(s => s.id === id);
     if (!s) { s = {...N[id]}; V.states.push(s); }
     s.n = NAMES[id] || N[id].n;
