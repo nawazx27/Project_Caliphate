@@ -20,9 +20,9 @@ const asMp = g => g.type === 'Polygon' ? [g.coordinates] : g.coordinates.filter(
 const country = id => R3mp(asMp(topojson.feature(geo, geo.objects.countries.geometries.find(g => String(g.id) === id)).geometry));
 const NAMES = {
   '860_K': 'Uzbekistan: Greater Khurāsān as the author’s maps draw it, with all the land between the Amu Darya and the Syr Darya (the Kyzylkum, Nukus and Karakalpakstan east of the Amu)',
-  '417_K': 'Kyrgyzstan: the Fergana valley to its mountain crests (Batken, Osh and Jalal-Abad regions), the Talas valley (Version 117, a gap filled) and the Khurāsān maps’ edge',
-  '156_K': 'China: the part of Greater Khurāsān as the author’s maps draw it (the widest of them), with the Tashkurgan pocket (Version 117, a gap filled)',
-  '398_K': 'Kazakhstan: the Mangystau region and the Qyzylorda region (since Version 127, by whole districts up to the author’s line from the Caspian to the Syr Darya, with the Aral district; cut back in Version 130 to his border line from the Caspian to east of the Aral), the Turkistan region to the Karatau range and the Moyynkum and Kyzylkum sands, and the Zhambyl region south of the Chu (Taraz)',
+  '417_K': 'Kyrgyzstan: the Fergana valley to its mountain crests (Batken, Osh and Jalal-Abad regions), the Talas valley (Version 117, a gap filled), the Khurāsān maps’ edge and, since Version 131, the north of the author’s Transoxiana maps (Bishkek, Tokmok, the west of Issyk-Kul) and the mountains east of Farghāna',
+  '156_K': 'China: the part of Greater Khurāsān as the author’s maps draw it (the widest of them), with the Tashkurgan pocket (Version 117, a gap filled) and, since Version 131, the edges of the author’s Transoxiana maps',
+  '398_K': 'Kazakhstan: the Mangystau region and the Qyzylorda region (since Version 127, by whole districts up to the author’s line from the Caspian to the Syr Darya, with the Aral district; cut back in Version 130 to his border line from the Caspian to east of the Aral), the Turkistan region to the Karatau range and the Moyynkum and Kyzylkum sands, the Zhambyl region (Taraz) and, since Version 131, all of the author’s Transoxiana maps round Lake Balkhash (Almaty, Taldykorgan, Balkhash, Karaganda)',
 };
 const N = Object.fromEntries((C.xn || C.x).states.map(s => [s.id, s]));   // xn (V2N) was merged into V2 in Version 118
 const rowsOnly = process.argv[2] === 'rows';

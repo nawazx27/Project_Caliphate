@@ -19,6 +19,6 @@ U = unary_union(R); land = unary_union([shape(f['geometry']).buffer(0) for f in 
 C = json.load(open(os.path.join(P, 'src', 'caliph.json')))
 X = MultiPolygon([Polygon(p[0], p[1:]) for p in C['x']['polys']]).buffer(0)
 S = U.intersection(land).difference(X)
-S = unary_union([q for q in getattr(S, 'geoms', [S]) if q.geom_type == 'Polygon' and A(q) >= 0.05])
+S = unary_union([q for q in getattr(S, 'geoms', [S]) if q.geom_type == "Polygon" and A(q) > 0])
 json.dump({'type': 'FeatureCollection', 'features': [{'type': 'Feature', 'properties': {'id': 'REGIONS-MISSING', 'km2': round(A(S))}, 'geometry': mapping(S)}]}, open(os.path.join(D, 'regions_whole_missing.geojson'), 'w'))
 print('missing land', round(A(S)), 'km2')
