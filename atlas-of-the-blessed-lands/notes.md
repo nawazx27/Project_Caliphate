@@ -920,3 +920,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Inside both now: Almaty, Bishkek, Karaganda, Balkhash, Taldykorgan, Qyzylorda, Kazaly, Aralsk, Baikonur, Shymkent, Ṭarāz, Nukus. Rows: 398_K 921,006 (34%), 860_K 376,695 (84.2%), 762 whole, 417_K 139,193 (70%), 156_K 8,583.
 - V2 18,529,425 → 19,263,578 km² (19.26 million); V2-B 17,812,779 → 18,914,811 (18.91). Ring: V2 about 2.95 million km² outside it, V2-B 2.94.
 - Texts: CX_CORE Central Asia clause the same again for V2 and V2-B, new paragraph "Nothing left out, in V2 and V2-B (Version 136)" (Balkhash country labelled the author's specification, not classical Khurāsān), ring paragraph, versions paragraph. Recount rows: `node tools/v2_khorasan_widest.js rows` then `node tools/v2b_khorasan_from_v2.js` (copies V2's Central Asia to V2-B). Posters not redrawn.
+
+## Version 137 (2026-10-14): every last sliver of the region maps
+- Nawaz asked whether all of Mā warāʾ al-Nahr, Khwārazm, Transoxiana and Greater Khurāsān were in V2: per map, all but about 36 km² of edge slivers (dashed Khurāsān 3.9 on the Caspian shore, Khwārazm 0.7, red-line 4.8, locator 25.2, Isbījāb 2.0). He: "Fill everything".
+- tools/regions_slivers.py + tools/v2_regions_slivers.js (x, xb): the slivers of tools/data/khorasan_max.geojson outside each version widened 0.003° within land, two passes (+558 and +87 km² each). Towns (split/sl_loop.sh): 8 settlements, about 1,200 buildings outside. Gaps 21 slivers (75 km²). India border rerun; rows recounted; V2-B synced with tools/v2b_khorasan_from_v2.js.
+- Left: about 4.6 km² along the SE Caspian shore (53.8–54.0 E, 36.8–38.4 N, Gorgān bay/Miankaleh), base-map coastline vs Version 109 sea edge; the widening does not reach it (it lies off geo2's land union there).
+- V2 19,263,578 → 19,264,297 km² (19.26 million); V2-B 18,914,811 → 18,915,528 (18.92). Posters not redrawn.
