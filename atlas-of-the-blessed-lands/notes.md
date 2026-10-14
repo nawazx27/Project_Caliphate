@@ -891,3 +891,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Inside: Tashkent, Samarqand, Bukhārā, Khiva, Urgench, Termez, Karshi, Khujand, Andijan, Namangan, Fergana, Osh. Outside: Nukus, Bishkek, Shymkent, Taraz, Turkistan, Qyzylorda, Aktau, Almaty.
 - V2 19,551,518 → 18,170,202 km² (18.17 million); V2-B 19,202,749 → 17,821,432 (17.82). Ring: V2 about 1.86 million km² outside it, V2-B 1.85.
 - Texts: CX_CORE Central Asia clause, new paragraph "Only Greater Khurāsān in Central Asia (Version 132)", ring paragraph, versions paragraph (V2 sentence, sizes, V5 sentence). Posters not redrawn.
+
+## Version 133 (2026-10-14): the political border with India (V2, V2-B)
+- Nawaz: "Maintain political border with India".
+- tools/v2_india_border.js: India's land (geo2 id 356) taken out of V2 and V2-B (the Punjab to the Beas and Sutlej, row 356_P, 8,930 km², since Version 92); the outline now follows the India–Pakistan border as geo2 draws it (Azad Kashmir, Gilgit-Baltistan stay with Pakistan). Gap filling would have put back two Indian slivers (77.03 E 35.08 N, 71.4 E 27.87 N), so the tool was run again after it. No town passes: international border (Version 106 rule lists, does not take).
+- V2 18,170,202 → 18,161,310 km² (18.16 million); V2-B 17,821,432 → 17,812,541 (17.81). Ring unchanged (1.86 / 1.85 million outside).
+- Texts: CX_CORE (Punjab clause → India–Pakistan border), new paragraph "The political border with India (Version 133)", versions paragraph. Rerun tools/v2_india_border.js after any gap filling near India. Posters not redrawn.
