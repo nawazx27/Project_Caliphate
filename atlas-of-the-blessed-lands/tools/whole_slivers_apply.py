@@ -1,7 +1,7 @@
 """Version 145: adds tools/data/whole_slivers_<v>.geojson (from tools/whole_slivers.py) to that version in shapely (polygon-clipping
 was too slow for thousands of hairline pieces), snapped to the 0.001° grid with shapely.union_all(grid_size=0.001) so the result stays valid;
 holes under 5,000 km² are filled as in the other tools; exteriors counter-clockwise, holes clockwise (polygon-clipping's order).
-km2 recounted like the JS tools (d3.geoArea × 6371.0088²). Rows unchanged. Run: python3 tools/whole_slivers_apply.py <x|xb>"""
+km2 recounted like the JS tools (d3.geoArea × 6371.0088²). Rows unchanged. Run: python3 tools/whole_slivers_apply.py <x|xb> [geojson, default tools/data/whole_slivers_<v>.geojson]"""
 import json, os, subprocess, sys, shapely
 from shapely.geometry import shape, MultiPolygon, Polygon
 from shapely.geometry.polygon import orient
@@ -11,7 +11,7 @@ P = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'); k = sys.argv
 A = lambda g: abs(Geod(ellps='WGS84').geometry_area_perimeter(g)[0]) / 1e6
 F = os.path.join(P, 'src/caliph.json'); C = json.load(open(F))
 X = MultiPolygon([Polygon(r[0], r[1:]) for r in C[k]['polys']]).buffer(0)
-N = [shape(f['geometry']) for f in json.load(open(os.path.join(P, 'tools/data/whole_slivers_%s.geojson' % k)))['features']]
+N = [shape(f['geometry']) for f in json.load(open(sys.argv[2] if len(sys.argv) > 2 else os.path.join(P, 'tools/data/whole_slivers_%s.geojson' % k)))['features']]
 U = shapely.union_all([shapely.make_valid(g) for g in [X] + N], grid_size=0.001)
 U = MultiPolygon([q for q in getattr(U, 'geoms', [U]) if q.geom_type == 'Polygon'])
 out = []
