@@ -942,3 +942,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Out again: northern and western Kazakhstan, Mangystau, the Balkhash country with Almaty, Naryn town. In: Bishkek, Tokmok, Karakol, Kashgar, Qyzylorda, Aralsk, Baikonur, Nukus, Shymkent, Ṭarāz. Rows: 398_K 388,734 (14.4%), 860_K 376,765 (84.3%), 156_K 188,187, 417_K 170,468 (85.8%), 762 and KAB whole.
 - V2 21,360,579 → 18,943,606 km² (18.94 million); V2-B 21,011,809 → 18,594,837 (18.59). Ring: V2 about 2.63 million outside it, V2-B 2.62.
 - Texts: CX_CORE clause, new paragraph "Greater Khurāsān by all the classical sources, at its widest (Version 139)", ring paragraph, versions paragraph. Recount rows with `node tools/v2_khorasan_classical.js rows`. Posters not redrawn.
+
+## Version 140 (2026-10-14): the Naryn gap filled (V2, V2-B)
+- Nawaz, screenshot of V2 with a hole south of Issyk-Kul: "Why is there a gap here?" It was a 28,283 km² hole (Naryn, At-Bashy) fully enclosed by V2's land since Version 139; tools/fill_gaps.py looks only at pockets on the outer edge and the tools keep holes ≥5,000 km² (for seas and lakes), so it was missed.
+- New tools/fill_enclosed.py: removes every hole of a version that is mostly land (geo2). Run on x and xb: only this hole. Kyrgyzstan now whole (row 417, 198,708 km²). Standing rule in CLAUDE.md extended: run fill_enclosed.py after changes.
+- V2 18,943,606 → 18,971,889 km² (18.97 million); V2-B 18,594,837 → 18,623,120 (18.62). Ring: V2 about 2.66 million outside it, V2-B 2.65.
+- Texts: CX_CORE (Naryn, all of Kyrgyzstan), new paragraph "The Naryn gap filled (Version 140)", ring paragraph, sizes. Posters not redrawn.
