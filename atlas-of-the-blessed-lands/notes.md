@@ -867,3 +867,11 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Row 398_K 731,325 km² (27%). V2 19,028,039 → 19,104,662 km² (19.10 million); V2-B 18,679,270 → 18,755,892 (18.76). Ring: V2 about 2.78 million km² outside it, V2-B 2.77.
 - Texts: CX_CORE Kazakhstan clause, new paragraph "On to Atyrau (Version 129)", ring paragraph, sizes.
 - Tests: smoke.js, v2bpanel.js, vers.js; close-up of western Kazakhstan in V2. Posters not redrawn.
+
+## Version 130 (2026-10-14): a new border across Kazakhstan (V2, V2-B)
+- Nawaz sent a phone screenshot of V2 with a black line across the land added in Versions 127–129 (reference/v130_border_request.jpg), no words. Asked; he chose "Make it the new border" (everything north of it out).
+- tools/v2_kz_border_line.js with tools/data/kz_border_line130.json: line placed from the screenshot's graticule (45 N y 1160, 50 N y 545, 55 E x 252, 83.2 px/deg; 50 N check 49.99): 53.11 E 45.61 N → 63.03 E 47.18 N (ends on the outline east of the Aral). Removed: V2/V2-B land north of it, polygon from 52.6 E 45.45 N (keeps the Buzachi peninsula) to 52 N: −116,513 km² (Atyrau okrug, most of Zhylyoi with Kulsary, Makat, north Baiganin and Shalkar with Shalkar town, north Aral district). The border is his line, not district borders.
+- Towns: buildings along the line fetched (split/kz4_buildings.py); 1 village (60.996 E 47.245 N, 16 buildings outside) taken whole; none left cut. Gaps: 5 slivers (12 km²).
+- Row 398_K 614,815 km² (22.7%). V2 19,104,662 → 18,988,146 km² (18.99 million); V2-B 18,755,892 → 18,639,376 (18.64). Ring: V2 about 2.67 million km² outside it, V2-B 2.65.
+- Texts: CX_CORE Kazakhstan clause, new paragraph "A new border across Kazakhstan (Version 130)", ring paragraph, sizes. Versions 127–129's tools are history (do not rerun them on top of this).
+- Tests: smoke.js, v2bpanel.js, vers.js; close-up in V2. Posters not redrawn.
