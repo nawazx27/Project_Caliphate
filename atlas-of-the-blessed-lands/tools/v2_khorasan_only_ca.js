@@ -4,7 +4,7 @@
    tools/data/transoxiana_trace.json 'khorasan', greater_khorasan_wiki_trace.json and khorasan_express_trace.json, with every province of
    those four Central Asian countries that the union covers to 99% or more taken whole (Version 87's rule; Tajikistan is thus whole).
    Transoxiana, Khwārazm and everything else beyond Khurāsān there go out (Versions 74–131's additions). Rows recounted here.
-   Run: node tools/v2_khorasan_only_ca.js */
+   Run: node tools/v2_khorasan_only_ca.js   (or "rows" to only recount after town passes and gap filling) */
 const fs = require('fs'), path = require('path');
 const ROOT = path.join(__dirname, '..');
 const topojson = require(path.join(ROOT, 'node_modules/topojson-client'));
@@ -31,10 +31,12 @@ const KEEP = R3mp(pc.intersection(R3mp(pc.union(KHMAX, ...whole)), CA));   // la
 console.log('widest Khurasan', area(KHMAX), 'whole provinces', whole.length, 'kept in the five countries', area(KEEP));
 for (const k of ['x', 'xb']) {
   const V = C[k], before = V.km2;
-  let X = R3mp(pc.difference(R3mp(V.polys), CA));
-  X = R3mp(pc.union(X, KEEP));
-  X = X.map(p => [p[0], ...p.slice(1).filter(r => ringSr(r)*KM >= 5000)]).filter(p => ringSr(p[0])*KM >= 1);
-  V.polys = X; V.km2 = area(X);
+  let X = R3mp(V.polys);
+  if (process.argv[2] !== 'rows') {
+    X = R3mp(pc.union(R3mp(pc.difference(X, CA)), KEEP));
+    X = X.map(p => [p[0], ...p.slice(1).filter(r => ringSr(r)*KM >= 5000)]).filter(p => ringSr(p[0])*KM >= 1);
+    V.polys = X; V.km2 = area(X);
+  }
   V.states = V.states.filter(s => !/^(860|762|417|398|156|KAB)(_|$)/.test(String(s.id)));
   for (const [id, nm] of IDS) {
     if (id === 'KAB') continue;
