@@ -17,7 +17,7 @@ F = {str(f['id']): shape(f['geometry']).buffer(0) for f in geo['features']}
 C = json.load(open(os.path.join(P, 'src/caliph.json')))
 X = MultiPolygon([Polygon(r[0], r[1:]) for r in C[k]['polys']]).buffer(0)
 parts = [F[str(r['id'])] for r in C[k]['states'] if str(r['id']) in F]
-for f in ['khorasan_classical', 'manqishlaq_ustyurt', 'ustyurt_pocket', 'caucasus_v5', 'lake_albert_drc', 'lake_albert_shore', 'comoros_mayotte147', 'caucasus_shape150', 'lake_albert_border150']:   # Version 149: the Caucasus exactly as his orange map; the Africa extensions of 146-148 dropped (Nawaz)
+for f in ['khorasan_classical', 'manqishlaq_ustyurt', 'ustyurt_pocket', 'caucasus_v5', 'lake_albert_drc', 'lake_albert_shore', 'comoros_mayotte147', 'lake_albert_border150']:   # Version 151: no Russian Caucasus (Nawaz)   # Version 149: the Caucasus exactly as his orange map; the Africa extensions of 146-148 dropped (Nawaz)
     p = os.path.join(D, f + '.geojson')
     if os.path.exists(p): parts += [shape(g['geometry']).buffer(0) for g in json.load(open(p))['features'] if g['properties'].get('role', 'add') == 'add']
 import glob   # the border towns taken whole (tools/whole_slivers_places.py) must be wholly inside too
@@ -25,6 +25,8 @@ for p in sorted(glob.glob(os.path.join(D, 'whole_slivers_places*_%s.geojson' % k
 for p in [os.path.join(D, 'outline%s_%s.geojson' % (n, k)) for n in ('144', '145')]:   # all the version held in Versions 144 and 145 stays in
   if os.path.exists(p): parts += [shape(g['geometry']).buffer(0) for g in json.load(open(p))['features']]
 T = unary_union(parts)
+p = os.path.join(D, 'russia_out151.geojson')   # Version 151: Russia's Caucasus is not held (Nawaz: modern Georgia and Azerbaijan borders)
+if os.path.exists(p): T = T.difference(shape(json.load(open(p))['features'][0]['geometry']).buffer(0))
 json.dump({'type': 'FeatureCollection', 'features': [{'type': 'Feature', 'properties': {'v': k}, 'geometry': mapping(T)}]}, open(os.path.join(D, 'whole_slivers_held_%s.geojson' % k), 'w'))   # the held lands, for the town step
 miss = T.difference(X)
 print(k, 'held lands outside the outline', round(A(miss) * 1e6) if not miss.is_empty else 0, 'm2')
