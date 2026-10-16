@@ -5,9 +5,10 @@
      so Russia south of it (Kerch Strait to the Caspian, land only, Crimea out) is added: tools/data/caucasus_expand147.geojson.
  (2) Google Maps screenshot of the Comoros and Mayotte, "add the ones in the image": the Comoros (174) whole and Mayotte (the French
      island, FRA within 44.9-45.4 E, 13.1-12.5 S): tools/data/comoros_mayotte147.geojson.
- (3) "And with that extend": a black line on V2 from the south end of Lake Tanganyika south-east through Zambia, Malawi and
-     Mozambique to the sea near the Zambezi mouth (reference/v147_africa_line_request.jpg, fitted on the gold V2 edge;
-     tools/data/africa_line147.json); all land and lake north-east of it to the coast: tools/data/africa_expand147.geojson.
+ (3) "And with that extend", then "Update" with a redrawn line: from west of Lake Tanganyika (3.9 S) south past the lake and
+     south-east through Zambia, Malawi and Mozambique to the sea just north-east of the Zambezi mouth (reference/
+     v147_africa_line_update.jpg, which replaces v147_africa_line_request.jpg; fitted on the gold V2 edge;
+     tools/data/africa_line147.json); all land and lake east of it to the coast: tools/data/africa_expand147.geojson.
 Run: python3 tools/expand147.py. Nawaz's maps; my tracing."""
 import json, os, subprocess
 from shapely.geometry import shape, Polygon, MultiPolygon, mapping, box
@@ -37,6 +38,6 @@ save('caucasus_expand147.geojson', cau); report('Caucasus', cau)
 cm = unary_union([F['174'], F['FRA'].intersection(box(44.9, -13.1, 45.4, -12.5))])
 save('comoros_mayotte147.geojson', cm); report('Comoros and Mayotte', cm)
 L = line('africa_line147.json')
-R = Polygon(L + [(42.0, L[-1][1]), (42.0, -8.0), (L[0][0], -8.0)]).buffer(0)
+R = Polygon(L + [(42.0, L[-1][1]), (42.0, L[0][1])]).buffer(0)   # closed east through the sea and land V2 holds
 af = R.intersection(unary_union([land, lakes]))
 save('africa_expand147.geojson', af); report('Africa', af)
