@@ -26,7 +26,14 @@ for p in [os.path.join(D, 'outline%s_%s.geojson' % (n, k)) for n in ('144', '145
   if os.path.exists(p): parts += [shape(g['geometry']).buffer(0) for g in json.load(open(p))['features']]
 T = unary_union(parts)
 p = os.path.join(D, 'russia_out151.geojson')   # Version 151: Russia's Caucasus is not held (Nawaz: modern Georgia and Azerbaijan borders)
-if os.path.exists(p): T = T.difference(shape(json.load(open(p))['features'][0]['geometry']).buffer(0))
+if os.path.exists(p):
+    RO = shape(json.load(open(p))['features'][0]['geometry']).buffer(0)
+    if k == 'x':   # Version 152: Greater Georgia (Nikopsia to Darband) in V2 only (Nawaz)
+        GG = shape(json.load(open(os.path.join(D, 'greater_georgia152.geojson')))['features'][0]['geometry']).buffer(0)
+        GT = [shape(f['geometry']).buffer(0) for q in sorted(glob.glob(os.path.join(D, 'expand_towns152_*_x.geojson'))) for f in json.load(open(q))['features']]
+        GG = unary_union([GG] + GT)
+        RO = RO.difference(GG); T = unary_union([T, GG])
+    T = T.difference(RO)
 json.dump({'type': 'FeatureCollection', 'features': [{'type': 'Feature', 'properties': {'v': k}, 'geometry': mapping(T)}]}, open(os.path.join(D, 'whole_slivers_held_%s.geojson' % k), 'w'))   # the held lands, for the town step
 miss = T.difference(X)
 print(k, 'held lands outside the outline', round(A(miss) * 1e6) if not miss.is_empty else 0, 'm2')
