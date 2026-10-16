@@ -114,7 +114,7 @@ const INFO = {
   makkah:{title:"Ḥaram of Makkah", ar:"حرم مكة", src:["rev","early","classical"], cert:"approx", body:`
     <p>That Makkah is a ḥaram is established by revelation and agreed on by the Muslims. The Qur'an speaks of the Lord of this city ${q("الَّذِي حَرَّمَهَا")}, "who made it sacred" (al-Naml 27:91), and says ${q("وَمَن دَخَلَهُ كَانَ آمِنًا")}, "whoever enters it shall be safe" (Āl ʿImrān 3:97). In an authentic hadith the Prophet ﷺ said that Allah made Makkah sacred on the day He created the heavens and the earth.</p>
     <p>Its limits are known from boundary markers on the roads into Makkah. Historical reports say Ibrāhīm عليه السلام first set them up and that they were renewed in the Prophet's ﷺ time and after; how authentic each report is, is a separate question.</p>
-    <p>Al-Nawawī gives the limits in mīl: al-Tanʿīm, at the houses of Banū Nifār, 3; the Yemen road at Aḍāt Libn, 7; the Ṭāʾif road at Baṭn Namirah facing ʿArafāt, 7; the Iraq road at the pass of al-Maqṭaʿ, 7; the al-Jiʿrānah road at Shiʿb Āl ʿAbdillāh b. Khālid, 9; and the Jeddah road at Munqaṭaʿ al-Aʿshāsh, 10. ʿArafah is outside the ḥaram; Minā and Muzdalifah are inside it. The points are placed approximately and the line between them is interpolated.</p>`,
+    <p>Al-Nawawī gives the limits in mīl: al-Tanʿīm, at the houses of Banū Nifār, 3; the Yemen road at Aḍāt Libn, 7; the Ṭāʾif road at Baṭn Namirah facing ʿArafāt, 7; the Iraq road at the pass of al-Maqṭaʿ, 7; the al-Jiʿrānah road at Shiʿb Āl ʿAbdillāh b. Khālid, 9; and the Jeddah road at Munqaṭaʿ al-Aʿshāsh, 10. ʿArafah is outside the ḥaram; Minā and Muzdalifah are inside it. The points are placed approximately and the line between them is estimated.</p>`,
     refs:["Qur'an, al-Naml 27:91; Āl ʿImrān 3:96–97","Al-Bukhārī and Muslim: Makkah made sacred by Allah (khuṭbah at the conquest)",`Al-Nawawī, al-Majmūʿ, quoted in <a href="https://www.islamweb.net/ar/fatwa/71668/" target="_blank" rel="noopener">Islamweb fatwa 71668</a>`]},
   madinah:{title:"Ḥaram of Madinah", ar:"حرم المدينة", src:["rev"], cert:"approx", body:`
     <p>The Prophet ﷺ declared Madinah a ḥaram. He said that Ibrāhīm عليه السلام made Makkah sacred and that he ﷺ made Madinah sacred, and he prayed for Madinah to be given double the blessing given to Makkah.</p>
@@ -157,7 +157,7 @@ const INFO = {
     refs:[`Al-Balādhurī, Futūḥ al-Buldān (<a href="https://www.islamweb.net/ar/library/content/200/17435/" target="_blank" rel="noopener">Islamweb</a>)`,`Yāqūt, Muʿjam al-Buldān, s.v. al-Ḥijāz (<a href="https://www.islamic-content.com/t/5632" target="_blank" rel="noopener">text</a>) and s.v. Sargh`]},
   ajnad:{title:"The other ajnād of al-Shām", ar:"أجناد الشام", src:["early","classical"], cert:"uncertain", body:`
     <p>Between 637 and 640 CE, in the time of ʿUmar رضي الله عنه, al-Shām was organised into four military and administrative districts called <i>ajnād</i>: Filasṭīn, al-Urdunn, Dimashq and Ḥimṣ. When ʿUmar reached Sargh, "the commanders of the ajnād" met him (al-Bukhārī and Muslim), so the districts existed in the Companions' time. Qinnasrīn was carved out of Ḥimṣ under Muʿāwiyah or Yazīd, and Hārūn al-Rashīd later made the northern frontier a separate province.</p>
-    <p>Filasṭīn and al-Urdunn have their own layer. This layer adds Dimashq, Ḥimṣ and Qinnasrīn, whose borders shifted over time and are drawn only schematically.</p>`,
+    <p>Filasṭīn and al-Urdunn have their own layer. This layer adds Dimashq, Ḥimṣ and Qinnasrīn, whose borders shifted over time and are drawn only roughly.</p>`,
     refs:[`<a href="https://en.wikipedia.org/wiki/Bilad_al-Sham" target="_blank" rel="noopener">Bilād al-Shām</a> (Wikipedia, citing al-Balādhurī and others)`]},
   filastin:{title:"Filasṭīn and al-Urdunn", ar:"جند فلسطين وجند الأردن", src:["early","classical"], cert:"approx", body:`
     <p>The name Filasṭīn does not occur in the Qur'an. Early usage treats it as a named part inside al-Shām: Ibn Isḥāq says Ibrāhīm عليه السلام went "to al-Shām and settled at al-Sabʿ, of the land of Filasṭīn" (quoted by al-Baghawī on 21:71).</p>
@@ -204,7 +204,7 @@ const INFO = {
     <p>Western Arabia is scattered with black basalt lava fields. Madinah's ḥaram is defined in the Sunnah partly by two of them: its eastern and western <i>lābah</i>s. Ḥarrat Rahat stretches south from Madinah toward Makkah; Ḥarrat al-Shām lies across the desert edge of al-Shām.</p>
     <p>The outlines are approximate and drawn only for orientation.</p>`},
   modern:{title:"Modern borders", src:["modern"], cert:"firm", body:`
-    <p>Present-day international borders from the Natural Earth dataset, drawn as de facto lines. They are here only for comparison and say nothing about the classical regions.</p>
+    <p>Present-day international borders from the Natural Earth dataset, drawn as they stand in practice (de facto). They are here only for comparison and say nothing about the classical regions.</p>
     <p>Several are disputed or not universally recognised: the status of Jerusalem, the West Bank and Gaza; the Golan Heights, which Israel has administered since 1967 and most states regard as Syrian territory; and Hatay (Antakya), long claimed by Syria.</p>`}
 };
 SITES.forEach(s=>{ if(!s.info) INFO['site_'+s.id] = {title:s.n, src:s.src, cert:s.cert, body:s.body}; });

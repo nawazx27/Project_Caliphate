@@ -181,7 +181,7 @@ function buildOverlay(){
   addLabel('intlAny', [['Taurus divide']], [33.4,37.55], {cls:'natlbl intl', minK:0.8, pri:12, color:'--natb'});
   addLabel('intlAny', [['the central axis']], [37.25,22.9], {cls:'natlbl intl', minK:0.9, pri:12, color:'--natb'});
   NAT_PTS.forEach(c=>addPoint(c.lay || 'natbAny', c.ll, {sym:c.sym, name:c.name || null, sub:c.sub || null, minK:c.k || 0, subK:(c.k || 0) + 0.6, maxK:c.maxK, anchor:c.a || 'r', cls:'small', pri:9, info:'natb', title:c.title, lcolor:'--natb', keep:true}));
-  addLabel('links', [['al-Isrāʾ (schematic)']], [37.45,26.55], {cls:'note', minK:0.9, pri:9, color:'--miqat'});
+  addLabel('links', [['al-Isrāʾ (rough sketch)']], [37.45,26.55], {cls:'note', minK:0.9, pri:9, color:'--miqat'});
   CITIES.forEach(c=>addPoint('cities', [c[2],c[3]], {name:c[0], sub:c[1], minK:c[4], subK:c[4]+0.9, anchor:c[5], pri:c[6]}));
   addPoint('ajnad', [37.00,35.99], {name:"Qinnasrīn", sub:"old capital", minK:1.6, anchor:"l", info:"jund_qinnasrin", pri:9});
   STATIONS.forEach(s=>addPoint(s[5], [s[1],s[2]], {name:s[0], minK:s[4], anchor:s[3], r:2.6, color: s[5]==='hajj'?'--hajj':'--trade', info: s[5]==='hajj'?'hajj':'quraysh', cls:'small', pri:14}));

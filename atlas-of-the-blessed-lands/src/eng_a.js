@@ -18,7 +18,7 @@ const LAYERS = [
     {id:"muq", name:"al-Arḍ al-Muqaddasah", sub:"al-Māʾidah 5:21, five early views", color:"--muq", cert:"uncertain", on:false, info:"muq"},
     {id:"tuwa", name:"Ṭuwā and Mount Sinai", sub:"Location uncertain", color:"--sacred", cert:"uncertain", on:true, info:"tuwa"},
     {id:"sites", name:"Qur'anic and sīrah sites", sub:"Ḥirāʾ, Thawr, Badr, al-Ḥijr and more", color:"--site", cert:"firm", on:false, info:null},
-    {id:"links", name:"al-Isrāʾ and the qibla", sub:"Schematic line; arrows at Madinah", color:"--miqat", cert:"uncertain", on:false, info:"isra"},
+    {id:"links", name:"al-Isrāʾ and the qibla", sub:"Rough sketch line; arrows at Madinah", color:"--miqat", cert:"uncertain", on:false, info:"isra"},
     {id:"saba", name:"Sabaʾ and al-Aḥqāf", sub:"Maʾrib; three reports on ʿĀd", color:"--yemen", cert:"approx", on:false, info:"saba"},
     {id:"eschat", name:"End-of-time hadith places", sub:"al-Ghūṭah, Dābiq, Ludd and more", color:"--eschat", cert:"approx", on:false, info:"eschat"}
   ]},

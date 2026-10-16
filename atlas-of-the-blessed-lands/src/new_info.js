@@ -46,7 +46,7 @@ const INFO_NEW = {
   najd:{title:"Najd", ar:"نجد", src:["early","classical"], cert:"uncertain", body:`
     <p>Najd means the high ground: the interior plateau east of the Ḥijāz mountains. Hishām b. al-Kalbī derived al-Ḥijāz from its being a barrier between Tihāmah and Najd, and al-Aṣmaʿī says the beginning of Tihāmah on the Najd side is Dhāt ʿIrq (both via Yāqūt).</p>
     <p>The Sunnah fixes Qarn al-Manāzil as the mīqāt of the people of Najd (al-Bukhārī 1524, Muslim 1181). In al-Bukhārī 1037 the Prophet ﷺ prayed for blessing on al-Shām and Yemen, and when the people asked about Najd he said that earthquakes and trials would appear there and that the side of the head of Satan would rise from it. Scholars differ on which Najd is meant, and I give no verdict.</p>
-    <p><b>On the map:</b> a dotted outline around the Qaṣīm–Ḥāʾil–Riyadh plateau. No source I read draws classical Najd as a polygon, and later usage narrowed the name, so treat the outline as a rough indication. Al-Yamāmah, around the old Ḥajr near today's Riyadh, is marked on the jurists' layer; I did not read a source that places it inside or outside Najd.</p>`,
+    <p><b>On the map:</b> a dotted outline around the Qaṣīm–Ḥāʾil–Riyadh plateau. No source I read draws classical Najd as a closed area with fixed edges, and later usage narrowed the name, so treat the outline as a rough indication. Al-Yamāmah, around the old Ḥajr near today's Riyadh, is marked on the jurists' layer; I did not read a source that places it inside or outside Najd.</p>`,
     refs:["Yāqūt, Muʿjam al-Buldān, s.v. al-Ḥijāz and Tihāmah",sn("bukhari",1037,"Al-Bukhārī 1037"),"Al-Bukhārī 1524, Muslim 1181"]},
   bahrayn:{title:"al-Baḥrayn", ar:"البحرين", src:["early","classical"], cert:"uncertain", body:`
     <p>In the early sources al-Baḥrayn means the Gulf coast of Arabia, with al-Aḥsāʾ and al-Qaṭīf, and not only today's island state. In al-Bukhārī 892 (Ibn ʿAbbās) the first Friday prayer held after the one in the mosque of the Prophet ﷺ was in the mosque of ʿAbd al-Qays at Jawāthā in al-Baḥrayn.</p>
@@ -107,7 +107,7 @@ const INFO_NEW = {
     <p>The marker is Istanbul. The virtue is for an army, and no sacred status attaches to the city.</p>`,
     refs:[sn("bukhari",2924,"Al-Bukhārī 2924"),sn("muslim",2897,"Muslim 2897")]},
   isra:{title:"al-Isrāʾ and the qibla", ar:"الإسراء والقبلة", src:["rev"], cert:"approx", body:`
-    <p>Al-Isrāʾ 17:1: the night journey from the Sacred Mosque to the Furthest Mosque, "whose surroundings We have blessed". The verse does not describe the route, so the thin dotted line is schematic only.</p>
+    <p>Al-Isrāʾ 17:1: the night journey from the Sacred Mosque to the Furthest Mosque, "whose surroundings We have blessed". The verse does not describe the route, so the thin dotted line is only a rough sketch.</p>
     <p>The first qibla was Bayt al-Maqdis. The Prophet ﷺ prayed toward it for sixteen or seventeen months after reaching Madinah, and then the direction was changed to the Kaʿbah (al-Bukhārī 40, al-Barāʾ b. ʿĀzib; al-Baqarah 2:144). The two short arrows at Madinah show the two directions.</p>`,
     refs:["Qur'an, al-Isrāʾ 17:1; al-Baqarah 2:144",sn("bukhari",40,"Al-Bukhārī 40")]}
 };
@@ -184,7 +184,7 @@ const STATUS = [
   refs:["Al-Bukhārī 1524, Muslim 1181",sn("bukhari",1531,"Al-Bukhārī 1531")]},
  {n:18, name:"al-Isrāʾ and the qibla", kinds:["link"], kind:"link", level:"rev", lvl:"Qur'an & Sunnah", ll:[37.4,26.4], off:[18,-14], pri:4, minK:0, focus:0, goto:"links",
   rests:`Qur'an 17:1: the night journey from the Sacred Mosque to the Furthest Mosque; 2:144: turn your face toward the Sacred Mosque. Sunnah: the first qibla was Bayt al-Maqdis, for sixteen or seventeen months (al-Bukhārī 40).`,
-  where:`The line on the map is schematic: the route is not given. The arrows at Madinah show the two qibla directions.`,
+  where:`The line on the map is only a rough sketch: the route is not given. The arrows at Madinah show the two qibla directions.`,
   refs:["Qur'an 17:1, 2:144",sn("bukhari",40,"Al-Bukhārī 40")]},
  {n:19, name:"Sabaʾ, the blessed towns and Quraysh's journeys", kinds:["link"], kind:"link", level:"rev", lvl:"Qur'an · tafsīr: the route", ll:[44.13,17.49], off:[-18,-14], pri:4, minK:0.9, focus:16, goto:"trade",
   rests:`Qur'an 34:18: ${q("وجعلنا بينهم وبين القرى التي باركنا فيها قرى ظاهرة")}, "And We placed between them and the cities which We had blessed [many] visible cities"; 106:2, the winter and summer journeys. Al-Baghawī: the towns ran continuously from Sabaʾ to al-Shām along their trade road; one view of 106:2 is winter to Yemen and summer to al-Shām.`,
