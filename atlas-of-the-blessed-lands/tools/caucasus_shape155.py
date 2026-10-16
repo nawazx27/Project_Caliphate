@@ -54,6 +54,8 @@ for q in getattr(o, 'geoms', [o]):
     if q.geom_type == 'Polygon':
         for x, y in q.exterior.coords: need = max(need, y + 0.03 - float(np.interp(x, Ls[:, 0], Ls[:, 1])))
 t = np.clip((Ls[:, 0] - 45.9) / 0.9, 0, 1); Ls[:, 1] += need * (3 * t * t - 2 * t * t * t)   # the rise into the Caspian shore
+# the edge ends on the Caspian coast's turning point (the little cape at 44.22 N, 47.24 E; Nawaz circled the notch north of the end), not 0.09 degrees south of it
+t2 = np.clip((Ls[:, 0] - 46.4) / (Ls[-1, 0] - 46.4), 0, 1); Ls[:, 1] += (44.22 - Ls[-1, 1]) * t2 ** 2 * 1.0
 e = coast_lon(Ls[-1, 1]); Ls[:, 0] = np.where(Ls[:, 0] > 46.0, Ls[:, 0] + (e - Ls[-1, 0]) * np.clip((Ls[:, 0] - 46.0) / (Ls[-1, 0] - 46.0), 0, 1), Ls[:, 0])
 Ls = [tuple(p) for p in Ls]
 print('raised at the Caspian end by', round(need, 3))
