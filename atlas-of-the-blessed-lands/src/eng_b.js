@@ -263,11 +263,11 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   let bl = null; CLIPS.push({els:[cb, cl], key:()=>'', full:()=>d, lines:()=> bl || (bl = projLines(CALIPH.polys.flat()))});
   /* the user's expanded outline: their specification, not from the sources; two versions share one set of elements */
   const dOf = o => o.polys.map(poly=>poly.map(rg=>ringD(rg)).join('')).join('');
-  /* each version's path is built the first time it is shown, not all seven at startup */
+  /* each version's path is built the first time it is shown, not all of them at startup */
   /* Version 123: V2's full path is built when first needed too (the opening view uses the coarse copies made by build.js) */
   CX.d = {};
   const lazyD = (k, f) => Object.defineProperty(CX.d, k, {configurable:true, enumerable:true, get(){ const v = f(); Object.defineProperty(CX.d, k, {value:v, enumerable:true}); return v; }});
-  lazyD('full', ()=>dOf(CALIPH.x)); lazyD('west', ()=>dOf(CALIPH.xw)); lazyD('gme', ()=>dOf(CALIPH.g)); lazyD('v2', ()=>dOf(CALIPH.v2)); lazyD('v3', ()=>dOf(CALIPH.x3)); lazyD('me', ()=>dOf(CALIPH.me)); lazyD('me2', ()=>dOf(CALIPH.me2)); lazyD('fullb', ()=>dOf(CALIPH.xb));
+  lazyD('full', ()=>dOf(CALIPH.x)); lazyD('west', ()=>dOf(CALIPH.xw)); lazyD('v2', ()=>dOf(CALIPH.v2)); lazyD('v3', ()=>dOf(CALIPH.x3)); lazyD('me', ()=>dOf(CALIPH.me)); lazyD('me2', ()=>dOf(CALIPH.me2)); lazyD('fullb', ()=>dOf(CALIPH.xb));
   CX.clip = sdefs.append('clipPath').attr('id','caliphxclip').append('path').attr('d', '');
   const gx = layerG(gEdges, 'caliphx');
   const openx = e=>{ e.stopPropagation(); select('caliphx'); };
@@ -275,7 +275,7 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   CX.band.append('title').text('The core caliphate (the author’s specification, not from the sources)');
   CX.line = gx.append('g').attr('clip-path','url(#landclip)').append('path').attr('class','caliphx-line').attr('d', '');
   gEdges.node().insertBefore(gx.node(), g.node());
-  const xl = {}, src = {full:CALIPH.x, west:CALIPH.xw, gme:CALIPH.g, v2:CALIPH.v2};
+  const xl = {}, src = {full:CALIPH.x, west:CALIPH.xw, v2:CALIPH.v2};
   src.v3 = CALIPH.x3; src.me = CALIPH.me; src.me2 = CALIPH.me2; src.fullb = CALIPH.xb;
   /* Version 119: while zoomed out the outline is drawn from a coarser copy, as the coastline is (same steps and tolerances, under a pixel
      on screen); the outline has grown to about 46,000 points, and painting all of them at the whole-region view was most of a redraw */
@@ -290,7 +290,6 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   CX.lk2 = () => { const k = XK(), lv = cxLv(); return k + '|' + lv + (lv >= 3 || (CX.lodC[k] && CX.lodC[k][lv]) ? '' : '*'); };   /* '*': the coarse copy is not ready yet */
   CLIPS.push({els:[CX.band], key:CX.lk2, full:()=>CX.lod(XK(), cxLv()), lines:()=> xl[XK()] || (xl[XK()] = projLines(src[XK()].polys.flat()))});
   CLIPS.push({els:[CX.line], key:CX.lk2, full:()=>CX.lod(XK(), cxLv()), lines:()=> xl[XK()] || (xl[XK()] = projLines(src[XK()].polys.flat()))});
-  /* the Greater Caliphate is drawn by the same elements in the core's colour (see setXV), so it reads as one territory */
   /* a faint wash over the land inside your outline, under every other colour */
   const gw = layerG(gFill, 'caliphx'); gFill.node().insertBefore(gw.node(), gFill.node().firstChild);
   CX.wash = gw.append('path').attr('class','caliphx-wash').attr('d', '');
