@@ -24,5 +24,5 @@ km2 = int(subprocess.check_output(['node', '-e', """const d3=require('./node_mod
 const s=r=>{const a=d3.geoArea({type:'Polygon',coordinates:[r]});return Math.min(a,4*Math.PI-a)};
 process.stdout.write(String(Math.round(C.reduce((t,p)=>t+s(p[0])-p.slice(1).reduce((h,r)=>h+s(r),0),0)*6371.0088**2)))"""], cwd=P, input=json.dumps(out).encode()))
 C[k]['km2'] = km2
-json.dump(C, open(F, 'w'), separators=(',', ':'), ensure_ascii=False)
+json.dump(C, open(F + '.tmp', 'w'), separators=(',', ':'), ensure_ascii=False); os.replace(F + '.tmp', F)   # atomic: a stopped run never leaves a half-written file
 print(k, before, '->', km2, '(+', km2 - before, ') polygons', len(out))
