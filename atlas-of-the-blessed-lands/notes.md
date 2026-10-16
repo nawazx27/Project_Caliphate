@@ -1028,3 +1028,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 153 (2026-10-16): the orange Caucasus in V2 only
 - Nawaz, with the orange Caucasus map again: "Implement in v2." caucasus_shape150.geojson (V150's undistorted copy of the orange edge, Kerch Strait to the Caspian, Crimea out, no town bumps) added to V2 only; whole_slivers.py holds it for x (exempt from russia_out151). V2-B keeps the modern Georgia/Azerbaijan borders. Clean-up 0 m², no gaps. Row 643_C (x) 183,669 km². V2 19,255,419 → 19,399,601 km² (19.4 million); V2-B 18,867,890. Posters not redrawn.
+
+## Version 154 (2026-10-16): the orange Caucasus edges as drawn (V2 only)
+- Nawaz, close-ups of the orange map: "Look at the edges carefully". V150/153's similarity (with turning) made the edge rise north from Taman (northern Taman and the Azov shore inside, unlike the orange). tools/caucasus_shape154.py copies it north-up: west end at the Black Sea mouth of the Kerch Strait (Cape Panagia 36.65 E 45.13 N), east end on the Caspian shore at 44.27 N, x and y stretched separately; Russia south of it (Crimea out) = caucasus_shape154.geojson, held for x instead of caucasus_shape150; Greater Georgia kept. Temryuk and the Azov shore now out; Anapa, Krasnodar, Stavropol, Grozny in. V2-B unchanged.
