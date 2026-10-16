@@ -32,6 +32,8 @@ if os.path.exists(p):
         GG = shape(json.load(open(os.path.join(D, 'greater_georgia152.geojson')))['features'][0]['geometry']).buffer(0)
         GT = [shape(f['geometry']).buffer(0) for q in sorted(glob.glob(os.path.join(D, 'expand_towns152_*_x.geojson'))) for f in json.load(open(q))['features']]
         GG = unary_union([GG] + GT)
+        OR = os.path.join(D, 'caucasus_shape150.geojson')   # Version 153: the orange Caucasus map in V2 only (Nawaz)
+        GG = unary_union([GG, shape(json.load(open(OR))['features'][0]['geometry']).buffer(0)])
         RO = RO.difference(GG); T = unary_union([T, GG])
     T = T.difference(RO)
 json.dump({'type': 'FeatureCollection', 'features': [{'type': 'Feature', 'properties': {'v': k}, 'geometry': mapping(T)}]}, open(os.path.join(D, 'whole_slivers_held_%s.geojson' % k), 'w'))   # the held lands, for the town step
