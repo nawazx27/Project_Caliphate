@@ -67,16 +67,17 @@ reg = R.intersection(RU).difference(cr)
 json.dump({'type': 'FeatureCollection', 'features': [{'type': 'Feature', 'properties': {'role': 'add', 'v': 'Version 155 Caucasus (orange, whole edge)'}, 'geometry': mapping(reg)}]}, open(os.path.join(D, 'caucasus_shape155.geojson'), 'w'))
 RZ = shape(json.load(open(os.path.join(D, 'caucasus_zone148.geojson')))['features'][0]['geometry']).buffer(0)
 F_ = os.path.join(P, 'src/caliph.json'); C = json.load(open(F_))
-X = MultiPolygon([Polygon(p[0], p[1:]) for p in C['x']['polys']]).buffer(0)
-X = shapely.union_all([shapely.make_valid(X.difference(RZ)), shapely.make_valid(reg), shapely.make_valid(GG.difference(cr))], grid_size=0.001)
-out = []
-for q in getattr(X, 'geoms', [X]):
-    if q.geom_type != 'Polygon': continue
-    q = orient(Polygon(q.exterior, [h for h in q.interiors if A(Polygon(h)) >= 5000]), 1.0)
-    out.append([[[round(u, 3), round(v, 3)] for u, v in rr.coords] for rr in [q.exterior, *q.interiors]])
-C['x']['polys'] = out
-C['x']['km2'] = int(subprocess.check_output(['node', '-e', """const d3=require('./node_modules/d3'),fs=require('fs');const C=JSON.parse(fs.readFileSync(0));
+for k in ('x', 'xb'):   # Version 156: the Caucasus rule is gone, so V2-B holds the same Russian Caucasus as V2 (it was V2 only in Versions 152-155)
+    X = MultiPolygon([Polygon(p[0], p[1:]) for p in C[k]['polys']]).buffer(0)
+    X = shapely.union_all([shapely.make_valid(X.difference(RZ)), shapely.make_valid(reg), shapely.make_valid(GG.difference(cr))], grid_size=0.001)
+    out = []
+    for q in getattr(X, 'geoms', [X]):
+        if q.geom_type != 'Polygon': continue
+        q = orient(Polygon(q.exterior, [h for h in q.interiors if A(Polygon(h)) >= 5000]), 1.0)
+        out.append([[[round(u, 3), round(v, 3)] for u, v in rr.coords] for rr in [q.exterior, *q.interiors]])
+    C[k]['polys'] = out
+    C[k]['km2'] = int(subprocess.check_output(['node', '-e', """const d3=require('./node_modules/d3'),fs=require('fs');const C=JSON.parse(fs.readFileSync(0));
 const s=r=>{const a=d3.geoArea({type:'Polygon',coordinates:[r]});return Math.min(a,4*Math.PI-a)};
 process.stdout.write(String(Math.round(C.reduce((t,p)=>t+s(p[0])-p.slice(1).reduce((h,r)=>h+s(r),0),0)*6371.0088**2)))"""], cwd=P, input=json.dumps(out).encode()))
-print('x orange Caucasus', round(A(reg)), 'km2; total', C['x']['km2'])
+    print(k, 'orange Caucasus', round(A(reg)), 'km2; total', C[k]['km2'])
 json.dump(C, open(F_ + '.tmp', 'w'), separators=(',', ':'), ensure_ascii=False); os.replace(F_ + '.tmp', F_)

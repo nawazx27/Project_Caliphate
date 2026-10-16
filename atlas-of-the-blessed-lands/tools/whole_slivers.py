@@ -28,7 +28,7 @@ T = unary_union(parts)
 p = os.path.join(D, 'russia_out151.geojson')   # Version 151: Russia's Caucasus is not held (Nawaz: modern Georgia and Azerbaijan borders)
 if os.path.exists(p):
     RO = shape(json.load(open(p))['features'][0]['geometry']).buffer(0)
-    if k == 'x':   # Version 152: Greater Georgia (Nikopsia to Darband) in V2 only (Nawaz)
+    if k in ('x', 'xb'):   # Version 156: the rule is gone, so V2-B too. Version 152: Greater Georgia (Nikopsia to Darband) in V2 only (Nawaz)
         GG = shape(json.load(open(os.path.join(D, 'greater_georgia152.geojson')))['features'][0]['geometry']).buffer(0)
         GT = [shape(f['geometry']).buffer(0) for q in sorted(glob.glob(os.path.join(D, 'expand_towns152_*_x.geojson'))) for f in json.load(open(q))['features']]
         GG = unary_union([GG] + GT)
