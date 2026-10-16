@@ -17,7 +17,7 @@ F = {str(f['id']): shape(f['geometry']).buffer(0) for f in geo['features']}
 C = json.load(open(os.path.join(P, 'src/caliph.json')))
 X = MultiPolygon([Polygon(r[0], r[1:]) for r in C[k]['polys']]).buffer(0)
 parts = [F[str(r['id'])] for r in C[k]['states'] if str(r['id']) in F]
-for f in ['khorasan_classical', 'manqishlaq_ustyurt', 'ustyurt_pocket', 'caucasus_v5', 'lake_albert_drc', 'lake_albert_shore', 'comoros_mayotte147', 'africa_natural148', 'caucasus_natural148']:   # Version 148: the hand-drawn 146/147 shapes replaced by natural ones
+for f in ['khorasan_classical', 'manqishlaq_ustyurt', 'ustyurt_pocket', 'caucasus_v5', 'lake_albert_drc', 'lake_albert_shore', 'comoros_mayotte147', 'caucasus_natural148']:   # Version 148: Caucasus by the Kuban and Kuma; the Africa extensions of 146-148 dropped (Nawaz)
     p = os.path.join(D, f + '.geojson')
     if os.path.exists(p): parts += [shape(g['geometry']).buffer(0) for g in json.load(open(p))['features'] if g['properties'].get('role', 'add') == 'add']
 import glob   # the border towns taken whole (tools/whole_slivers_places.py) must be wholly inside too
