@@ -531,7 +531,7 @@ body{background-image:var(--grain);background-size:160px;background-blend-mode:s
 @media (min-width:981px){
   .atlas.wide{grid-template-columns:minmax(0,1fr)}
   .atlas.wide .panel{position:static;max-height:none;overflow:visible;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
-  /* the wide sheet's own proportions, so the whole Greater Caliphate fits without blank margins */
+  /* the wide sheet's own proportions, so the whole of the widest version fits without blank margins */
   .atlas.wide .mapwrap{height:auto;aspect-ratio:1.75/1;max-height:calc(100svh - 40px);min-height:520px}
 }
 @media (max-width:980px){.deskonly{display:none!important}}
@@ -551,23 +551,19 @@ body{background-image:var(--grain);background-size:160px;background-blend-mode:s
 @media (max-width:760px){.mapctl{top:18px;right:18px}.xtoggle.onmap{top:18px;left:18px}.scale{left:18px;bottom:18px}}
 
 /* regional index */
-.regkey{display:flex;gap:10px;flex-wrap:wrap}
 .rk{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .rk::before{content:"";width:16px;height:9px;border-radius:2px;border:1.5px solid var(--c);background:color-mix(in srgb,var(--c) 18%,transparent)}
-.rk.core{--c:var(--xcal)}.rk.ring{--c:var(--xcal)}
-.rk.ring::before{border-style:dashed}
+.rk.core{--c:var(--xcal)}
 .regions{display:flex;flex-direction:column;gap:12px}
 .regrow{display:grid;gap:14px}
 .regrow.r4{grid-template-columns:repeat(4,minmax(0,1fr))}
-.regrow.r3{grid-template-columns:repeat(3,minmax(0,1fr))}
-@media (max-width:1100px){.regrow.r4{grid-template-columns:repeat(2,minmax(0,1fr))}.regrow.r3{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:760px){.regrow.r4,.regrow.r3{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:1100px){.regrow.r4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.regrow.r4{grid-template-columns:minmax(0,1fr)}}
 .reggrp{margin:8px 0 0;font-family:var(--font-display);font-size:20px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
 .reggrp small{font-family:var(--font-body);font-size:13.5px;color:var(--muted);font-weight:400}
-.reggrp.core{color:var(--xcal)}.reggrp.ring{color:var(--xcal)}
+.reggrp.core{color:var(--xcal)}
 .reg{background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:14px 16px 12px;display:flex;flex-direction:column;gap:8px;min-width:0;box-shadow:var(--card-shadow);position:relative}
 .reg.core{border-top:3px solid var(--xcal)}
-.reg.ring{border-top:3px dashed var(--xcal);background:color-mix(in srgb,var(--xcal) 4%,var(--surface))}
 .reg header{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;align-items:baseline}
 .reg header .rk{grid-column:1/-1}
 .reg h3{margin:4px 0 0;font-family:var(--font-display);font-size:19px;line-height:1.15;text-wrap:balance}
@@ -765,22 +761,7 @@ html.fullmap,html.fullmap body{overflow:hidden!important;overscroll-behavior:non
 .fadeL{-webkit-mask-image:linear-gradient(90deg,transparent,#000 26px);mask-image:linear-gradient(90deg,transparent,#000 26px)}
 .fadeL.fadeR{-webkit-mask-image:linear-gradient(90deg,transparent,#000 26px,#000 calc(100% - 34px),transparent);mask-image:linear-gradient(90deg,transparent,#000 26px,#000 calc(100% - 34px),transparent)}
 
-/* v13: lands once ruled by caliphates, inside the Greater Caliphate */
-.rk.hist{--c:var(--xcal)}
-.rk.hist::before{border-style:dotted;border-width:2px}
-.reggrp.hist{color:var(--xcal)}
-.reg.hist{border-top:3px dotted var(--xcal);background:color-mix(in srgb,var(--xcal) 6%,var(--surface))}
-.ctable tr.grp.g.h td{border-top:1px dotted color-mix(in srgb,var(--xcal) 60%,transparent)}
-.rk.afr{--c:var(--xcal)}
-.rk.afr::before{border-style:double;border-width:3px}
-.reggrp.afr{color:var(--xcal)}
-.reg.afr{border-top:3px double var(--xcal);background:color-mix(in srgb,var(--xcal) 5%,var(--surface))}
-.ctable tr.grp.g.a td{border-top:1px solid color-mix(in srgb,var(--xcal) 60%,transparent)}
-.rk.join{--c:var(--xcal)}
-.rk.join::before{border-style:solid;border-width:1.5px;background:transparent}
-.reggrp.join{color:var(--xcal)}
-.reg.join{border-top:3px solid color-mix(in srgb,var(--xcal) 40%,transparent);background:var(--surface)}
-.ctable tr.grp.g.j td{border-top:1px solid color-mix(in srgb,var(--xcal) 35%,transparent)}
+/* v13: a note after a state's name in the tables and region cards (a disputed status, a close call) */
 small.flag{font-size:.82em;font-style:italic;font-weight:400;letter-spacing:0;text-transform:none;color:var(--muted)}
 
 /* v14: finishing touches — a band of eight-point stars under the masthead, ruled section headings */
@@ -790,8 +771,6 @@ small.flag{font-size:.82em;font-style:italic;font-weight:400;letter-spacing:0;te
 .mast{margin-bottom:6px}
 .sec > h2::after{content:"";flex:1 1 60px;min-width:40px;align-self:center;height:0;border-top:1px solid color-mix(in srgb,var(--gold) 45%,transparent);margin-left:6px}
 .sec > h2{column-gap:12px}
-.lbl.caliphlbl.hist{font-size:10.5px;letter-spacing:.08em;font-variant:small-caps}
-.lbl.caliphlbl.hist .sub{font-variant:normal;letter-spacing:.02em}
 
 /* v15: a larger map frame */
 @media (min-width:761px) and (min-height:521px){.mapwrap{height:clamp(480px,calc(100svh - 160px),920px)}}
@@ -903,7 +882,7 @@ html{scroll-padding-top:12px}
 @media print{
   :root{--bg:#fff;--surface:#fff;--surface2:#fff}
   body{background:#fff;padding:0;font-size:12pt}
-  .skip,.toc,.openmap,.mapbars,.tiercap,.mapwrap,.mapctl,.insets,.focus,.atlas,.fstrip,.gobtn,.xtoggle,.regkey,.endmark,[data-close]{display:none!important}
+  .skip,.toc,.openmap,.mapbars,.tiercap,.mapwrap,.mapctl,.insets,.focus,.atlas,.fstrip,.gobtn,.xtoggle,.endmark,[data-close]{display:none!important}
   .wrap{max-width:none;gap:14pt}
   .mast{break-after:avoid}
   .note,.lim,.tier,.reg,.keyfind,.tablewrap,.stt tr,.lt tr{break-inside:avoid;box-shadow:none}

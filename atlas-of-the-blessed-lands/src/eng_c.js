@@ -2,7 +2,7 @@
 const ov = svg.append('g');
 let ovGrat, ovBack, ovLead, ovMain, ovBadge, ovTop, qa1, qa2;
 let pts = [], lbls = [], sbs = [];
-let TIER = null, TIER_KEEP = false, flashPt = null, XV = 'full';   /* XV (Version 66 numbering by size): 'me' (V1, the Middle East), 'west' (V3, to Iraq's border), 'full' (V2, Complete), 'fullb' (V2-B, V2 without the Balkan Peninsula, Version 108), 'v3' (V5, Complete extended), 'v2' (V6, Greater Middle East), 'gme' (V7, Greater Caliphate). Before: 'full' (core, complete), 'west' (core to Iraq's border), 'gme' (the Greater Caliphate: the core, extended, in one colour), 'v2' (Complete V2) or 'nat' (the territory inside the natural line) */   /* XV: version of the user's outline, 'full' or 'west' (to Iraq's border) */   /* source-tier filter; pulse marker for search results */
+let TIER = null, TIER_KEEP = false, flashPt = null, XV = 'full';   /* XV (Version 66 numbering by size): 'me' (V1, the Middle East), 'west' (V3, to Iraq's border), 'full' (V2, Complete), 'fullb' (V2-B, V2 without the Balkan Peninsula, Version 108), 'v3' (V5, Complete extended), 'v2' (V6, Greater Middle East); 'gme' (V7, Greater Caliphate) was deleted in Version 155 at the author's request. Before: 'full' (core, complete), 'west' (core to Iraq's border), 'gme' (the Greater Caliphate: the core, extended, in one colour), 'v2' (Complete V2) or 'nat' (the territory inside the natural line) */   /* XV: version of the user's outline, 'full' or 'west' (to Iraq's border) */   /* source-tier filter; pulse marker for search results */
 const SHORT = {1:"al-Masjid al-Ḥarām",2:"ʿArafah · Muzdalifah · Minā",3:"al-Masjid al-Nabawī",4:"Qubāʾ",5:"al-ʿAqīq",6:"Uḥud",7:"Wajj",8:"",9:"The Holy Land",10:"The land We blessed",11:"al-Shām in the Sunnah",12:"al-Ṭūr · Ṭuwā",13:"The fig and the olive",14:"al-Yaman",15:"Miṣr",16:"Iraq and the East",17:"The mawāqīt",18:"al-Isrāʾ and the qibla",19:"Sabaʾ · Quraysh",20:"al-Ḥabashah",21:"Bilād al-Rūm",22:"End-of-time places"};
 /* short tags for the province labels when zoomed far out (the pattern of your ŠM, ḤJ, YM) */
 const REGION_TAG = {sham:'ŠM', hijaz:'ḤJ', yemen:'YM', jazirah:'JA', upper:'JZ', iraq:'ʿR', misr:'MṢ', najd:'NJ', rum:'RM', habashah:'ḤB'}, TAG_K = 0.45;
@@ -130,11 +130,6 @@ function buildOverlay(){
   /* the country name, your choice: drawn behind every other label and never pushed aside by them */
   { const dl = addLabel('caliphx', [['DĀR AL-AMĀN'],['دار الأمان','arl dar','1.3em']], DAR_AT, {cls:'darlbl', back:true, free:true, minK:0, maxK:2.6, subK:0, pri:-9});
     if(dl) dl.alts = [DAR_AT, [44.5, 23.5], [31.5, 21.0], [45.5, 19.5], [33.0, 17.5], [47.0, 26.5], [29.0, 22.5], [30.0, 17.0], [30.5, 12.5], [31.0, 9.0]]; }   /* all over lands every version holds */
-  addLabel('caliphgl', [['V7'],['the core caliphate, extended · the author’s specification','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
-  addLabel('caliphgl', [['V7'],['the author’s specification · not from the sources','sub']], [66.0,46.6], {cls:'caliphlbl x big', minK:0.45, subK:0.45, pri:3, color:'--xcal'});
-  addLabel('caliphgl', [['V7'],['the author’s specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0.7, subK:0.7, pri:4, color:'--xcal'});
-  (CALIPH.g.hist || []).forEach(h=>{ const big = h.km2 > 300000, mid = h.km2 > 40000;
-    addLabel('caliphgl', [[h.n],[h.sub,'sub']], h.c, {cls:'caliphlbl x hist', minK: big ? 0.3 : mid ? 0.75 : 1.5, subK: big ? 0.55 : mid ? 1.1 : 2.2, pri:4, color:'--xcal'}); });
   addLabel('caliphv2', [['V6'],['V5 with the lands of a Greater Middle East map · history in the notes','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
   addLabel('caliphv2', [['V6'],['the author’s specification · not from the sources','sub']], [66.0,46.6], {cls:'caliphlbl x big', minK:0.45, subK:0.45, pri:3, color:'--xcal'});
   addLabel('caliphv2', [['V6'],['the author’s specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0.7, subK:0.7, pri:4, color:'--xcal'});
@@ -243,7 +238,7 @@ function applyLayers(){
   const natMode = inNat();   /* the natural-borders version: its line, chokepoints and passes always go with it, and the internal lines until you switch them off */
   if((layerOn.natb || layerOn.intl || natMode) && !NAT_BUILT) buildNat();
   layerOn.caliphnat = natMode; layerOn.caliphnp = !!layerOn.caliphx && XV === 'natp'; layerOn.caliphnatx = natMode; layerOn.natbAny = !!layerOn.natb || natMode; layerOn.intlAny = natMode ? !INTL_OFF : !!layerOn.intl;
-  layerOn.caliphxe = !!layerOn.caliphx && XV !== 'west'; layerOn.caliphxw = !!layerOn.caliphx && XV === 'west'; layerOn.caliphg = false; layerOn.caliphxc = !!layerOn.caliphx && (XV === 'full' || XV === 'fullb'); layerOn.caliphgl = !!layerOn.caliphx && XV === 'gme'; layerOn.caliphv2 = !!layerOn.caliphx && XV === 'v2'; layerOn.caliphv3 = !!layerOn.caliphx && XV === 'v3'; layerOn.caliphxArwad = !!layerOn.caliphx && !['full','fulln','nat','natp'].includes(XV); layerOn.caliphv2h = false;
+  layerOn.caliphxe = !!layerOn.caliphx && XV !== 'west'; layerOn.caliphxw = !!layerOn.caliphx && XV === 'west'; layerOn.caliphxc = !!layerOn.caliphx && (XV === 'full' || XV === 'fullb'); layerOn.caliphv2 = !!layerOn.caliphx && XV === 'v2'; layerOn.caliphv3 = !!layerOn.caliphx && XV === 'v3'; layerOn.caliphxArwad = !!layerOn.caliphx && !['full','fulln','nat','natp'].includes(XV); layerOn.caliphv2h = false;
   /* natural borders: the Libya variant goes with Complete V2, the far-east line with the Greater Caliphate */
   layerOn.natbMain = layerOn.natbAny;
   document.querySelectorAll('[data-lyt]').forEach(b=>b.setAttribute('aria-pressed', b.dataset.lyt === 'natb' ? layerOn.natbAny : b.dataset.lyt === 'intl' ? layerOn.intlAny : !!layerOn[b.dataset.lyt]));
@@ -384,14 +379,14 @@ function setArrow(A, mx, my, tx, ty, r0, r1){
   const right = ux >= 0;
   A.text.attr('x', x1+ux*8+(right?2:-2)).attr('y', y1+uy*8+4).attr('text-anchor', right?'start':'end');
 }
-/* the Greater Caliphate seen whole is about the territory: the discs, cities and classical names wait until the reader zooms in */
-const QUIET_LBL = new Set(['base','caliph','caliphx','caliphgl','caliphv2','caliphv3','caliphnat','caliphnp','caliphnatx','caliphxe','caliphxc','caliphxw','natb','natbAny','natbMain','intl','intlAny']), QUIET_PTS = new Set(['haram','aqsa','caliphx','caliphxArwad','natb','natbAny']);
+/* a wide version (V4, V5, V6) seen whole is about the territory: the discs, cities and classical names wait until the reader zooms in */
+const QUIET_LBL = new Set(['base','caliph','caliphx','caliphv2','caliphv3','caliphnat','caliphnp','caliphnatx','caliphxe','caliphxc','caliphxw','natb','natbAny','natbMain','intl','intlAny']), QUIET_PTS = new Set(['haram','aqsa','caliphx','caliphxArwad','natb','natbAny']);
 /* "Clean map": no numbered discs (with their leader lines and names), no dots, diamonds, stars or other point markers, no names of places, no qibla arrows, and none of the outline's own captions. Only the map, the outline and the names of regions, countries and seas stay. */
-const CLEAN_LBL = new Set(['caliph','caliphx','caliphgl','caliphv2','caliphv3','caliphnat','caliphnp','caliphnatx','caliphxe','caliphxc','caliphxw','natb','natbAny','natbMain','intl','intlAny']);
+const CLEAN_LBL = new Set(['caliph','caliphx','caliphv2','caliphv3','caliphnat','caliphnp','caliphnatx','caliphxe','caliphxc','caliphxw','natb','natbAny','natbMain','intl','intlAny']);
 function render(){
   const k = T.k;
   const clean = CLEAN && !!layerOn.caliphx;
-  const quiet = (XV === 'gme' || XV === 'v2' || XV === 'v3' || XV === 'me2' || XV === 'nat' || XV === 'natp') && !!layerOn.caliphx && k < 0.9;
+  const quiet = (XV === 'v2' || XV === 'v3' || XV === 'me2' || XV === 'nat' || XV === 'natp') && !!layerOn.caliphx && k < 0.9;
   const sc = `scale(${(1/k).toFixed(5)})`;
   sandPat.attr('patternTransform', sc); lavaPat.attr('patternTransform', sc);
   hSham.attr('patternTransform', `${sc} rotate(45)`); hHijaz.attr('patternTransform', `${sc} rotate(-45)`); hFil.attr('patternTransform', `${sc} rotate(30)`); hMisr.attr('patternTransform', `${sc} rotate(90)`); hDisp.attr('patternTransform', `${sc} rotate(-30)`);

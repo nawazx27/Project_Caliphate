@@ -25,22 +25,19 @@ const FOCUS = [
   {n:"Türkiye and Thrace", b:[[25.6,35.6],[45.0,42.3]]},
   {n:"Greater Iraq: Iraq, Khuzestan and ʿIrāq al-ʿAjam", info:"caliphx", b:[[38.5,29.0],[55.6,37.6]], layer:"caliphx"},
   {n:"Iran", b:[[43.8,24.8],[63.5,40.0]]},
-  {n:"The Caucasus: Georgia, Armenia, Azerbaijan", b:[[39.6,38.2],[51.2,43.9]]},
-  {n:"V7", b:[[-19.0,-12.5],[93.5,56.5]], chip:true, gc:true}
+  {n:"The Caucasus: Georgia, Armenia, Azerbaijan", b:[[39.6,38.2],[51.2,43.9]]}
 ];
 const focusEl = document.getElementById('focus');
 const focusBtns = [];
 function goFocus(i){ const f = FOCUS[i];
-  if(f.gc){ if(!layerOn.caliphx) applyPreset('caliph'); setXV('gme'); chipNext = i; showGME(); showInfo('caliphx'); markSel(null); return; } if(f.layer && !layerOn[f.layer]) setLayer(f.layer, true); if(f.xv && !f.xv.includes(XV)) setXV(f.xv[0]);
+  if(f.layer && !layerOn[f.layer]) setLayer(f.layer, true); if(f.xv && !f.xv.includes(XV)) setXV(f.xv[0]);
   leaveAutoWide(()=>{ chipNext = i; go(f.b, f.wide, f.fitH); if(f.info && INFO[f.info]){ showInfo(f.info); markSel(null); } }); }
 FOCUS.forEach((f,i)=>{ if(!f.chip){ focusBtns[i] = {classList:{toggle(){}}}; return; }
   const b=document.createElement('button'); b.type='button'; b.textContent=f.n; b.addEventListener('click',()=>goFocus(i)); focusEl.appendChild(b); focusBtns[i]=b; });
 { const sel = document.createElement('select'); sel.className = 'moreplaces'; sel.setAttribute('aria-label','More places');
   sel.innerHTML = `<option value="">More places…</option>` + FOCUS.map((f,i)=>f.chip?'':`<option value="${i}">${f.n}</option>`).join('');
   sel.addEventListener('change', ()=>{ if(sel.value!==''){ goFocus(+sel.value); sel.value=''; } });
-  focusEl.appendChild(sel);
-  /* the widest view sits next to 'Whole region' */
-  const gme = focusBtns[FOCUS.length-1]; if(gme && gme.nodeType) focusEl.insertBefore(gme, focusBtns[0].nextSibling); }
+  focusEl.appendChild(sel); }
 document.getElementById('zin').onclick = ()=>{ wheelTarget = null; wrapSel.transition().duration(reduced?0:320).call(zoom.scaleBy, 2); };
 document.getElementById('zout').onclick = ()=>{ wheelTarget = null; wrapSel.transition().duration(reduced?0:320).call(zoom.scaleBy, 0.5); };
 document.getElementById('zreset').onclick = ()=> goFocus(0);
