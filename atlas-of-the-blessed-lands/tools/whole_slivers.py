@@ -17,11 +17,11 @@ F = {str(f['id']): shape(f['geometry']).buffer(0) for f in geo['features']}
 C = json.load(open(os.path.join(P, 'src/caliph.json')))
 X = MultiPolygon([Polygon(r[0], r[1:]) for r in C[k]['polys']]).buffer(0)
 parts = [F[str(r['id'])] for r in C[k]['states'] if str(r['id']) in F]
-for f in ['khorasan_classical', 'manqishlaq_ustyurt', 'ustyurt_pocket', 'caucasus_v5', 'lake_albert_drc', 'lake_albert_shore', 'comoros_mayotte147', 'caucasus_natural148']:   # Version 148: Caucasus by the Kuban and Kuma; the Africa extensions of 146-148 dropped (Nawaz)
+for f in ['khorasan_classical', 'manqishlaq_ustyurt', 'ustyurt_pocket', 'caucasus_v5', 'lake_albert_drc', 'lake_albert_shore', 'comoros_mayotte147', 'caucasus_exact149']:   # Version 149: the Caucasus exactly as his orange map; the Africa extensions of 146-148 dropped (Nawaz)
     p = os.path.join(D, f + '.geojson')
     if os.path.exists(p): parts += [shape(g['geometry']).buffer(0) for g in json.load(open(p))['features'] if g['properties'].get('role', 'add') == 'add']
 import glob   # the border towns taken whole (tools/whole_slivers_places.py) must be wholly inside too
-for p in sorted(glob.glob(os.path.join(D, 'whole_slivers_places*_%s.geojson' % k)) + glob.glob(os.path.join(D, 'expand_towns148_*_%s.geojson' % k))): parts += [shape(g['geometry']).buffer(0) for g in json.load(open(p))['features']]
+for p in sorted(glob.glob(os.path.join(D, 'whole_slivers_places*_%s.geojson' % k))): parts += [shape(g['geometry']).buffer(0) for g in json.load(open(p))['features']]
 for p in [os.path.join(D, 'outline%s_%s.geojson' % (n, k)) for n in ('144', '145')]:   # all the version held in Versions 144 and 145 stays in
   if os.path.exists(p): parts += [shape(g['geometry']).buffer(0) for g in json.load(open(p))['features']]
 T = unary_union(parts)
