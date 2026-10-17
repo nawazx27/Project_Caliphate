@@ -1068,3 +1068,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 164 (2026-10-17): table rows named by country
 - Nawaz asked what lands V2 and V2-B occupy; the list showed the rows added by the 80–100% step (R80_<iso>) with bare country codes. They now read "India: the rest of the mountain, desert and plain regions that V2 already held 80% or more of" etc. (V2, V2-B and V7; tools/regions80_159.py names them the same way). No map change.
+
+## Version 165 (2026-10-17): the whole Danube delta in V2
+- Nawaz: "Danube delta?" (V2 held 59% of the region, V2-B none), then "Yes, take the whole delta in v2". tools/danube_delta164.py adds the other 1,744 km² of Natural Earth's Danube delta region (Romania 1,470, Ukraine 274; the northern part by the Chilia branch) to V2 only; V2-B is left alone; V7 rebuilt from V2. Rows DD_642, DD_804. V2 19,701,705 → 19,703,488 km² (19.7 million); V7 26,698,418. No gap clean-up run.
