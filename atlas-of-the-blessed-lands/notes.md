@@ -1092,3 +1092,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 174 (2026-10-17): the hairline left in V2 by Version 173
 - Nawaz, phone screenshot of V2: "What's this line in V2?" — a thin line round Turkmenistan's northern border: removing Turkmenistan (and Tunisia) kept the outline's ~300 m overshoot into Uzbekistan, Kazakhstan and Algeria. tools/v2_hairline174.py: within 0.3° of Turkmenistan and Tunisia, V2 keeps only the land of the countries it lists (591 km² of strips and coastal sea removed). V2 16,656,902 km². Checked on a screenshot: the line is gone.
+
+## Version 175 (2026-10-17): the whole island of Cyprus in every outline
+- Nawaz: "Add Cyprus to all of them". tools/cyprus175.py: V1 and V2 held none of Cyprus, V3 and V4 held 99.9% (coast slivers); the whole island (9,274 km², every base-map unit on it) added to those four; V5, V6 already whole. V1 15,150,044 km² (15.2 million), V2 16,666,373, V3 19,346,124, V4 19,703,615. Texts updated. Standing: every outline holds Lake Albert, Cyprus, Azerbaijan, Georgia, Armenia whole.
