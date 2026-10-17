@@ -1065,3 +1065,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 163 (2026-10-17): Version 162 undone
 - Nawaz: "Ykw, revert back to the previous version". Version 162 (the 50–100% physical regions entirely in V2 and V2-B: Great Rift Valley, Punjab desert with India's Punjab, Hamada de Tinrhert, Salt Range, Danube delta, Ruwenzori, Pindus) was reverted with git (the Version 162 entry above is kept as history, but its changes are out): the map data, page text, sizes and tools are as in Version 161. V2 19,701,705 km² (19.7 million), V2-B 19,345,998 (19.3 million), V7 26,696,634 (26.7 million). tools/regions80_159.py is back to the 80% rule (its THRESH switch went with Version 162).
+
+## Version 164 (2026-10-17): table rows named by country
+- Nawaz asked what lands V2 and V2-B occupy; the list showed the rows added by the 80–100% step (R80_<iso>) with bare country codes. They now read "India: the rest of the mountain, desert and plain regions that V2 already held 80% or more of" etc. (V2, V2-B and V7; tools/regions80_159.py names them the same way). No map change.

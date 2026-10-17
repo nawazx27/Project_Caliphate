@@ -42,7 +42,7 @@ for K in ('x', 'xb'):
     rows = []
     for i, g in G.items():
         a = add.intersection(g)
-        if A(a) >= 20: rows.append({'id': 'R80_' + i, 'n': i + ': the rest of the mountains, plains and deserts that V2 already held 80% or more of', 'km2': round(A(a)), 'pct': round(A(a) / A(g) * 100, 1)})
+        if A(a) >= 20: rows.append({'id': 'R80_' + i, 'n': {'356': 'India', '454': 'Malawi', '398': 'Kazakhstan', '643': 'Russia', '894': 'Zambia', '705': 'Slovenia', '148': 'Chad', '562': 'Niger'}.get(i, i) + ': the rest of the mountain, desert and plain regions that ' + ('V2-B' if K == 'xb' else 'V2') + ' already held 80% or more of', 'km2': round(A(a)), 'pct': round(A(a) / A(g) * 100, 1)})
     C[K]['states'] += [r for r in rows if not any(q['id'] == r['id'] for q in C[K]['states'])]
     print(len(rows), 'rows')
 json.dump(C, open(F_ + '.tmp', 'w'), separators=(',', ':'), ensure_ascii=False); os.replace(F_ + '.tmp', F_)
