@@ -57,7 +57,8 @@ const fonts = `<link rel="preconnect" href="https://cdnjs.cloudflare.com" crosso
 
 let css = R('src/style.css').replace('__GRAIN__', 'data:image/png;base64,' + R('src/grain.b64').trim()).replace('__GRAIN2__', 'data:image/png;base64,' + R('src/grain2.b64').trim());
 if(MIN){ const before = css.length; css = esb.transformSync(css, {loader:'css', minify:true, charset:'utf8'}).code; console.log('css', before, '->', css.length); }
-let page = `<title>Atlas of the Blessed Lands</title>
+let page = `<meta charset="utf-8">
+<title>Atlas of the Blessed Lands</title>
 ${fonts}
 <style>
 ${css}
