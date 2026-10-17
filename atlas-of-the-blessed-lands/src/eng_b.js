@@ -261,6 +261,7 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   cb.append('title').text('One outline around every best land (my synthesis)');
   const cl = g.append('g').attr('clip-path','url(#landclip)').append('path').attr('class','caliph-line').attr('d', d);
   let bl = null; CLIPS.push({els:[cb, cl], key:()=>'', full:()=>d, lines:()=> bl || (bl = projLines(CALIPH.polys.flat()))});
+  CX.blines = () => bl || (bl = projLines(CALIPH.polys.flat()));   /* Version 176: the lines in map units, so labels can keep off them (part C, outlineGrid) */
   /* the user's expanded outline: their specification, not from the sources; two versions share one set of elements */
   const dOf = o => o.polys.map(poly=>poly.map(rg=>ringD(rg)).join('')).join('');
   /* each version's path is built the first time it is shown, not all of them at startup */
@@ -290,6 +291,8 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   CX.lk2 = () => { const k = XK(), lv = cxLv(); return k + '|' + lv + (lv >= 3 || (CX.lodC[k] && CX.lodC[k][lv]) ? '' : '*'); };   /* '*': the coarse copy is not ready yet */
   CLIPS.push({els:[CX.band], key:CX.lk2, full:()=>CX.lod(XK(), cxLv()), lines:()=> xl[XK()] || (xl[XK()] = projLines(src[XK()].polys.flat()))});
   CLIPS.push({els:[CX.line], key:CX.lk2, full:()=>CX.lod(XK(), cxLv()), lines:()=> xl[XK()] || (xl[XK()] = projLines(src[XK()].polys.flat()))});
+  CX.lines = () => xl[XK()] || (xl[XK()] = projLines(src[XK()].polys.flat()));
+  CX.linesReady = () => xl[XK()] || null;   /* null until made (in a quiet moment, not while the page opens) */
   /* a faint wash over the land inside your outline, under every other colour */
   const gw = layerG(gFill, 'caliphx'); gFill.node().insertBefore(gw.node(), gFill.node().firstChild);
   CX.wash = gw.append('path').attr('class','caliphx-wash').attr('d', '');

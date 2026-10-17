@@ -29,6 +29,11 @@ function addLabel(layer, lines, ll, o){
   t.attr('text-anchor', o.anchor||'middle');
   if(o.color) t.style('fill', `var(${o.color})`);
   const item = {t, subs, v:P(ll), layer, minK:o.minK||0, subK:o.subK!=null?o.subK:(o.minK||0), dx:o.dx||0, dy:o.dy||0, pri:o.pri!=null?o.pri:10, nudge:!!(o.cls && !/note/.test(o.cls) && !o.point && !o.free), maxK:o.maxK||0, free:!!o.free};
+  /* Version 176: a label may lie along a narrow sea (rot, degrees) and may have other spots to try (alts, [lon,lat]) when the first is crowded */
+  if(o.rot){ item.rot = o.rot; t.attr('text-anchor','middle'); }
+  if(o.alts) item.av = o.alts.map(P);
+  if(o.strict) item.strict = true;
+  if(o.cls && /\bsea\b/.test(o.cls) && !/small/.test(o.cls)) item.sea = true;   /* shown only where it crosses no outline */
   lbls.push(item); return item;
 }
 function addPoint(layer, ll, o){
@@ -89,7 +94,10 @@ function emptyOverlay(){
 function buildOverlay(){
   if(OVERLAY_LATER){ emptyOverlay(); return; }
   emptyOverlay();
-  SEA_LBL.forEach(s=>addLabel('base', [[s[0]], s[1]?[s[1],'sub']:null], [s[2],s[3]], {cls:'sea', pri:20, minK:s[4]||0, subK:Math.max(1.2,s[4]||0)}));
+  /* Version 176: the Red Sea and the Gulf are named along their length (as on a printed atlas), so the name stays on the water
+     instead of sliding onto Arabia or over the coast towns; the Red Sea has two more spots along its axis for close views */
+  const SEA_ROT = {'Baḥr al-Qulzum':{rot:57, at:[38.0,21.6], alts:[[36.3,24.4],[39.9,18.2],[34.6,27.0]]}, 'Baḥr al-Rūm':{alts:[[17.5,33.7],[24.6,33.5]]}, 'Baḥr Fāris':{rot:27, at:[51.1,27.45], alts:[[50.0,28.3],[52.6,26.8]]}};
+  SEA_LBL.forEach(s=>{ const r = SEA_ROT[s[0]] || {}; addLabel('base', [[s[0]], s[1]?[s[1],'sub']:null], r.at || [s[2],s[3]], {cls:'sea', pri:20, minK:s[4]||0, subK:Math.max(1.2,s[4]||0), rot:r.rot, alts:r.alts}); });
   RIVER_LBL.forEach(s=>addLabel('base', [[s[0]]], [s[1],s[2]], {cls:'sea small', minK:s[3]||1.2, pri:22}));
   PHYS_LBL.forEach(s=>addLabel('base', [[s[0]]], [s[1],s[2]], {cls:'phys', minK:s[3], pri:18}));
   ISLAND_LBL.forEach(s=>addLabel('base', [[s[0]]], [s[1],s[2]], {cls:'phys isl', minK:s[3], pri:19}));
@@ -124,12 +132,12 @@ function buildOverlay(){
   muqLabels.forEach(m=>addLabel('muq', [[m[0]]], [m[1],m[2]], {cls:'note', minK:m[3], pri:6, color:'--muq'}));
   AHQAF.forEach(a=>addLabel('saba', [[a.n]], [a.c[0], a.c[1]-0.62], {cls:'note', minK:2.4, pri:9, color:'--yemen'}));
   addLabel('saba', [['al-Aḥqāf'],['three reports','sub']], [51.4,17.45], {cls:'note', minK:0.9, subK:1.6, pri:8, color:'--yemen'});
-  addLabel('caliph', [['One outline around every best land'],['a thought experiment · my synthesis','sub']], [31.2,32.75], {cls:'caliphlbl', minK:0, subK:0, pri:3, color:'--ink'});
+  addLabel('caliph', [['One outline around every best land'],['a thought experiment · my synthesis','sub']], [29.4,33.3], {cls:'caliphlbl', minK:0, subK:0, pri:3, color:'--ink', alts:[[16.5,33.2],[24.5,34.0]], strict:true});   /* Version 176: in the open sea west of the coast (it was drawn over the al-Aqṣā markers); start-anchored, so it runs east from here */
   addLabel('caliphxe', [['ʿIrāq al-ʿAjam'],['the old Jibāl','sub']], [50.2,34.15], {cls:'caliphlbl x', minK:0.9, subK:1.3, pri:4, color:'--xcal'});
   addLabel('caliphxe', [['Khūzistān'],['al-Ahwāz','sub']], [49.2,31.55], {cls:'caliphlbl x', minK:1.1, subK:1.6, pri:4, color:'--xcal'});
   /* the country name, your choice: drawn behind every other label and never pushed aside by them */
   { const dl = addLabel('caliphx', [['DĀR AL-AMĀN'],['دار الأمان','arl dar','1.3em']], DAR_AT, {cls:'darlbl', back:true, free:true, minK:0, maxK:2.6, subK:0, pri:-9});
-    if(dl) dl.alts = [DAR_AT, [44.5, 23.5], [31.5, 21.0], [45.5, 19.5], [33.0, 17.5], [47.0, 26.5], [29.0, 22.5], [30.0, 17.0], [30.5, 12.5], [31.0, 9.0]]; }   /* all over lands every version holds */
+    if(dl) dl.alts = [DAR_AT, [44.5, 23.5], [31.5, 21.0], [45.5, 19.5], [33.0, 17.5], [47.0, 26.5], [29.0, 22.5], [30.0, 17.0], [30.5, 12.5], [31.0, 9.0], [20.3, 26.4], [21.5, 25.0]]; }   /* Version 176: two more over the Libyan and Western deserts (in every version), for the phone's whole-region view */   /* all over lands every version holds */
   addLabel('caliphv2', [['V6'],['V5 with the lands of a Greater Middle East map · history in the notes','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
   addLabel('caliphv2', [['V6'],['the author’s specification · not from the sources','sub']], [66.0,46.6], {cls:'caliphlbl x big', minK:0.45, subK:0.45, pri:3, color:'--xcal'});
   addLabel('caliphv2', [['V6'],['the author’s specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0.7, subK:0.7, pri:4, color:'--xcal'});
@@ -218,7 +226,7 @@ const bx = r => ({x:r.x, y:r.y, w:r.width, h:r.height});
 function measure(){
   sbs.forEach(b=>{ b.tx.style('display', null).attr('text-anchor','start'); });
   sbs.forEach(b=>{ const w = b.tx.node().getBBox().width; if(w > 0 || b.tw == null) b.tw = w; });
-  lbls.forEach(l=>{ l.t.style('display', null).attr('transform', null); if(!l.point) l.t.attr('text-anchor', null); });
+  lbls.forEach(l=>{ l.t.style('display', null).attr('transform', null); if(!l.point && !l.rot) l.t.attr('text-anchor', null); });
   const pts = lbls.filter(l=>l.point);
   const pass = (arr, anchor, subsShown, part)=>{
     arr.forEach(l=>{ if(anchor && l.point) l.t.attr('text-anchor', anchor); l.subs.forEach(s=>s.style('display', subsShown ? null : 'none')); });
@@ -348,9 +356,9 @@ function update(light){ clearTimeout(idleZ); idleZ = 0; R = T; LIGHT = !!light; 
 const sandPat = d3.select('#sand'), lavaPat = d3.select('#lava'), hSham = d3.select('#h-sham'), hHijaz = d3.select('#h-hijaz'), hFil = d3.select('#h-fil'), hMisr = d3.select('#h-misr'), hDisp = d3.select('#h-disp');
 const GSTEPS = [0.0001,0.0002,0.0005,0.001,0.002,0.005,0.01,0.02,0.05,0.1,0.2,0.5,1,2,5,10,20,30];
 function updateGrat(k){
-  if(!layerOn.graticule){ ovGrat.selectAll('text').remove(); ovGrat.selectAll('path.gtick').attr('d',''); return; }
+  if(!layerOn.graticule){ ovGrat.selectAll('text').remove(); ovGrat.selectAll('path.gtick').attr('d',''); return []; }
   const tl = T.invert([-OX,-OY]), br = T.invert([W+OX,H+OY]);   /* lines cover the drawn margin too */
-  const a0 = proj.invert(tl), b0 = proj.invert(br); if(!a0||!b0) return;
+  const a0 = proj.invert(tl), b0 = proj.invert(br); if(!a0||!b0) return [];
   const c = proj.invert(T.invert([W/2,H/2])); const lat0 = Math.max(-80, Math.min(80, c[1]));
   const pa = P([c[0], lat0]), pb = P([c[0]+1, lat0]); const pxDeg = (pb[0]-pa[0])*k;
   let step = 30; for(const s of GSTEPS){ if(s*pxDeg >= 96){ step = s; break; } }
@@ -369,6 +377,47 @@ function updateGrat(k){
   tp.attr('d', tk);
   const ok = labs.filter(l=>{ const b = l.a==='middle' ? {x:l.x-22,y:l.y-12,w:44,h:16} : {x:l.x-4,y:l.y-12,w:44,h:16}; if(l.a==='middle' && (l.x<40||l.x>W-40)) return false; if(l.a==='start' && (l.y<24||l.y>H-30)) return false; return !chrome.some(c=>b.x<c.x+c.w&&b.x+b.w>c.x&&b.y<c.y+c.h&&b.y+b.h>c.y); });
   ovGrat.selectAll('text.glbl').data(ok, d=>d.k).join('text').attr('class','glbl').attr('x',d=>d.x).attr('y',d=>d.y).attr('text-anchor',d=>d.a).text(d=>d.t);
+  /* Version 176: their boxes, so names keep clear of the degree figures along the edges (not in the clean map, which hides them) */
+  return wrapEl.classList.contains('clean') ? [] : ok.map(l=> l.a==='middle' ? {x:l.x-18, y:l.y-10, w:36, h:13} : {x:l.x-2, y:l.y-10, w:34, h:13});
+}
+/* Version 176: the outline's line (and the dotted line of the best lands) in screen cells of OGS px, made once per redraw from the
+   projected points (about 50,000 at most, a millisecond or two); labels then prefer a spot that does not cross it. The full lines of a
+   version are projected in a quiet moment the first time, not while the page opens; until then labels are placed as before. */
+const OGS = 6; let OG = null, OGW = 0, OGH = 0, ogWait = false;
+function outlineGrid(){
+  OG = null;
+  if(!CX.lines) return;
+  const sets = [];
+  if(layerOn.caliphx){ const a = CX.linesReady(); if(a) sets.push(a); else if(!ogWait){ ogWait = true; whenIdle(()=>{ CX.lines(); ogWait = false; if(!MOVING) update(); }); } }
+  if(layerOn.caliph && CX.blines) sets.push(CX.blines());
+  if(!sets.length) return;
+  OGW = Math.ceil(W/OGS) + 1; OGH = Math.ceil(H/OGS) + 1; const g = OG = new Uint8Array(OGW*OGH);
+  const k = T.k, tx = T.x, ty = T.y, st = OGS*0.7;
+  for(const lines of sets) for(const a of lines){
+    let x0 = a[0]*k + tx, y0 = a[1]*k + ty;
+    for(let i = 2; i < a.length; i += 2){
+      const x1 = a[i]*k + tx, y1 = a[i+1]*k + ty;
+      if(!((x0 < 0 && x1 < 0) || (x0 >= W && x1 >= W) || (y0 < 0 && y1 < 0) || (y0 >= H && y1 >= H))){
+        const n = Math.min(3000, Math.ceil(Math.max(Math.abs(x1-x0), Math.abs(y1-y0)) / st));
+        for(let j = 0; j <= n; j++){ const x = x0 + (x1-x0)*j/n, y = y0 + (y1-y0)*j/n; if(x >= 0 && x < W && y >= 0 && y < H) g[((y/OGS)|0)*OGW + ((x/OGS)|0)] = 1; }
+      }
+      x0 = x1; y0 = y1;
+    }
+  }
+}
+/* how many cells of the line a box covers */
+function ogHit(b){
+  if(!OG) return 0; let n = 0;
+  const c0 = Math.max(0, Math.floor(b.x/OGS)), c1 = Math.min(OGW-1, Math.floor((b.x+b.w)/OGS)), r0 = Math.max(0, Math.floor(b.y/OGS)), r1 = Math.min(OGH-1, Math.floor((b.y+b.h)/OGS));
+  for(let r = r0; r <= r1; r++) for(let c = c0; c <= c1; c++) n += OG[r*OGW + c];
+  return n;
+}
+/* a label laid along a sea: its box is split into squares along its length, each with its own upright box */
+function rotBoxes(x, y, bb, deg){
+  const a = deg*Math.PI/180, co = Math.cos(a), si = Math.sin(a), m = Math.max(1, Math.ceil(bb.w / bb.h)), pw = bb.w/m, ph = bb.h;
+  const hw = (pw*Math.abs(co) + ph*Math.abs(si))/2, hh = (pw*Math.abs(si) + ph*Math.abs(co))/2, out = [];
+  for(let i = 0; i < m; i++){ const lx = bb.x + (i+0.5)*pw, ly = bb.y + bb.h/2; const cx = x + lx*co - ly*si, cy = y + lx*si + ly*co; out.push({x:cx-hw, y:cy-hh, w:2*hw, h:2*hh}); }
+  return out;
 }
 function setArrow(A, mx, my, tx, ty, r0, r1){
   const vx=tx-mx, vy=ty-my, L=Math.hypot(vx,vy)||1, ux=vx/L, uy=vy/L;
@@ -389,7 +438,10 @@ function render(){
   const sc = `scale(${(1/k).toFixed(5)})`;
   sandPat.attr('patternTransform', sc); lavaPat.attr('patternTransform', sc);
   hSham.attr('patternTransform', `${sc} rotate(45)`); hHijaz.attr('patternTransform', `${sc} rotate(-45)`); hFil.attr('patternTransform', `${sc} rotate(30)`); hMisr.attr('patternTransform', `${sc} rotate(90)`); hDisp.attr('patternTransform', `${sc} rotate(-30)`);
-  reliefImg.style('opacity', k > 30 ? 0.25 : null);
+  /* Version 176: the relief picture is enlarged more and more as you zoom in, and its soft light-and-shade blobs grew loud (white "snow"
+     over the Caucasus, the Zagros and the Pamirs); it now fades gently once each of its pixels covers more than about one and a half on screen */
+  { const up = k * RELIEF_W / RELIEF_PX, f = k > 30 ? 0.25 : up <= 1.25 ? 1 : Math.max(0.45, 1 - 0.32*Math.log2(up/1.25));
+    reliefImg.style('opacity', f < 1 ? `calc(var(--relief-op) * ${f.toFixed(2)})` : null); }
   /* Where the shaded relief is drawn at 56-100% of its own size the browser's smooth shrinking (it builds shrunken copies each redraw) costs
      about as much as everything else on the map together; plain sampling there looks the same to the eye and costs a third as much */
   reliefImg.style('image-rendering', (k * RELIEF_W / RELIEF_PX >= 0.56 && k * RELIEF_W / RELIEF_PX < 1) ? 'pixelated' : null);
@@ -430,10 +482,11 @@ function render(){
   }
   /* very close in, let the ground show through the region fills */
   gFill.style('opacity', k < 20 ? null : Math.max(0.35, 1 - 0.65*Math.log10(k/20)).toFixed(2));
-  updateGrat(k);
+  const gratB = updateGrat(k);
+  outlineGrid();
   const placed = [];
   const hit = (b) => { for(const p of placed){ if(b.x < p.x+p.w && b.x+b.w > p.x && b.y < p.y+p.h && b.y+b.h > p.y) return true; } return false; };
-  chrome.forEach(c=>placed.push(c));
+  chrome.forEach(c=>placed.push(c)); gratB.forEach(c=>placed.push(c));
   const chromeHit = b => chrome.some(c=> b.x < c.x+c.w && b.x+b.w > c.x && b.y < c.y+c.h && b.y+b.h > c.y);
   /* 1. status discs, in priority order */
   const bc = [];
@@ -499,9 +552,10 @@ function render(){
       /* each spot is tried at full size and then a little smaller (as the discs are), before the next spot: the name stays over the lands */
       let best = Infinity, fs = 1;
       const boxAt = (x, y, sc) => ({x:x + (fb.x - 4)*sc, y:y + (fb.y - 2)*sc, w:(fb.w + 8)*sc, h:(fb.h + 4)*sc});
-      outer: for(const ll of (l.alts || [])){ const q = P(ll), x = T.applyX(q[0]) + l.dx, y = T.applyY(q[1]) + l.dy;
-        for(const sc of [1, 0.82, 0.68]){ const bx = boxAt(x, y, sc); if(!inView(bx)) continue;
-          const o = over(bx) / sc; if(o < best){ best = o; fx = x; fy = y; fs = sc; } if(o === 0) break outer; } }
+      /* Version 176: each spot may also shift a little, and crossing the outline's line counts against a spot too */
+      outer: for(const ll of (l.alts || [])){ const q = P(ll), x0 = T.applyX(q[0]) + l.dx, y0 = T.applyY(q[1]) + l.dy;
+        for(const sc of [1, 0.82, 0.68, 0.58]) for(const sh of [[0,0],[-40,0],[40,0],[0,-26],[0,26]]){ const x = x0 + sh[0], y = y0 + sh[1], bx = boxAt(x, y, sc); if(!inView(bx)) continue;
+          const o = (over(bx) + ogHit(bx)*OGS*OGS*1.5) / sc + (1 - sc)*2200;   /* a smaller title costs a little too, so it shrinks only to keep clear of much */ if(o < best){ best = o; fx = x; fy = y; fs = sc; } if(o === 0) break outer; } }
       placed.push(boxAt(fx, fy, fs));   /* smaller labels give way to it */
       l.t.attr('transform', `translate(${fx.toFixed(1)},${fy.toFixed(1)})${fs < 1 ? ` scale(${fs})` : ''}`); l.subs.forEach(s=>s.style('display', k >= l.subK ? null : 'none')); shown.add(l); continue; }
     if(px < -300 || px > W+300 || py < -80 || py > H+80) continue;
@@ -512,18 +566,29 @@ function render(){
       sides.forEach(sd=>{ const bbs = sd==='r' ? l.bbR : l.bbL; const x = px + (sd==='r'?10:-10);
         if(withSub) cands.push({sd, x, bb:bbs.full, sub:true}); cands.push({sd, x, bb:bbs.main, sub:false}); });
     } else {
-      /* area labels may slide a little to find clear ground; notes stay put */
-      const nudges = l.nudge ? [[0,0],[0,-16],[0,16],[-34,0],[34,0],[0,-32],[0,32],[-34,-16],[34,-16],[-34,16],[34,16],[0,-50],[0,50]] : [[0,0]];
-      nudges.forEach(nd=>{ const x = px + l.dx + nd[0];
-        if(withSub) cands.push({x, ny:nd[1], bb:l.bbC.full, sub:true}); cands.push({x, ny:nd[1], bb:l.bbC.main, sub:false}); });
+      /* area labels may slide a little to find clear ground; notes stay put; a label along a sea slides along its length */
+      const nudges = l.rot ? [0,-28,28,-56,56].map(t=>[t*Math.cos(l.rot*Math.PI/180), t*Math.sin(l.rot*Math.PI/180)])
+        : l.sea ? [[0,0],[0,-14],[0,14],[-24,0],[24,0]]   /* a sea name only shifts a little, so it stays on the water */
+        : l.nudge ? [[0,0],[0,-16],[0,16],[-34,0],[34,0],[0,-32],[0,32],[-34,-16],[34,-16],[-34,16],[34,16],[0,-50],[0,50]] : [[0,0]];
+      [[px, py]].concat((l.av || []).map(v=>[T.applyX(v[0]), T.applyY(v[1]) + l.dy])).forEach(([ax, ay])=>
+        nudges.forEach(nd=>{ const x = ax + l.dx + nd[0], ny = ay - py + nd[1];
+          if(withSub) cands.push({x, ny, bb:l.bbC.full, sub:true}); cands.push({x, ny, bb:l.bbC.main, sub:false}); }));
     }
-    let pick = null;
-    for(const c of cands){ const yy = py + (c.ny||0); const box = {x:c.x+c.bb.x-2, y:yy+c.bb.y-1, w:c.bb.w+4, h:c.bb.h+2}; if(inView(box) && !hit(box)){ pick = c; pick.box = box; pick.y = yy; break; } }
-    if(!pick && l.pri <= 0){ pick = cands[0]; pick.y = py; pick.box = {x:pick.x+pick.bb.x, y:py+pick.bb.y, w:pick.bb.w, h:pick.bb.h}; }
+    /* Version 176: the first spot clear of everything placed and of the outline's line; failing that, the first clear of everything placed (as before) */
+    let pick = null, near = null;
+    for(const c of cands){ const yy = py + (c.ny||0);
+      const boxes = l.rot ? rotBoxes(c.x, yy, c.bb, l.rot) : [{x:c.x+c.bb.x-2, y:yy+c.bb.y-1, w:c.bb.w+4, h:c.bb.h+2}];
+      if(!boxes.every(inView) || boxes.some(hit)) continue;
+      const cross = boxes.reduce((t, b)=>t + ogHit(b), 0);
+      if(!cross){ pick = c; pick.boxes = boxes; pick.y = yy; break; }
+      if(!near){ near = Object.assign({}, c, {boxes, y:yy}); }
+    }
+    if(!pick && !l.strict) pick = near;
+    if(!pick && l.pri <= 0){ pick = cands[0]; pick.y = py; pick.boxes = [{x:pick.x+pick.bb.x, y:py+pick.bb.y, w:pick.bb.w, h:pick.bb.h}]; }
     if(!pick) continue;
-    placed.push(pick.box); shown.add(l);
+    pick.boxes.forEach(b=>placed.push(b)); shown.add(l);
     if(l.point && l.side !== pick.sd){ l.t.attr('text-anchor', pick.sd==='r' ? 'start' : 'end'); l.side = pick.sd; }
-    l.t.attr('transform', `translate(${pick.x.toFixed(1)},${(pick.y!=null?pick.y:py).toFixed(1)})`);
+    l.t.attr('transform', `translate(${pick.x.toFixed(1)},${(pick.y!=null?pick.y:py).toFixed(1)})${l.rot ? ` rotate(${l.rot})` : ''}`);
     l.subs.forEach(s=>s.style('display', pick.sub ? null : 'none'));
   }
   lbls.forEach(l=>l.t.style('display', shown.has(l) ? null : 'none'));

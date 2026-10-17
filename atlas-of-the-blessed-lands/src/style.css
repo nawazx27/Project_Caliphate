@@ -1044,3 +1044,17 @@ a:hover{text-decoration-color:var(--gold)}
 .caliphx-wash.natwash{fill-opacity:calc(var(--xwash) * 2.4)}
 /* Version 44: round corners on the outline bands and lines, so sharp turns don't throw out spikes */
 .caliph-band,.caliph-line,.caliphx-band,.caliphx-line{stroke-linejoin:round}
+
+/* ---------- Version 176: tidier labels, refined colours (a printed-atlas finish) ----------
+   Warmer parchment land with a sepia coast line; sea names in a deeper blue with a faint sea-coloured halo, so they read
+   (they were about 2.2:1 on the sea in light mode); map names haloed in paper rather than white, so they sit on the
+   land instead of on white patches; a quieter graticule; slightly larger small print on phones. The gold outline is unchanged. */
+:root{--land:#EFE7D3; --land-edge:#8A8676; --sealbl:#2C6780; --lblhalo:color-mix(in srgb,var(--land) 72%,#fff)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--land:#24271F; --land-edge:#56594C; --sealbl:#8BC0D6; --lblhalo:var(--halo)}}
+:root[data-theme="dark"]{--land:#24271F; --land-edge:#56594C; --sealbl:#8BC0D6; --lblhalo:var(--halo)}
+.lbl{stroke:var(--lblhalo)}
+.lbl.sea,.lbl.sea .sub{fill:var(--sealbl)}
+.lbl.sea{stroke:var(--sea);stroke-width:2.6px;stroke-opacity:.85}
+.lbl.sea .sub{opacity:.85}
+.grat{stroke-opacity:.07}
+@media (max-width:760px){.lbl.note{font-size:11px}.lbl.country{font-size:10.5px}.lbl.sea .sub{font-size:12px}}
