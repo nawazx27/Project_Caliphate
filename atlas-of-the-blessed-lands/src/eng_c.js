@@ -28,7 +28,7 @@ function addLabel(layer, lines, ll, o){
   const {t, subs} = makeText(o.cls, lines, o.back);
   t.attr('text-anchor', o.anchor||'middle');
   if(o.color) t.style('fill', `var(${o.color})`);
-  const item = {t, subs, v:P(ll), layer, minK:o.minK||0, subK:o.subK!=null?o.subK:(o.minK||0), dx:o.dx||0, dy:o.dy||0, pri:o.pri!=null?o.pri:10, nudge:!!(o.cls && !/note/.test(o.cls) && !o.point && !o.free), maxK:o.maxK||0, free:!!o.free};
+  const item = {t, subs, v:P(ll), layer, minK:o.minK||0, subK:o.subK!=null?o.subK:(o.minK||0), dx:o.dx||0, dy:o.dy||0, pri:o.pri!=null?o.pri:10, nudge:!!(o.cls && !/note/.test(o.cls) && !o.point && !o.free), maxK:o.maxK||0, free:!!o.free, noClean:!!o.noClean};
   /* Version 176: a label may lie along a narrow sea (rot, degrees) and may have other spots to try (alts, [lon,lat]) when the first is crowded */
   if(o.rot){ item.rot = o.rot; t.attr('text-anchor','middle'); }
   if(o.alts) item.av = o.alts.map(P);
@@ -97,7 +97,7 @@ function buildOverlay(){
   /* Version 176: the Red Sea and the Gulf are named along their length (as on a printed atlas), so the name stays on the water
      instead of sliding onto Arabia or over the coast towns; the Red Sea has two more spots along its axis for close views */
   const SEA_ROT = {'Baḥr al-Qulzum':{rot:57, at:[38.0,21.6], alts:[[36.3,24.4],[39.9,18.2],[34.6,27.0]]}, 'Baḥr al-Rūm':{alts:[[17.5,33.7],[24.6,33.5]]}, 'Baḥr Fāris':{rot:27, at:[51.1,27.45], alts:[[50.0,28.3],[52.6,26.8]]}};
-  SEA_LBL.forEach(s=>{ const r = SEA_ROT[s[0]] || {}; addLabel('base', [[s[0]], s[1]?[s[1],'sub']:null], r.at || [s[2],s[3]], {cls:'sea', pri:20, minK:s[4]||0, subK:Math.max(1.2,s[4]||0), rot:r.rot, alts:r.alts}); });
+  SEA_LBL.forEach(s=>{ const r = SEA_ROT[s[0]] || {}; addLabel('base', [[s[0]], s[1]?[s[1],'sub']:null], r.at || [s[2],s[3]], {cls:'sea', pri:20, minK:s[4]||0, subK:Math.max(1.2,s[4]||0), rot:r.rot, alts:r.alts, noClean:!!SEA_ROT[s[0]]}); });   /* Version 178: the Arabic sea names (al-Rūm, al-Qulzum, Fāris) go in the clean map (Nawaz) */
   RIVER_LBL.forEach(s=>addLabel('base', [[s[0]]], [s[1],s[2]], {cls:'sea small', minK:s[3]||1.2, pri:22}));
   PHYS_LBL.forEach(s=>addLabel('base', [[s[0]]], [s[1],s[2]], {cls:'phys', minK:s[3], pri:18}));
   ISLAND_LBL.forEach(s=>addLabel('base', [[s[0]]], [s[1],s[2]], {cls:'phys isl', minK:s[3], pri:19}));
@@ -538,7 +538,7 @@ function render(){
   });
   /* 3. labels */
   const inView = b => b.x >= 10 && b.x+b.w <= W-10 && b.y >= 10 && b.y+b.h <= H-10;
-  const order = lbls.filter(l=>(l.layer==='base' || layerOn[l.layer]) && k >= l.minK && !(l.maxK && k >= l.maxK) && (!l.ptRef || l.ptRef.vis) && (!quiet || QUIET_LBL.has(l.layer)) && !(clean && (CLEAN_LBL.has(l.layer) || l.point))).sort((a,b)=>a.pri-b.pri);
+  const order = lbls.filter(l=>(l.layer==='base' || layerOn[l.layer]) && k >= l.minK && !(l.maxK && k >= l.maxK) && (!l.ptRef || l.ptRef.vis) && (!quiet || QUIET_LBL.has(l.layer)) && !(clean && (CLEAN_LBL.has(l.layer) || l.point || l.noClean))).sort((a,b)=>a.pri-b.pri);
   const shown = new Set();
   for(const l of order){
     const px = T.applyX(l.v[0]), py = T.applyY(l.v[1]) + l.dy;

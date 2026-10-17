@@ -1105,3 +1105,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 ## Version 177 (2026-10-17): map names tightened, softer sea-name blue
 - Nawaz (phone screenshot): "The letters looks really not well put together in between" — the lowercase italic map names were tracked wide (sea .14em, deserts .16em on phones), pulling letters apart, worst on the slanted sea names. Sea, desert, region and natural-line names now use .02em; labels drawn with text-rendering:geometricPrecision.
 - Nawaz: "Blue color looks very dark and unpleasant" — Version 176's sea-name blue #2C6780 softened to #4C8299 (light mode; dark mode unchanged). The sea colour itself was never changed.
+
+## Version 178 (2026-10-17): the Arabic sea names leave the clean map
+- Nawaz: "When I tap on clean I want rum, khulzum and faris gone!" Baḥr al-Rūm, Baḥr al-Qulzum and Baḥr Fāris (the SEA_ROT names in src/eng_c.js) carry noClean and are hidden while Clean map is on; they show again when it is off. Other sea names (Arabian Sea etc.) stay.
