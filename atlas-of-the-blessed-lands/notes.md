@@ -1108,3 +1108,4 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 178 (2026-10-17): the Arabic sea names leave the clean map
 - Nawaz: "When I tap on clean I want rum, khulzum and faris gone!" Baḥr al-Rūm, Baḥr al-Qulzum and Baḥr Fāris (the SEA_ROT names in src/eng_c.js) carry noClean and are hidden while Clean map is on; they show again when it is off. Other sea names (Arabian Sea etc.) stay.
+- Nawaz: "And I want the dots of the best lands to disappear as well": the clean map also hides the black dotted best-lands line and its grey band (CSS #mapwrap.clean .caliph-band/.caliph-line). The coloured region edges and shading stay.

@@ -1064,3 +1064,5 @@ a:hover{text-decoration-color:var(--gold)}
 .lbl{text-rendering:geometricPrecision}
 /* sea names: a softer blue than Version 176's #2C6780 (Nawaz: "very dark and unpleasant"), still readable on the sea */
 :root{--sealbl:#4C8299}
+/* Version 178: the clean map also hides the black dotted best-lands line and its grey band (Nawaz) */
+#mapwrap.clean .caliph-band,#mapwrap.clean .caliph-line{display:none}
