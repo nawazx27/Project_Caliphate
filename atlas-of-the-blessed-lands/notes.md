@@ -1083,3 +1083,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 171 (2026-10-17): Armenia in every outline
 - Nawaz: "I forgot to say Armenia". tools/armenia170.py: V3–V6 already held Armenia whole; V1 and V2 held 1% of it, so the rest was added (V1 15,006,177 km², V2 16,679,169). Row 051. V1 and V2 texts and the versions paragraph now name Azerbaijan, Georgia and Armenia (and the whole of Lake Albert). Standing: every outline holds Lake Albert, Azerbaijan, Georgia and Armenia whole. No gap clean-up run.
+
+## Version 172 (2026-10-17): Turkmenistan in V2
+- Nawaz: "Add Turkmenistan to v2" (V2 = key me2, the second-smallest outline since Version 169; it was V1 + Tunisia, Afghanistan, Pakistan). tools/turkmenistan172.py adds all of Turkmenistan (470,823 km²) to V2 only; row 795. V2 16,679,169 → 17,150,715 km² (17.2 million; still between V1 and V3 in size). V3–V6 already held Turkmenistan; V1 does not. V2 text and the versions paragraph updated. No gap check run (Turkmenistan touches Iran and Afghanistan, both inside V2).
