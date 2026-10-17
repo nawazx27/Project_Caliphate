@@ -1125,3 +1125,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 181 (2026-10-17): all of West Africa in V6
 - Nawaz (phone screenshot of V6 over West Africa): "Cover the entire West Africa". tools/v6_west_africa181.py: every country of the UN's Western Africa whole in V6: Côte d'Ivoire, Ghana, Togo, Benin, Liberia, Cabo Verde added; Gambia, Guinea-Bissau, Sierra Leone coast slivers closed; Saint Helena (with Ascension and Tristan da Cunha; the UN counts it in Western Africa) added under the leave-no-area-out rule, told him he can drop it. V6 34,070,124 km². V6 texts updated. The new countries have no rows in V6's "how each land was held" tables (not researched).
+
+## Version 182 (2026-10-17): Tunisia back in V2
+- Nawaz: "Add Tunisia to v2". tools/tunisia182.py: Tunisia whole in V2 (me2, 16,823,863 km²; taken out in Version 173) and in V7 (x7, 23,238,981 km²), which holds every V2 land. V2 texts updated (lead, versions paragraph).
