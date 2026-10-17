@@ -1058,3 +1058,9 @@ a:hover{text-decoration-color:var(--gold)}
 .lbl.sea .sub{opacity:.85}
 .grat{stroke-opacity:.07}
 @media (max-width:760px){.lbl.note{font-size:11px}.lbl.country{font-size:10.5px}.lbl.sea .sub{font-size:12px}}
+/* Version 177: map names in lowercase italic were tracked wide (sea .14em, deserts .16em), which pulled letters apart, worst on the
+   slanted sea names; they now keep natural spacing, so each name reads as one word. Slanted text drawn with exact glyph placement. */
+.lbl.sea,.lbl.phys,.lbl.region,.lbl.region.tag,.lbl.natlbl{letter-spacing:.02em}
+.lbl{text-rendering:geometricPrecision}
+/* sea names: a softer blue than Version 176's #2C6780 (Nawaz: "very dark and unpleasant"), still readable on the sea */
+:root{--sealbl:#4C8299}
