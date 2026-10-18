@@ -1066,3 +1066,9 @@ a:hover{text-decoration-color:var(--gold)}
 :root{--sealbl:#4C8299}
 /* Version 178: the clean map also hides the black dotted best-lands line and its grey band (Nawaz) */
 #mapwrap.clean .caliph-band,#mapwrap.clean .caliph-line{display:none}
+
+/* Version 188: spotlight. The land outside the version outline is softly faded toward a cool grey (the sea keeps its colour), so the
+   outline's land reads first, like one region coloured in on an atlas plate */
+.caliphx-dim{fill:#DCDAD3;fill-opacity:.55;fill-rule:evenodd;pointer-events:none}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .caliphx-dim{fill:#0E1312;fill-opacity:.5}}
+:root[data-theme="dark"] .caliphx-dim{fill:#0E1312;fill-opacity:.5}

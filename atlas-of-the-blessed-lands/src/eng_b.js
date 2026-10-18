@@ -296,6 +296,11 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   /* a faint wash over the land inside your outline, under every other colour */
   const gw = layerG(gFill, 'caliphx'); gFill.node().insertBefore(gw.node(), gFill.node().firstChild);
   CX.wash = gw.append('path').attr('class','caliphx-wash').attr('d', '');
+  /* Version 188 (Nawaz chose "Spotlight"): the land outside the outline is softly faded, so the outline's land stands out. One path: a sheet
+     over the whole map with the outline cut out of it (even-odd), kept to the land by the existing land clip, above the other fills */
+  const gd = layerG(gFill, 'caliphx'); gFill.node().appendChild(gd.node());
+  CX.dim = gd.append('g').attr('clip-path','url(#landclip)').append('path').attr('class','caliphx-dim').attr('d', '');
+  CX.DIM_SHEET = 'M-100000,-100000H100000V100000H-100000Z';
   /* V6 (Greater Middle East; Complete V2 before Version 66): the province history shading is not drawn since Version 41 (Nawaz: V3 in the same neutral colour as Complete and Greater);
      the history stays in the notes, and the page carries only each province's box (see build.js), so the layer is no longer built (Version 47) */
 }

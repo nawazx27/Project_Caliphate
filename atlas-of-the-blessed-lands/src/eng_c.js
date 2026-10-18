@@ -446,7 +446,7 @@ function render(){
      about as much as everything else on the map together; plain sampling there looks the same to the eye and costs a third as much */
   reliefImg.style('image-rendering', (k * RELIEF_W / RELIEF_PX >= 0.56 && k * RELIEF_W / RELIEF_PX < 1) ? 'pixelated' : null);
   if(VIEW_SET){ const lv = k < 0.25 ? 0 : k < 0.6 ? 1 : k < 1.5 ? 2 : 3; if(lv !== landLv){ landLv = lv; landMP.attr('d', landLOD(lv)); } }   /* coarser land outline while zoomed out */
-  if(CX.clip){ const key = CX.lk2(); if(key !== CX.lk){ CX.lk = key; const dd = CX.lod(XK(), cxLv()); CX.clip.attr('d', dd); CX.wash.attr('d', dd); } }   /* the outline's clip and wash follow its level of detail */
+  if(CX.clip){ const key = CX.lk2(); if(key !== CX.lk){ CX.lk = key; const dd = CX.lod(XK(), cxLv()); CX.clip.attr('d', dd); CX.wash.attr('d', dd); if(CX.dim) CX.dim.attr('d', CX.DIM_SHEET + dd); } }   /* the outline's clip and wash follow its level of detail */
   gWL.style('display', k < 6 && !LIGHT ? null : 'none');   /* the simplified coast would drift from the real one close in */
   BORD.els[0].style('display', LIGHT ? 'none' : null);   /* the border halo goes too in a light redraw */
   /* borders and outlines: the whole line when far out, only the stretch near the view close in */
