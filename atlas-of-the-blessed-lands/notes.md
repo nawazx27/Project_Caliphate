@@ -1128,3 +1128,8 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 182 (2026-10-17): Tunisia back in V2
 - Nawaz: "Add Tunisia to v2". tools/tunisia182.py: Tunisia whole in V2 (me2, 16,823,863 km²; taken out in Version 173) and in V7 (x7, 23,238,981 km²), which holds every V2 land. V2 texts updated (lead, versions paragraph).
+
+## Version 183 (2026-10-18): V5 on political borders (Lake Albert apart)
+- Nawaz: "Does v5? Have political borders?" then "Except lake Albert return every thing to political borders". He chose whole Dagestan and whole Western Sahara, then, mid-work: "I don't need the republic of Dagestan in v5".
+- tools/v5_political183.py (run first): Caspian water strip off the Khorasan shore taken out (row removed); Western Sahara row fixed (it was already wholly inside; the row wrongly said "the part held by Morocco", 66%); the traced Derbent/Samur/Dagestan-coast strip replaced by whole Dagestan. Then tools/v5_no_russia183.py: no Russian land at all in V5, it stops at Georgia's and Azerbaijan's northern borders (both 100%; 276 km² of Russia is the 300 m margin). Sicily kept: its edge is Italy's Sicily region (the coast). V5 25,455,417 km². V5 texts updated (CX_CORE3, versions paragraph).
+- Not changed: V6 (described as built on V5) still holds the old Derbent strip and the Caspian water; offered to bring it in line.
