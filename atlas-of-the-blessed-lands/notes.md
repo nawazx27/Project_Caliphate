@@ -1143,3 +1143,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 186 (2026-10-18): the Central African Republic in V6
 - Nawaz: "Add Central African Republic to v6". tools/v6_car186.py: CAR whole in V6 (was 0.04%); V6 34,691,167 km². Texts updated.
+
+## Version 187 (2026-10-18): a new V8 — the Middle East reference map alone
+- Nawaz sent the Middle East reference map (reference/v187_middle_east_16.jpg): "Another version". tools/v8_me16_187.py builds CALIPH.me8 (XV 'me8', button V8 after V7): the sixteen shaded states whole (Türkiye, Syria, Lebanon, Israel, Palestine, Jordan, Iraq, Iran, Egypt, Saudi Arabia, Kuwait, Bahrain, Qatar, UAE, Oman, Yemen) + the standing lands (whole Cyprus island, Azerbaijan, Georgia, Armenia, the whole of Lake Albert, which sits apart in Uganda/DR Congo; told him he can drop it). 7,159,988 km², the smallest; named V8 (newest) so V1–V7 keep their names. #outline-v8, #v8 open it. Note (CX_LEAD.me8), sources paragraph (CX_SRC_ME8 = CX_SRC_ME without the Libya/Nile sentences), search entry, versions paragraph, frame V8_B.
