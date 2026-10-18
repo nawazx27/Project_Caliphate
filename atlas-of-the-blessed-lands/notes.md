@@ -1140,3 +1140,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 185 (2026-10-18): V5 — DR Congo out, all of West Africa to Cameroon in
 - Nawaz: "Remove DR Congo from V5 and cover the entire West Africa until Cameroon." tools/v5_west_africa185.py: DR Congo out (Uganda, Rwanda, Burundi, Tanzania, South Sudan, CAR kept whole), its half of Lake Albert kept (standing rule; row 180_A); added whole: the 16 UN West African countries, Saint Helena (with Ascension and Tristan da Cunha, as in V6's Version 181) and Cameroon. Chad and the CAR (Version 184) stay. V5 32,813,325 km². Texts updated (CX_CORE3, versions paragraph, search entry).
+
+## Version 186 (2026-10-18): the Central African Republic in V6
+- Nawaz: "Add Central African Republic to v6". tools/v6_car186.py: CAR whole in V6 (was 0.04%); V6 34,691,167 km². Texts updated.
