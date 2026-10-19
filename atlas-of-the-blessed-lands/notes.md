@@ -1183,3 +1183,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - tools/v9_power197.py, whole: Kazakhstan, Uzbekistan, Turkmenistan, Kyrgyzstan, Tajikistan; Mali, Niger, Chad, Senegal, Gambia, Guinea, Sierra Leone, Nigeria, Guinea-Bissau (no-gaps rule); Albania, Kosovo; the Comoros. Burkina Faso stays out (Version 193).
 - tools/fill_gaps.py me9, then tools/v9_power_gaps197.py: fill=True pockets and every pocket ≥80% enclosed: Baikonur (row KAB), the Tashkurgan pocket (China, 2,054 km²), small bends of the Russia–Kazakhstan border (3,867 km²). Not filled: Cameroon's Far North finger between Nigeria and Chad (78% enclosed, about 10,000 km²); offered to Nawaz.
 - V9 30,669,231 km² (30.7 million). Lead, button title, search entry and versions paragraph updated.
+
+## Version 198 (2026-10-19): Version 197 undone; V9 back to Version 196
+- Nawaz: "V9 and V5 have become identical." Checked: 99.8% of the Version 197 V9 lay inside V5 (V5 had all of it but Albania, Kosovo, the Comoros and two pockets, and more besides). Lesson: compare a version with the others before calling it the strongest. He chose "Go back to V196": src/caliph.json, src/body.html, src/eng_e.js and tools/data/gaps_me9.geojson restored from Version 196 (V9 = V2 + the Greater Maghreb + Spain and Portugal, 21.5 million km²). The Version 197 tools stay in tools/ as history.
