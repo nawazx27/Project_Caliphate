@@ -434,7 +434,7 @@ const CLEAN_LBL = new Set(['caliph','caliphx','caliphv2','caliphv3','caliphnat',
 function render(){
   const k = T.k;
   const clean = CLEAN && !!layerOn.caliphx;
-  const quiet = (XV === 'v2' || XV === 'v3' || XV === 'me2' || XV === 'full7' || XV === 'nat' || XV === 'natp') && !!layerOn.caliphx && k < 0.9;
+  const quiet = (XV === 'v2' || XV === 'v3' || XV === 'me2' || XV === 'full7' || XV === 'me9' || XV === 'nat' || XV === 'natp') && !!layerOn.caliphx && k < 0.9;
   const sc = `scale(${(1/k).toFixed(5)})`;
   sandPat.attr('patternTransform', sc); lavaPat.attr('patternTransform', sc);
   hSham.attr('patternTransform', `${sc} rotate(45)`); hHijaz.attr('patternTransform', `${sc} rotate(-45)`); hFil.attr('patternTransform', `${sc} rotate(30)`); hMisr.attr('patternTransform', `${sc} rotate(90)`); hDisp.attr('patternTransform', `${sc} rotate(-30)`);
