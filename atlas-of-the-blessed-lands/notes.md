@@ -1153,3 +1153,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 189 (2026-10-19): a new V9 — V2 with the whole of North Africa
 - Nawaz: "build another version using V2 as the base. In this version, add the entire North Africa to the caliphate." tools/v9_north_africa189.py builds CALIPH.me9 (XV 'me9', button V9 after V8, wide view, frame V9_B): all of V2 + Algeria, Morocco, all of Western Sahara, Mauritania (Maghreb; UN lists it in West Africa; included under leave-no-area-out, told him he can drop it) and Ceuta and Melilla (Spain's land on the African shore, 62 km²). V2's Egypt, Libya, Tunisia, Sudan already in. 20,861,429 km². Named V9 (newest). #outline-v9, #v9, #outline-north-africa. Note (CX_LEAD.me9), V2's sources paragraph, search entry, versions paragraph. Canary Islands and Madeira not added (Spain/Portugal; offered).
+
+## Version 190 (2026-10-19): the Canary Islands and Madeira in V9
+- Nawaz: "Add Canary Islands and Madeira to V9 and what is the Maghreb comprised off". tools/v9_islands190.py: the Canary Islands (Spain, 7,430 km²) and Madeira with Porto Santo, the Desertas and the Savage Islands (Portugal, 806 km²), whole, in V9 (rows 724_CN, 620_MD). V9 20,870,072 km². Texts updated. Answered the Maghreb question in chat (general knowledge, not checked against sources).
