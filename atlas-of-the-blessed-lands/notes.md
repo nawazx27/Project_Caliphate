@@ -1177,3 +1177,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 ## Version 196 (2026-10-19): Version 195 undone; Spain and Portugal in V9
 - Nawaz: "revert back to the previous version… and add Spain and Portugal." src/caliph.json, src/body.html and src/eng_e.js restored from Version 194 (V9 = V2 + the Greater Maghreb, 20.9 million km²); the Version 195 tools stay in tools/ as history.
 - tools/v9_iberia196.py: Spain and Portugal whole (100%), with the Balearics, Canaries, Azores, Madeira, Ceuta and Melilla; Gibraltar (no-gaps rule: held between Spain and the sea). Andorra out (its border is about half France). V9 21,461,267 km² (21.5 million). V9 lead, button title, search entry and versions paragraph updated.
+
+## Version 197 (2026-10-19): V9 made the strongest version
+- Nawaz: "just make the v9 the most powerful caliphate out of all versions and even logically and realistically". My choice of lands, by three tests: mostly Muslim, joined to V9 by land, and bringing what V9 lacked (water, farmland, energy, minerals, people). Everything V9 held stays.
+- tools/v9_power197.py, whole: Kazakhstan, Uzbekistan, Turkmenistan, Kyrgyzstan, Tajikistan; Mali, Niger, Chad, Senegal, Gambia, Guinea, Sierra Leone, Nigeria, Guinea-Bissau (no-gaps rule); Albania, Kosovo; the Comoros. Burkina Faso stays out (Version 193).
+- tools/fill_gaps.py me9, then tools/v9_power_gaps197.py: fill=True pockets and every pocket ≥80% enclosed: Baikonur (row KAB), the Tashkurgan pocket (China, 2,054 km²), small bends of the Russia–Kazakhstan border (3,867 km²). Not filled: Cameroon's Far North finger between Nigeria and Chad (78% enclosed, about 10,000 km²); offered to Nawaz.
+- V9 30,669,231 km² (30.7 million). Lead, button title, search entry and versions paragraph updated.
