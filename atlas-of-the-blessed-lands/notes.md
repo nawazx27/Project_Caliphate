@@ -1163,3 +1163,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 192 (2026-10-19): the Sahel in V9
 - Nawaz: "add mali, niger, chad, senegal and burkina faso to v9". tools/v9_sahel192.py: the five whole in V9, with Gambia (enclosed by Senegal: no-gaps rule; told him). No holes. V9 25,065,725 km². Texts updated (V9 lead, search entry, versions paragraph).
+
+## Version 193 (2026-10-19): Burkina Faso out of V9
+- Nawaz: "Remove Burkina Faso". tools/v9_no_bf193.py: Burkina Faso out of V9 (594 km² left = the 300 m margin of Mali and Niger, both 100%). V9 24,792,003 km². Texts updated. It now sits in a bay between Mali and Niger (not a closed pocket; the south is open to the coastal states).
