@@ -1156,3 +1156,7 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 190 (2026-10-19): the Canary Islands and Madeira in V9
 - Nawaz: "Add Canary Islands and Madeira to V9 and what is the Maghreb comprised off". tools/v9_islands190.py: the Canary Islands (Spain, 7,430 km²) and Madeira with Porto Santo, the Desertas and the Savage Islands (Portugal, 806 km²), whole, in V9 (rows 724_CN, 620_MD). V9 20,870,072 km². Texts updated. Answered the Maghreb question in chat (general knowledge, not checked against sources).
+
+## Version 191 (2026-10-19): the three medieval zones of al-Maghrib as map names
+- Nawaz asked about al-Maghrib / the Greater Maghreb, then "check against the sources" (Wikipedia 'Maghreb' and 'Arab Maghreb Union' read in full: AMU 17 Feb 1989; medieval three-fold division after El Hareir & Mbaye, UNESCO 2011; Ibn Khaldūn starts al-Maghrib at Tripoli; Mauritania only in the modern definition; Sicily in al-Maghrib not found, withdrawn), then "add the three medieval zones as names on the map".
+- src/eng_a.js HIST_LBL: the old al-Maghrib al-Aqṣā / al-Awsaṭ / Ifrīqiyah names (placed by the loose modern habit) replaced by the medieval zones with Arabic: al-Maghrib al-Aqṣā (Atlantic to Tāhart) at -5.6,31.4; al-Maghrib al-Awsaṭ (Tripoli to Bijāyah) at 9.2,33.6; al-Maghrib al-Adnā · Ifrīqiyah (Alexandria to Tripoli) at 16.6,30.15; shown from zoom 0.4 like al-Andalus (the Adnā name gives way to LIBYA at the widest views). histreg note gains a paragraph with the source and the disagreement on the eastern edge.

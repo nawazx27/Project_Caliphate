@@ -240,7 +240,7 @@ const HARAM_PTS = [
   {n:"Uḥud", s:"", ll:[39.615,24.505], a:"r", k:60, info:"madinah"}
 ];
 const HIST_LBL = [   /* historical-geographical regions: names only, placed approximately, no borders */
-  ["al-Andalus","الأندلس",-4.6,38.7,0.4],["al-Maghrib al-Aqṣā","",-7.4,30.2,0.7],["al-Maghrib al-Awsaṭ","",2.6,34.3,0.7],["Ifrīqiyah","إفريقية",9.7,33.2,0.6],
+  ["al-Andalus","الأندلس",-4.6,38.7,0.4],["al-Maghrib al-Aqṣā","المغرب الأقصى",-5.6,31.4,0.4],["al-Maghrib al-Awsaṭ","المغرب الأوسط",9.2,33.6,0.4],["al-Maghrib al-Adnā · Ifrīqiyah","المغرب الأدنى",16.6,30.15,0.4],
   ["Barqah","برقة",22.4,31.7,0.7],["Fazzān","فزان",14.4,26.3,0.7],["Bilād al-Sūdān","بلاد السودان",-1.5,13.4,0.45],["al-Nūbah","النوبة",31.7,20.3,0.8],
   ["Bilād al-Zanj","بلاد الزنج",38.6,-3.2,0.6],["Bilād al-Barbar","",48.6,6.9,1.0],["Khurāsān","خراسان",61.4,35.7,0.45],["Mā warāʾ al-Nahr","ما وراء النهر",66.6,40.6,0.45],
   ["Khwārazm","خوارزم",59.4,42.9,0.8],["Farghānah","فرغانة",71.7,40.9,0.9],["Sijistān","سجستان",61.9,30.8,0.8],["Makrān","مكران",62.2,26.0,0.8],["al-Sind","السند",68.3,26.2,0.6],
