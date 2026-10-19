@@ -1166,3 +1166,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 193 (2026-10-19): Burkina Faso out of V9
 - Nawaz: "Remove Burkina Faso". tools/v9_no_bf193.py: Burkina Faso out of V9 (594 km² left = the 300 m margin of Mali and Niger, both 100%). V9 24,792,003 km². Texts updated. It now sits in a bay between Mali and Niger (not a closed pocket; the south is open to the coastal states).
+
+## Version 194 (2026-10-19): V9 = V2 + the Greater Maghreb only
+- Nawaz: "You know what? Just purely keep the lands of Greater Maghrib." He chose "V2 + Greater Maghreb only". tools/v9_maghreb194.py rebuilds CALIPH.me9 from V2: all of V2 (Tunisia, Libya already in) + Morocco, Algeria, all of Western Sahara, Mauritania, whole. Out (undoing Versions 189's Ceuta/Melilla, 190, 192–193): Senegal, Gambia, Mali, Niger, Chad, the Canary Islands, Madeira, Ceuta and Melilla. 20,861,366 km². V9 lead, button title, search entry, versions paragraph rewritten (Egypt and Sudan noted as Mashriq, held from V2).
