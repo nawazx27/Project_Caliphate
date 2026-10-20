@@ -1200,3 +1200,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 201 (2026-10-20): the Atlantic Ocean name moved off the outline
 - Nawaz, phone screenshot of V7 zoomed out: "The Atlantic Ocean near Spain looks annoying". The sea name (SEA_LBL in src/eng_a.js) sat at 16.5 W 35.2 N, on the gold outline between Portugal, Madeira and Morocco in V6, V7 and V8. Moved to 30 W 32.5 N (open sea west of Madeira, south of the Azores). Checked on a dark phone screenshot of V7.
+
+## Version 202 (2026-10-20): V8 made to look more dominant
+- Nawaz asked which lands would make an outline look most dominant and powerful; I suggested design rules (one solid mass, seas held inside, balance, smooth edges, no stray dots) and lands for V7; he said "Add these changes to V8".
+- tools/v8_dominant202.py (key 'v2'), whole: Bulgaria, North Macedonia, Albania, Kosovo; the Russian North Caucasus republics (Dagestan's rest, Chechnya, Ingushetia, Kabardino-Balkaria, Karachay-Cherkessia; North Ossetia by the no-gaps rule) and the Caspian shore (Kalmykia, Astrakhan) from Natural Earth admin-1 (admin1_used.geojson) snapped to the base map's Russia; DR Congo and Zambia. Out: Saint Helena, Ascension, Tristan da Cunha (row 654). Adygea left out (an island inside Krasnodar Krai). Rows: 100, 807, 008, KOS, 180 (replaces 180_A), 894, 643_NC (replaces 643_C). East Turkestan kept (it was already in V8); I had advised against it for balance; offered to Nawaz.
+- tools/fill_gaps.py v2, then tools/v8_dominant_gaps202.py: fill=True and ≥80% pockets (3,481 km²), none on Indian-held land (1,518 km² of Kashmir pockets skipped). Not filled (75–78%): a Stavropol pocket by Chechnya/Dagestan, south Serbia by Kosovo/Bulgaria/North Macedonia.
+- V8 34,691,167 → 38,160,687 km² (38.2 million). Lead, search entry and versions paragraph updated. Checked on a screenshot; tests clean.
