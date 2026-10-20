@@ -1228,3 +1228,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 207 (2026-10-20): everything removed from V7 and V8 brought back
 - Nawaz: "Bring back everything removed from V7 and V8." The Azores, Cabo Verde, and Saint Helena with Ascension and Tristan da Cunha (taken out in Version 204) are back: V7 (x3) and V8 ('v2') restored exactly as in Version 203 (src/caliph.json, eng_e.js, body.html and tools/data/gaps_x3.geojson from d433391; gaps_v2.geojson removed). They still end at Greece (as asked in Version 206). The Version 204 pocket fills (Russia–Kazakhstan bends, Tashkurgan) went with it, as they were not in Version 203. Kept: the second Atlantic label removed in Version 204 (src/eng_a.js). V7 32,812,628 km² (32.8 million), V8 34,691,167 (34.7 million).
+
+## Version 208 (2026-10-20): the small pockets filled again in V7 and V8
+- Nawaz: "fill the small pockets again" (the Version 204 fills undone with Version 207). tools/fill_gaps.py x3,v2, then tools/silhouette_gaps204.py (fill=True and ≥80% pockets, none on Indian-held land): V7 6,195 km² (bends of the Russia–Kazakhstan border, the Tashkurgan pocket, slivers), V8 3,460 km² (Siachen pocket skipped). V7 32,818,951 km², V8 34,694,753 (32.8 and 34.7 million). The islands of Version 207 stay; still ending at Greece.
