@@ -1197,3 +1197,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 ## Version 200 (2026-10-19): the Dagestan coast line taken out of V7
 - Nawaz, phone screenshot of V7 (dark mode) with the western Caspian circled: "What's this line in v7". It was a leftover of Version 183 (V7 was then named V5; no Russian land, "I don't need the republic of Dagestan"): a sea strip about 1 km wide along the whole Dagestan coast (about 540 km²) and Chechen Island (Russian, 103 km² of land) with its water ring.
 - tools/v7_caspian200.py: removes from V7 (key x3) everything north of 41.9 N between 46.5 and 49.5 E on Russian land or within about 5 km of it, keeping Azerbaijan's and Georgia's own edges (both still 100%). 699 km² out; V7 32,813,325 → 32,812,628 km² (still 32.8 million). The ~170 km² of Russia left in V7 is the usual ~100–300 m push past its borders elsewhere. V8 not changed. Checked on a dark phone screenshot.
+
+## Version 201 (2026-10-20): the Atlantic Ocean name moved off the outline
+- Nawaz, phone screenshot of V7 zoomed out: "The Atlantic Ocean near Spain looks annoying". The sea name (SEA_LBL in src/eng_a.js) sat at 16.5 W 35.2 N, on the gold outline between Portugal, Madeira and Morocco in V6, V7 and V8. Moved to 30 W 32.5 N (open sea west of Madeira, south of the Azores). Checked on a dark phone screenshot of V7.
