@@ -1231,3 +1231,8 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 208 (2026-10-20): the small pockets filled again in V7 and V8
 - Nawaz: "fill the small pockets again" (the Version 204 fills undone with Version 207). tools/fill_gaps.py x3,v2, then tools/silhouette_gaps204.py (fill=True and ≥80% pockets, none on Indian-held land): V7 6,195 km² (bends of the Russia–Kazakhstan border, the Tashkurgan pocket, slivers), V8 3,460 km² (Siachen pocket skipped). V7 32,818,951 km², V8 34,694,753 (32.8 and 34.7 million). The islands of Version 207 stay; still ending at Greece.
+
+## Version 209 (2026-10-21): the whole Balkan Peninsula in V7 (and V8)
+- Nawaz, with a map of the Balkan Peninsula shaded (saved as reference/v209_balkans_map.jpg): "Add this to v7". Shaded: Slovenia, Croatia, Bosnia and Herzegovina, Serbia, Montenegro, Kosovo, North Macedonia, Albania, Romania, Bulgaria, Greece and Türkiye (not Moldova or Hungary).
+- tools/v7_balkans209.py: the ten countries not yet inside, whole, into V7 (x3) and also V8 ('v2'), whose note and view say it holds all of V7 (offered to Nawaz to keep V8 without them). tools/fill_gaps.py x3,v2 + tools/silhouette_gaps204.py: no new real pockets (slivers only: 68 km² V7, 21 km² V8); none in India.
+- V7 32,818,951 → 33,451,733 km² (33.5 million); V8 34,694,753 → 35,327,488 (35.3 million). Rows 705, 191, 070, 688, 499, KOS, 807, 008, 642, 100. CX_CORE3, V7 note (no longer "leaves out the Balkan lands north of Greece"), search entry and versions paragraph updated. Checked on a dark phone screenshot.
