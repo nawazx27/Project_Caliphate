@@ -359,6 +359,9 @@ function enterFull(useApi){
   if(wasWide){ atlasEl.classList.remove('wide'); if(wideBtn) wideBtn.setAttribute('aria-pressed', false); }
   closeSheets();
   atlasEl.classList.add('full'); document.documentElement.classList.add('fullmap'); syncFullBtns();
+  /* Version 214: the page underneath goes to its very top while the map fills the screen (put back on leaving, savedY). The Claude
+     app shows its own header see-through, floating over the map, only when the page is at the top; scrolled, it draws a solid white bar */
+  window.scrollTo({top:0, left:0, behavior:'instant'});
   if(useApi){
     const rq = atlasEl.requestFullscreen || atlasEl.webkitRequestFullscreen;
     if(rq && (document.fullscreenEnabled || document.webkitFullscreenEnabled)){
