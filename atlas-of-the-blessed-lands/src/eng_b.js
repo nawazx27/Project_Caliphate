@@ -51,6 +51,7 @@ const world = svg.append('g');
 /* engraved water lines: a thin ring of darker water at three distances from every coast, outermost first */
 /* they follow a simplified coastline (much cheaper to stroke) and are drawn only at the smaller scales */
 const gWL = world.append('g').attr('class','wlg');
+/* Version 211 tried wide soft 'shelf' bands of lighter water along the coasts here; they slowed panning on a measured test, so they went */
 [[20,'w2'],[9,'w1']].forEach(([w,c])=>{
   gWL.append('use').attr('href','#landLoP').attr('class','wl '+c).style('stroke-width', w+'px');
   gWL.append('use').attr('href','#landLoP').attr('class','wlm').style('stroke-width', (w-1.3)+'px');
@@ -272,9 +273,12 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   CX.clip = sdefs.append('clipPath').attr('id','caliphxclip').append('path').attr('d', '');
   const gx = layerG(gEdges, 'caliphx');
   const openx = e=>{ e.stopPropagation(); select('caliphx'); };
+  /* Version 211 tried an outer glow and a wider inner band here; Nawaz found the glow "a bit too much" and they slowed panning, so they went */
   CX.band = gx.append('g').attr('clip-path','url(#caliphxclip)').append('path').attr('class','caliphx-band').attr('data-sel','caliphx').attr('d', '').on('click', openx);
   CX.band.append('title').text('The core caliphate (the author’s specification, not from the sources)');
-  CX.line = gx.append('g').attr('clip-path','url(#landclip)').append('path').attr('class','caliphx-line').attr('d', '');
+  { const gl = gx.append('g').attr('clip-path','url(#landclip)');
+    CX.line = gl.append('path').attr('class','caliphx-line').attr('d', '');
+    CX.hi = gl.append('path').attr('class','caliphx-hi').attr('d', ''); }   /* Version 211: a thin light-gold highlight down the line (gilded) */
   gEdges.node().insertBefore(gx.node(), g.node());
   const xl = {}, src = {full:CALIPH.x, v2:CALIPH.v2};
   src.v3 = CALIPH.x3; src.me = CALIPH.me; src.me2 = CALIPH.me2; src.fullb = CALIPH.xb; src.me8 = CALIPH.me8; src.me9 = CALIPH.me9;
@@ -290,7 +294,7 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
     return CX.d[key]; };
   CX.lk2 = () => { const k = XK(), lv = cxLv(); return k + '|' + lv + (lv >= 3 || (CX.lodC[k] && CX.lodC[k][lv]) ? '' : '*'); };   /* '*': the coarse copy is not ready yet */
   CLIPS.push({els:[CX.band], key:CX.lk2, full:()=>CX.lod(XK(), cxLv()), lines:()=> xl[XK()] || (xl[XK()] = projLines(src[XK()].polys.flat()))});
-  CLIPS.push({els:[CX.line], key:CX.lk2, full:()=>CX.lod(XK(), cxLv()), lines:()=> xl[XK()] || (xl[XK()] = projLines(src[XK()].polys.flat()))});
+  CLIPS.push({els:[CX.line, CX.hi], key:CX.lk2, full:()=>CX.lod(XK(), cxLv()), lines:()=> xl[XK()] || (xl[XK()] = projLines(src[XK()].polys.flat()))});
   CX.lines = () => xl[XK()] || (xl[XK()] = projLines(src[XK()].polys.flat()));
   CX.linesReady = () => xl[XK()] || null;   /* null until made (in a quiet moment, not while the page opens) */
   /* a faint wash over the land inside your outline, under every other colour */
