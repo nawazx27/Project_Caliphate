@@ -49,8 +49,13 @@ if(legendEl) legendEl.addEventListener('toggle', ()=>{ setTimeout(()=>{ measureC
 
 /* ---------------- sheets (phone) ---------------- */
 function sheetMode(){ return mobileQ.matches || (fullOn && !deskQ.matches); }
-function openSheet(id){ if(!sheetMode()) return; document.querySelectorAll('.sheet').forEach(s=>s.classList.toggle('open', s.id===id)); }
-function closeSheets(){ document.querySelectorAll('.sheet').forEach(s=>s.classList.remove('open')); }
+/* Version 211: opening a sheet glides the map up by half the part it covers, so what was in the middle stays in view above it;
+   closing glides it back */
+function openSheet(id){ if(!sheetMode()) return; const was = !!document.querySelector('.sheet.open');
+  document.querySelectorAll('.sheet').forEach(s=>s.classList.toggle('open', s.id===id));
+  if(!was && !sheetShift) requestAnimationFrame(()=>{ const c = sheetCover(); if(c > 40){ sheetShift = c/2; wrapSel.transition().duration(reduced ? 0 : 380).call(zoom.translateBy, 0, -sheetShift/T.k); } }); }
+function closeSheets(){ const was = !!document.querySelector('.sheet.open'); document.querySelectorAll('.sheet').forEach(s=>s.classList.remove('open'));
+  if(was && sheetShift){ const sh = sheetShift; sheetShift = 0; wrapSel.transition().duration(reduced ? 0 : 380).call(zoom.translateBy, 0, sh/T.k); } }
 document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click', closeSheets));
 /* drag a bottom sheet down by its head to close it, as in map apps (Version 64) */
 const sideSheets = window.matchMedia('(orientation:landscape) and (max-height:520px)');
@@ -152,7 +157,7 @@ function renderStatusTable(){
     const kinds = s.kinds.length ? s.kinds.map(k=>`<span class="kd" style="--c:var(${KIND[k].col})">${KIND[k].label.toLowerCase()}</span>`).join('') : `<span class="kd" style="--c:var(--st-none)">none established</span>`;
     const tags = s.kinds.concat(s.kinds.length?[]:['none']).join(' ');
     return `<tr id="srow-${s.n}" data-kinds="${tags}">
-      <td class="c-n"><button type="button" class="sdisc big" style="--c:var(${kc.col})" data-n="${s.n}" aria-label="Show ${s.name} on the map">${s.n}</button></td>
+      <td class="c-n"><button type="button" class="sdisc big" style="--c:var(${kc.col})" data-n="${s.n}" aria-label="${s.n}: show ${s.name} on the map">${s.n}</button></td>
       <td class="c-p" data-l="Place"><b>${s.name}</b><div class="kds">${kinds}</div></td>
       <td class="c-r" data-l="Status rests on">${s.rests}</td>
       <td class="c-l" data-l="Level">${lvlCell(s)}</td>
@@ -172,7 +177,7 @@ function renderLimits(){
   const layerName = {sham:"al-Shām", hijaz:"al-Ḥijāz", filastin:"Filasṭīn", hijazfiqh:"Jurists' layer", misr:"Miṣr"};
   el.innerHTML = ALL_LIMITS.map(l=>{
     const d = INFO['lim_'+l.id];
-    return `<article class="lim" id="lim-${l.id}"><header><button type="button" class="lbadge" data-l="${l.id}" aria-label="Show ${l.n} on the map">${l.id}</button><div><h3>${l.n}</h3><span class="ltag">${layerName[l.layer]||''}</span></div></header>
+    return `<article class="lim" id="lim-${l.id}"><header><button type="button" class="lbadge" data-l="${l.id}" aria-label="${l.id}: show ${l.n} on the map">${l.id}</button><div><h3>${l.n}</h3><span class="ltag">${layerName[l.layer]||''}</span></div></header>
       <div class="lbody">${d.body}</div>
       <div class="lchips">${(d.src||[]).map(s=>`<span class="chipx" title="${SRC[s].tip}"><span class="d" style="background:${SRC[s].color}"></span>${SRC[s].label}</span>`).join('')}<span class="chipx">${lineSample(d.cert)}${CERT[d.cert].label}</span></div>
       ${d.refs&&d.refs.length?`<div class="lrefs">${d.refs.join(' · ')}</div>`:''}</article>`;
@@ -204,7 +209,7 @@ INSETS.forEach(ins=>{
   btn.innerHTML = `<div class="ih"><b>${ins.title}</b><span>${ins.note}</span></div>`;
   const s = d3.select(btn).append('svg').attr('aria-hidden','true');
   btn.addEventListener('click', ()=>{ const f = FOCUS[ins.focus]; if(f.layer && !layerOn[f.layer]) setLayer(f.layer, true); go(f.b); select(ins.info); scrollToMap(); });
-  btn.setAttribute('aria-label', `Show ${ins.title} on the map`);
+  btn.title = 'Show on the map';   /* Version 211: its spoken name is its visible title and note (accessible-name rule) */
   insetsEl.appendChild(btn);
   const render = ()=>{
     const r = s.node().getBoundingClientRect(); const w = Math.max(120, r.width), h = Math.max(100, r.height);

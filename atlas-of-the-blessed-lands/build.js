@@ -45,7 +45,7 @@ const landLodJ = (() => {
 })();
 const natJ = JSON.stringify(pack(Object.assign(JSON.parse(R('src/nat.json')), {pol: undefined}))).replace(/</g, '\\u003c');   /* Natural + political was removed in Version 60 */
 
-let js = [R('src/head.js'), R('src/old_data.js'), R('src/new_geom.js').replace('__GENERATED__', gen), R('src/new_info.js'), R('src/eng_a.js'), R('src/eng_b.js'), R('src/eng_c.js'), R('src/eng_d.js'), R('src/eng_e.js'), R('src/start.js')].join('\n');
+let js = [R('src/head.js'), R('src/old_data.js'), R('src/new_geom.js').replace('__GENERATED__', gen), R('src/new_info.js'), R('src/eng_a.js'), R('src/eng_b.js'), R('src/eng_c.js'), R('src/eng_d.js'), R('src/eng_e.js'), R('src/start.js'), R('src/polish.js')].join('\n');
 js = js.replace('__RELIEF__', relief) + '\n})();\n';
 if(MIN){ const before = js.length; js = esb.transformSync(js, {minify:true, charset:'utf8', target:'es2020', legalComments:'none'}).code; console.log('js', before, '->', js.length); }
 

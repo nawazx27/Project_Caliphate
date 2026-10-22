@@ -24,7 +24,7 @@ setTimeout(()=>{ const keys = ['me8','me9','me','fullb','me2','v3','v2','full'];
   const next = () => { const k = keys.shift(); if(!k) return; whenIdle(()=>{ void CX.d[k]; [0,1,2].forEach(lv=>CX.lod(k, lv)); next(); }); };
   next(); }, 2500);
 /* rows of chips that scroll sideways fade at the edge that has more */
-{ const rows = [...document.querySelectorAll('.viewbar, .focus, .toc')];
+{ const rows = [...document.querySelectorAll('.viewbar, .focus, .toc, .insets')];
   const fade = el=>{ const more = el.scrollWidth - el.clientWidth > 4; el.classList.toggle('fadeR', more && el.scrollLeft + el.clientWidth < el.scrollWidth - 4); el.classList.toggle('fadeL', more && el.scrollLeft > 4); };
   rows.forEach(el=>{ el.addEventListener('scroll', ()=>fade(el), {passive:true}); fade(el); });
   window.addEventListener('resize', ()=>rows.forEach(fade)); if(document.fonts && document.fonts.ready) document.fonts.ready.then(()=>rows.forEach(fade)); }

@@ -1072,3 +1072,91 @@ a:hover{text-decoration-color:var(--gold)}
 .caliphx-dim{fill:#DCDAD3;fill-opacity:.55;fill-rule:evenodd;pointer-events:none}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .caliphx-dim{fill:#0E1312;fill-opacity:.5}}
 :root[data-theme="dark"] .caliphx-dim{fill:#0E1312;fill-opacity:.5}
+
+/* ===== Version 211: premium layer — depth, motion, feedback, orientation =====
+   One set of motion and elevation tokens; every card the same radius and soft layered shadow; hover lift and press feedback on
+   everything you can tap; a reading-progress line and a back-to-top button for the long page; sections rise into view once;
+   the note panel cross-fades when its content changes; a calmer loading state. All motion is off under prefers-reduced-motion. */
+:root{--ease:cubic-bezier(.22,.8,.24,1);--ease-out:cubic-bezier(.16,1,.3,1);--dur:.2s;--r-card:12px;
+  --card-shadow:0 1px 1px rgba(20,30,28,.035),0 3px 8px -4px rgba(20,30,28,.08),0 16px 34px -20px rgba(20,30,28,.30);
+  --card-shadow-hi:0 1px 1px rgba(20,30,28,.05),0 8px 18px -8px rgba(20,30,28,.14),0 26px 48px -24px rgba(20,30,28,.40);
+  --ring:0 0 0 3px color-mix(in srgb,var(--gold) 40%,transparent)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --card-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 3px 8px -4px rgba(0,0,0,.45),0 18px 38px -22px rgba(0,0,0,.85);
+  --card-shadow-hi:inset 0 1px 0 rgba(255,255,255,.05),0 8px 18px -8px rgba(0,0,0,.5),0 28px 52px -24px rgba(0,0,0,.95)}}
+:root[data-theme="dark"]{
+  --card-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 3px 8px -4px rgba(0,0,0,.45),0 18px 38px -22px rgba(0,0,0,.85);
+  --card-shadow-hi:inset 0 1px 0 rgba(255,255,255,.05),0 8px 18px -8px rgba(0,0,0,.5),0 28px 52px -24px rgba(0,0,0,.95)}
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+
+/* one radius for every text card (they were 6px beside the 14px map and panels) */
+.keyfind,.note,.lim,.tier,.reg,.synth,.tablewrap{border-radius:var(--r-card)}
+.tablewrap{overflow:hidden}
+.note,.lim,.tier,.reg,.keyfind,.tablewrap,.card.sheet,button.inset{transition:box-shadow var(--dur) var(--ease),transform var(--dur) var(--ease),border-color var(--dur) var(--ease)}
+@media (hover:hover) and (pointer:fine){
+  .note:hover,.lim:hover,.tier:hover,.reg:hover{transform:translateY(-2px);box-shadow:var(--card-shadow-hi);border-color:color-mix(in srgb,var(--gold) 38%,var(--rule))}
+  button.inset:hover{transform:translateY(-2px);box-shadow:var(--card-shadow-hi)}
+}
+.lim:target,.note:target{box-shadow:var(--ring),var(--card-shadow-hi)}
+
+/* everything you can tap answers: colour eases, a press gives a small squeeze */
+.toc a,.seg button,.focus button,.fl button,.xtoggle button,.mapctl button,.fullopen,.linkbtn,.chipx,.lyt,.v2btn,.minilegend summary{
+  transition:background-color var(--dur) var(--ease),color var(--dur) var(--ease),border-color var(--dur) var(--ease),box-shadow var(--dur) var(--ease),transform .14s var(--ease)}
+.toc a:active,.seg button:active,.focus button:active,.fl button:active,.xtoggle button:active,.mapctl button:active,.fullopen:active,.linkbtn:active,.chipx:active{transform:scale(.96)}
+.toc a:hover{background:color-mix(in srgb,var(--gold) 9%,var(--surface));border-color:color-mix(in srgb,var(--gold) 55%,var(--rule))}
+.seg button.on{box-shadow:0 1px 2px rgba(0,0,0,.18),0 4px 10px -6px rgba(0,0,0,.35)}
+@media (hover:hover){ .mapctl button:hover{box-shadow:var(--card-shadow-hi)} }
+.fullopen{transition:background-color var(--dur) var(--ease),box-shadow .3s var(--ease),transform .2s var(--ease)}
+@media (hover:hover){ .fullopen:hover{transform:translateY(-1px);box-shadow:0 0 0 4px color-mix(in srgb,var(--gold) 48%,transparent),0 12px 26px -12px rgba(0,0,0,.6)} }
+:where(a,button,summary,input,select,[tabindex]):focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+/* the hero: the button and its hint centred together, the hint no longer ragged right */
+@media (min-width:981px){ .mastbody{align-items:center} .mastbody .openmap{align-items:center;align-self:center} .mastbody .omtip{text-align:center;max-width:26ch} }
+.toc{justify-content:center}
+@media (max-width:760px){ .toc{justify-content:flex-start} }
+
+/* a calmer loading state: a gold ring over the sea */
+.maploading{background:radial-gradient(ellipse at 50% 45%,color-mix(in srgb,var(--glow) 70%,var(--sea)),var(--sea) 70%)}
+.maploading .ml1::before{content:"";display:block;width:30px;height:30px;margin:0 auto 14px;border-radius:50%;border:2px solid color-mix(in srgb,var(--gold) 22%,transparent);border-top-color:var(--gold);animation:pspin .9s linear infinite}
+.maploading.done{display:flex;opacity:0;visibility:hidden;transition:opacity .45s var(--ease),visibility 0s .45s}
+@keyframes pspin{to{transform:rotate(360deg)}}
+
+/* reading progress and back to top (hidden while the map fills the screen) */
+#readbar{position:fixed;top:0;left:0;right:0;height:3px;z-index:60;pointer-events:none;transform-origin:0 50%;transform:scaleX(0);
+  background:linear-gradient(90deg,color-mix(in srgb,var(--gold) 70%,transparent),var(--gold));opacity:.9}
+#totop{position:fixed;right:max(18px,env(safe-area-inset-right,0px) + 14px);bottom:max(18px,env(safe-area-inset-bottom,0px) + 14px);z-index:60;
+  width:46px;height:46px;border-radius:50%;border:1px solid color-mix(in srgb,var(--gold) 45%,var(--rule2));cursor:pointer;
+  background:color-mix(in srgb,var(--surface) 88%,transparent);color:var(--ink);box-shadow:var(--card-shadow-hi);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:grid;place-items:center;
+  opacity:0;visibility:hidden;transform:translateY(10px) scale(.92);transition:opacity .25s var(--ease),transform .3s var(--ease-out),visibility 0s .3s,background-color var(--dur)}
+#totop.on{opacity:1;visibility:visible;transform:none;transition:opacity .25s var(--ease),transform .3s var(--ease-out),visibility 0s,background-color var(--dur)}
+#totop svg{color:var(--gold)}
+@media (hover:hover){ #totop:hover{background:var(--surface);transform:translateY(-2px)} }
+#totop:active{transform:scale(.94)}
+html.fullmap #readbar,html.fullmap #totop{display:none}
+
+/* sections rise gently into view the first time they are reached */
+.reveal-on .sec.rv,.reveal-on .keyfind.rv{opacity:0;transform:translateY(18px)}
+.reveal-on .sec,.reveal-on .keyfind{transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+
+/* the note panel eases in when it changes */
+@keyframes swapin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+#infobody.swap{animation:swapin .32s var(--ease-out)}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important;animation-iteration-count:1 !important}
+  .reveal-on .sec.rv,.reveal-on .keyfind.rv{opacity:1;transform:none}
+}
+@media print{ #readbar,#totop{display:none} .reveal-on .sec.rv,.reveal-on .keyfind.rv{opacity:1;transform:none} }
+
+/* Version 211: placeholders while the map is being drawn (the view bars, the note panel and the layer list are filled by script) */
+@keyframes pshimmer{from{background-position:120% 0}to{background-position:-20% 0}}
+.seg:empty,#infobody:empty::before,#infobody:empty::after,#layers:empty::before,#layers:empty::after{
+  background:linear-gradient(90deg,var(--chip) 0%,color-mix(in srgb,var(--chip) 45%,var(--surface)) 45%,var(--chip) 90%) 0 0/250% 100%;
+  animation:pshimmer 1.4s var(--ease) infinite}
+.seg:empty{width:min(440px,60vw);height:42px;border-color:transparent}
+#infobody:empty::before,#infobody:empty::after,#layers:empty::before,#layers:empty::after{content:"";display:block;border-radius:6px}
+#infobody:empty::before{height:22px;width:62%;margin:4px 0 16px}
+#infobody:empty::after{height:96px;width:100%}
+#layers:empty::before{height:18px;width:48%;margin:8px 0 12px}
+#layers:empty::after{height:140px;width:100%}

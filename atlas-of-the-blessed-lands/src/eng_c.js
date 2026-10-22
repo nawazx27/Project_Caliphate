@@ -621,6 +621,14 @@ function updateScale(){
   document.getElementById('scalebar').style.width = (best*pxPerKm).toFixed(0)+'px';
   document.getElementById('scaletxt').textContent = best<1 ? (best*1000)+' m' : best+' km';
 }
+/* Version 211: on a phone a bottom sheet (Notes, Layers) covers the lower part of the map; how many pixels of the map it covers,
+   and how far the map was moved up to keep the view clear of it (moved back when the sheet closes) */
+let sheetShift = 0, sheetInset = 0;
+function sheetCover(){
+  const sh = document.querySelector('.sheet.open'); if(!sh || window.matchMedia('(orientation:landscape) and (max-height:520px)').matches) return 0;
+  const m = wrapEl.getBoundingClientRect(), top = window.innerHeight - sh.offsetHeight;
+  return Math.max(0, Math.min(m.bottom, window.innerHeight) - Math.max(top, m.top));
+}
 function safeInsets(w, h){
   const s = {l:0, t:0, r:0, b:0};
   chrome.forEach(c=>{
@@ -630,6 +638,7 @@ function safeInsets(w, h){
   });
   if(w - s.l - s.r < w*0.5) s.l = s.r = 0;
   if(h - s.t - s.b < h*0.5) s.t = s.b = 0;
+  const cov = sheetCover(); sheetInset = 0; if(cov > 40 && h - s.t - cov > h*0.22){ s.b = cov; sheetInset = cov; }   /* frame above an open bottom sheet */
   return s;
 }
 function boundsT(b, w, h, pad, wide, fitH){
@@ -652,4 +661,4 @@ function boundsT(b, w, h, pad, wide, fitH){
 const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const DEEP = {els:null, box:null, on:false};   /* paths cut to the view when very close in */
 let chipNext = null;   /* the Go-to chip whose view go() is about to show; every other chip goes dark */
-function go(b, wide, fitH){ try { const c = chipNext; chipNext = null; focusBtns.forEach((x,j)=>x.classList.toggle('on', j === c)); } catch(e){} const t = boundsT(b, W, H, undefined, wide, fitH); wheelTarget = null; if(reduced) wrapSel.call(zoom.transform, t); else wrapSel.transition().duration(850).call(zoom.transform, t); }
+function go(b, wide, fitH){ try { const c = chipNext; chipNext = null; focusBtns.forEach((x,j)=>x.classList.toggle('on', j === c)); } catch(e){} const t = boundsT(b, W, H, undefined, wide, fitH); sheetShift = sheetInset/2; wheelTarget = null; if(reduced) wrapSel.call(zoom.transform, t); else wrapSel.transition().duration(850).call(zoom.transform, t); }
