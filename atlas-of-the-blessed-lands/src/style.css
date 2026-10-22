@@ -1160,23 +1160,3 @@ html.fullmap #readbar,html.fullmap #totop{display:none}
 #infobody:empty::after{height:96px;width:100%}
 #layers:empty::before{height:18px;width:48%;margin:8px 0 12px}
 #layers:empty::after{height:140px;width:100%}
-
-/* ===== Version 211b: the map itself — depth, glow, gilding ===== */
-:root{--cxglow:#C89B2E;--cxhi:#F4DC97;--vig:rgba(24,48,58,.16);--gt0:#B98E2A;--gt1:#8A6815;--gt2:#6E520F}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--cxglow:#E2BC5C;--cxhi:#FFF0C2;--vig:rgba(0,0,0,.42);--gt0:#F7E3A6;--gt1:#E2BC5C;--gt2:#B98E2A}}
-:root[data-theme="dark"]{--cxglow:#E2BC5C;--cxhi:#FFF0C2;--vig:rgba(0,0,0,.42);--gt0:#F7E3A6;--gt1:#E2BC5C;--gt2:#B98E2A}
-/* the outline: a thin gilded highlight down the line */
-.caliphx-hi{fill:none;stroke:var(--cxhi);stroke-width:.9px;stroke-opacity:.75;stroke-linejoin:round;vector-effect:non-scaling-stroke;pointer-events:none}
-/* while the map moves, the faint highlight rests (they return the moment it stops): smoother panning and zooming */
-.mapwrap.moving .caliphx-hi{visibility:hidden}
-/* a quiet vignette at the frame's edges draws the eye to the middle */
-.mapvig{position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:inherit;
-  background:radial-gradient(ellipse 75% 70% at 50% 50%,transparent 58%,var(--vig) 100%)}
-html.fullmap .mapvig{border-radius:0}
-/* the title in graded gold */
-.gt0{stop-color:var(--gt0)} .gt1{stop-color:var(--gt1)} .gt2{stop-color:var(--gt2)}
-.lbl.darlbl,.lbl.darlbl .arl.dar{fill:url(#goldtext)}
-/* names: seas a touch larger, city names a touch firmer; country names keep their spaced capitals */
-.lbl.sea:not(.small){font-size:14px}
-.lbl.sname,.lbl:not(.sea):not(.region):not(.phys):not(.country):not(.hist):not(.note):not(.darlbl):not(.natlbl){font-weight:500}
-@media print{ .mapvig{display:none} }
