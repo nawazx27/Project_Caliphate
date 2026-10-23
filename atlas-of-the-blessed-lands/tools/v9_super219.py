@@ -15,8 +15,10 @@ Philippines, East Timor], and add Papua New Guinea. ... For the Super Caliphate,
 - Whole: India (with the Siachen Glacier), Nepal, Bhutan, Bangladesh, Sri Lanka, the Maldives, Myanmar, Thailand, Laos, Cambodia,
   Vietnam, Malaysia, Singapore, Brunei, Indonesia, the Philippines, East Timor, Papua New Guinea. Afghanistan and Pakistan (with
   Azad Kashmir and Gilgit-Baltistan) were already whole in V9.
-Run: python3 tools/v9_super219.py <dir with cn_tibet.parquet and cn_la.parquet>, then tools/fill_gaps.py v2 and
-tools/silhouette_gaps204.py."""
+- Nawaz then: "Apply it and add Andaman and Nicobar Islands as well": they are part of India on the base map (16 islands); India's
+  islands in 92-94.5 E, 6-14.2 N from Natural Earth 10 m are added too, for the two islets the base map lacks.
+Run: python3 tools/v9_super219.py <dir with cn_tibet.parquet and cn_la.parquet>, then tools/fill_gaps.py v2, then
+tools/v9_super_gaps219.py <same dir> (no-gaps rule for V9 only, never inside East Turkestan)."""
 import json, os, sys, subprocess, shapely, pyarrow.parquet as pq
 from shapely import wkb
 from shapely.geometry import shape, box, MultiPolygon, Polygon
@@ -51,10 +53,12 @@ TIB = unary_union(parts + list(found.values())).intersection(CN.buffer(0.01))
 # China-administered Kashmir
 NE = json.load(open(os.path.join(P, 'ne_10m_admin_0_disputed_areas.geojson')))
 KCN = unary_union([shape(x['geometry']).buffer(0) for x in NE['features'] if x['properties'].get('BRK_NAME') in ('Aksai Chin', 'Shaksam Valley')]).intersection(CN.buffer(0.01))
+NE10 = json.load(open(os.path.join(P, 'ne_10m_admin_0_countries.geojson')))
+ANI = unary_union([shape(x['geometry']).buffer(0) for x in NE10['features'] if x['properties'].get('ADM0_A3') == 'IND']).intersection(box(92, 6, 94.5, 14.2))
 ADD = {'356': 'India', 'KAS': 'Siachen Glacier', '524': 'Nepal', '064': 'Bhutan', '050': 'Bangladesh', '144': 'Sri Lanka', '462': 'Maldives',
        '104': 'Myanmar', '764': 'Thailand', '418': 'Laos', '116': 'Cambodia', '704': 'Vietnam', '458': 'Malaysia', '702': 'Singapore',
        '096': 'Brunei', '360': 'Indonesia', '608': 'Philippines', '626': 'East Timor', '598': 'Papua New Guinea'}
-X = shapely.union_all([V, TIB.buffer(0.003), KCN.buffer(0.003)] + [G[i].buffer(0.003) for i in ADD], grid_size=0.001)
+X = shapely.union_all([V, TIB.buffer(0.003), KCN.buffer(0.003), ANI.buffer(0.003)] + [G[i].buffer(0.003) for i in ADD], grid_size=0.001)
 out = []
 for q in getattr(X, 'geoms', [X]):
     if q.geom_type != 'Polygon' or A(q) < 0.05: continue
@@ -65,12 +69,15 @@ const s=r=>{const a=d3.geoArea({type:'Polygon',coordinates:[r]});return Math.min
 process.stdout.write(String(Math.round(C.reduce((t,p)=>t+s(p[0])-p.slice(1).reduce((h,r)=>h+s(r),0),0)*6371.0088**2)))"""], cwd=P, input=json.dumps(out).encode()))
 Y = MultiPolygon([Polygon(r[0], r[1:]) for r in out]).buffer(0)
 for i, n in ADD.items(): print(n, round(A(G[i].intersection(Y)) / A(G[i]) * 100, 2))
+print('Andaman and Nicobar', round(A(ANI)), 'inside', round(A(ANI.intersection(Y)) / A(ANI) * 100, 2))
 print('Greater Tibet', round(A(TIB)), {k: round(A(v)) for k, v in found.items()}, '| China-held Kashmir', round(A(KCN)))
 print('V9', C['v2']['km2'], '->', km2)
 OUT = {'642', '688', '191', '070', '705', '499', 'KOS', '156_X', '380_C'}
 cn = A(CN)
 C['v2'].update(polys=out, km2=km2, states=[r for r in C['v2']['states'] if r['id'] not in OUT and r['id'] not in ADD] +
-    [{'id': i, 'n': n, 'km2': round(A(G[i])), 'pct': 100} for i, n in ADD.items()] +
+    [{'id': i, 'n': 'India (with the Andaman and Nicobar Islands)' if i == '356' else n, 'km2': round(A(G[i])), 'pct': 100} for i, n in ADD.items()] +
     [{'id': '156_T', 'n': 'China: Greater Tibet as the Central Tibetan Administration defines it (the Tibet Autonomous Region, Qinghai, and the Tibetan autonomous prefectures and counties of Sichuan, Gansu and Yunnan)', 'km2': round(A(TIB)), 'pct': round(A(TIB) / cn * 100)},
      {'id': '156_K', 'n': 'China: the parts of Jammu and Kashmir it administers (Aksai Chin and the Shaksgam valley)', 'km2': round(A(KCN)), 'pct': round(A(KCN) / cn * 100, 1)}])
+# East Turkestan's province-history entries (the 'XJ' units and country note) leave V9 with it
+C['v2']['units'] = [u for u in C['v2']['units'] if u['a3'] != 'XJ']; C['v2']['countries'] = [c for c in C['v2']['countries'] if c['a3'] != 'XJ']; C['v2'].pop('xinjiang', None)
 json.dump(C, open(F_ + '.tmp', 'w'), separators=(',', ':'), ensure_ascii=False); os.replace(F_ + '.tmp', F_)
