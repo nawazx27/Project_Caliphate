@@ -5,6 +5,7 @@ const MIN = esb && !process.argv.includes('--nomin');
 const R = f => fs.readFileSync(f, 'utf8');
 const gen = JSON.stringify(JSON.parse(R('src/generated.json')));
 const relief = 'data:image/webp;base64,' + fs.readFileSync('relief_full.webp').toString('base64');
+const relief2 = 'data:image/webp;base64,' + fs.readFileSync('relief_world.webp').toString('base64');
 /* the base maps are TopoJSON whose arcs are already whole-number steps; each arc is packed as text (marker \u0002, see below) */
 const packTopo = f => { const t = JSON.parse(R(f)); t.arcs = t.arcs.map(arc => '\u0002' + arc.map(([a, b]) => encNum(a) + encNum(b)).join('')); return JSON.stringify(t).replace(/</g, '\\u003c'); };
 /* outline data as a JSON block ("<" escaped so no string can close the script tag) */
@@ -46,7 +47,7 @@ const landLodJ = (() => {
 const natJ = JSON.stringify(pack(Object.assign(JSON.parse(R('src/nat.json')), {pol: undefined}))).replace(/</g, '\\u003c');   /* Natural + political was removed in Version 60 */
 
 let js = [R('src/head.js'), R('src/old_data.js'), R('src/new_geom.js').replace('__GENERATED__', gen), R('src/new_info.js'), R('src/eng_a.js'), R('src/eng_b.js'), R('src/eng_c.js'), R('src/eng_d.js'), R('src/eng_e.js'), R('src/start.js'), R('src/polish.js')].join('\n');
-js = js.replace('__RELIEF__', relief) + '\n})();\n';
+js = js.replace('__RELIEF__', relief).replace('__RELIEF2__', relief2) + '\n})();\n';
 if(MIN){ const before = js.length; js = esb.transformSync(js, {minify:true, charset:'utf8', target:'es2020', legalComments:'none'}).code; console.log('js', before, '->', js.length); }
 
 const fonts = `<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>

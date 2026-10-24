@@ -1,6 +1,6 @@
 (function(){
 "use strict";
-const RELIEF = "__RELIEF__";
+const RELIEF = "__RELIEF__", RELIEF2 = "__RELIEF2__";
 /* the outline and base-map data come packed (see build.js): each list of points is a text starting with \u0001 or \u0002; turn it back into pairs */
 const unpackRings = o => {
   if(typeof o === 'string'){ const kind = o.charCodeAt(0); if(kind !== 1 && kind !== 2) return o;

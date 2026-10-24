@@ -99,7 +99,9 @@ function buildOverlay(){
   const SEA_ROT = {'Baḥr al-Qulzum':{rot:57, at:[38.0,21.6], alts:[[36.3,24.4],[39.9,18.2],[34.6,27.0]]}, 'Baḥr al-Rūm':{alts:[[17.5,33.7],[24.6,33.5]]}, 'Baḥr Fāris':{rot:27, at:[51.1,27.45], alts:[[50.0,28.3],[52.6,26.8]]}};
   SEA_LBL.forEach(s=>{ const r = SEA_ROT[s[0]] || {}; addLabel('base', [[s[0]], s[1]?[s[1],'sub']:null], r.at || [s[2],s[3]], {cls:'sea', pri:20, minK:s[4]||0, subK:Math.max(1.2,s[4]||0), rot:r.rot, alts:r.alts, noClean:!!SEA_ROT[s[0]]}); });   /* Version 178: the Arabic sea names (al-Rūm, al-Qulzum, Fāris) go in the clean map (Nawaz) */
   RIVER_LBL.forEach(s=>addLabel('base', [[s[0]]], [s[1],s[2]], {cls:'sea small', minK:s[3]||1.2, pri:22}));
-  PHYS_LBL.forEach(s=>addLabel('base', [[s[0]]], [s[1],s[2]], {cls:'phys', minK:s[3], pri:18}));
+  /* mountain ranges lettered along their length in spaced capitals, as engraved on printed maps (screen degrees, clockwise) */
+  const RANGE_ROT = {'Zagros':38, 'Alborz':-4, 'Caucasus · Jabal al-Qabq':17, 'Ṭūrus · Taurus':-4, 'Pontic Mountains':-3, 'Hindu Kush':-27, 'Himalaya':24, 'Karakoram':30, 'Kopet Dag':18, 'Sulaiman Range':78, 'Tian Shan':-8, 'Atlas Mountains':-20, 'al-Sarāt':57, 'Red Sea Hills':60, 'Jabal Lubnān':-62, 'Ṭuwayq':74};
+  PHYS_LBL.forEach(s=>{ const rr = RANGE_ROT[s[0]]; addLabel('base', [[s[0]]], [s[1],s[2]], {cls: rr===undefined ? 'phys' : 'phys range', minK:s[3], pri:18, rot: rr}); });
   ISLAND_LBL.forEach(s=>addLabel('base', [[s[0]]], [s[1],s[2]], {cls:'phys isl', minK:s[3], pri:19}));
   HIST_LBL.forEach(s=>addLabel('histreg', [[s[0]], s[1]?[s[1],'arl','1.3em']:null], [s[2],s[3]], {cls:'hist', minK:s[4], subK:s[4]+0.5, pri:15, color:'--gold'}));
   PASSES.forEach(s=>addPoint('base', [s[1],s[2]], {sym:'pass', name:s[0], minK:s[3], anchor:s[4], cls:'small', pri:13, title:s[0]}));
@@ -446,6 +448,9 @@ function render(){
   /* Where the shaded relief is drawn at 56-100% of its own size the browser's smooth shrinking (it builds shrunken copies each redraw) costs
      about as much as everything else on the map together; plain sampling there looks the same to the eye and costs a third as much */
   reliefImg.style('image-rendering', (k * RELIEF_W / RELIEF_PX >= 0.56 && k * RELIEF_W / RELIEF_PX < 1) ? 'pixelated' : null);
+  { const up = k * RELIEFW_W / RELIEFW_PX, f = k > 30 ? 0.25 : up <= 1.25 ? 1 : Math.max(0.45, 1 - 0.32*Math.log2(up/1.25));
+    reliefWorld.style('opacity', f < 1 ? `calc(var(--relief-op) * ${f.toFixed(2)})` : null)
+      .style('image-rendering', (up >= 0.56 && up < 1) ? 'pixelated' : null); }
   if(VIEW_SET){ const lv = k < 0.25 ? 0 : k < 0.6 ? 1 : k < 1.5 ? 2 : 3; if(lv !== landLv){ landLv = lv; landMP.attr('d', landLOD(lv)); } }   /* coarser land outline while zoomed out */
   if(CX.clip){ const key = CX.lk2(); if(key !== CX.lk){ CX.lk = key; const dd = CX.lod(XK(), cxLv()); CX.clip.attr('d', dd); CX.wash.attr('d', dd); if(CX.dim) CX.dim.attr('d', CX.DIM_SHEET + dd); } }   /* the outline's clip and wash follow its level of detail */
   gWL.style('display', k < 6 && !LIGHT ? null : 'none');   /* the simplified coast would drift from the real one close in */

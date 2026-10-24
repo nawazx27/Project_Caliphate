@@ -1160,3 +1160,45 @@ html.fullmap #readbar,html.fullmap #totop{display:none}
 #infobody:empty::after{height:96px;width:100%}
 #layers:empty::before{height:18px;width:48%;margin:8px 0 12px}
 #layers:empty::after{height:140px;width:100%}
+
+/* ---------- Version 227, book-map finish: engraved sea, brown ink, book lettering ----------
+   Colours are named once per theme; the dark theme keeps the same ideas in lighter inks */
+:root{--land:#F1E6CC; --land-edge:#7A6A4E; --border:#5B4A36; --wline:#6F98A3; --sea:#B8D0D0; --glow:#D3E3DF;
+  --bk-ink:#4A3B2A; --bk-ink2:#6B5536; --bk-red:#8A4A30; --bk-phys:#76583A; --bk-engr:#5F8F9C; --bk-river:#3F7F99;
+  --bk-vig1:rgba(120,86,40,.16); --bk-vig2:rgba(95,62,25,.28)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bk-ink:#D8C6A6; --bk-ink2:#BFA987; --bk-red:#D79A7E; --bk-phys:#C9AE88; --bk-engr:#7FB3C2; --bk-river:#5EA3BF;
+  --bk-vig1:rgba(0,0,0,.18); --bk-vig2:rgba(0,0,0,.34)}}
+:root[data-theme="dark"]{--bk-ink:#D8C6A6; --bk-ink2:#BFA987; --bk-red:#D79A7E; --bk-phys:#C9AE88; --bk-engr:#7FB3C2; --bk-river:#5EA3BF;
+  --bk-vig1:rgba(0,0,0,.18); --bk-vig2:rgba(0,0,0,.34)}
+.engrl{stroke:var(--bk-engr);stroke-width:.45;stroke-opacity:.22}
+.wl.w3{stroke-opacity:.2}.wl.w4{stroke-opacity:.11}
+.coasttint{fill:none;stroke:var(--bk-engr);stroke-opacity:.075;stroke-linejoin:round;pointer-events:none}
+.coastglow.g1{stroke-opacity:.45}
+.mapwrap::before{background:radial-gradient(130% 110% at 50% 45%, transparent 55%, var(--bk-vig1) 88%, var(--bk-vig2) 100%)}
+.grat{stroke:var(--bk-ink2);stroke-opacity:.16;stroke-width:.6}
+/* rivers: the great rivers drawn heavier, as on printed maps; lakes ringed like the seas */
+.river{stroke:var(--bk-river)}
+.river.major{stroke-width:1.9px;stroke-opacity:.95}
+.river.mid{stroke-width:1.35px}
+.lakering{fill:none;stroke:var(--bk-engr);stroke-opacity:.35;stroke-width:7px;pointer-events:none}
+.lakeringm{fill:none;stroke:var(--sea);stroke-width:5.6px;pointer-events:none}
+/* lettering */
+.lbl.sea:not(.small){font-variant-caps:small-caps;letter-spacing:.2em;font-size:14px}
+.lbl.country{font-family:var(--font-display);font-variant-caps:small-caps;text-transform:none;font-size:12.5px;letter-spacing:.26em;font-weight:500;fill:var(--bk-red);opacity:.85}
+.lbl.phys{fill:var(--bk-phys)}
+.lbl.phys.range{font-variant-caps:small-caps;letter-spacing:.42em;font-size:12px;font-style:normal}
+.lbl.caliphlbl:not(.x){fill:var(--bk-ink)!important;font-family:var(--font-display);font-weight:500}
+.glbl{font-family:var(--font-display);font-style:italic;font-size:10.5px;letter-spacing:.03em;fill:var(--bk-ink2)}
+.coords{font-family:var(--font-display);font-style:italic;font-size:12.5px;color:var(--bk-ink);background:none;box-shadow:none;text-shadow:0 0 3px var(--land),0 0 2px var(--land)}
+.scale{font-family:var(--font-display);font-style:italic;font-size:12.5px;color:var(--bk-ink);background:none;box-shadow:none;text-shadow:0 0 3px var(--land),0 0 2px var(--land)}
+.scale .north .rose{width:52px;height:52px}
+.scale .north span{font-size:13px;margin-bottom:-2px;color:var(--bk-ink)}
+.scale .bar{height:6px;border:1px solid var(--bk-ink);margin-top:3px;
+  background:linear-gradient(90deg,var(--bk-ink) 0 25%,transparent 25% 50%,var(--bk-ink) 50% 75%,transparent 75%) top/100% 50% no-repeat,
+             linear-gradient(90deg,transparent 0 25%,var(--bk-ink) 25% 50%,transparent 50% 75%,var(--bk-ink) 75%) bottom/100% 50% no-repeat,
+             color-mix(in srgb,var(--land) 80%,#fff)}
+/* the compass also on the full-screen phone map, smaller */
+@media (max-width:980px), (orientation:landscape) and (max-height:520px){
+  .atlas.full .scale .north{display:flex}
+  .atlas.full .scale .north .rose{width:40px;height:40px}}
