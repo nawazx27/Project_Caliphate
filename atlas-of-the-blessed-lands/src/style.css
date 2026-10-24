@@ -1172,8 +1172,6 @@ html.fullmap #readbar,html.fullmap #totop{display:none}
 :root[data-theme="dark"]{--bk-ink:#D8C6A6; --bk-ink2:#BFA987; --bk-red:#D79A7E; --bk-phys:#C9AE88; --bk-engr:#7FB3C2; --bk-river:#5EA3BF;
   --bk-vig1:rgba(0,0,0,.18); --bk-vig2:rgba(0,0,0,.34)}
 .engrl{stroke:var(--bk-engr);stroke-width:.45;stroke-opacity:.22}
-.wl.w3{stroke-opacity:.2}.wl.w4{stroke-opacity:.11}
-.coasttint{fill:none;stroke:var(--bk-engr);stroke-opacity:.075;stroke-linejoin:round;pointer-events:none}
 .coastglow.g1{stroke-opacity:.45}
 .mapwrap::before{background:radial-gradient(130% 110% at 50% 45%, transparent 55%, var(--bk-vig1) 88%, var(--bk-vig2) 100%)}
 .grat{stroke:var(--bk-ink2);stroke-opacity:.16;stroke-width:.6}

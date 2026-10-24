@@ -299,7 +299,7 @@ function frameZ(){
      the engraved water lines and border halos) until the gesture ends. */
   const gap = Math.max(tx - OX*s, W - (tx + (W+OX)*s), ty - OY*s, H - (ty + (H+OY)*s));   /* px of view the drawn margin no longer covers */
   const now = performance.now(), slow = redrawMs > 120, hold = Math.max(650, redrawMs*5);
-  if(((gap > 36 || s > (slow ? 4 : 2.6) || s < (slow ? 0.25 : 0.38)) && now - lastCommit > hold) || (gap > 160 && now - lastCommit > Math.max(300, redrawMs*2))) update(redrawMs > 60);
+  if(((gap > 36 || s > (slow ? 4 : 2.6) || s < (slow ? 0.25 : 0.38)) && now - lastCommit > hold) || (gap > 160 && now - lastCommit > Math.max(300, redrawMs*2))) update(true);   /* Version 228: a redraw in the middle of a gesture is always the light one */
 }
 let chrome = [];
 function measureChrome(){
@@ -312,8 +312,8 @@ function size(){ const r = wrapEl.getBoundingClientRect(); W = Math.max(200, r.w
   const s0 = SHEET_NW(), s1 = SHEET_SE(), sw = s1[0]-s0[0], sh = s1[1]-s0[1];
   coverK = Math.max(W/sw, H/sh);
   zoom.translateExtent([s0, s1]).scaleExtent([coverK, 3000]);
-  /* the moving layer is drawn a quarter-view larger on every side, so panning never shows a blank edge */
-  OX = Math.round(W*0.25); OY = Math.round(H*0.25);
+  /* the moving layer is drawn a fifth of the view larger on every side (a quarter before Version 228; each redraw now paints about 13% less), so panning seldom shows a blank edge */
+  OX = Math.round(W*0.2); OY = Math.round(H*0.2);
   Object.assign(svgEl.style, {inset:'auto', left:-OX+'px', top:-OY+'px', width:(W+2*OX)+'px', height:(H+2*OY)+'px', transformOrigin:`${OX}px ${OY}px`});
   svg.attr('width', W+2*OX).attr('height', H+2*OY); ov.attr('transform', `translate(${OX},${OY})`);
   measureChrome(); }
@@ -455,6 +455,7 @@ function render(){
   if(CX.clip){ const key = CX.lk2(); if(key !== CX.lk){ CX.lk = key; const dd = CX.lod(XK(), cxLv()); CX.clip.attr('d', dd); CX.wash.attr('d', dd); if(CX.dim) CX.dim.attr('d', CX.DIM_SHEET + dd); } }   /* the outline's clip and wash follow its level of detail */
   gWL.style('display', k < 6 && !LIGHT ? null : 'none');   /* the simplified coast would drift from the real one close in */
   BORD.els[0].style('display', LIGHT ? 'none' : null);   /* the border halo goes too in a light redraw */
+  lakeRings.style('display', LIGHT ? 'none' : null); engrRect.style('display', LIGHT ? 'none' : null);   /* and the lake rings and the engraved sea (Version 228) */
   /* borders and outlines: the whole line when far out, only the stretch near the view close in */
   { const close = k >= 0.9, vx0 = T.invertX(-OX), vx1 = T.invertX(W+OX), vy0 = T.invertY(-OY), vy1 = T.invertY(H+OY);
     CLIPS.forEach(c=>{ const key = c.key();

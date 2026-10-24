@@ -50,17 +50,15 @@ svg.append('rect').attr('width','100%').attr('height','100%').attr('fill','var(-
 /* Version 227: engraved sea, fine horizontal rules as in printed book maps */
 { const pt = sdefs.append('pattern').attr('id','engr').attr('patternUnits','userSpaceOnUse').attr('width',8).attr('height',3.2);
   pt.append('line').attr('x1',0).attr('x2',8).attr('y1',.6).attr('y2',.6).attr('class','engrl'); }
-svg.append('rect').attr('width','100%').attr('height','100%').attr('fill','url(#engr)');
+const engrRect = svg.append('rect').attr('width','100%').attr('height','100%').attr('fill','url(#engr)');
 const world = svg.append('g');
 /* engraved water lines: a thin ring of darker water at three distances from every coast, outermost first */
 /* they follow a simplified coastline (much cheaper to stroke) and are drawn only at the smaller scales */
 const gWL = world.append('g').attr('class','wlg');
-[[50,'w4'],[35,'w3'],[20,'w2'],[9,'w1']].forEach(([w,c])=>{
+[[20,'w2'],[9,'w1']].forEach(([w,c])=>{
   gWL.append('use').attr('href','#landLoP').attr('class','wl '+c).style('stroke-width', w+'px');
   gWL.append('use').attr('href','#landLoP').attr('class','wlm').style('stroke-width', (w-1.3)+'px');
 });
-/* Version 227: a coastal tint, darker water close in, fading out to sea */
-[30,18,8].forEach(w=>gWL.append('use').attr('href','#landLoP').attr('class','coasttint').style('stroke-width', w+'px'));
 gWL.append('use').attr('href','#landLoP').attr('class','coastglow g1');
 world.append('use').attr('href','#landMP').attr('class','land');
 const r0 = P([RELIEF_BOX.w, RELIEF_BOX.n]), r1 = P([RELIEF_BOX.e, RELIEF_BOX.s]);   /* relief covers the old sheet, in Mercator rows */
@@ -70,7 +68,9 @@ const gRelief = world.append('g').attr('data-layer','relief');
 /* Version 227: the rest of the world's relief (relief_world.webp, tools/relief/make_world_relief.py), made the same way at lower detail;
    neutral inside the old sheet, so the two meet without a seam */
 const w0 = P([-180, 85]), w1 = P([180, -85]), RELIEFW_W = w1[0]-w0[0], RELIEFW_PX = 2700;
-const reliefWorld = gRelief.append('image').attr('class','relief').attr('href', RELIEF2).attr('x', w0[0]).attr('y', w0[1]).attr('width', w1[0]-w0[0]).attr('height', w1[1]-w0[1]).attr('preserveAspectRatio','none');
+const reliefWorld = gRelief.append('image').attr('class','relief').attr('x', w0[0]).attr('y', w0[1]).attr('width', w1[0]-w0[0]).attr('height', w1[1]-w0[1]).attr('preserveAspectRatio','none');
+/* Version 228: the world relief is decoded after the page has opened (about 0.1-0.2 s of work at start-up otherwise) */
+{ const setW = ()=>reliefWorld.attr('href', RELIEF2); if(window.requestIdleCallback) requestIdleCallback(setW, {timeout:2500}); else setTimeout(setW, 1200); }
 const RELIEF_W = r1[0]-r0[0], RELIEF_PX = 2680;   /* the relief picture is 2680 pixels wide and covers the old sheet */
 const reliefImg = gRelief.append('image').attr('class','relief').attr('href', RELIEF).attr('x', r0[0]).attr('y', r0[1]).attr('width', r1[0]-r0[0]).attr('height', r1[1]-r0[1]).attr('preserveAspectRatio','none');
 world.append('g').attr('data-layer','desert').selectAll('path').data(deserts.features).join('path').attr('class','desert').attr('d', gpP);
@@ -87,9 +87,9 @@ LAVA.forEach(l=>gLava.append('path').attr('class','lavaf').attr('data-sel','lava
 const gFill = world.append('g').attr('clip-path','url(#landclip)');
 world.append('g').selectAll('path').data(lakes.features).join('path').attr('class','lake').attr('d', gpP);
 /* lakes ringed inside their shores like the seas (an engraved water line just within the shore) */
-{ const ld = lakes.features.map(f=>gpP(f)).join('');
+const lakeRings = world.append('g').attr('clip-path','url(#lakeclip)');
+{ const ld = lakes.features.map(f=>gpP(f)).join(''), lr = lakeRings;
   sdefs.append('clipPath').attr('id','lakeclip').append('path').attr('d', ld);
-  const lr = world.append('g').attr('clip-path','url(#lakeclip)');
   lr.append('path').attr('class','lakering').attr('d', ld); lr.append('path').attr('class','lakeringm').attr('d', ld); }
 const gGrat = world.append('g').attr('data-layer','graticule').style('pointer-events','none');
 const gratPath = gGrat.append('path').attr('class','grat');
