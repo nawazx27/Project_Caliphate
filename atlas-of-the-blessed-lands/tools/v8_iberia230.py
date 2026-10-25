@@ -1,4 +1,4 @@
-"""Version 230 (Nawaz: "Apply Iberia to V8 with the Balearics and Azores"). Spain and Portugal, each whole with all their islands
+"""UNDONE in Version 231 (Nawaz: "remove Iberian Peninsula"); do not rerun. Version 230 (Nawaz: "Apply Iberia to V8 with the Balearics and Azores"). Spain and Portugal, each whole with all their islands
 (the Balearics, the Azores; the Canaries, Madeira, Ceuta and Melilla were already in V8), and Andorra, added to V8 (CALIPH.af).
 Gibraltar is drawn by the base map as part of Spain's land. Run after tools/v8_africa229.py: python3 tools/v8_iberia230.py"""
 import json, os, subprocess, shapely

@@ -1372,3 +1372,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Text: V8 lead, search entry, button titles and the versions paragraph mention the Iberian Peninsula.
 - Also answered (no change): which version is most powerful by size-to-power ratio and resources (rough general-knowledge figures; V7 most total power, V8 most minerals, V3 best power per km² among the large ones).
 - Checked: build, check8 (V1–V8, all links, no errors), screenshots.
+
+## Version 231 (2026-10-25): the Iberian Peninsula out of V8 again
+- Nawaz found Iberia "pushing up" alone from Africa's corner; shown side by side with V8 without Iberia and with Italy, Malta and the whole Balkans added (option 3, not applied). Then: "Ykw, remove Iberian Peninsula".
+- tools/v8_africa229.py rerun: V8 is back to Version 229 (41.96 million km²; the Canaries, Madeira, Ceuta and Melilla stay, as African lands). tools/v8_iberia230.py marked undone, not to be rerun. V8's lead says Iberia was added for a time and taken out at his request; search entry, button titles and versions paragraph as in Version 229.
+- Answered (no change): which outlines are easiest to defend (land frontier vs coast, neighbours), which are tricontinental (all eight; V7 also reaches Oceania; V8 stays tricontinental through Greece, the southern Balkans and East Thrace).
+- Checked: build, check8 (no errors), phone screenshot.
