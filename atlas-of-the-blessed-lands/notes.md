@@ -1404,3 +1404,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Niger (now a notch between Mali and Libya) was offered, not added.
 - Same message: he circled V9's Caucasus line (the notch of Russian land between the Black Sea, the Caspian and Kazakhstan); previews of fixes made, not applied yet.
 - Checked: build, version test (no errors).
+
+## Version 236 (2026-10-25): V9's stray Caspian line fixed
+- Nawaz circled V9's Caucasus on his phone ("Apply and fix this line"); previews of adding the North Caucasus (A) or Black Sea to Kazakhstan (B) shown; he chose: "Just give me normal Georgia and Azerbaijan borders with the stray line fixed".
+- Cause: V9 (CALIPH.v2) still held 30 tiny slivers of Russian shore (about 22 km², mostly on the Dagestan coast, left from older Caspian strips); zoomed out, the outline was drawn round each, a gold line down the coast.
+- tools/v9_caspian_slivers236.py removes every V9 piece lying mostly in Russia; V9 keeps the modern Georgia and Azerbaijan borders; 45.41 million km². Other outlines checked: none has such pieces (V4's one is its North Caucasus, kept on purpose).
+- Checked: build, version test, phone screenshot zoomed out (dark), before/after.
