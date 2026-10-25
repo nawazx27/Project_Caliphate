@@ -1390,3 +1390,10 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - tools/v9_moldova233.py: Moldova whole into V9 (44.14 -> 44.17 million km²). The rest of the preview (Benelux, Czechia, spill clean-up; the deleted tools/v9_better233.py) not applied.
 - Also answered (no change): V9 vs political borders (114 lands whole; France 87% by choice, its American departments left out; hairline spill ~3,800 km² at the edge); overview of all nine; most resources (V9); superpower potential (V9 best all-round, V7 largest, V8 future).
 - Checked: build, version test (V1–V9, no errors), screenshot.
+
+## Version 234 (2026-10-25): Central Asia in V5; versions renumbered by size
+- Nawaz: "add Central Asia to V5 and renumber everything". Preview shown first; then "Sure".
+- tools/v5_central_asia234.py: Kazakhstan (with Baikonur), Uzbekistan, Kyrgyzstan, Tajikistan and Turkmenistan, each whole, into V5 (CALIPH.me9): 21.46 -> 25.44 million km². V5 frame (V9_B) widened to the Altai.
+- Renumbered by size: af V8 -> V7 (42.0M), eu V9 -> V8 (44.2M), v2 Super Caliphate V7 -> V9 (45.4M). XNAME/XNUM, OUTLINE_TOK (#outline-v7 = af, #outline-v8 = eu, #outline-v9 = v2; new #outline-super), buttons reordered (V7 V8 V9 = af eu v2), CX_LEAD texts, map labels (eng_c.js), versions paragraph, search-index words (all now match their number).
+- Also answered (no change): 3:103 flag collage (verified via quran.ai), Muslim-majority lands per outline, Muslim share per outline, V8 benefits, V8 vs V3 (old numbers).
+- Checked: build, version test (V1–V9, every #outline-vN opens its map, no errors), screenshot.
