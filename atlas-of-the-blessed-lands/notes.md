@@ -1384,3 +1384,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - tools/v9_med232.py writes CALIPH.eu (XV 'eu') from V8 (af): Spain and Portugal whole (Balearics, Azores), Andorra, Italy, San Marino, Malta, Slovenia, Croatia, Bosnia, Serbia, Kosovo, Montenegro, Romania, metropolitan France with Corsica (not French Guiana, Guadeloupe, Martinique), Monaco, Switzerland, Austria, Slovakia, Liechtenstein and Hungary (no-gaps rule). 44.14 million km², every land 100% inside. Every Mediterranean shore inside; its basin too except the Black Sea's northern rivers.
 - Page: V9 button after V8 in both rows; #outline-v9 (opened V7 before) and #outline-mediterranean open it; CX_LEAD.eu; search entry; versions paragraph. Numbered V9 at his request (not by size). index.html 4.69 MB.
 - Checked: build, check (V1–V9 buttons and links, no errors), phone screenshot.
+
+## Version 233 (2026-10-25): Moldova in V9
+- Nawaz asked how V9 could be better; suggested: clean the hairline spill, add Moldova, Belgium, the Netherlands, Luxembourg, Czechia. Preview of all shown; then "Ykw just add Moldova".
+- tools/v9_moldova233.py: Moldova whole into V9 (44.14 -> 44.17 million km²). The rest of the preview (Benelux, Czechia, spill clean-up; the deleted tools/v9_better233.py) not applied.
+- Also answered (no change): V9 vs political borders (114 lands whole; France 87% by choice, its American departments left out; hairline spill ~3,800 km² at the edge); overview of all nine; most resources (V9); superpower potential (V9 best all-round, V7 largest, V8 future).
+- Checked: build, version test (V1–V9, no errors), screenshot.
