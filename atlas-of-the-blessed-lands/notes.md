@@ -1397,3 +1397,10 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Renumbered by size: af V8 -> V7 (42.0M), eu V9 -> V8 (44.2M), v2 Super Caliphate V7 -> V9 (45.4M). XNAME/XNUM, OUTLINE_TOK (#outline-v7 = af, #outline-v8 = eu, #outline-v9 = v2; new #outline-super), buttons reordered (V7 V8 V9 = af eu v2), CX_LEAD texts, map labels (eng_c.js), versions paragraph, search-index words (all now match their number).
 - Also answered (no change): 3:103 flag collage (verified via quran.ai), Muslim-majority lands per outline, Muslim share per outline, V8 benefits, V8 vs V3 (old numbers).
 - Checked: build, version test (V1–V9, every #outline-vN opens its map, no errors), screenshot.
+
+## Version 235 (2026-10-25): Senegal, the Gambia and Mali in V5
+- Nawaz asked which outline has a proper empire look (answered V5); then "make a preview with Senegal and Mali in V5"; preview shown; then "Apply".
+- Run: python3 tools/v5_central_asia234.py . 686=Senegal 270=Gambia 466=Mali (the same add tool; the Gambia by the no-gaps rule, Senegal surrounds it). V5 25.44 -> 26.90 million km²; all three 100% inside. Texts (lead, versions paragraph, button title, search) updated.
+- Niger (now a notch between Mali and Libya) was offered, not added.
+- Same message: he circled V9's Caucasus line (the notch of Russian land between the Black Sea, the Caspian and Kazakhstan); previews of fixes made, not applied yet.
+- Checked: build, version test (no errors).
