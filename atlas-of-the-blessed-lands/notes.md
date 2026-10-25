@@ -1378,3 +1378,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - tools/v8_africa229.py rerun: V8 is back to Version 229 (41.96 million km²; the Canaries, Madeira, Ceuta and Melilla stay, as African lands). tools/v8_iberia230.py marked undone, not to be rerun. V8's lead says Iberia was added for a time and taken out at his request; search entry, button titles and versions paragraph as in Version 229.
 - Answered (no change): which outlines are easiest to defend (land frontier vs coast, neighbours), which are tricontinental (all eight; V7 also reaches Oceania; V8 stays tricontinental through Greece, the southern Balkans and East Thrace).
 - Checked: build, check8 (no errors), phone screenshot.
+
+## Version 232 (2026-10-25): NEW V9, V8 with the European side of the Mediterranean
+- Nawaz (with a ticked screenshot of the "option 3" preview: Iberia, Italy, Malta, the whole Balkans): "Make a v9 built upon v8 with the regions in the image and include France, Monaco, Switzerland, Austria, Slovakia"; preview shown; questions on Hungary (95% of its border would touch V9, so whole by the no-gaps rule) and the Ukraine border answered; "Apply V9".
+- tools/v9_med232.py writes CALIPH.eu (XV 'eu') from V8 (af): Spain and Portugal whole (Balearics, Azores), Andorra, Italy, San Marino, Malta, Slovenia, Croatia, Bosnia, Serbia, Kosovo, Montenegro, Romania, metropolitan France with Corsica (not French Guiana, Guadeloupe, Martinique), Monaco, Switzerland, Austria, Slovakia, Liechtenstein and Hungary (no-gaps rule). 44.14 million km², every land 100% inside. Every Mediterranean shore inside; its basin too except the Black Sea's northern rivers.
+- Page: V9 button after V8 in both rows; #outline-v9 (opened V7 before) and #outline-mediterranean open it; CX_LEAD.eu; search entry; versions paragraph. Numbered V9 at his request (not by size). index.html 4.69 MB.
+- Checked: build, check (V1–V9 buttons and links, no errors), phone screenshot.
