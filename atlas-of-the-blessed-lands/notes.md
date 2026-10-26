@@ -1446,3 +1446,7 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - NEW NAMES: V1 me8, V2 me2, V3 ca, V4 me9, V5 sah, V6 af, V7 eu, V8 v2 (Super Caliphate). The page now opens on V5 (XV default 'sah'); build.js precomputes V5's coarse outline (PRE_CX) instead of the old V4's.
 - Texts: V2 and V8 descriptions no longer lean on removed versions ("a smaller outline / a wide complete outline that is no longer on the list"); versions paragraph rewritten.
 - Checked: build, version test (8 buttons, #outline-v1…v11 and old aliases, no errors), default load on V5, screenshots.
+
+## After Version 241 (2026-10-26): Balkan previews for V5, not applied
+- Britannica blocked (Cloudflare challenge even after Nawaz allowed the domain); Wikipedia "Caliphate" and "Muslim world" read instead (Umayyad peak ~13 million km² per Wikipedia; Muslims ~1.9 billion, majority in 49 countries). V5 holds 43 of 53 Muslim-majority lands.
+- Previews of V5 (sah) + Albania, Kosovo, Bosnia (+ North Macedonia, Montenegro by the no-gaps rule), then + Bulgaria, then + Serbia. Nawaz: "let it be. Let's keep V5 as it is for now." Nothing applied.
