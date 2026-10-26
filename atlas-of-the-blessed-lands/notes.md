@@ -1430,3 +1430,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Renumbered by size: V1 me8, V2 me, V3 me2, V4 full, V5 ca, V6 me9, V7 sah (new), V8 v3/x3, V9 af, V10 eu, V11 v2 (Super Caliphate). Buttons, XNAME/XNUM, OUTLINE_TOK (#outline-v1…v11, #outline-sahara), CX_LEAD.sah, frame, lazyD/src/quiet/WIDEV/start keys, labels, versions paragraph, search entries.
 - Also answered (no change): Muslim % per outline (V6 73.0%), ways to raise V6's Muslim share (the Nile rule blocks the biggest lever), V6 three-way previews (no Iberia; whole Mediterranean).
 - Checked: build, version test (#outline-v1…v11, no errors), desktop and phone screenshots.
+
+## Design sketches (2026-10-26, no map change)
+- Nawaz asked for a logo, then "more dominating and do a flag as well", then "no need to put a star on Jerusalem", then "I like the flag 3". Saved in design/: flag3_final.svg/.png (white, crimson, green stripes; gold hoist triangle; crimson eight-point star), variants flag3_b/flag3_c, logos L1–L3, flags F1–F2. Colours by the traditional pan-Arab reading (Umayyad white, Fatimid green) plus Ottoman crimson; not from the sources. Not placed on the page.
