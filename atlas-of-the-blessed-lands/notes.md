@@ -1454,3 +1454,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 ## Version 242 (2026-10-26): Sahara name hidden in the clean map
 - Nawaz (phone screenshot of V5): "Remove Sahara text in clean mode." The 'Sahara · al-Ṣaḥrāʾ' physical label now has noClean (src/eng_c.js, PHYS_LBL loop); it still shows when Clean is off.
 - Checked: build, phone screenshot (clean, V5).
+
+## Version 243 (2026-10-26): page trimmed
+- Nawaz: "Remove unnecessary information from the artifact"; proposal (A hidden notes of removed outlines, B edit-history wording, C stale count) approved: "Let's go with your suggestion."
+- A: the long notes of the removed outlines (me, full, v3; about 4,900 words, never shown) replaced by one line each. B: each version's tap-note rewritten to say only what it holds now (no "added later / taken out at his request" history); V8's note keeps its lands and sources; the versions paragraph cut to one line per version, no renumbering history. C: the "core caliphate … twenty-five" count is filled in live from the chosen version (.nx), so it was not stale; left as is.
+- eng_e.js 119 KB -> 85 KB; page text 5,492 -> 5,132 visible words.
+- Checked: build, version test (no errors), V5 note and versions paragraph read on the page.
