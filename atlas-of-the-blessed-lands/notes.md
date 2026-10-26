@@ -1417,3 +1417,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Renumbered by size: V1 me8, V2 me, V3 me2, V4 full, V5 ca (new), V6 me9, V7 v3/x3, V8 af, V9 eu, V10 v2 (Super Caliphate). Buttons (ca before me9), XNAME/XNUM, OUTLINE_TOK (#outline-v5 … #outline-v10, #outline-central-asia), CX_LEAD.ca, CA_B frame, lazyD/src/quiet/WIDEV/start keys, map labels, versions paragraph, search entries; two stale "V7" mentions of the Super Caliphate (legend title, sources list) now V10.
 - Still waiting on Nawaz: the "V5/V6 + V8's Mediterranean lands" previews (Version 236 talk; not applied).
 - Checked: build, version test (#outline-v1…v10, no errors), desktop and phone screenshots.
+
+## Version 238 (2026-10-26): V6 holds the whole Iberian Peninsula and West Africa to Liberia
+- Nawaz drew a line from Mali's southern tip to the coast ("Add all these countries in preview"); preview of Guinea, Guinea-Bissau, Sierra Leone, Liberia; compared with/without Liberia (B with Liberia chosen as the cleaner edge); then "Before that make sure the entire Iberian Peninsula is in v6.. apply this (not preview)".
+- tools/v6_iberia_west238.py into V6 (me9), each whole: Andorra (was 3% in), French Cerdagne (23 Overture 2026-10-21.0 locality outlines in the upper Segre valley, south of the Pyrenees crest, tools/data/french_cerdagne238.geojson; Bolquère on the crest included by the leave-no-area-out rule, doubtful), Guinea, Guinea-Bissau, Sierra Leone, Liberia. Spain, Portugal and Gibraltar were already whole. V6 26.90 -> 27.35 million km²; numbers unchanged (still between V5 and V7).
+- Liberia is mostly Christian (about 12% Muslim); taken in for the clean edge at Nawaz's choice.
+- Checked: build, version test (no errors), screenshots (whole V6, the Pyrenees).
