@@ -286,7 +286,7 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   /* Version 123: V2's full path is built when first needed too (the opening view uses the coarse copies made by build.js) */
   CX.d = {};
   const lazyD = (k, f) => Object.defineProperty(CX.d, k, {configurable:true, enumerable:true, get(){ const v = f(); Object.defineProperty(CX.d, k, {value:v, enumerable:true}); return v; }});
-  lazyD('full', ()=>dOf(CALIPH.x)); lazyD('v2', ()=>dOf(CALIPH.v2)); lazyD('v3', ()=>dOf(CALIPH.x3)); lazyD('me', ()=>dOf(CALIPH.me)); lazyD('me2', ()=>dOf(CALIPH.me2)); lazyD('me8', ()=>dOf(CALIPH.me8)); lazyD('me9', ()=>dOf(CALIPH.me9)); lazyD('af', ()=>dOf(CALIPH.af)); lazyD('eu', ()=>dOf(CALIPH.eu));
+  lazyD('full', ()=>dOf(CALIPH.x)); lazyD('v2', ()=>dOf(CALIPH.v2)); lazyD('v3', ()=>dOf(CALIPH.x3)); lazyD('me', ()=>dOf(CALIPH.me)); lazyD('me2', ()=>dOf(CALIPH.me2)); lazyD('me8', ()=>dOf(CALIPH.me8)); lazyD('me9', ()=>dOf(CALIPH.me9)); lazyD('af', ()=>dOf(CALIPH.af)); lazyD('eu', ()=>dOf(CALIPH.eu)); lazyD('ca', ()=>dOf(CALIPH.ca));
   CX.clip = sdefs.append('clipPath').attr('id','caliphxclip').append('path').attr('d', '');
   const gx = layerG(gEdges, 'caliphx');
   const openx = e=>{ e.stopPropagation(); select('caliphx'); };
@@ -295,7 +295,7 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   CX.line = gx.append('g').attr('clip-path','url(#landclip)').append('path').attr('class','caliphx-line').attr('d', '');
   gEdges.node().insertBefore(gx.node(), g.node());
   const xl = {}, src = {full:CALIPH.x, v2:CALIPH.v2};
-  src.v3 = CALIPH.x3; src.me = CALIPH.me; src.me2 = CALIPH.me2; src.me8 = CALIPH.me8; src.me9 = CALIPH.me9; src.af = CALIPH.af; src.eu = CALIPH.eu;
+  src.v3 = CALIPH.x3; src.me = CALIPH.me; src.me2 = CALIPH.me2; src.me8 = CALIPH.me8; src.me9 = CALIPH.me9; src.af = CALIPH.af; src.eu = CALIPH.eu; src.ca = CALIPH.ca;
   /* Version 119: while zoomed out the outline is drawn from a coarser copy, as the coastline is (same steps and tolerances, under a pixel
      on screen); the outline has grown to about 46,000 points, and painting all of them at the whole-region view was most of a redraw */
   CX.lodC = {};

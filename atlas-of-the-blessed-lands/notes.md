@@ -1410,3 +1410,10 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Cause: V9 (CALIPH.v2) still held 30 tiny slivers of Russian shore (about 22 km², mostly on the Dagestan coast, left from older Caspian strips); zoomed out, the outline was drawn round each, a gold line down the coast.
 - tools/v9_caspian_slivers236.py removes every V9 piece lying mostly in Russia; V9 keeps the modern Georgia and Azerbaijan borders; 45.41 million km². Other outlines checked: none has such pieces (V4's one is its North Caucasus, kept on purpose).
 - Checked: build, version test, phone screenshot zoomed out (dark), before/after.
+
+## Version 237 (2026-10-26): NEW V5 = V3 + all of Central Asia; ten versions, renumbered by size
+- Nawaz: "Take V3 as base and add entire Central Asia to it and make a preview" (preview shown), then "A new version".
+- tools/v5_ca237.py: CALIPH.ca (XV 'ca') = V3 (me2) + Kazakhstan (with Baikonur), Uzbekistan, Kyrgyzstan, Tajikistan, each whole (Turkmenistan already in V3); 21.0 million km². V3 itself unchanged.
+- Renumbered by size: V1 me8, V2 me, V3 me2, V4 full, V5 ca (new), V6 me9, V7 v3/x3, V8 af, V9 eu, V10 v2 (Super Caliphate). Buttons (ca before me9), XNAME/XNUM, OUTLINE_TOK (#outline-v5 … #outline-v10, #outline-central-asia), CX_LEAD.ca, CA_B frame, lazyD/src/quiet/WIDEV/start keys, map labels, versions paragraph, search entries; two stale "V7" mentions of the Super Caliphate (legend title, sources list) now V10.
+- Still waiting on Nawaz: the "V5/V6 + V8's Mediterranean lands" previews (Version 236 talk; not applied).
+- Checked: build, version test (#outline-v1…v10, no errors), desktop and phone screenshots.
