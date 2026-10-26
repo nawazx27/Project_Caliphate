@@ -1439,3 +1439,10 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - tools/v6_comoros240.py: the Comoros and Mayotte (France; claimed by the Comoros) whole into V6 (me9); then tools/v7_sahara239.py rebuilt V7 (sah) from V6. V6 27.35, V7 29.38 million km². Both now hold every Arab League member plus Türkiye, Iran, Israel, Afghanistan, Pakistan, Central Asia, the Caucasus and Cyprus.
 - Also in this stretch (no map change): V7 power/superpower/size comparisons; logo, flag (Flag 3 chosen), emblem and crest sketches saved in design/; V7 without Iberia previewed (more solid, less reach), not applied; V7 + V3 Balkans previewed, not applied.
 - Checked: build, version test (no errors), screenshot.
+
+## Version 241 (2026-10-26): three outlines removed; eight versions, renumbered by size
+- Nawaz asked which outlines to remove; overlap measured (closest pairs: V6/V7 94%, V9/V10 94%, V7/V8 91%, V3/V4 87%, V2/V3 86%, V4/V5 83%). Suggested removing V8 (x3), V2 (me), V4 (full); "I'll go with your suggestions. Go ahead."
+- Removed from the page (buttons, search entries, numbering); DATA KEPT in caliph.json (CALIPH.x3 is the base of the Super Caliphate's text and table; me and x too). Old keys map to the nearest kept version (me→V2 me2, full→V3 ca, v3→V5 sah); every #outline-vN opens the map with that number now; #outline-v9–v11 open V8.
+- NEW NAMES: V1 me8, V2 me2, V3 ca, V4 me9, V5 sah, V6 af, V7 eu, V8 v2 (Super Caliphate). The page now opens on V5 (XV default 'sah'); build.js precomputes V5's coarse outline (PRE_CX) instead of the old V4's.
+- Texts: V2 and V8 descriptions no longer lean on removed versions ("a smaller outline / a wide complete outline that is no longer on the list"); versions paragraph rewritten.
+- Checked: build, version test (8 buttons, #outline-v1…v11 and old aliases, no errors), default load on V5, screenshots.

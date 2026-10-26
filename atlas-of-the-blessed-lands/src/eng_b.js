@@ -299,7 +299,7 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   /* Version 119: while zoomed out the outline is drawn from a coarser copy, as the coastline is (same steps and tolerances, under a pixel
      on screen); the outline has grown to about 46,000 points, and painting all of them at the whole-region view was most of a redraw */
   CX.lodC = {};
-  if(PRE_CX && PRE_CX.n === CALIPH.x.polys.flat().reduce((t, r)=>t + r.length, 0)) CX.lodC.full = [PRE_CX.lod[0], PRE_CX.lod[1]];   /* drawn until the full path is needed */
+  if(PRE_CX && PRE_CX.n === CALIPH.sah.polys.flat().reduce((t, r)=>t + r.length, 0)) CX.lodC.sah = [PRE_CX.lod[0], PRE_CX.lod[1]];   /* drawn until the full path is needed */
   /* a coarse copy is made in a quiet moment, not while the page opens or a version is switched: until it is ready the full outline is drawn,
      and the next redraw picks the copy up */
   CX.lod = (key, lv) => { if(lv >= 3) return CX.d[key]; const c = CX.lodC[key] || (CX.lodC[key] = []);
