@@ -101,7 +101,7 @@ function buildOverlay(){
   RIVER_LBL.forEach(s=>addLabel('base', [[s[0]]], [s[1],s[2]], {cls:'sea small', minK:s[3]||1.2, pri:22}));
   /* mountain ranges lettered along their length in spaced capitals, as engraved on printed maps (screen degrees, clockwise) */
   const RANGE_ROT = {'Zagros':38, 'Alborz':-4, 'Caucasus · Jabal al-Qabq':17, 'Ṭūrus · Taurus':-4, 'Pontic Mountains':-3, 'Hindu Kush':-27, 'Himalaya':24, 'Karakoram':30, 'Kopet Dag':18, 'Sulaiman Range':78, 'Tian Shan':-8, 'Atlas Mountains':-20, 'al-Sarāt':57, 'Red Sea Hills':60, 'Jabal Lubnān':-62, 'Ṭuwayq':74};
-  PHYS_LBL.forEach(s=>{ const rr = RANGE_ROT[s[0]]; addLabel('base', [[s[0]]], [s[1],s[2]], {cls: rr===undefined ? 'phys' : 'phys range', minK:s[3], pri:18, rot: rr}); });
+  PHYS_LBL.forEach(s=>{ const rr = RANGE_ROT[s[0]]; addLabel('base', [[s[0]]], [s[1],s[2]], {cls: rr===undefined ? 'phys' : 'phys range', minK:s[3], pri:18, rot: rr, noClean: s[0].startsWith('Sahara')}); });   /* Version 242: the Sahara name hidden in the clean map (Nawaz) */
   ISLAND_LBL.forEach(s=>addLabel('base', [[s[0]]], [s[1],s[2]], {cls:'phys isl', minK:s[3], pri:19}));
   HIST_LBL.forEach(s=>addLabel('histreg', [[s[0]], s[1]?[s[1],'arl','1.3em']:null], [s[2],s[3]], {cls:'hist', minK:s[4], subK:s[4]+0.5, pri:15, color:'--gold'}));
   PASSES.forEach(s=>addPoint('base', [s[1],s[2]], {sym:'pass', name:s[0], minK:s[3], anchor:s[4], cls:'small', pri:13, title:s[0]}));

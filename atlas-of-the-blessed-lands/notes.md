@@ -1450,3 +1450,7 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 ## After Version 241 (2026-10-26): Balkan previews for V5, not applied
 - Britannica blocked (Cloudflare challenge even after Nawaz allowed the domain); Wikipedia "Caliphate" and "Muslim world" read instead (Umayyad peak ~13 million km² per Wikipedia; Muslims ~1.9 billion, majority in 49 countries). V5 holds 43 of 53 Muslim-majority lands.
 - Previews of V5 (sah) + Albania, Kosovo, Bosnia (+ North Macedonia, Montenegro by the no-gaps rule), then + Bulgaria, then + Serbia. Nawaz: "let it be. Let's keep V5 as it is for now." Nothing applied.
+
+## Version 242 (2026-10-26): Sahara name hidden in the clean map
+- Nawaz (phone screenshot of V5): "Remove Sahara text in clean mode." The 'Sahara · al-Ṣaḥrāʾ' physical label now has noClean (src/eng_c.js, PHYS_LBL loop); it still shows when Clean is off.
+- Checked: build, phone screenshot (clean, V5).
