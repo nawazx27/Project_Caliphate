@@ -1433,3 +1433,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Design sketches (2026-10-26, no map change)
 - Nawaz asked for a logo, then "more dominating and do a flag as well", then "no need to put a star on Jerusalem", then "I like the flag 3". Saved in design/: flag3_final.svg/.png (white, crimson, green stripes; gold hoist triangle; crimson eight-point star), variants flag3_b/flag3_c, logos L1–L3, flags F1–F2. Colours by the traditional pan-Arab reading (Umayyad white, Fatimid green) plus Ottoman crimson; not from the sources. Not placed on the page.
+
+## Version 240 (2026-10-26): the Comoros and Mayotte in V6 and V7 (whole Greater Middle East)
+- Nawaz asked whether V7 holds the entire Greater Middle East (all but the Comoros), asked for a preview with the Comoros and Mayotte, then "Sure" (V6 and V7).
+- tools/v6_comoros240.py: the Comoros and Mayotte (France; claimed by the Comoros) whole into V6 (me9); then tools/v7_sahara239.py rebuilt V7 (sah) from V6. V6 27.35, V7 29.38 million km². Both now hold every Arab League member plus Türkiye, Iran, Israel, Afghanistan, Pakistan, Central Asia, the Caucasus and Cyprus.
+- Also in this stretch (no map change): V7 power/superpower/size comparisons; logo, flag (Flag 3 chosen), emblem and crest sketches saved in design/; V7 without Iberia previewed (more solid, less reach), not applied; V7 + V3 Balkans previewed, not applied.
+- Checked: build, version test (no errors), screenshot.
