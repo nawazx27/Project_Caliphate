@@ -1461,3 +1461,10 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - eng_e.js 119 KB -> 85 KB; page text 5,492 -> 5,132 visible words.
 - Checked: build, version test (no errors), V5 note and versions paragraph read on the page.
 - (2026-10-27) Asked what Muslims conquered of France (Septimania 719–759, raids to Tours 732, Avignon/Arles 734–739, Fraxinetum c. 890–973; general knowledge). Preview of V5 + historic Septimania (Pyrénées-Orientales, Aude, Hérault, Gard; Overture départements) shown; Nawaz: "leave it". Not applied.
+
+## Version 245 (2026-10-27): Indian-administered Kashmir in V5 (the Indus)
+- Nawaz asked which rivers V5 holds ("reverse in V5" -> rivers), then for previews adding a missing river stretch: A whole Niger (Nigeria, +0.91M km², Muslim share down to ~70%), B the Indus (Indian-administered Kashmir). He chose "B".
+- tools/v5_kashmir245.py: Jammu and Kashmir and Ladakh (Overture Maps 2026-10-21.0 regions IN-JK, IN-LA, cut to India as the base map draws it; tools/data/indian_kashmir245.geojson; 104,361 km²) whole into V5 (sah). V5 29.38 -> 29.49 million km². Run it AFTER tools/v7_sahara239.py (which rebuilds sah from me9).
+- Rivers in V5 now (Natural Earth): Indus 97.4% (only its source in Tibet out), Jhelum 100%, Chenab ~85%, Ravi ~82%, Sutlej ~37%, Beas 0%.
+- Disputed land (India/Pakistan); the V5 note says so. Jammu & Kashmir about 68% Muslim, Ladakh about 46% (2011 census, general knowledge, not rechecked).
+- Checked: build, version test (no errors), desktop screenshot of V5 over Kashmir.
