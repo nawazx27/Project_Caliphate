@@ -1468,3 +1468,8 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Rivers in V5 now (Natural Earth): Indus 97.4% (only its source in Tibet out), Jhelum 100%, Chenab ~85%, Ravi ~82%, Sutlej ~37%, Beas 0%.
 - Disputed land (India/Pakistan); the V5 note says so. Jammu & Kashmir about 68% Muslim, Ladakh about 46% (2011 census, general knowledge, not rechecked).
 - Checked: build, version test (no errors), desktop screenshot of V5 over Kashmir.
+
+## Version 246 (2026-10-27): Version 245 undone, V5 back without Kashmir
+- Nawaz asked which lands of V5 are outside political borders (deliberate parts: northern Chad, Indian Kashmir, Lake Albert's DR Congo strip, French Cerdagne, Mayotte; leftovers: ~1,840 km² of Russia on Kazakhstan's north border near 65 E 52 N, ~800 km² of China near the Ili at 80 E 43 N, ~300 km² of Russia at the Darial pass, ~150 km² of China on the Aksai Chin edge; ~300 m drawing margin elsewhere). Then: "go back to the previous version of v5".
+- src/caliph.json, src/eng_e.js, src/body.html restored from before Version 245; V5 (sah) 29.38 million km² again. tools/v5_kashmir245.py and tools/data/indian_kashmir245.geojson kept in case he wants it again; do NOT run it unless he asks.
+- Checked: build, version test, screenshot (Kashmir out).
