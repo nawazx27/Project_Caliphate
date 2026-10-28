@@ -1514,3 +1514,14 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - tools/v5_ca_borders251.py (run after v7_sahara239.py, v5_derbent249.py, v5_sicily250.py): in 46-90 E, 35-56 N (Derbent block excepted) every piece of Russia and China cut out of V5: 1,854 km² of Russia, 810 km² of China. Kazakhstan, Kyrgyzstan, Tajikistan, Uzbekistan, Turkmenistan, Afghanistan 100% inside; China left only as hairline slivers (~38 km² in ~200 pieces, coordinate rounding). V5 29.415 -> 29.413 million km².
 - Not touched (outside Central Asia): ~200 km² of Russia at the Georgian border near 43.2 E 42.9 N; the ~300 m margins elsewhere. Not done for V3/V4 (may hold the same strips).
 - Checked: build, version test (no errors), screenshot.
+
+## Between Version 251 and 252 (2026-10-28): checks and Caucasus previews
+- "Are you sure no classical heartland is left out? Do a thorough check across all the internet": web search + Wikipedia (Sind (caliphal province), Arminiya, Rashidun Caliphate, Muslim conquest of Persia) and Minorsky via zazaki.de: al-Muqaddasī's 14 regions all inside V5 except the Khazar district of his Daylam region (lower Volga, Russia; never caliphal rule). Kutch (Sind) doubtful, left. Previews (not applied): Khazar lands (Dagestan, Kalmykia, Astrakhan), with the North Caucasus bay filled.
+- Rashidun check: Wikipedia lists Dagestan among the conquests of 642 (re-conquered under ʿUthmān); V5 then held only southern Dagestan. Nawaz's ʿUthmān map (spike north of the Caucasus) confirmed it. Previews: all Dagestan (A), Dagestan + Chechnya (B), North Caucasus republics (6), Georgia's border shape moved north (272,000 km²), the orange Caucasus, the orange + Dagestan + Chechnya (Option 2), smoothed and Azov-coast variants, a diagonal on district borders. Nawaz ticked Option 2.
+- New rule (CLAUDE.md, earlier same day): gaps formed by political borders are left unless he asks.
+
+## Version 252 (2026-10-28): the North Caucasus in V5 (his orange Caucasus + all of Dagestan and Chechnya)
+- tools/v5_caucasus252.py with tools/data/caucasus_v5_252.geojson (Russian land of tools/data/caucasus_shape155.geojson ∪ Overture RU-DA ∪ RU-CE, plus 11 cities/towns the line cuts taken whole: Anapa, Kabardinka, Adygeysk, Labinsk, Yablonovsky, Yelizavetinskaya, Lermontov, Inozemtsevo, Izberbash, Kaspiysk, Makhachkala; Overture 2026-10-21.0 localities class city/town). No pocket >= 80% left. About 140,400 km² of Russia in V5's Caucasus (the Derbent block of Version 249 is inside it); V5 29.41 -> 29.54 million km². States row DBT renamed. V5 note and versions paragraph updated.
+- The orange map is an AI-drawn (Grok) sketch, not an official or historical line; the page calls it the author's Caucasus map.
+- Run order for V5: v7_sahara239.py, v5_derbent249.py, v5_sicily250.py, v5_ca_borders251.py, v5_caucasus252.py.
+- Checked: build, version test (no errors), screenshot.
