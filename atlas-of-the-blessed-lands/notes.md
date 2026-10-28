@@ -1484,3 +1484,7 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - tools/v5_khorasan_widest247.py (run AFTER tools/v7_sahara239.py): V5 29.38 -> 29.57 million km²; every traced map 100% inside; no new gaps; new states row KSG. V5 note and versions paragraph updated.
 - Note: few classical geographers put Kashgar in Transoxiana (most call it Turkistan); included as the widest reading.
 - Checked: build, version test, screenshot.
+
+## Version 248 (2026-10-28): Version 247 undone, V5 back as in Version 246
+- Nawaz: "return to previous V5". src/caliph.json, src/eng_e.js, src/body.html restored from before Version 247; V5 (sah) 29.38 million km², Kashgar country out again. tools/v5_khorasan_widest247.py kept; do NOT run it unless he asks.
+- Checked: build, version test, screenshot.
