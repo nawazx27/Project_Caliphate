@@ -1504,3 +1504,7 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - tools/v5_sicily250.py (run AFTER tools/v7_sahara239.py and tools/v5_derbent249.py): Sicily with every small island of Italy round it as the base map draws them (Aegadian, Aeolian, Ustica, Pantelleria, Pelagie; 25,859 km²) and Malta (325 km²), whole. V5 29.39 -> 29.42 million km². V5 note and versions paragraph updated.
 - Unverified (general knowledge): Aghlabid conquest from 827, Norman conquest ending 1091 (Malta 1091).
 - Checked: build, version test, screenshot.
+
+## After Version 250 (2026-10-28, no map change): rule on political-border gaps
+- Tashkurgan asked about (not a classical heartland: the Sarikol valley, a Buddhist Silk Road kingdom under Tang influence, Muslim later; general knowledge). Preview of filling the 2,050 km² pocket (81% enclosed) shown; not applied.
+- NEW STANDING RULE (Nawaz): "If the political borders have gaps then leave it unless I say otherwise." Pockets formed by today's country borders are not filled unless he asks (added to CLAUDE.md).
