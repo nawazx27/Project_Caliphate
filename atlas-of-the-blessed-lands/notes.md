@@ -1525,3 +1525,8 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - The orange map is an AI-drawn (Grok) sketch, not an official or historical line; the page calls it the author's Caucasus map.
 - Run order for V5: v7_sahara239.py, v5_derbent249.py, v5_sicily250.py, v5_ca_borders251.py, v5_caucasus252.py.
 - Checked: build, version test (no errors), screenshot.
+
+## Version 253 (2026-10-28): the North Caucasus edge on real district borders (his red line)
+- Nawaz: "that smooth line looks too artificial"; he drew a red line from the Kerch Strait to the Caspian over the map. Previews: the orange shape on district borders; districts reaching the orange line; his red line on district borders; that with the middle "bump" lessened (6 districts out). He ticked the one WITH the bump: "I prefer this.. apply and push".
+- His red line was placed on the map by fitting the screenshot to V5's outline (Mercator, 4,600 px per radian; mean fit error 0.3 px) and kept in tools/data/caucasus_v5_253.geojson. tools/v5_caucasus253.py (replaces v5_caucasus252.py; run after v5_ca_borders251.py, not after 252): every Russian district (Overture 2026-10-21.0 counties) with half or more of its area south of the line, whole (156 districts incl. all of Dagestan and Chechnya); no pocket >= 80% left. About 167,900 km² of Russia in V5's Caucasus; V5 29.41 -> 29.57 million km². V5 note and versions paragraph updated.
+- Checked: build, version test (no errors), screenshot.
