@@ -1488,3 +1488,13 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 ## Version 248 (2026-10-28): Version 247 undone, V5 back as in Version 246
 - Nawaz: "return to previous V5". src/caliph.json, src/eng_e.js, src/body.html restored from before Version 247; V5 (sah) 29.38 million km², Kashgar country out again. tools/v5_khorasan_widest247.py kept; do NOT run it unless he asks.
 - Checked: build, version test, screenshot.
+
+## Between Version 248 and 249 (2026-10-28, no map change)
+- Questions answered: how much of Mā warāʾ al-Nahr/Transoxiana, Greater Khurāsān and Khwārazm V5 holds (all their land by the mainstream definitions; only China strips/Kashgar by the widest); all classical lands in V5 (al-Muqaddasī's provinces, general knowledge); classical heartlands left out (Derbent, Sicily, Malta/Pantelleria; later Muslim lands listed); Persia and Greater Iran (Wikipedia "Greater Iran" read: V5 lacks only the North Caucasus, Tashkurgan–Khotan and northern India of its outer cultural sphere).
+
+## Version 249 (2026-10-28): Derbent (Bāb al-Abwāb) and southern Dagestan in V5
+- Nawaz: preview with Derbent and the southern Dagestan coast (A: coast strip, looked thin with a pocket), then "B preview" (inland districts so no pocket), then "Sure".
+- tools/v5_derbent249.py (run AFTER tools/v7_sahara239.py): whole districts from Overture Maps 2026-10-21.0 (tools/data/derbent_south_dagestan249.geojson): Derbent and Dagestanskiye Ogni urban okrugs, Derbentsky, Magaramkentsky, Suleyman-Stalsky, Kurakhsky, Khivsky, Akhtynsky, Dokuzparinsky, Tabasaransky, Agulsky; then the Rutul-area pocket (~1,700 km², 80% enclosed) filled by the no-gaps rule (gap shape, not the district line: Rutulsky district was not in the Overture extract). About 8,400 km² of Russia; V5 29.38 -> 29.39 million km². New states row DBT. V5 note and versions paragraph updated.
+- Unverified (general knowledge): Lezgin/Tabasaran/Agul lands, Derbent and Quba khanates, Bāb al-Abwāb's district.
+- Not done: the existing Tashkurgan pocket (China, ~2,000 km², 81% enclosed by V5) flagged to Nawaz, not filled.
+- Checked: build, version test, screenshot.
