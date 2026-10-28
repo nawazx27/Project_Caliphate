@@ -1546,3 +1546,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Nawaz (phone screenshot, red line across the dip between the delta and Armavir): "Fill", then "Push".
 - tools/v5_caucasus256.py + tools/data/caucasus_v5_256.geojson (REPLACES 255): 18 rural settlements (Overture localities) with half or more south of his line, Krasnodar city okrug whole, Novotitarovskaya town whole (towns rule); ~2,900 km² (Krasnodar and the Kuban villages are mostly Russian, general knowledge). V5 29.57 million km².
 - Checked: build, version test (no errors), screenshot.
+
+## Version 257 (2026-10-28): today's V5 additions removed; Version 256 shape saved
+- Nawaz: "Remember this current shape and return back to Georgia and Azerbaijan border", then "And remove the new additions done today as well".
+- The Version 256 shape of V5 is saved in tools/data/v5_shape_v256.json (restore with python3 tools/v5_restore256.py, only if he asks).
+- V5 (sah) and its texts restored from Version 248 (git 5309dce): Derbent/Dagestan/Chechnya/North Caucasus/Kuban (249, 252-256) and Sicily, Malta, Pantelleria (250) out; the Caucasus edge is again the modern Georgia and Azerbaijan border. Then tools/v5_ca_borders251.py rerun (Version 251's trim of the Russian and Chinese strips in Central Asia is a removal, not an addition, so it was kept). V5 29.38 million km². Tools 249-256 kept but are NOT to be run unless he asks.
+- Checked: build, version test (no errors), screenshots (Caucasus, Sicily).
