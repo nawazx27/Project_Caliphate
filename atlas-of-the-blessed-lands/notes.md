@@ -1498,3 +1498,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Unverified (general knowledge): Lezgin/Tabasaran/Agul lands, Derbent and Quba khanates, Bāb al-Abwāb's district.
 - Not done: the existing Tashkurgan pocket (China, ~2,000 km², 81% enclosed by V5) flagged to Nawaz, not filled.
 - Checked: build, version test, screenshot.
+
+## Version 250 (2026-10-28): Sicily, Malta and Pantelleria in V5
+- Nawaz asked whether V5 now holds all the classical heartlands (all but Sicily, Malta, Pantelleria), "Sure" to a preview, then "Sure".
+- tools/v5_sicily250.py (run AFTER tools/v7_sahara239.py and tools/v5_derbent249.py): Sicily with every small island of Italy round it as the base map draws them (Aegadian, Aeolian, Ustica, Pantelleria, Pelagie; 25,859 km²) and Malta (325 km²), whole. V5 29.39 -> 29.42 million km². V5 note and versions paragraph updated.
+- Unverified (general knowledge): Aghlabid conquest from 827, Norman conquest ending 1091 (Malta 1091).
+- Checked: build, version test, screenshot.
