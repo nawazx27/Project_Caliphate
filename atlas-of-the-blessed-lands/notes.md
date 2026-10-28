@@ -1541,3 +1541,8 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Nawaz: "Can't it be filled with a little bit with small towns or villages" (Kuban delta gap), "Nice and do the same for this as well" (the Andropovsky tooth), "Sure".
 - tools/v5_caucasus255.py + tools/data/caucasus_v5_255.geojson (REPLACES 254): Version 254 + the rural settlements of Slavyansky district south of his line (Overture localities: Korzhevskoe, Anastasievskoe, Prikubanskoe, Maevskoe) and Slavyansk-na-Kubani whole (towns rule), ~560 km²; minus Andropovsky's empty northern tooth (~850 km², no villages; the okrug has no smaller official units), cut on his joined line. V5 29.57 million km².
 - Checked: build, version test (no errors), screenshot.
+
+## Version 256 (2026-10-28): the Kuban dip filled to his line with settlements
+- Nawaz (phone screenshot, red line across the dip between the delta and Armavir): "Fill", then "Push".
+- tools/v5_caucasus256.py + tools/data/caucasus_v5_256.geojson (REPLACES 255): 18 rural settlements (Overture localities) with half or more south of his line, Krasnodar city okrug whole, Novotitarovskaya town whole (towns rule); ~2,900 km² (Krasnodar and the Kuban villages are mostly Russian, general knowledge). V5 29.57 million km².
+- Checked: build, version test (no errors), screenshot.
