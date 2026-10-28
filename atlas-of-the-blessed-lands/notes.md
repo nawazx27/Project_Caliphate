@@ -1508,3 +1508,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 ## After Version 250 (2026-10-28, no map change): rule on political-border gaps
 - Tashkurgan asked about (not a classical heartland: the Sarikol valley, a Buddhist Silk Road kingdom under Tang influence, Muslim later; general knowledge). Preview of filling the 2,050 km² pocket (81% enclosed) shown; not applied.
 - NEW STANDING RULE (Nawaz): "If the political borders have gaps then leave it unless I say otherwise." Pockets formed by today's country borders are not filled unless he asks (added to CLAUDE.md).
+
+## Version 251 (2026-10-28): V5's Central Asia back to its political borders
+- Nawaz asked what in V5 lies beyond political borders (deliberate parts: northern Chad, Sicily, Derbent block, Lake Albert strip, French Cerdagne, Mayotte; leftovers: Russia ~1,840 km² on Kazakhstan's north border, China ~800 km² in the Ili valley; ~300 m drawing margins), then: "take the entire Central Asia back to its political borders, and don't do a preview, just apply it."
+- tools/v5_ca_borders251.py (run after v7_sahara239.py, v5_derbent249.py, v5_sicily250.py): in 46-90 E, 35-56 N (Derbent block excepted) every piece of Russia and China cut out of V5: 1,854 km² of Russia, 810 km² of China. Kazakhstan, Kyrgyzstan, Tajikistan, Uzbekistan, Turkmenistan, Afghanistan 100% inside; China left only as hairline slivers (~38 km² in ~200 pieces, coordinate rounding). V5 29.415 -> 29.413 million km².
+- Not touched (outside Central Asia): ~200 km² of Russia at the Georgian border near 43.2 E 42.9 N; the ~300 m margins elsewhere. Not done for V3/V4 (may hold the same strips).
+- Checked: build, version test (no errors), screenshot.
