@@ -1473,3 +1473,14 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Nawaz asked which lands of V5 are outside political borders (deliberate parts: northern Chad, Indian Kashmir, Lake Albert's DR Congo strip, French Cerdagne, Mayotte; leftovers: ~1,840 km² of Russia on Kazakhstan's north border near 65 E 52 N, ~800 km² of China near the Ili at 80 E 43 N, ~300 km² of Russia at the Darial pass, ~150 km² of China on the Aksai Chin edge; ~300 m drawing margin elsewhere). Then: "go back to the previous version of v5".
 - src/caliph.json, src/eng_e.js, src/body.html restored from before Version 245; V5 (sah) 29.38 million km² again. tools/v5_kashmir245.py and tools/data/indian_kashmir245.geojson kept in case he wants it again; do NOT run it unless he asks.
 - Checked: build, version test, screenshot (Kashmir out).
+
+## Previews after Version 246 (2026-10-27/28), not applied
+- V5 + India (Siachen, Andaman & Nicobar), Nepal, Bhutan, Greater Tibet, Aksai Chin + Shaksgam, Bangladesh, Sri Lanka, Maldives, Myanmar (gap pockets >=80% filled: Nujiang, Tashkurgan, N Sichuan): 35.82M; then + East Turkestan and Chagos: 37.52M. Muslim share would fall to ~45% (my rough estimate). Not applied.
+- V5 + East Turkestan only (31.17M). Not applied.
+- Explained modern "Khorasan" maps (Iran's three provinces; nationalist Greater Khorasan; ISKP's claimed Wilayat Khurasan, a militant claim, kept off the page).
+
+## Version 247 (2026-10-28): all of Greater Khurāsān, Transoxiana and Khwārazm at their widest in V5
+- Nawaz asked whether V5 holds them entirely; checked against his traced maps (tools/data khorasan_max, khorasan_classical, transoxiana_trace, transoxiana_locator_trace, mawarannahr_trace2): only ~181,000 km² of China (Kashgar and Kizilsu prefectures, Lambton's widest Khurāsān; Irkeshtam and Ili-valley strips) and 4,692 km² of Caspian water (his Khurāsān map) were outside. Preview without the rest of East Turkestan; then checked Wikipedia "Khorasan", "Transoxiana", "Khwarazm" (Britannica and Lambton quoted there; Arabic geographers not read directly). "Apply".
+- tools/v5_khorasan_widest247.py (run AFTER tools/v7_sahara239.py): V5 29.38 -> 29.57 million km²; every traced map 100% inside; no new gaps; new states row KSG. V5 note and versions paragraph updated.
+- Note: few classical geographers put Kashgar in Transoxiana (most call it Turkistan); included as the widest reading.
+- Checked: build, version test, screenshot.
