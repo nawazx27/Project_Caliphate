@@ -1572,3 +1572,10 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - tools/v4_sahara259.py: every piece of V5 in Africa that V4 lacked (Niger and Burkina Faso whole, northern Chad BET: 2,019,515 km²) into V4 (key me9), with V5's state rows. V4's Africa now equals V5's; V4 and V5 now differ only by the Balkans (V5) and a ~2,600 km² Russian strip on Kazakhstan's north border (still in V4; trimmed from V5 in Version 251).
 - Texts: V4 note (CX_LEAD.me9) and search entry, V4/V5 button titles, versions paragraph (V4 about 29.4M; V5 = V4 with the Balkan Peninsula, about 29.7M), V5 note's opening.
 - Checked: build, version test, screenshot.
+
+## Version 260 (2026-10-30): the whole Sahara and Sahel in V4
+- Nawaz: "Does v4 have the entire Sahara and Sahel" (measured against Natural Earth's SAHARA + LIBYAN DESERT and SAHEL in regions.geojson: about 95% and 86%; missing ~580,000 km² in central/southern Chad, NE Nigeria, northern Cameroon, northern CAR). "Yes" to a preview, then "V4 only".
+- tools/v4_sahel260.py (run AFTER tools/v4_sahara259.py): Chad whole (replaces the BET row) and the whole Overture counties (2026-10-21.0) holding any of the missing area: Nigeria 23 LGAs of Borno and Yobe, Cameroon 6 far-north departments, CAR Birao (tools/data/v4_sahel_districts260.geojson). Pockets ≥80% filled: ~3,000 km² on the Nigeria–Cameroon border (81%) and ~110 km² (95%). Sahara and Sahel now 100% inside V4.
+- V4 29,381,837 -> 30,225,130 km², now a little LARGER than V5 (29.73M); numbers kept (not renumbered). V5 not changed.
+- Texts: V4 note and search entry, V4/V5 button titles, versions paragraph, V5 note's opening (V5 lacks V4's southern Chad and Lake Chad lands).
+- Checked: build, version test (no errors), screenshot.
