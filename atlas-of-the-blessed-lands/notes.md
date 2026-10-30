@@ -1552,3 +1552,7 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - The Version 256 shape of V5 is saved in tools/data/v5_shape_v256.json (restore with python3 tools/v5_restore256.py, only if he asks).
 - V5 (sah) and its texts restored from Version 248 (git 5309dce): Derbent/Dagestan/Chechnya/North Caucasus/Kuban (249, 252-256) and Sicily, Malta, Pantelleria (250) out; the Caucasus edge is again the modern Georgia and Azerbaijan border. Then tools/v5_ca_borders251.py rerun (Version 251's trim of the Russian and Chinese strips in Central Asia is a removal, not an addition, so it was kept). V5 29.38 million km². Tools 249-256 kept but are NOT to be run unless he asks.
 - Checked: build, version test (no errors), screenshots (Caucasus, Sicily).
+
+## After Version 257 (2026-10-30, no map change): Rashidun previews, not applied
+- Previews of V5 + every land the Rashidun entered (checked on Wikipedia: Rashidun conquests under Uthman, List of battles involving the Rashidun Caliphate, Military conquests of Umar's era): Dagestan (Derbent, Balanjar 652) and Sicily (652-654) missing from V5; then + Chechnya, Malta, Pantelleria (his request); then + Thane and Bharuch (failed sea raids of 636); then connected by all of Gujarat, Daman/Diu/DNH, Palghar and Thane (~29.67M); then without the India corridor (~29.47M). Nawaz: "let it be". Nothing applied; V5 stays as Version 257 (29.38M).
+- A poster with Dagestan and Chechnya was asked for just before a worker restart and superseded by these previews; not made.
