@@ -1599,3 +1599,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - tools/v4_corsica_sardinia262.py (run AFTER tools/v4_v5_iberia_sicily261.py): Corsica (8,663 km2) and Sardinia with its islands (24,119 km2) whole into V4 (me9), state rows named "Corsica and Sardinia, the Sardo-Corsican islands". V5 not changed. V4 30,252,126 -> 30,285,395 km2.
 - Texts: V4 note (a "Corsica and Sardinia, the Sardo-Corsican islands" sentence; Mujahid al-'Amiri's Sardinia 1015-1016 flagged as general knowledge, not checked), search entry, button title, versions paragraph.
 - Checked: build, version test (no errors), screenshot.
+
+## After Version 262 (2026-10-30, no map change): a V4 poster in the "Sultanate's Zenith" style
+- Nawaz sent an Ottoman Empire poster ("Make a poster of v4 like this"). tools/poster_v4.js makes posters/v4_poster.png/.jpg (4200x3200): deep blue sea with engraved coast rings and wave texture, toned parchment relief, V4 in embossed crimson with a gold edge, a 3D gold curved title "DĀR AL-AMĀN", a teal medallion with the flag's eight-pointed star and الخلافة الأمينة, gold sea serpents, compass roses, tulip corners, a cartouche. He felt it was not as epic and asked for a prompt for Gemini instead; the prompt (listing V4's lands) was given in chat, with v4_poster.jpg as the shape reference. The map itself is unchanged.
