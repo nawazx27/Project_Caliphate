@@ -1579,3 +1579,10 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - V4 29,381,837 -> 30,225,130 km², now a little LARGER than V5 (29.73M); numbers kept (not renumbered). V5 not changed.
 - Texts: V4 note and search entry, V4/V5 button titles, versions paragraph, V5 note's opening (V5 lacks V4's southern Chad and Lake Chad lands).
 - Checked: build, version test (no errors), screenshot.
+
+## After Version 260 (2026-10-30, no map change): al-Muqaddasī's 14 regions checked in his own text
+- Previews (not applied): Chad pulled back (A whole departments -74k, B departments + Sahel line, C exact Sahel line; all keep 100% Sahara/Sahel; pockets limit the south-east); V4 + Balkans + 9 North Caucasus subjects (30.83M); V4 + Sicily, Malta, Derbent (the 14 regions by name, 30.26M).
+- Source read: al-Muqaddasī, Aḥsan al-taqāsīm, English translation by G. S. A. Ranking and R. F. Azoo (Bibliotheca Indica), archive.org "al-muqaddasi-the-best-divisions-for-knowlegde-of-the-region" (djvu text, OCR). Verbatim: "The provinces ... are fourteen; six Arabian, the Peninsula of the Arabs, al-'Iraq, Aqur, ash-Sham, Misr and al-Maghrib; and eight non-Arabian, al-Mashriq, ad-Dailam, ar-Rihab, al-Jibal, Khuzistan, Faris, Kirman and as-Sind."
+- Daylam: districts include Itil (the Khazar capital) with the towns Bulghar, Samandar, Suwar, Khamlij, Balanjar (lower Volga, northern Dagestan, and Volga Bulgaria in today's Tatarstan; modern identifications are my general knowledge). Not in V4.
+- Sind: district capitals al-Mansurah, Banajbur (Makran), Quzdar (Turan), Waihind, Qannauj and al-Multan; towns listed include Kanbayah, Subarah, al-Bahruj, Sindan, Saimur (read as Khambhat, Sopara, Bharuch, Sanjan, Chaul in Gujarat/Maharashtra; my identifications) and Qannauj = Kannauj on the Ganges. These Indian places are not in V4.
+- Maghrib includes Barqah, Balarm (Sicily: Syracuse, Agrigento, Lentini, Mazara...) and al-Andalus; Rihab's Arran includes Bab al-Abwab and al-Abkhaz.
