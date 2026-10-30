@@ -1593,3 +1593,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - tools/v4_v5_iberia_sicily261.py (run AFTER tools/v4_sahel260.py): into V4 (me9) and V5 (sah), Sicily with its islands (Aegadian, Aeolian, Ustica, Pantelleria, Pelagie; 25,859 km2) and Malta, and the ~300 km2 of OpenStreetMap's "Iberia" peninsula (tools/data/iberia_osm.geojson, Overture base/land class peninsula, simplified 0.0005 deg) lying in France along the Pyrenees (no recognized town cut: Overture city/town localities checked). Spain, Portugal, Andorra, Gibraltar and the French Cerdagne were already in. Iberia, Sicily, Malta 100% inside both.
 - V4 30,225,130 -> 30,252,126 km2; V5 29,729,039 -> 29,756,035 km2. Texts: both notes, search entries, button titles, versions paragraph.
 - Checked: build, version test (no errors), screenshot.
+
+## Version 262 (2026-10-30): Corsica and Sardinia in V4
+- Nawaz showed a Google Maps screenshot of Corsica and Sardinia ("What are these"), asked for a preview (V4 and V5) and what the region is called (answered from general knowledge: no single common name, "Corsica and Sardinia" / "the Sardo-Corsican islands"; geology the Corsica-Sardinia block, "Corsardinia"; Roman province Sardinia et Corsica; Arabic Sardaniyah, Qursiqah). Then: add "Corsica and Sardinia", "the Sardo-Corsican islands", to V4.
+- tools/v4_corsica_sardinia262.py (run AFTER tools/v4_v5_iberia_sicily261.py): Corsica (8,663 km2) and Sardinia with its islands (24,119 km2) whole into V4 (me9), state rows named "Corsica and Sardinia, the Sardo-Corsican islands". V5 not changed. V4 30,252,126 -> 30,285,395 km2.
+- Texts: V4 note (a "Corsica and Sardinia, the Sardo-Corsican islands" sentence; Mujahid al-'Amiri's Sardinia 1015-1016 flagged as general knowledge, not checked), search entry, button title, versions paragraph.
+- Checked: build, version test (no errors), screenshot.
