@@ -1562,3 +1562,13 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - tools/v5_balkans258.py (run AFTER tools/v5_ca_borders251.py): the Version 107 Balkan pieces (tools/data/balkans_v2.geojson, OSM relation 4016746 cut to the base map) and the towns the line cuts (balkan_settlements*.geojson) into V5 (key sah): Bulgaria, Bosnia and Herzegovina, Montenegro, Albania, Kosovo, North Macedonia whole; Croatia 58.3% (south of the Kupa and Sava, every island), Serbia 72.9%, Slovenia 27.0%, Romania 5.8% (Dobruja), Italy's Trieste. Greece and Türkiye were already in. One pocket filled (816 km², 83%, by Belgrade); others under 80% left. Greater Albania lies wholly inside the outline; Greater Bosnia except Slavonia.
 - V5 29,377,684 -> 29,729,039 km². V5 note (CX_LEAD.sah) and its search entry updated.
 - Checked: build, version test (no errors), screenshot of the Balkans.
+
+## After Version 258 (2026-10-30, no map change): questions
+- Checked V5 against his Wikipedia Balkan outline: 99.6% of the OSM outline inside (missing ~1,900 km², coastal lagoons the base map draws as water, e.g. Razelm); beyond it on purpose: Croatia's islands, towns whole (Belgrade north bank, Zagreb, Trieste/Gorizia), Bulgaria whole (~1,000 km² near Ruse).
+- Vibe/empire questions answered; rough Muslim share of V5 ~73% (~1.17 of ~1.61 billion people; my general-knowledge estimates per country, not checked against a source).
+
+## Version 259 (2026-10-30): V5's Africa given to V4
+- Nawaz: "Give v5 Africa to v4"; preview shown (V4 27.35 -> 29.38M), then "Apply".
+- tools/v4_sahara259.py: every piece of V5 in Africa that V4 lacked (Niger and Burkina Faso whole, northern Chad BET: 2,019,515 km²) into V4 (key me9), with V5's state rows. V4's Africa now equals V5's; V4 and V5 now differ only by the Balkans (V5) and a ~2,600 km² Russian strip on Kazakhstan's north border (still in V4; trimmed from V5 in Version 251).
+- Texts: V4 note (CX_LEAD.me9) and search entry, V4/V5 button titles, versions paragraph (V4 about 29.4M; V5 = V4 with the Balkan Peninsula, about 29.7M), V5 note's opening.
+- Checked: build, version test, screenshot.
