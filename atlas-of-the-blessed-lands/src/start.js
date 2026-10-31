@@ -20,7 +20,7 @@ if(OVERLAY_LATER) requestAnimationFrame(()=>setTimeout(()=>{ OVERLAY_LATER = fal
 setTimeout(()=>whenIdle(()=>{ landLOD(0); landLOD(1); landLOD(2); }), 1200);   /* the coarse coastlines, ready before they are needed */
 /* Version 120: every version's outline is built in quiet moments after the page opens, one per idle slot, so switching versions is
    instant (the first switch to a version used to build it on the spot and stall the page for a second or two on a phone) */
-setTimeout(()=>{ const keys = ['me9','me8','sah','me2','v2','af','eu','ca'];
+setTimeout(()=>{ const keys = ['me9','me8','sah','sas','me2','v2','af','eu','ca'];
   const next = () => { const k = keys.shift(); if(!k) return; whenIdle(()=>{ void CX.d[k]; [0,1,2].forEach(lv=>CX.lod(k, lv)); next(); }); };
   next(); }, 2500);
 /* rows of chips that scroll sideways fade at the edge that has more */
