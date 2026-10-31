@@ -41,7 +41,7 @@ const landLodJ = (() => {
   /* Version 123: the same two coarse copies of V2's outline (the version the page opens with), so the opening view does not wait for
      its full 46,000-point path; n (its number of points) lets the page check they were made from this same outline */
   const ringD = rg => 'M' + rg.map(p => proj(p).map(v => v.toFixed(2)).join(',')).join('L') + 'Z';
-  const cxD = caliphD.sah.polys.map(poly => poly.map(ringD).join('')).join(''), cxN = caliphD.sah.polys.flat().reduce((t, r) => t + r.length, 0);
+  const cxD = caliphD.me9.polys.map(poly => poly.map(ringD).join('')).join(''), cxN = caliphD.me9.polys.flat().reduce((t, r) => t + r.length, 0);
   return JSON.stringify({n:landD.length, lod:[simplifyD(landD, 3), simplifyD(landD, 0.8)].map(packD), cx:{n:cxN, lod:[simplifyD(cxD, 3), simplifyD(cxD, 0.8)].map(packD)}}).replace(/</g, '\\u003c');
 })();
 const natJ = JSON.stringify(pack(Object.assign(JSON.parse(R('src/nat.json')), {pol: undefined}))).replace(/</g, '\\u003c');   /* Natural + political was removed in Version 60 */

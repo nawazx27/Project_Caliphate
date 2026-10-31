@@ -1608,3 +1608,8 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - V4: every heartland (38.1M) then, at his word "Only al-Muqaddasi's", his lands (Khazar district to Tatarstan, Gujarat, the coast to Chaul, Kannauj corridor; 31.04M); then a compact version (Dagestan, Kalmykia, Astrakhan; Gujarat with Daman and Diu; 30.64M; two Kazakhstan-Russia border notches left by his political-border rule). Not applied.
 - Answered: Muslim population of every version (my rough per-country estimates: V1 ~91%, V2-V5 ~73-74%, V6 ~59%, V7 ~54%, V8 ~46%); V2 vs V4; al-Muqaddasi's reason for listing lands (verbatim from the Ranking-Azoo translation: "The empire of Islam alone is described ... We have, however, noticed those parts of them where colonies of the Muslims have settled"); which of his lands were Muslim-ruled in 985 and which were Muslim communities in non-Muslim lands (my sorting from general knowledge, not in his text).
 - Nawaz: "Let everything be". V4 stays at Version 262 (30.29M), V7 unchanged.
+
+## Version 263 (2026-10-31): the atlas opens on V4
+- Nawaz: "Make the atlas open on V4" (after saying he likes V2 first and V4 next, and finds V4 more epic than V5).
+- src/eng_c.js: XV starts as 'me9' (was 'sah', Version 241). src/body.html: the V4 button is pressed in both version rows (V5 no longer). build.js: PRE_CX (the coarse copies of the opening outline) now made from V4 (me9); src/eng_b.js uses them for me9. src/start.js: V4's outline is prebuilt first when idle. No map data changed.
+- Checked: build, version test (no errors); the page with no link has V4 pressed, and the Caliphate outline view draws V4.
