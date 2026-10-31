@@ -21,7 +21,12 @@ const at3 = r => r.every(q => q.length === 2 && q.every(v => Math.abs(v*1000 - M
 const encNum = v => { v = v < 0 ? ~(v << 1) : v << 1; let t = ''; while(v >= 0x20){ t += String.fromCharCode((0x20 | (v & 0x1f)) + 63); v >>= 5; } return t + String.fromCharCode(v + 63); };
 const encRing = r => { let px = 0, py = 0, t = '\u0001'; for(const [x, y] of r){ const ix = Math.round(x*1000), iy = Math.round(y*1000); t += encNum(ix - px) + encNum(iy - py); px = ix; py = iy; } return t; };
 const pack = o => Array.isArray(o) ? (isRing(o) && at3(o) ? encRing(o) : o.map(pack)) : (o && typeof o === 'object') ? Object.fromEntries(Object.entries(o).map(([k, v]) => [k, pack(v)])) : o;
-const caliphJ = JSON.stringify(pack(caliphD)).replace(/</g, '\\u003c');
+/* Version 268: the outlines no longer on the page (old V5 'sah', V6 'af', V7 'eu' of Version 267, and the older 'x', 'x3', 'me')
+   keep their km2 and state rows for the texts, but their shapes are left out of the page (about 2 MB less to load on a phone);
+   the full data stays in src/caliph.json */
+const HIDDEN_OUTLINES = ['sah', 'af', 'eu', 'x', 'x3', 'me'];
+const caliphPage = Object.fromEntries(Object.entries(caliphD).map(([k, v]) => [k, HIDDEN_OUTLINES.includes(k) && v && v.polys ? Object.assign({}, v, {polys: []}) : v]));
+const caliphJ = JSON.stringify(pack(caliphPage)).replace(/</g, '\\u003c');
 const geo = packTopo('geo2.json'), geoLo = packTopo('landlo.json');
 /* Version 98: the two coarse coastlines drawn when zoomed out (landLOD levels 0 and 1 in src/eng_b.js) are made here once,
    with the same projection, data and simplifyD as the page, instead of on the reader's phone each time the page opens */

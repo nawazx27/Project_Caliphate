@@ -1642,3 +1642,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Engine: XNAME/XNUM; both button rows rebuilt (body.html); OUTLINE_TOK (#outline-v5 -> sas, #outline-v6, -v7, -v8 -> v2, #outline-v9 -> sas, Sahara/Africa/Mediterranean links -> V4); search entries; Dar al-Aman entry opens V4; start.js prebuild list; V6 area summary now the plain one (its old 'built on x3' breakdown no longer matched); the V8 map labels (eng_c.js caliphv2) now read V6; leads of V5 and V6 renamed; versions paragraph rewritten.
 - Checked: build, version test (row V1-V6, every old link resolves, no errors), phone row fits, overview image.
 - Fix (same day): rebuilding the version rows in Version 267 had dropped the buttons after them in the same row (Lines: Natural line, Internal lines; Map: Clean map). Nawaz: "Where is the clean and different buttons". Restored exactly from the previous body.html; checked on desktop and phone.
+
+## Version 268 (2026-10-31): a lighter page
+- Nawaz (phone screenshot of the Claude app's loading spinner): "It's taking a lot of time to open".
+- build.js: the outlines no longer on the page (sah, af, eu, and the older x, x3, me) are written into the page without their shapes (km2 and state rows kept for the texts); the full data stays in src/caliph.json. index.html 5.36 MB -> 4.35 MB.
+- Measured (my test, simulated slow phone, CPU x4, local file, 3 runs each): time until the map is ready about 6.4 s before and 6.6 s after, i.e. no change once the file is on the phone; the gain is only in download (about 1 MB less). Most of the wait in his screenshot is the Claude app fetching and starting the page.
+- Checked: build, version test (no errors), desktop.
