@@ -1648,3 +1648,8 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - build.js: the outlines no longer on the page (sah, af, eu, and the older x, x3, me) are written into the page without their shapes (km2 and state rows kept for the texts); the full data stays in src/caliph.json. index.html 5.36 MB -> 4.35 MB.
 - Measured (my test, simulated slow phone, CPU x4, local file, 3 runs each): time until the map is ready about 6.4 s before and 6.6 s after, i.e. no change once the file is on the phone; the gain is only in download (about 1 MB less). Most of the wait in his screenshot is the Claude app fetching and starting the page.
 - Checked: build, version test (no errors), desktop.
+
+## Version 269 (2026-10-31): Derbent (Bab al-Abwab) in V4 and V5
+- Questions answered: the "additional regions" list (thughur, awasim, island emirates, Volga Bulgaria, Derbent, Ghur/Ghazna, Bilad al-Sudan, Swahili coast) checked town by town against V1-V6 (only Derbent and Bulghar missing from every version; Sicily missing from V6; Kilwa Kisiwani island not drawn by the base map, its coast inside V2-V6); V4's military power (my rough general-knowledge estimates, ~2024); my view of V4. Nawaz: "Preview", then "Yes".
+- tools/v4_derbent269.py (run AFTER tools/v4_kashmir264.py): the Version 249 Derbent districts of southern Dagestan (tools/data/derbent_south_dagestan249.geojson) and the Rutul-area pocket (1,705 km2) into V4 (me9), row DBT. V4 30,393,287 -> 30,401,615 km2. Then tools/v9_south_asia265.py rerun so V5 (sas, built on V4) has it too: 33,889,325 km2.
+- Texts: V4 note (Derbent sentence; al-Muqaddasi lists Bab al-Abwab in Arran of al-Rihab), search keywords, versions paragraph. Checked: build, version test (no errors), screenshot.
