@@ -5,7 +5,7 @@ regions to his lines, plus gap pockets): all of Dagestan (Samandar, Balanjar), K
 Tatarstan (Bulghar, Suwar), the North Caucasus with Krasnodar, Adygea, Stavropol and Rostov, Orenburg, Bashkortostan, Udmurtia, Chelyabinsk;
 most of Ukraine (all but Lviv, Volyn, Zakarpattia) with Crimea and Sevastopol; Moldova; Belarus's Gomel and Mogilev; Bryansk, Kursk,
 Belgorod, Oryol, Kaluga, Smolensk, Tula, Moscow, Lipetsk, Voronezh, Tambov, Ryazan, Vladimir, Nizhny Novgorod, Chuvashia, Mari El, Mordovia,
-Penza, Ulyanovsk; and southern Kirov region to his line. Run AFTER tools/v9_south_asia265.py."""
+Penza, Ulyanovsk (the version he ticked: without the southern Kirov strip of a later preview). Run AFTER tools/v9_south_asia265.py."""
 import json, os, subprocess, shapely
 from shapely.geometry import shape, MultiPolygon, Polygon
 from shapely.geometry.polygon import orient
