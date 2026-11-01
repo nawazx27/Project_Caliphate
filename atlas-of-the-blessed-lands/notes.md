@@ -1661,3 +1661,8 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Texts: V5 lead (northern wings paragraph; the old population sentence now says "before the northern wings"), button titles, search entry, versions paragraph. Checked: build, version test (no errors), screenshot.
 
 - Correction (same day): Nawaz, ticking the earlier "Both curves filled" image: "Apply this not that". V5 redone with that preview (northern-edge strip near Mari El only to ~57.2 N; the later southern-Kirov strip to ~58.5 N removed): tools/data/v5_wings270.geojson replaced, tools/v5_wings270.py rerun from the Version 269 V5. V5 36,430,247 km2.
+
+## Version 271 (2026-11-01): V5's two northern dips filled with whole districts
+- Nawaz (circles on a close-up): "Fill these two dips as well"; on the first preview (straight-line fills): "Why are these smooth", then "Keep all real borders", then "Sure".
+- tools/v5_dips271.py (run AFTER tools/v5_wings270.py): V5 (sas) gains tools/data/v5_dips271.geojson, 22 whole Overture 2026-10-21.0 districts: Kirov region (Nolinsk, Lebyazhye, Urzhum, Malmyzh, Kilmez, Nema, Uni, Bogorodskoye, Falyonki), Perm region (Kuyeda, Chaykovsky), Kurgan region (Shchuchye, Safakulevo, Tselinnoye, Kurtamysh, Almenevo, Shumikha, Yurgamysh, Mishkino, Pritobolny, Zverinogolovskoye, Polovinnoye), plus one 174 km2 gap pocket. Chosen: districts mostly inside the straight-line fill of the first preview. V5 36,430,247 -> 36,481,257 km2. Row RU_W renamed and resized.
+- Texts: V5 lead (Kirov and Kurgan). Checked: build, version test, screenshot.
