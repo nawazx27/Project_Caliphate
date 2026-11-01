@@ -24,7 +24,7 @@ const pack = o => Array.isArray(o) ? (isRing(o) && at3(o) ? encRing(o) : o.map(p
 /* Version 268: the outlines no longer on the page (old V5 'sah', V6 'af', V7 'eu' of Version 267, and the older 'x', 'x3', 'me')
    keep their km2 and state rows for the texts, but their shapes are left out of the page (about 2 MB less to load on a phone);
    the full data stays in src/caliph.json */
-const HIDDEN_OUTLINES = ['sah', 'af', 'eu', 'x', 'x3', 'me'];
+const HIDDEN_OUTLINES = ['sah', 'af', 'eu', 'x', 'x3', 'me', 'sas'];   /* Version 276: V5 (sas) removed from the page; its shape is saved in tools/data/v5_shape_v276.json */
 const caliphPage = Object.fromEntries(Object.entries(caliphD).map(([k, v]) => [k, HIDDEN_OUTLINES.includes(k) && v && v.polys ? Object.assign({}, v, {polys: []}) : v]));
 const caliphJ = JSON.stringify(pack(caliphPage)).replace(/</g, '\\u003c');
 const geo = packTopo('geo2.json'), geoLo = packTopo('landlo.json');
