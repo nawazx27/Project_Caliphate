@@ -1,0 +1,37 @@
+"""Version 272 (Nawaz, a red line drawn on V5 from the north tip of Belarus east to V5's edge near Kostroma: "Fill and add entire
+modern Belarus and Ukraine", then "Apply"). V5 (CALIPH.sas) gains tools/data/v5_byua272.geojson: all of Belarus and Ukraine (base map),
+and every Overture 2026-10-21.0 Russian district lying (by its inner point) south of his line and not yet mostly in V5: southern Pskov
+(Velikiye Luki, Nevel, Pustoshka, Kunya, Usvyaty, Novosokolniki), almost all Tver, southern Yaroslavl (Uglich, Rostov,
+Pereslavl-Zalessky, Borisoglebsky, Gavrilov-Yam), all Ivanovo, Kostroma's Nerekhta and Volgorechensk; plus one 471 km2 gap pocket.
+His line was placed by matching the map; Yaroslavl city lies on it and was left out. A 415 km2 Lithuanian border pocket left out
+(political border). Run AFTER tools/v5_dips271.py."""
+import json, os, subprocess, shapely
+from shapely.geometry import shape, MultiPolygon, Polygon
+from shapely.geometry.polygon import orient
+from pyproj import Geod
+P = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
+A = lambda g: abs(Geod(ellps='WGS84').geometry_area_perimeter(g)[0]) / 1e6
+W = shape(json.load(open(os.path.join(P, 'tools/data/v5_byua272.geojson')))['geometry']).buffer(0)
+F_ = os.path.join(P, 'src/caliph.json'); C = json.load(open(F_))
+V = MultiPolygon([Polygon(r[0], r[1:]) for r in C['sas']['polys']]).buffer(0)
+X = shapely.union_all([V, W.buffer(0.002)], grid_size=0.001)
+out = []
+for q in getattr(X, 'geoms', [X]):
+    if q.geom_type != 'Polygon' or A(q) < 0.05: continue
+    q = orient(Polygon(q.exterior, [h for h in q.interiors if A(Polygon(h)) >= 5000]), 1.0)
+    out.append([[[round(u, 3), round(v, 3)] for u, v in rr.coords] for rr in [q.exterior, *q.interiors]])
+km2 = int(subprocess.check_output(['node', '-e', """const d3=require('./node_modules/d3'),fs=require('fs');const C=JSON.parse(fs.readFileSync(0));
+const s=r=>{const a=d3.geoArea({type:'Polygon',coordinates:[r]});return Math.min(a,4*Math.PI-a)};
+process.stdout.write(String(Math.round(C.reduce((t,p)=>t+s(p[0])-p.slice(1).reduce((h,r)=>h+s(r),0),0)*6371.0088**2)))"""], cwd=P, input=json.dumps(out).encode()))
+rows = [{'id': '804', 'n': 'Ukraine (the base map draws Crimea and Sevastopol, disputed, under Russia)', 'km2': None, 'pct': None},
+        {'id': '112', 'n': 'Belarus', 'km2': None, 'pct': None}]
+ru = [r for r in C['sas']['states'] if r['id'] == 'RU_W'][0]
+ru['n'] = 'Russia: the North Caucasus, the Volga and southern Urals to Tatarstan and Bashkortostan, districts of southern Kirov and western Kurgan, and the centre and west to Pskov, Tver, Yaroslavl, Ivanovo, Moscow, Vladimir and Nizhny Novgorod (whole regions and districts to the author’s lines)'
+geo = json.loads(subprocess.check_output(['node', '-e', "const fs=require('fs'),t=require('./node_modules/topojson-client');const g=JSON.parse(fs.readFileSync('geo2.json'));process.stdout.write(JSON.stringify(t.feature(g,g.objects.countries)))"], cwd=P))
+G = {f['id']: shape(f['geometry']).buffer(0) for f in geo['features'] if f.get('geometry')}
+Y = MultiPolygon([Polygon(r[0], r[1:]) for r in out]).buffer(0)
+for r, k in zip(rows + [ru], ['804', '112', '643']):
+    a = A(G[k].intersection(Y)); r['km2'] = round(a); r['pct'] = round(100 * a / A(G[k]), 1)
+print(rows); print('V5 (sas)', C['sas']['km2'], '->', km2)
+C['sas'].update(polys=out, km2=km2, states=[r for r in C['sas']['states'] if r['id'] not in ('UA_W', 'BY_W', '804', '112')] + rows)
+json.dump(C, open(F_ + '.tmp', 'w'), separators=(',', ':'), ensure_ascii=False); os.replace(F_ + '.tmp', F_)
