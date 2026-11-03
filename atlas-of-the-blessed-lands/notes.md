@@ -1760,3 +1760,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 288 (2026-11-03): Version 287 undone
 - Nawaz: "You know what? Remove the recent addition." Sicily and Malta taken out of V2 and V3 again: src/caliph.json, src/eng_e.js, src/body.html restored from Version 286 (commit de9b709). V2 17,578,205 km2, V3 21,082,323. tools/v2_sicily_malta287.py is kept; do not run it unless he asks. Checked: build, version test.
+
+## Version 289 (2026-11-03): the page opens on V5, named the Grand Caliphate
+- Nawaz: "Open on V5 and we're naming it The Grand Caliphate and as you know V6 is the The Super Caliphate".
+- Opening version V4 (me9) -> V5 (sas): eng_c.js XV default 'sas'; body.html pressed buttons (sas true, me9 false); build.js PRE_CX coarse copies now made from sas; eng_b.js uses them for sas (supersedes Version 263's V4 opening).
+- V5 named "the Grand Caliphate" (V6 stays "the Super Caliphate"): V5 lead ("V5, the author's Grand Caliphate"), button titles, versions paragraph, search entry and keyword. V5 has no map labels of its own (V6 has caliphv2 labels), so no map label added.
+- Checked: build, version test (no errors), page opens with V5 pressed and no errors (libraries served locally in the test; this container cannot reach cdnjs).
