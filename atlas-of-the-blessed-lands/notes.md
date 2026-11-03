@@ -1757,3 +1757,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Nawaz: "Add Sicily to v2"; preview (Sicily as V4 holds it); "Add Malta too and apply".
 - tools/v2_sicily_malta287.py (run after v2_kashmir286): V2 (me2) and V3 (ca) gain Sicily with its islands (Aeolian, Egadi, Ustica, Pantelleria, Pelagie) exactly as V4 holds it (Version 261) and Malta whole. Rows IT_SIC, 470. V2 17,578,205 -> 17,604,628 km2; V3 21,082,323 -> 21,108,747. (V6 still lacks Sicily and Malta, as before.)
 - Texts: V2 lead (sentence on the Aghlabid emirate, 827-1091: general knowledge, not re-checked), button titles, versions paragraph, search keywords. Checked: build, version test (no errors), screenshot.
+
+## Version 288 (2026-11-03): Version 287 undone
+- Nawaz: "You know what? Remove the recent addition." Sicily and Malta taken out of V2 and V3 again: src/caliph.json, src/eng_e.js, src/body.html restored from Version 286 (commit de9b709). V2 17,578,205 km2, V3 21,082,323. tools/v2_sicily_malta287.py is kept; do not run it unless he asks. Checked: build, version test.
