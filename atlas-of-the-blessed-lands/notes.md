@@ -1752,3 +1752,8 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - tools/v2_kashmir286.py: V2 (me2) and V3 (ca) get exactly V4's Kashmir (V4 land in India and in the base map's Siachen shape KAS: Indian-administered J&K, Ladakh, Siachen, as on Pakistan's official 2020 map; 107,232 km2); Aksai Chin and Shaksgam NOT added. Row IN_JK copied from V4. V2 17,470,146 -> 17,578,205 km2; V3 20,974,265 -> 21,082,323. A ~1,200 km2 Tashkurgan pocket (political) left out.
 - STANDING RULE CHANGE: this overrides the Version 223 "V2 (me2) official lines only" rule for Kashmir at his explicit request; do NOT rerun tools/v3_official223.py on me2 (it would remove this land).
 - Texts: V2 lead (official-borders sentence with the Kashmir exception), button titles, versions paragraph (V2 17.6M, V3 21.1M), search keywords. Checked: build, version test (no errors), screenshot.
+
+## Version 287 (2026-11-03): Sicily and Malta in V2 and V3
+- Nawaz: "Add Sicily to v2"; preview (Sicily as V4 holds it); "Add Malta too and apply".
+- tools/v2_sicily_malta287.py (run after v2_kashmir286): V2 (me2) and V3 (ca) gain Sicily with its islands (Aeolian, Egadi, Ustica, Pantelleria, Pelagie) exactly as V4 holds it (Version 261) and Malta whole. Rows IT_SIC, 470. V2 17,578,205 -> 17,604,628 km2; V3 21,082,323 -> 21,108,747. (V6 still lacks Sicily and Malta, as before.)
+- Texts: V2 lead (sentence on the Aghlabid emirate, 827-1091: general knowledge, not re-checked), button titles, versions paragraph, search keywords. Checked: build, version test (no errors), screenshot.
