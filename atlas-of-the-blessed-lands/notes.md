@@ -1853,3 +1853,10 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - tools/v301_v4_italy.py: V4 (sas) = tools/data/v4_italy_balkans301.geojson: + Italy (San Marino, Vatican inside), Slovenia, Croatia, Bosnia, Montenegro, Serbia, Kosovo whole; 6 small pockets filled. 35,107,639 -> 35,589,565 km2. V5/V6/V7 already hold all of it (0 km2 outside).
 - Texts: V4 lead, titles, versions paragraph, search keywords.
 - Checked: build, version test (no errors), full-map screenshot.
+
+## Version 302 (2026-11-06): V4 back to the previous Grand Caliphate; V5 gets Ukraine, all of Crimea and every land Rome ever held
+- Nawaz: "this Grand Caliphate versus previous Grand Caliphate" (compared) -> "revert back to the previous Grand Caliphate, and in v5 add Ukraine with entire Crimean Peninsula and all the lands that the Roman Empire ever held and push".
+- tools/v302_v5_ukraine_rome.py (inputs: Version 296 and 298 caliph.json, git e9e9fe3 / 4595055; scratch crimea.pkl and Overture divs.parquet): V4 (sas) = Version 296 shape again (35,107,639; Version 301's Italy/western Balkans undone; its texts reverted). V5 (grm) + Ukraine (base map) + the whole Crimean peninsula with Sevastopol (base-map land inside Overture's Crimea/Sevastopol regions) + Taman (Temryuk district) + Germany between the Rhine and the Elbe and the whole Netherlands (the Version 298 V4 inside DE/NL) = every land Rome held (117 CE peak, Augustus to the Elbe, Antonine Scotland, the Bosporan kingdom); 45 pockets filled (1,160 km2, incl. the Sivash/Arabat area). Germany/NL were removed in Version 299 and are back because Rome held them (he asked for all Roman lands). 37,015,802 -> 37,940,677 km2.
+- V6 (rom) and V7 (v2) took the German lands they lacked (~190,000 km2): 39,755,126 and 47,660,037. Each version inside the next (checked).
+- Texts: V4 back to Version 296 wording; V5 lead, titles, versions paragraph, search entry rewritten.
+- Checked: build, version test (no errors), screenshots of V5 and V4.
