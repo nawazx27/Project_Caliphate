@@ -1860,3 +1860,11 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - V6 (rom) and V7 (v2) took the German lands they lacked (~190,000 km2): 39,755,126 and 47,660,037. Each version inside the next (checked).
 - Texts: V4 back to Version 296 wording; V5 lead, titles, versions paragraph, search entry rewritten.
 - Checked: build, version test (no errors), screenshots of V5 and V4.
+
+## Version 303 (2026-11-06): V5 fills Czechia and southern Poland; Crimea only (Taman out)
+- Nawaz (phone screenshot, gap between Germany and Ukraine circled): "Fill this and remove Crimean Peninsula and just add Crimea." then "complete the task".
+- The screenshot fit was poor (~15 px), so the circle was read against the map: the gap north of Austria/Slovakia between Saxony and Ukraine. tools/v303_v5_czpl_crimea.py: V5 (grm) + Czechia whole + the Polish voivodeships south of a Gorlitz-Bug line (Dolnoslaskie, Opolskie, Slaskie, Malopolskie, Podkarpackie, Swietokrzyskie, Lubelskie; Overture regions saved in tools/data/v303_pl_cz_regions.parquet); 26 small pockets filled. Warsaw and northern Poland stay out.
+- "Crimea only": interpreted as the Crimea + Sevastopol regions (plus base-map Ukraine); Taman (whole Temryuk district) and the Version 302 Sivash/Arabat pocket fills outside them removed.
+- V5 37,940,677 -> 38,127,726 km2. V6 (rom) 39,944,864 and V7 (v2) 47,849,405 took the V5 land they lacked (mostly Czechia/southern Poland). Each version inside the next (checked).
+- Texts: V5 lead, titles, versions paragraph, search keywords.
+- Checked: build, version test (no errors), screenshots (Europe; Crimea/Kerch Strait clean).
