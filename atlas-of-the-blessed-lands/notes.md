@@ -1797,3 +1797,11 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - tools/v293_no_crimea.py: V7 (rom) and V8 (v2) restored from Version 291's caliph.json (git show 41bf9f1:./src/caliph.json), with the Version 292 V1 unioned in so each version stays inside the next: V7 37,204,110 km2, V8 45,112,967. V1 (Version 292 shape) kept; V2–V6 unchanged. V7's Crimea wording reverted (lead "Crimea is not included", titles, versions paragraph, search keywords).
 - The preview scripts for the Ottoman lands and the red-line fill are in the scratchpad only (not applied); tools/data/v7_crimea_link292.geojson stays in the repo as a record; do not rerun tools/v292_v1_crimea.py unless he asks for Crimea again.
 - Checked: build, version test (no errors), screenshot of V7 round the Black Sea.
+
+## Version 294 (2026-11-06): V1 drawn exactly on the diagram's outer lines
+- Nawaz: "Thoughts on each model"; "Make v1 borders better" (a clean-up preview: Nakhl arm and Abhā bits removed, edges snapped to the base map; not applied); then, with the page's Shām/Ḥijāz diagram, "borders exactly like this"; "Finish the job".
+- V1 (shj) = tools/data/v1_sham_hijaz294.geojson via tools/v294_v1_exact.py: land inside SHAM_OUTER + HIJAZ_OUTER exactly (coast widened 0.3 deg along their sea segments, Egypt and Cyprus excepted), straight edges, no district or town additions (made by tools/v1_sham_hijaz291_build/exact294.py). 875,321 km2 in 9 states (Israel, Palestine, Lebanon, Syria whole or nearly; parts of Türkiye, Iraq, Saudi Arabia, Jordan, Egypt). Cyprus, Hatay-whole, NE Syria beyond the line, the Hejaz regions beyond the line and all whole edge districts are out.
+- V1 is an EXCEPTION to the every-outline rule (Cyprus, Lake Albert, Georgia, Armenia, Azerbaijan): the diagram does not hold them (stated in V1's note).
+- It lies wholly inside V2 (0 km2 outside); V2–V8 unchanged.
+- Texts: V1 lead, button titles, versions paragraph, search entry.
+- Checked: build, version test (no errors), screenshot.
