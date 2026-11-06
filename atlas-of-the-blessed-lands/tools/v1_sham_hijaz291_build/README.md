@@ -5,3 +5,7 @@ How the Version 291 V1 shape (tools/data/v1_sham_hijaz291.geojson) was made. Scr
 4. pock.py: pockets >=80% enclosed filled. build4b.py: land up to those lines covered exactly in the big desert districts; towns/quarters the lines touch taken whole (al-Raqqa and Dayr al-Zur quarters added by hand).
 5. Northern Iraq (Nawaz's list): Nineveh, Erbil, Sulaymaniyah, Halabja, Duhok, Kirkuk; Baiji, al-Sharqat, Tuz Khurmatu, al-'Alam, Amirli (north of Tikrit); western al-Anbar: al-Rutba, al-Qa'im, 'Ana, Rawa, Haditha. samawa.py: Iraq on the desert side of the Euphrates (Natural Earth river, al-Qa'im to al-Qurna) more than ~30 km from it.
 6. fin.py: precision 0.001, holes under 5000 km2 dropped, pieces under 0.05 km2 dropped.
+Version 292 redo (Nawaz: "It should look like this" with the page's Sham/Hijaz diagram, then "Add these too" with his three maps, then "Take every district whole"):
+exact.py: land inside SHAM_OUTER + HIJAZ_OUTER exactly (coast widened 0.3 deg along their sea segments, Egypt and Cyprus excepted), towns the land edge touches whole; no northern Iraq.
+Then added: the four Hejaz regions, Britannica's Levant (Syria, Lebanon, Israel, Palestine, Jordan, all of Cyprus, Hatay) and build1.py's Sham-map districts.
+whole.py / iter2.py: every Overture district with real land inside (thicker than ~2 km) taken whole; hair-thin mismatch slivers trimmed (never inside a whole district); villages taken whole if mostly inside, else their sliver trimmed; pockets >=80% filled. Result: tools/data/v1_sham_hijaz292.geojson.
