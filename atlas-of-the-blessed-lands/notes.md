@@ -1822,3 +1822,10 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Heartland (V2) lead and the versions paragraph now describe its Middle East core directly (no longer "V2 with ..."); the history sentence at the end of the paragraph rewritten plainly.
 - check9b loop: shj, me2, me9, sas, rom, v2. start.js keys without me8/ca.
 - Checked: build, version test (no errors; #outline-v1..v6 correct), screenshots.
+
+## Version 297 (2026-11-06): the Roman Empire of 117 CE in V4 (the Grand Caliphate)
+- Nawaz: "Take v4 and add Roman Empire to it (preview)" -> "Add this".
+- V4 (sas) = tools/data/v4_rome297.geojson via tools/v297_v4_rome.py (build: tools/v297_build/v4rome.py; DARE provinces now saved as tools/data/roman_provinces_117_dare.geojson): Italy, mainland France + Corsica, Belgium, Luxembourg, Switzerland, Austria, Slovenia, Croatia, Bosnia, Montenegro, Serbia, Kosovo, Monaco, San Marino, Liechtenstein, Andorra whole; by whole Overture districts (>=50% Roman or >=150 km2 Roman): GB 167 (England and Wales to Hadrian's Wall), DE 161, NL 205, HU 72 (Pannonia), RO 1271 communes (Dacia); last ~4,900 km2 of Roman land as is (0 km2 left out); 51 small pockets filled (274 km2). 35,107,639 -> 36,712,920 km2.
+- V5 (rom) and V6 (v2) unioned with the new V4 (906 and 523 km2 of edge pieces): V5 39,563,953, V6 47,470,040. Numbering unchanged (V4 < V5).
+- Texts: V4 lead, button titles, versions paragraph, search entry and keywords.
+- Checked: build, version test (no errors), screenshot.
