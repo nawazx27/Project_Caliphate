@@ -140,10 +140,10 @@ function buildOverlay(){
   /* the country name, your choice: drawn behind every other label and never pushed aside by them */
   { const dl = addLabel('caliphx', [['DĀR AL-AMĀN'],['دار الأمان','arl dar','1.3em']], DAR_AT, {cls:'darlbl', back:true, free:true, minK:0, maxK:2.6, subK:0, pri:-9});
     if(dl) dl.alts = [DAR_AT, [44.5, 23.5], [31.5, 21.0], [45.5, 19.5], [33.0, 17.5], [47.0, 26.5], [29.0, 22.5], [30.0, 17.0], [30.5, 12.5], [31.0, 9.0], [20.3, 26.4], [21.5, 25.0]]; }   /* Version 176: two more over the Libyan and Western deserts (in every version), for the phone's whole-region view */   /* all over lands every version holds */
-  addLabel('caliphv2', [['V6'],['the Super Caliphate · history in the notes','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
-  addLabel('caliphv2', [['V6'],['the author’s specification · not from the sources','sub']], [66.0,46.6], {cls:'caliphlbl x big', minK:0.45, subK:0.45, pri:3, color:'--xcal'});
-  addLabel('caliphv2', [['V6'],['the author’s specification · not from the sources','sub']], [79.5,22.5], {cls:'caliphlbl x big', minK:0.45, subK:0.45, pri:3, color:'--xcal'});   /* Version 219: central India */
-  addLabel('caliphv2', [['V6'],['the author’s specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0.7, subK:0.7, pri:4, color:'--xcal'});
+  addLabel('caliphv2', [['V7'],['the Super Caliphate · history in the notes','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
+  addLabel('caliphv2', [['V7'],['the author’s specification · not from the sources','sub']], [66.0,46.6], {cls:'caliphlbl x big', minK:0.45, subK:0.45, pri:3, color:'--xcal'});
+  addLabel('caliphv2', [['V7'],['the author’s specification · not from the sources','sub']], [79.5,22.5], {cls:'caliphlbl x big', minK:0.45, subK:0.45, pri:3, color:'--xcal'});   /* Version 219: central India */
+  addLabel('caliphv2', [['V7'],['the author’s specification · not from the sources','sub']], [27.6,12.6], {cls:'caliphlbl x', minK:0.7, subK:0.7, pri:4, color:'--xcal'});
   addLabel('caliphv3', [['the wide complete outline'],['a wide complete outline · the author’s specification','sub']], [1.2,25.6], {cls:'caliphlbl x big', minK:0, subK:0, pri:3, color:'--xcal'});
   /* natural borders and internal lines (your design): names only where the base map has none */
   /* the ring: each name sits just outside it, on the side away from the territory */
@@ -437,7 +437,7 @@ const CLEAN_LBL = new Set(['caliph','caliphx','caliphv2','caliphv3','caliphnat',
 function render(){
   const k = T.k;
   const clean = CLEAN && !!layerOn.caliphx;
-  const quiet = (XV === 'v2' || XV === 'v3' || XV === 'me2' || XV === 'ca' || XV === 'me9' || XV === 'sah' || XV === 'sas' || XV === 'rom' || XV === 'shj' || XV === 'af' || XV === 'eu' || XV === 'nat' || XV === 'natp') && !!layerOn.caliphx && k < 0.9;
+  const quiet = (XV === 'v2' || XV === 'v3' || XV === 'me2' || XV === 'ca' || XV === 'me9' || XV === 'sah' || XV === 'sas' || XV === 'grm' || XV === 'rom' || XV === 'shj' || XV === 'af' || XV === 'eu' || XV === 'nat' || XV === 'natp') && !!layerOn.caliphx && k < 0.9;
   const sc = `scale(${(1/k).toFixed(5)})`;
   sandPat.attr('patternTransform', sc); lavaPat.attr('patternTransform', sc);
   hSham.attr('patternTransform', `${sc} rotate(45)`); hHijaz.attr('patternTransform', `${sc} rotate(-45)`); hFil.attr('patternTransform', `${sc} rotate(30)`); hMisr.attr('patternTransform', `${sc} rotate(90)`); hDisp.attr('patternTransform', `${sc} rotate(-30)`);

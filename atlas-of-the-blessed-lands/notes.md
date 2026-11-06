@@ -1836,3 +1836,10 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - V5 (rom) and V6 (v2) unioned with the new V4 (~190,000 km2: mainly Germany to the Elbe): V5 39,753,889, V6 47,659,417. Numbering unchanged.
 - Texts: V4 lead, titles, versions paragraph, search keywords.
 - Checked: build, version test (no errors), screenshot.
+
+## Version 299 (2026-11-06): old V4 back; the Roman/British V4 becomes a new V5 without Germany, the Netherlands and Belgium; SEVEN versions
+- Nawaz: "Remove Germany, Netherlands and Belgium. And bring back the old V4 and put the Mediterranean V4 as a new version." + "and removes stray lines from Crimea."
+- tools/v299_split.py (inputs: Version 296 and 297 caliph.json from git e9e9fe3 / eddac2b): NEW key CALIPH.grm = the Version 298 V4 minus Germany, the Netherlands and Belgium (base-map countries; Overture spill and the Dutch inland waters cut; German-Czech border slivers and every Crimea/Taman leftover removed) = 36,985,320 km2; V4 (sas) back to Version 296 (35,107,639); V6 (rom) and V7 (v2) back to Version 297 (no Germany to the Elbe), then the new V5's edge pieces folded in (rom 39,564,224; v2 47,470,191). Each version inside the next (checked).
+- NEW NAMES: V1 shj, V2 me2, V3 me9, V4 sas (Grand Caliphate; page opens on it), V5 grm (V4 + Roman Empire + southern Scotland + UK, Ireland, Hungary, Slovakia, Romania, Moldova; no DE/NL/BE), V6 rom (was V5), V7 v2 (Super Caliphate, was V6). Visible labels V5->V6, V6->V7 shifted outside comments; #outline-v5 -> grm, -v6 -> rom, -v7/-v8 -> v2; #outline-roman/-rome/-roman-empire -> grm.
+- V4 texts reverted to Version 296 (no Roman sentence); V5 has its own lead, button titles, versions-paragraph sentence and search entry. Wiring: XNAME/XNUM, cxData, WIDEV, SRC list, showWide (ROM_B), eng_c list, eng_b lazyD/src, start.js keys, check9b loop.
+- Checked: build, version test (no errors; #outline-v1..v7 correct), screenshots (Europe; Crimea clean).
