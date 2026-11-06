@@ -1,0 +1,7 @@
+How the Version 291 V1 shape (tools/data/v1_sham_hijaz291.geojson) was made. Scratch scripts, kept for the record; paths inside point at the session scratchpad.
+1. fit.py: the Bilad al-Sham map Nawaz sent (Abbasid-era al-Sham with al-Thughur and al-'Awasim) pinned to 11 cities (max error 0.08 deg); its outer line traced -> sham_trace.json.
+2. build1.py: Overture 2026-10-21.0 districts (county) more than half inside the trace taken whole (Quwayra 49% too, for the Ayla link), plus Palestine; al-Hijaz = Saudi regions Tabuk, al-Madina, Makka, al-Baha (IoU 0.945 with Nawaz's Hejaz map).
+3. build3b.py: every district more than half inside the atlas's SHAM_OUTER and HIJAZ_OUTER lines (src/old_data.js; Ibn Hawqal, Yaqut, al-Baladhuri, al-Asma'i, Hisham b. al-Kalbi) taken whole.
+4. pock.py: pockets >=80% enclosed filled. build4b.py: land up to those lines covered exactly in the big desert districts; towns/quarters the lines touch taken whole (al-Raqqa and Dayr al-Zur quarters added by hand).
+5. Northern Iraq (Nawaz's list): Nineveh, Erbil, Sulaymaniyah, Halabja, Duhok, Kirkuk; Baiji, al-Sharqat, Tuz Khurmatu, al-'Alam, Amirli (north of Tikrit); western al-Anbar: al-Rutba, al-Qa'im, 'Ana, Rawa, Haditha. samawa.py: Iraq on the desert side of the Euphrates (Natural Earth river, al-Qa'im to al-Qurna) more than ~30 km from it.
+6. fin.py: precision 0.001, holes under 5000 km2 dropped, pieces under 0.05 km2 dropped.
