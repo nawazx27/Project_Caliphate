@@ -1829,3 +1829,10 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - V5 (rom) and V6 (v2) unioned with the new V4 (906 and 523 km2 of edge pieces): V5 39,563,953, V6 47,470,040. Numbering unchanged (V4 < V5).
 - Texts: V4 lead, button titles, versions paragraph, search entry and keywords.
 - Checked: build, version test (no errors), screenshot.
+
+## Version 298 (2026-11-06): V4 gets Rome's other holdings, the UK and Ireland, Moldova, Hungary, Slovakia (Crimea left out)
+- Nawaz: "Is this Roman Empire at its peak and does it have all the lands the Roman Empire held" (yes for 117 CE; missing Antonine Scotland, Augustus's Germany to the Elbe, Crimea/Taman) -> "Preview adding all three to V4" -> "Add Moldova, Austria, Hungary, Switzerland, Slovakia, Serbia" (Austria, Switzerland, Serbia already whole) -> "Remove Crimea and add uk and Ireland and push".
+- V4 (sas) = tools/data/v4_rome298.geojson via tools/v298_v4_more.py (preview build: tools/v297_build/v4more298.py): + southern Scotland (18 council areas south of the Forth-Clyde line) with Northumberland and Tyneside; Germany west of the Elbe (Natural Earth 10m Elbe chained, Cuxhaven to the Czech border; 703 districts >=50% west, Elbe cities whole incl. Hamburg and Bremen city-states, Dresden, Meissen, Wittenberg, Pinneberg) and all the Netherlands; Moldova, Hungary, Slovakia whole; Romania filled whole (its leftover parts were 92% and 86% enclosed); the UK, Ireland, Isle of Man, Jersey, Guernsey whole. Crimea and Taman removed (Taman went with Crimea: it would have been a lone speck). 36,712,920 -> 37,341,104 km2.
+- V5 (rom) and V6 (v2) unioned with the new V4 (~190,000 km2: mainly Germany to the Elbe): V5 39,753,889, V6 47,659,417. Numbering unchanged.
+- Texts: V4 lead, titles, versions paragraph, search keywords.
+- Checked: build, version test (no errors), screenshot.
