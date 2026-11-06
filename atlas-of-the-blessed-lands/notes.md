@@ -1791,3 +1791,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - V7 (rom) and V8 (v2) + tools/data/v7_crimea_link292.geojson (Crimea, Sevastopol, Kherson, Mykolaiv, Odesa; Temryuk, Anapa, Novorossiysk, Gelendzhik, Tuapse, Sochi, Sirius): V7 37,203,942 -> 37,325,098; V8 45,112,833 -> 45,233,694. The new V1 unioned into V2–V8 (a few hundred km2 each). Tool: tools/v292_v1_crimea.py.
 - Texts: V1 lead/titles/versions paragraph/search entry rewritten (no northern Iraq; Levant, Cyprus, Hatay, Ḥijāz regions); V7 lead (Crimea sentence replaces "Crimea is not included"), titles, versions paragraph, search keywords.
 - Checked: build, version test (no errors), screenshots of V1 and V7's Black Sea ring.
+
+## Version 293 (2026-11-06): Crimea and the Black Sea link taken out again (V7 and V8 as in Version 291)
+- After Version 292 Nawaz asked to add the missing Ottoman lands of 1683 to V7 (Podolia, the Azov coast with Azak, Kuban; previewed, 37.50M) and then to fill to his red lines (western Ukraine, Ukraine south of ~50 N, the North Caucasus; previewed, 37.82M). Neither was applied. Then: "Return to the previous version" ... "To the one without crimea".
+- tools/v293_no_crimea.py: V7 (rom) and V8 (v2) restored from Version 291's caliph.json (git show 41bf9f1:./src/caliph.json), with the Version 292 V1 unioned in so each version stays inside the next: V7 37,204,110 km2, V8 45,112,967. V1 (Version 292 shape) kept; V2–V6 unchanged. V7's Crimea wording reverted (lead "Crimea is not included", titles, versions paragraph, search keywords).
+- The preview scripts for the Ottoman lands and the red-line fill are in the scratchpad only (not applied); tools/data/v7_crimea_link292.geojson stays in the repo as a record; do not rerun tools/v292_v1_crimea.py unless he asks for Crimea again.
+- Checked: build, version test (no errors), screenshot of V7 round the Black Sea.
