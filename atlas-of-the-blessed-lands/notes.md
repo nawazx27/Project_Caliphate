@@ -1843,3 +1843,7 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - NEW NAMES: V1 shj, V2 me2, V3 me9, V4 sas (Grand Caliphate; page opens on it), V5 grm (V4 + Roman Empire + southern Scotland + UK, Ireland, Hungary, Slovakia, Romania, Moldova; no DE/NL/BE), V6 rom (was V5), V7 v2 (Super Caliphate, was V6). Visible labels V5->V6, V6->V7 shifted outside comments; #outline-v5 -> grm, -v6 -> rom, -v7/-v8 -> v2; #outline-roman/-rome/-roman-empire -> grm.
 - V4 texts reverted to Version 296 (no Roman sentence); V5 has its own lead, button titles, versions-paragraph sentence and search entry. Wiring: XNAME/XNUM, cxData, WIDEV, SRC list, showWide (ROM_B), eng_c list, eng_b lazyD/src, start.js keys, check9b loop.
 - Checked: build, version test (no errors; #outline-v1..v7 correct), screenshots (Europe; Crimea clean).
+
+## Version 300 (2026-11-06): Belgium back in V5
+- Nawaz: "Add Belgium too" (straight after Version 299). tools/v300_belgium.py: Belgium (base map) whole into V5 (grm), 36,984,892 -> 37,015,802 km2; V6 and V7 already hold it. V5 texts now say "without Germany and the Netherlands".
+- Checked: build, version test (no errors), screenshot.
