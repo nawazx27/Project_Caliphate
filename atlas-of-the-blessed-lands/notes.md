@@ -1813,3 +1813,12 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - V7 37,204,110 -> 39,560,589 km2; V8 (v2) takes all of V7: 45,112,967 -> 47,469,090.
 - Texts: V7 lead (river-frontier sentence replaces "Crimea is not included"), titles, versions paragraph, search keywords; V8 size in the versions paragraph.
 - Checked: build, version test (no errors), screenshot.
+
+## Version 296 (2026-11-06): V2 (16-state Middle East, me8) and V4 (Central Asia step, ca) removed; renumbered V1–V6
+- Nawaz: "What can be removed" (I suggested V2 and V4 as adding least) -> "remove V2 and V4 and renumber."
+- build.js HIDDEN_OUTLINES += 'me8', 'ca' (data kept in caliph.json, shapes left out of index.html); their buttons (both rows) and search entries removed; CX_LEAD.me8/.ca stubbed ("no longer on the list").
+- NEW NAMES: V1 shj (Shām and Ḥijāz), V2 me2 (the heartland), V3 me9 (classical Islamic world), V4 sas (the Grand Caliphate; page still opens on it), V5 rom (Mediterranean, Roman and river frontier), V6 v2 (the Super Caliphate). Visible labels outside comments shifted (V3->V2, V5->V3, V6->V4, V7->V5, V8->V6; "vN version N" keywords too); code comments keep the names of their time.
+- Links: #outline-v1..v6 open the new V1..V6; #outline-v7 and -v8 open V6; tokens that opened me8 now open me2, those that opened ca open me9. XNAME: me8 'V2', ca 'V3' (nearest) in case old state comes back.
+- Heartland (V2) lead and the versions paragraph now describe its Middle East core directly (no longer "V2 with ..."); the history sentence at the end of the paragraph rewritten plainly.
+- check9b loop: shj, me2, me9, sas, rom, v2. start.js keys without me8/ca.
+- Checked: build, version test (no errors; #outline-v1..v6 correct), screenshots.
