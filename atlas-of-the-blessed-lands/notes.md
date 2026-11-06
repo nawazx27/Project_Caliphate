@@ -1847,3 +1847,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 ## Version 300 (2026-11-06): Belgium back in V5
 - Nawaz: "Add Belgium too" (straight after Version 299). tools/v300_belgium.py: Belgium (base map) whole into V5 (grm), 36,984,892 -> 37,015,802 km2; V6 and V7 already hold it. V5 texts now say "without Germany and the Netherlands".
 - Checked: build, version test (no errors), screenshot.
+
+## Version 301 (2026-11-06): Italy and the western Balkans in V4 (the Grand Caliphate reaches Rome)
+- Nawaz: "Which countries can we add to the Grand Caliphate to get to Rome?" -> "preview." (A Italy; B Italy + western Balkans) -> red line Tunisia-Sicily-Italy-Balkans: "Add show full map of this" -> applied B. (A V5 + Ukraine-without-Crimea preview, 37.59M, was also made and is NOT applied.)
+- tools/v301_v4_italy.py: V4 (sas) = tools/data/v4_italy_balkans301.geojson: + Italy (San Marino, Vatican inside), Slovenia, Croatia, Bosnia, Montenegro, Serbia, Kosovo whole; 6 small pockets filled. 35,107,639 -> 35,589,565 km2. V5/V6/V7 already hold all of it (0 km2 outside).
+- Texts: V4 lead, titles, versions paragraph, search keywords.
+- Checked: build, version test (no errors), full-map screenshot.
