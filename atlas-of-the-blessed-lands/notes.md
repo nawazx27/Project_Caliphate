@@ -1962,3 +1962,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Nawaz circled the Elbe mouth on Version 317 (reference/v318_elbe_estuary.jpg): "Fill this gap to the shore".
 - tools/v318_v5_elbe_estuary.py: V5 takes the estuary water from Cuxhaven to Hamburg-Wedel (8.94-9.85 E) up to the north shore (+210 km2), so the frontier river's mouth is inside; the 21 km2 square of north-bank land at the mouth that Version 317's box had cut out is removed. Brunsbuettel and Glueckstadt (north bank) stay out. V6 +109 km2.
 - V5 37,568,774 -> 37,569,266 km2. Version test: no errors.
+
+## Version 319 (2026-11-07): the Saale-Elbe land and the Marcomannic-war lands in V5
+- Nawaz: "Does v5 have all the lands that the Roman Empire ever held?" (after Version 316's river line two gaps: the land between the Saale and the Elbe, and the army bases north of the Middle Danube of AD 172-180: Musov, Stillfried, Laugaricio/Trencin) -> "Both and preview" -> current vs preview, full map -> "apply".
+- tools/v319_v5_elbe_marcomannic.py: (a) all of Germany on the Roman side of the Elbe up to the Czech border (Germany split by the Natural Earth Elbe, tools/data/v319_elbe.geojson): +28,302 km2, Halle, Leipzig, Dessau, Chemnitz, Dresden old town in, Dresden Neustadt and Berlin out; (b) Overture regions (tools/data/v319_cz_at_regions.parquet with the Version 308 Slovak regions): Lower Austria and Vienna whole, South Moravia, Bratislava, Trnava, Nitra and Trencin regions: +28,885 km2 (Stillfried, Musov, Brno, Trencin, Nitra, Bratislava old town in; Zilina, Olomouc, Prague out). 1 pocket filled. V6 already held it.
+- Left as offered: the Muehlviertel dent north of Linz; the Roman camps at Olomouc and Hulin.
+- V5 37,569,266 -> 37,626,729 km2. Text: V5 lead. Version test: no errors.
