@@ -1994,3 +1994,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## (Not applied) Version 324 preview: northern/eastern Slovakia and Ostrava out
 - Nawaz asked whether the circled area (northern/eastern Slovakia, Ostrava) was Roman (no: Barbaricum; only western Slovakia had Marcomannic-war forts/camps), said "Sure" to a preview (tools/v324_v5_roman_ottoman_north.py, -35,701 km2), then "Let it be": NOT applied. V5 stays as Version 323 (all of Slovakia, Hungary and eastern Moravia in, by his Version 320 request). Do not run v324_v5_roman_ottoman_north.py unless he asks.
+
+## Version 326 (2026-11-07): the Super Caliphate (V6) removed
+- Nawaz: "Make a preview with all the exceptions" (Version 325 preview, tools/v325_v5_exceptions.py: Krasnodar fringe + Tuapse coast, NOT applied) -> "Delete super caliphate".
+- build.js: 'v2' added to HIDDEN_OUTLINES (data kept in caliph.json, like the other removed versions). body.html: the V6 buttons and the V6 sentence removed; versions now V1 to V5 (V5, the Grand Caliphate, is the largest); the "removed outlines" sentence names the Mediterranean version and the Super Caliphate; two texts that named V6 reworded. eng_e.js: the Super Caliphate search entry removed; every link that opened v2 (#outline-v6, #outline-super-caliphate, #outline-mediterranean, #outline-south-asia, #outline-greater...) now opens V5 (grm). start.js: v2 not preloaded. The V6-only code (labels, province history notes, CX_LEAD.v2) is left in place but can no longer be reached.
+- Version test loop now shj, me2, me9, sas, grm: no errors. V5 37,681,953 km2 (unchanged).
+- From now on there is no V6 to keep V5 inside; the nesting check is sas inside grm.
