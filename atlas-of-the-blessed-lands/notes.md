@@ -2016,3 +2016,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Nawaz circled a speck off western Norway: "Is this a part of Roman Empire" -> no: Karmoy island and an islet north of it (~195 km2), picked up by the Version 305 trace of the Roman-rule map (mis-registered speck). Rome never held Norway.
 - tools/v329_v5_no_karmoy.py: both pieces dropped; Norway removed from V5's country list. Checked every other small V5 piece in a barely-held country: all come from V4 (Thai, Sumatran, Madagascan, Caspian, Lake Malawi islands), none stray.
 - reference/v329_karmoy.jpg. Version test: no errors.
+
+## Version 330 (2026-11-07): stray specks off Madagascar and in the northern Caspian removed from V4 and V5
+- Nawaz circled them on V5 (reference/v330_nosy_be.jpg, v330_caspian.jpg): "Are these specs part of the Roman Empire?" -> no (and not any land he asked for; inherited from V4) -> "Are you sure..." -> "Sure".
+- tools/v330_strays_v4_v5.py: Nosy Be (Madagascar, ~300 km2), the Russian islands off the Volga delta and Chechen Island (~100 km2 each) dropped from V4 (sas, -494 km2) and V5 (grm, -513 km2); Madagascar off their country lists. The Kazakh Caspian islands stay (Kazakhstan whole in V3-V5).
+- Found, not changed: an 8 km2 sliver of V3 outside V4 near the Karakoram Pass (77.6 E, 35.5 N), older than this version.
+- V4 35,107,145; V5 37,681,254 km2. Version test: no errors.
