@@ -2032,3 +2032,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## (Not applied) Version 332 preview: Bohemia
 - Nawaz asked how far Rome wanted to expand, then "Preview of what's outside". Only planned target outside V5: Bohemia (Augustus AD 6; Marcus Aurelius's 'Marcomannia'). tools/v332_v5_bohemia.py adds all of Czechia (+52,688 km2). He said "Let it be": NOT applied. Do not run it unless he asks.
+
+## Version 333 (2026-11-07): the Bosporan Kuban in V5, to his red line
+- Nawaz: "Are you sure that it wasn't a client kingdom?" (the Bosporan kings' titles claim the Maeotians, Sindians, Toretae...; ruled or only tributary is disputed) -> "Preview" -> red line from the Don corner to the Kuban edge (reference/v333_kuban_redline.jpg) -> checks -> "Push".
+- tools/v333_v5_bosporan_kuban.py: V5 takes Krasnodar city, Dinskoy, Seversky, Abinsky, Gelendzhik (+6,001 km2) and the land between the old straight line and his red line (tools/data/v333_kuban_redline.json, +11,390 km2: Tikhoretsk, Ust-Labinsk, Bataysk side). No pocket filling. Tuapse coast (Nicopsis), Maykop, Kropotkin, Goryachy Klyuch, Salsk stay out.
+- Checks after: DARE 0 km2 and the sharper Roman map 0 km2 outside V5; 68 key sites all inside (incl. Elizavetinskaya hillfort).
+- V5 37,679,221 -> 37,696,973 km2. Version test: no errors.
