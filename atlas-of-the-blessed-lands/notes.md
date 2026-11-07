@@ -1868,3 +1868,10 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - V5 37,940,677 -> 38,127,726 km2. V6 (rom) 39,944,864 and V7 (v2) 47,849,405 took the V5 land they lacked (mostly Czechia/southern Poland). Each version inside the next (checked).
 - Texts: V5 lead, titles, versions paragraph, search keywords.
 - Checked: build, version test (no errors), screenshots (Europe; Crimea/Kerch Strait clean).
+
+## Version 304 (2026-11-07): V5 rebuilt from the Version 300 + Ukraine preview, filled to his Saar-Ukraine line, with Crimea
+- Nawaz (screenshot of the unapplied V5 + Ukraine preview, red line from the Saar to Ukraine's NW corner, Crimea circled): "Revert back to this and fill that gap and add crimea".
+- tools/v304_v5_line.py (inputs: Version 300 caliph.json, git feab197; scratch crimea.pkl; Overture DE/NL Kreise and PL/CZ/BY/FR/LU county parquets): V5 (grm) = Version 300 V5 + Ukraine (base map) + Crimea and Sevastopol (Overture regions, land) + every Kreis/powiat/raion >=50% south of his line (tools/v304_build/redline304.json, read off the screenshot with the page's own projection; DE 133, CZ 75, PL 179, BY 2); 146 pockets filled (2,812 km2, incl. Prague and the Arabat/Sivash pocket, 100% enclosed). Not in: northern Germany (Frankfurt, Cologne, Dresden), the Netherlands, Warsaw, Taman. 38,127,726 -> 37,921,842 km2.
+- V6 (rom) 39,967,063 and V7 (v2) 47,871,606 took ~22,000 km2 of V5 edge they lacked; Germany-to-the-Elbe etc. stays in V6/V7. Each version inside the next.
+- Texts: V5 lead, titles, versions paragraph, search entry and keywords.
+- Checked: build, version test (no errors), screenshot.
