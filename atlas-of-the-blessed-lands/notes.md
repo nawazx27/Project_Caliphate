@@ -1875,3 +1875,10 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - V6 (rom) 39,967,063 and V7 (v2) 47,871,606 took ~22,000 km2 of V5 edge they lacked; Germany-to-the-Elbe etc. stays in V6/V7. Each version inside the next.
 - Texts: V5 lead, titles, versions paragraph, search entry and keywords.
 - Checked: build, version test (no errors), screenshot.
+
+## Version 305 (2026-11-07): V5 drawn exactly on the map of the duration of Roman rule
+- Nawaz sent a map of how long Rome ruled each land (coloured from >1500 years to '>50' years) with "I want it to look exactly like this", chose "Exactly this map" for V5's Europe, then sent close-ups of the same map ("A more closer look"), which agree with the trace.
+- tools/v305_v5_roman_map.py: V5 (grm) = V4 + the land of that map (tools/data/v5_roman_map305.geojson; map in reference/v305_roman_rule_duration_map.jpg, close-ups reference/v305_roman_map_closeup_*.jpg). Georeferenced by iterative closest point between Natural Earth coastlines and the map's coast lines (cubic transform, median 1 px; tools/v305_build/icp.py, tf2.json), coloured area traced (trace.py, tools/data/v305_roman_map_shape.geojson), cut to land with a 0.25 deg coastal snap and whole small islands (build.py). In: Britain to the Forth-Clyde line, Gaul and the Low Countries, NW Germany to the Elbe, the Rhine-Danube lands, Dacia with Moldavia, the Bosporan Crimea and Azov coast, the Black Sea coasts. Out (Rome never ruled them): Ireland, northern Scotland, Czechia, Poland, Slovakia, inland Ukraine, Berlin/Hamburg side of the Elbe. Vienna/Budapest/Bratislava/Taman sit right on the map's edge and fall just outside.
+- V5 37,921,842 -> 37,107,013 km2; V6 (rom) 39,970,165 and V7 (v2) 47,872,136 took a few hundred km2 of edge. Each version inside the next.
+- Texts: V5 lead, titles, versions paragraph, search entry.
+- Checked: build, version test (no errors), screenshot compared with his close-ups.
