@@ -2038,3 +2038,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - tools/v333_v5_bosporan_kuban.py: V5 takes Krasnodar city, Dinskoy, Seversky, Abinsky, Gelendzhik (+6,001 km2) and the land between the old straight line and his red line (tools/data/v333_kuban_redline.json, +11,390 km2: Tikhoretsk, Ust-Labinsk, Bataysk side). No pocket filling. Tuapse coast (Nicopsis), Maykop, Kropotkin, Goryachy Klyuch, Salsk stay out.
 - Checks after: DARE 0 km2 and the sharper Roman map 0 km2 outside V5; 68 key sites all inside (incl. Elizavetinskaya hillfort).
 - V5 37,679,221 -> 37,696,973 km2. Version test: no errors.
+
+## (Not applied) Version 334 preview: Caucasus to the Georgian/Azerbaijani border
+- Nawaz asked whether going back to Georgia's (then Georgia's and Azerbaijan's modern) border loses Roman land: by DARE none; only the doubtful client fringes at Sochi-Adler (Sanigae, Arrian) and Derbent (Caucasian Albania, Dio 68.18). Middle-way preview (tools/v334_v5_georgia_border.py, keeping Sochi and Derbent, -14,797 km2) shown; he said "Let it be": NOT applied. V5 stays as Version 333.
