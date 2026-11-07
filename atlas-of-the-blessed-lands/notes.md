@@ -2025,3 +2025,7 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Poster of V5 (2026-11-07, after Version 330; map unchanged)
 - Nawaz: "Make a poster of v5". tools/poster_v5.js (from tools/poster_v4.js, his Ottoman-zenith style): dark vintage-atlas poster, V5 (grm) in crimson relief with a gold edge, framed from the Canaries to Myanmar and Shetland to Tanzania, title DAR AL-AMAN, medallion, compass roses, classical sea names (+ Bahr al-Shimal, Bahr Harkand), cartouche "The Grand Caliphate - V5 - three continents, Shetland to Zanzibar - about 37.7 million km2", disclaimer line at the foot. Output posters/v5_poster.png (4200x3200) and .jpg; sent as handoff part13-poster-v5.
+
+## Version 331 (2026-11-07): stray Thai and Sumatran islands removed from V4 and V5
+- Nawaz, on V5 over the Andaman Sea (reference/v331_se_asia.jpg): "Are there any stray specs here.. if so are they part of the Roman Empire?" -> yes, not Roman -> "Sure".
+- tools/v331_strays_se_asia.py: every V4/V5 piece lying in Thailand or Indonesia dropped (Phuket, Ko Lanta, Ko Yao, Ko Samui, Ko Pha Ngan, Ko Tao, Ko Chang, Ko Kut; Weh and Breueh off Aceh), leftovers of the old Super Caliphate's Southeast Asia; Myanmar (Mergui), Andaman & Nicobar and Bangladesh pieces kept. Version test: no errors.
