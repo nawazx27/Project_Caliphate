@@ -2041,3 +2041,8 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## (Not applied) Version 334 preview: Caucasus to the Georgian/Azerbaijani border
 - Nawaz asked whether going back to Georgia's (then Georgia's and Azerbaijan's modern) border loses Roman land: by DARE none; only the doubtful client fringes at Sochi-Adler (Sanigae, Arrian) and Derbent (Caucasian Albania, Dio 68.18). Middle-way preview (tools/v334_v5_georgia_border.py, keeping Sochi and Derbent, -14,797 km2) shown; he said "Let it be": NOT applied. V5 stays as Version 333.
+
+## Version 335 (2026-11-07): back to Version 331 (Kuban push of Version 333 undone)
+- After the "never controlled?" correction (Arrian's Zilchi under Hadrian on the Tuapse coast; Tacitus Germania 42 and Dio 72.20 on Marcomannic client kings and Roman troops), Nawaz: "Ykw just revert back to previous version".
+- src/caliph.json and src/eng_e.js restored from Version 331 (commit 4ffb7af): the Kuban is the straight Don-Novorossiysk line again (no Krasnodar, Gelendzhik, Tikhoretsk). V5 37,679,221 km2. tools/v333_v5_bosporan_kuban.py kept but not to be run unless he asks. Version test: no errors.
+- Known (told him): Tuapse coast (Zilchi, client under Hadrian), Bohemia (Marcomanni at times clients), the Bosporan Kuban fringe are outside V5.
