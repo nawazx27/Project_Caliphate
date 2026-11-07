@@ -2011,3 +2011,8 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Checked V5 for holes (none), seams between pieces on land (none: all 865 hairline gaps found lie on its outer edge, ~1 m wide, rounding against the base map's borders, invisible), thin spikes and slivers.
 - tools/v328_v5_stray_lines.py: removed the 6.5 km hairline piece (0.21 km2) at the Elbe mouth left by Version 318; the outline opened by ~20 m (parts thinner than ~40 m); 0.24 km2 removed, 0.03 km2 added by rounding. Seven other flagged "spikes" (Kinburn spit, Arabat spit, Chesil Beach, Pembrokeshire, Sicily, Algerian coast, La Palma) were false alarms: long straight coast edges, zero area. Real islands (Lakshadweep, Farasan, Lobos, Mogador, Sark, Scilly) kept.
 - V5 37,681,961 km2 (unchanged at that precision), 620 -> 619 pieces. Version test: no errors.
+
+## Version 329 (2026-11-07): stray Karmoy (Norway) removed from V5
+- Nawaz circled a speck off western Norway: "Is this a part of Roman Empire" -> no: Karmoy island and an islet north of it (~195 km2), picked up by the Version 305 trace of the Roman-rule map (mis-registered speck). Rome never held Norway.
+- tools/v329_v5_no_karmoy.py: both pieces dropped; Norway removed from V5's country list. Checked every other small V5 piece in a barely-held country: all come from V4 (Thai, Sumatran, Madagascan, Caspian, Lake Malawi islands), none stray.
+- reference/v329_karmoy.jpg. Version test: no errors.
