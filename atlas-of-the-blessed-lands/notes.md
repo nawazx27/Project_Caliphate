@@ -1933,3 +1933,8 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Nawaz: "Does v5 have all the lands that the Roman Empire ever held or not?" (yes, but for the temporary marching camps north of the Tay) -> "Add".
 - tools/v313_v5_ne_scotland.py: V5 (grm) takes Aberdeenshire, Aberdeen City and Moray (Overture, tools/data/v313_ne_scotland.parquet): the camps of Agricola (AD 83-84) and Severus (208-211) at Raedykes, Normandykes, Kintore, Logie Durno, Ythan Wells, Glenmailen, Muiryfold and Bellie. +8,724 km2. Inverness and the Highlands stay out. V6 (v2) already held them (+2 km2).
 - V5 37,383,954 -> 37,392,744 km2. Texts: titles, versions paragraph, V5 lead, search entry. Version test: no errors.
+
+## Version 314 (2026-11-07): all of the United Kingdom and Ireland in V5
+- Nawaz: "Add entire uk and Ireland".
+- tools/v314_v5_uk_ireland.py: V5 (grm) takes the whole United Kingdom (Highlands, Orkney, Shetland, the Hebrides, Northern Ireland), the whole of Ireland, and the Isle of Man between them (it was 68% in), from the base map (826, 372, 833). +123,254 km2. V6 already held them.
+- V5 37,392,744 -> 37,518,071 km2. Texts: titles, versions paragraph, V5 lead, search entry. Version test: no errors.
