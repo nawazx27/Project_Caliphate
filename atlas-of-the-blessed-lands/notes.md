@@ -1984,3 +1984,10 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - tools/v322_v5_islands_kuban.py (data tools/data/v322_kuban_scilly.parquet): Jersey and Guernsey with Alderney, Sark, Herm (base map + Overture) +228 km2; Isles of Scilly +15; Krasnodar city, Dinskoy, Seversky, Abinsky, Gelendzhik +6,001; mainland France with all its islands, all of Austria (Muehlviertel) and every country V5 holds 100% taken whole again (coastal specks; Netherlands in Europe only) +3,355; 3 pockets 138. The Tuapse coast was tried and left OUT: it closes a 34,000 km2 pocket of the central Kuban plain (Maykop, Kropotkin, Tikhoretsk) that the gap rule would fill.
 - Checked: DARE provinces of 117, both Roman-rule maps: 0 km2 outside V5; 112 Roman/Byzantine sites all in.
 - V5 37,675,712 -> 37,688,224 km2; V6 +46 km2 (47,873,998). Text: V5 lead. Version test: no errors.
+
+## Version 323 (2026-11-07): the Kuban back to Version 321
+- Nawaz: "What about the tuapse coast" -> "Forget about the no gaps rule..." -> Tuapse preview (tools/v323_v5_tuapse.py, NOT applied) -> ticked the Version 321 Kuban on the before/after picture (reference/v323_kuban_back.jpg): "Take it back to this and push".
+- tools/v323_v5_kuban_back.py: in 36-41 E, 43.5-46.5 N V5 = its Version 321 shape (straight edge Don-Novorossiysk; the Krasnodar, Dinskoy, Seversky, Abinsky-rest and Gelendzhik additions of Version 322 out, -6,284 km2; 0 km2 different from 321 there). The rest of Version 322 stays (Channel Islands, Scilly, Breton/Vendee islands, all Austria, coastal specks). V6 unchanged.
+- So the Bosporan Kuban fringe round Krasnodar and Byzantine Nicopsis (Tuapse coast) are outside V5 by his choice.
+- No-gaps rule: he said "Forget about the no gaps rule" (asked whether for good or only for Tuapse; not yet answered).
+- V5 37,688,224 -> 37,681,953 km2. Version test: no errors.
