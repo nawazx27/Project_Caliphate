@@ -1,6 +1,6 @@
 """Version 320 (Nawaz: "Now, Does v5 have all the lands that the Roman Empire ever held?" -> only the Marcomannic-war marching camps at
 Olomouc-Neredín and Hulín lay outside -> "Preview"). V5 (grm) takes the Olomouc and Zlín regions of Czechia, and (his red line, "Extend and make it follow the border of Czechia till Slovakia",
-reference/v320_moravia_silesia_line.jpg) the Moravian-Silesian region with Ostrava, (Overture,
+reference/v320_moravia_silesia_line.jpg) the Moravian-Silesian region with Ostrava, and all of modern Hungary and Slovakia ("Add full modern Hungary and Slovakia"), (Overture,
 tools/data/v319_cz_at_regions.parquet). Pockets >=80% filled; V6 takes what it lacks."""
 import json, os, sys, subprocess, shapely
 import pyarrow.parquet as pq
@@ -18,7 +18,9 @@ V5 = M('grm')
 rows = pq.read_table(os.path.join(P, 'tools/data/v319_cz_at_regions.parquet')).to_pylist()
 B = unary_union([shapely.from_wkb(r['geometry']).buffer(0) for r in rows if r['subtype'] == 'region' and r['is_land'] is not False and r['region'] in ('CZ-71', 'CZ-72', 'CZ-80')])   # + Moravian-Silesian region: his line along the Czech border to Slovakia
 print('Olomouc, Zlin and Moravian-Silesian regions add', round(A(B.difference(V5))), 'km2; touch V5:', B.buffer(0.01).intersects(V5))
-X = unary_union([V5, B.buffer(0.003)]).buffer(0)
+HS = unary_union([G['348'][1], G['703'][1]])   # all of modern Hungary and Slovakia (he: "Add full modern Hungary and Slovakia")
+print('Hungary and Slovakia whole add', round(A(HS.difference(V5).difference(B))), 'km2')
+X = unary_union([V5, B.buffer(0.003), HS.buffer(0.002)]).buffer(0)
 win = box(5, 44, 25, 56); L = unary_union([g for n, g in G.values() if g.intersects(win)]).intersection(win)
 rest = L.difference(X); XB = X.buffer(0.05); fill = []
 for q in getattr(rest, 'geoms', [rest]):
@@ -44,7 +46,7 @@ for k, (n, g) in G.items():
         if pct >= 1: rws.append({'id': k, 'n': n, 'km2': round(A(g)), 'pct': pct})
 old = C['grm']['km2']; C['grm'] = {'polys': o, 'km2': km2of(o), 'states': sorted(rws, key=lambda r: -r['km2'] * r['pct'])}
 print('grm', old, '->', C['grm']['km2'])
-for n_, p in {'Olomouc-Neredin camp': (17.22, 49.6), 'Hulin camp': (17.46, 49.32), 'Zlin': (17.67, 49.22), 'Olomouc': (17.25, 49.59), 'Ostrava': (18.29, 49.82), 'Brno': (16.61, 49.2), 'Zilina': (18.74, 49.22)}.items(): print('  ', n_, Y.contains(Point(p)))
+for n_, p in {'Olomouc-Neredin camp': (17.22, 49.6), 'Hulin camp': (17.46, 49.32), 'Zlin': (17.67, 49.22), 'Olomouc': (17.25, 49.59), 'Ostrava': (18.29, 49.82), 'Brno': (16.61, 49.2), 'Zilina': (18.74, 49.22), 'Kosice': (21.26, 48.72), 'Presov': (21.24, 49.0), 'Banska Bystrica': (19.15, 48.74), 'Miskolc': (20.78, 48.1), 'Nyiregyhaza': (21.72, 47.95), 'Uzhhorod': (22.29, 48.62)}.items(): print('  ', n_, Y.contains(Point(p)))
 for key in ['v2']:
     V = M(key); ex = A(Y.difference(V))
     if ex < 1: print(key, 'already holds V5'); continue
