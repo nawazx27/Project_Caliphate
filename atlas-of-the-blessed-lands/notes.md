@@ -1957,3 +1957,8 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Found: the old traces had left out the north coast of Friesland and Groningen and most Wadden islands, and Version 316's sea link (from the Elbe at Hamburg straight to the open sea) left a straight cut across East Frisia.
 - tools/v317_v5_frisia.py: V5 takes all base-map land in 4.4-8.95 E, 52.6-53.97 N (south of the Elbe): +3,747 km2. Texel, Terschelling, Leeuwarden, Groningen, Borkum, Norden, Aurich, Wilhelmshaven, Wangerooge, Cuxhaven in; Heligoland and Sylt (north of the Elbe line) out. V6 +20 km2.
 - V5 37,564,853 -> 37,568,774 km2. Version test: no errors.
+
+## Version 318 (2026-11-07): the Elbe estuary filled to the north shore
+- Nawaz circled the Elbe mouth on Version 317 (reference/v318_elbe_estuary.jpg): "Fill this gap to the shore".
+- tools/v318_v5_elbe_estuary.py: V5 takes the estuary water from Cuxhaven to Hamburg-Wedel (8.94-9.85 E) up to the north shore (+210 km2), so the frontier river's mouth is inside; the 21 km2 square of north-bank land at the mouth that Version 317's box had cut out is removed. Brunsbuettel and Glueckstadt (north bank) stay out. V6 +109 km2.
+- V5 37,568,774 -> 37,569,266 km2. Version test: no errors.
