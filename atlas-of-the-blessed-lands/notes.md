@@ -1973,3 +1973,8 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Nawaz: "Now, Does v5 have all the lands that the Roman Empire ever held?" (only the Marcomannic-war camps at Olomouc-Neredin and Hulin were out) -> "Preview" -> red line: "Extend and make it follow the border of Czechia till Slovakia" (reference/v320_moravia_silesia_line.jpg) -> "Add full modern Hungary and Slovakia" -> "Push".
 - tools/v320_v5_moravia_camps.py: V5 takes the Olomouc, Zlin and Moravian-Silesian regions (Overture, tools/data/v319_cz_at_regions.parquet; +14,574 km2) and the whole of Hungary and Slovakia from the base map (348, 703; +30,145 km2); 3 pockets filled (16 km2). Olomouc, Zlin, Ostrava, both camps, Zilina, Banska Bystrica, Presov, Kosice, Miskolc, Nyiregyhaza in; Uzhhorod (Ukraine) out. V6 already held it.
 - V5 37,626,729 -> 37,671,563 km2. Texts: versions paragraph (about 37.7 million km2), V5 lead. Version test: no errors.
+
+## Version 321 (2026-11-07): every land of both Roman-rule maps in V5
+- Nawaz: "Now, Does v5 have all the lands that the Roman Empire ever held?" (all 60 Roman/Byzantine sites in; but 2,138 km2 of the original map and 4,003 km2 of the sharper map, a corner of western Czechia round Cheb, lay outside after Version 316's Saale-Naab line) -> the sharper map again: "Cover".
+- tools/v321_v5_cover_roman_maps.py: V5 takes all land of both traced maps it lacked (Cheb corner 4,086 km2, a 20 km2 sliver by Magdeburg), edge smoothed locally (0.05 deg, land only). Map land still outside V5: 0 km2. Cheb, Marianske Lazne, Karlovy Vary in; Plzen out. V6 +2 km2.
+- V5 37,671,563 -> 37,675,712 km2. Version test: no errors.
