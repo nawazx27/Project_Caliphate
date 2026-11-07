@@ -1951,3 +1951,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - tools/v316_v5_river_frontier.py: river lines tools/data/v316_frontier_rivers.geojson (Natural Earth 10m Elbe, Saale, Donau; Naab with Waldnaab and Fichtelnaab from Overture water). Joined at their meeting points and over the Fichtelgebirge, out to sea west of the North Frisian islands; each river a 0.008 deg band to bridge small breaks; the land split at them. In a 0.6 deg band along the rivers (west of 17.0 E) V5 is exactly the Roman side; V5 land beyond the rivers is cut (12,438 km2 in the band, 3,302 km2 of west Saxony left cut off), land up to them added (28,960 km2).
 - Now: Cuxhaven, Harburg, Magdeburg, Hof, Amberg, Regensburg old town, Passau, Linz, Vienna centre, Carnuntum, Gerulata in; Hamburg north of the Elbe, Halle, Leipzig, Jena (east bank of the Saale), Chemnitz, Vienna north of the Danube, Sylt, Heligoland out.
 - V5 37,550,922 -> 37,564,853 km2; V6 +29 km2. Texts: V5 lead. Version test: no errors.
+
+## Version 317 (2026-11-07): the Frisian coast filled
+- Nawaz circled the North Sea coast of the Netherlands and Germany on Version 316 (reference/v317_frisia_fill.jpg): "Fill".
+- Found: the old traces had left out the north coast of Friesland and Groningen and most Wadden islands, and Version 316's sea link (from the Elbe at Hamburg straight to the open sea) left a straight cut across East Frisia.
+- tools/v317_v5_frisia.py: V5 takes all base-map land in 4.4-8.95 E, 52.6-53.97 N (south of the Elbe): +3,747 km2. Texel, Terschelling, Leeuwarden, Groningen, Borkum, Norden, Aurich, Wilhelmshaven, Wangerooge, Cuxhaven in; Heligoland and Sylt (north of the Elbe line) out. V6 +20 km2.
+- V5 37,564,853 -> 37,568,774 km2. Version test: no errors.
