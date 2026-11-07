@@ -2029,3 +2029,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 ## Version 331 (2026-11-07): stray Thai and Sumatran islands removed from V4 and V5
 - Nawaz, on V5 over the Andaman Sea (reference/v331_se_asia.jpg): "Are there any stray specs here.. if so are they part of the Roman Empire?" -> yes, not Roman -> "Sure".
 - tools/v331_strays_se_asia.py: every V4/V5 piece lying in Thailand or Indonesia dropped (Phuket, Ko Lanta, Ko Yao, Ko Samui, Ko Pha Ngan, Ko Tao, Ko Chang, Ko Kut; Weh and Breueh off Aceh), leftovers of the old Super Caliphate's Southeast Asia; Myanmar (Mergui), Andaman & Nicobar and Bangladesh pieces kept. Version test: no errors.
+
+## (Not applied) Version 332 preview: Bohemia
+- Nawaz asked how far Rome wanted to expand, then "Preview of what's outside". Only planned target outside V5: Bohemia (Augustus AD 6; Marcus Aurelius's 'Marcomannia'). tools/v332_v5_bohemia.py adds all of Czechia (+52,688 km2). He said "Let it be": NOT applied. Do not run it unless he asks.
