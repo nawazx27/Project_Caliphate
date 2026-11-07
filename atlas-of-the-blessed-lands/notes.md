@@ -2046,3 +2046,7 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - After the "never controlled?" correction (Arrian's Zilchi under Hadrian on the Tuapse coast; Tacitus Germania 42 and Dio 72.20 on Marcomannic client kings and Roman troops), Nawaz: "Ykw just revert back to previous version".
 - src/caliph.json and src/eng_e.js restored from Version 331 (commit 4ffb7af): the Kuban is the straight Don-Novorossiysk line again (no Krasnodar, Gelendzhik, Tikhoretsk). V5 37,679,221 km2. tools/v333_v5_bosporan_kuban.py kept but not to be run unless he asks. Version test: no errors.
 - Known (told him): Tuapse coast (Zilchi, client under Hadrian), Bohemia (Marcomanni at times clients), the Bosporan Kuban fringe are outside V5.
+
+## Version 336 (2026-11-07): the Roman camp at Jevicko in V5
+- Nawaz: "Forget the Roman client territories ... all the actual land ever conquered and held?" -> "Are you sure?" -> "Get to the bottom of this": a web check of recent Roman camp finds (LEIZA list of marching camps north of the Middle Danube; Brno 2018; Surany 2026; Wilkenburg, Hachelbich) found one outside V5: the Marcomannic-war temporary camp at Jevicko (Svitavy district, Pardubice region), ~0.8 km beyond V5's Moravian edge. No Roman camp is known in Bohemia proper. -> "Add that small area".
+- tools/v336_v5_jevicko.py: V5 takes the municipality of Jevicko (Overture localadmin, tools/data/v336_jevicko.parquet), +22 km2 (the rest already in), joined to V5. V5 37,679,221 -> 37,679,248 km2. Version test: no errors.
