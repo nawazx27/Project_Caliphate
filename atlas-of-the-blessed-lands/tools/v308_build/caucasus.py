@@ -13,9 +13,12 @@ M = lambda C, k: MultiPolygon([Polygon(r[0], r[1:]) for r in C[k]['polys']]).buf
 R = shape(json.load(open(os.path.join(P, 'tools/v308_build/caucasus_circle308.json')))).buffer(0)
 Yp, V305 = M(PRE, 'grm'), M(OLD, 'grm')
 print('removed', round(A(Yp.intersection(R).difference(V305))), 'added', round(A(V305.intersection(R).difference(Yp))))
-X = shapely.union_all([Yp.difference(R), V305.intersection(R).buffer(0.002)]).buffer(0)
-# drop slivers left where the circle edge cuts
-X = shapely.union_all([q for q in getattr(X, 'geoms', [X]) if A(q) > 30]).buffer(-0.01).buffer(0.01)
+# pieces away from the circle are kept whole (small islands too); pieces the circle cuts lose the bits under 30 km2 it leaves
+keep = []
+for q in getattr(Yp, 'geoms', [Yp]):
+    if not q.intersects(R): keep.append(q); continue
+    d = q.difference(R); keep += [s for s in getattr(d, 'geoms', [d]) if s.geom_type == 'Polygon' and A(s) > 30]
+X = shapely.union_all(keep + [V305.intersection(R).buffer(0.002)]).buffer(0)
 def km2of(out):
     return int(subprocess.check_output(['node', '-e', """const d3=require('./node_modules/d3'),fs=require('fs');const C=JSON.parse(fs.readFileSync(0));
 const s=r=>{const a=d3.geoArea({type:'Polygon',coordinates:[r]});return Math.min(a,4*Math.PI-a)};
@@ -37,5 +40,6 @@ for f in geo['features']:
         if pct >= 1: rws.append({'id': f['id'], 'n': f['properties']['n'], 'km2': round(A(g)), 'pct': pct})
 PRE['grm']['states'] = sorted(rws, key=lambda r: -r['km2'] * r['pct'])
 print('grm', PRE['grm']['km2'])
+for a_, b_ in [('sas', 'grm')]: print(a_, 'outside', b_, round(A(M(OLD, a_).difference(Y.buffer(0.01)))), '(V4 of Version 305)')
 for n, p in {'Krasnodar': (38.98, 45.04), 'Rostov': (39.72, 47.24), 'Taman': (36.7, 45.2), 'Novorossiysk': (37.77, 44.72), 'Sochi': (39.72, 43.6), 'Stavropol': (41.97, 45.04), 'Grozny': (45.7, 43.32), 'Makhachkala': (47.5, 42.98), 'Derbent': (48.29, 42.06), 'Tbilisi': (44.79, 41.72), 'Baku': (49.87, 40.41), 'Astrakhan': (48.03, 46.35)}.items(): print(' ', n, Y.contains(Point(p)))
 json.dump(PRE, open(F_ + '.tmp', 'w'), separators=(',', ':'), ensure_ascii=False); os.replace(F_ + '.tmp', F_)

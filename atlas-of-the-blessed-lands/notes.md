@@ -1906,3 +1906,8 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - In: Vienna, Carnuntum, Bratislava, Regensburg, Inchtuthil, Ternopil, Buchach, Khmelnytskyi, Uman, Chyhyryn, Kosice, Uzhhorod, Tbilisi, Derbent, Baku. Out: Kyiv, Dnipro, Zilina, Krasnodar, Stavropol, Grozny, Makhachkala. Farasan is in the data but the base map does not draw those islands.
 - V5 37,404,052 -> 37,476,684 km2; V6 39,972,072; V7 47,873,282. Each version inside the next.
 - Texts: V5 titles, versions paragraph (about 37.5 million km2), V5 lead ("Since Version 308 ..."), search entry. Version test: no errors.
+
+## Version 309 (2026-11-07): V5 pushed out to his red line from the Don to Novorossiysk; small islands restored
+- Nawaz drew a red line on Version 308 just east of the straight Don-Novorossiysk edge of V5 (reference/v309_redline_kuban.jpg). tools/v309_v5_redline.py: V5 takes the land between that edge and his line (tools/v309_build/redline309.json, read off his screenshot; +10,388 km2, 11 pockets filled). Bataysk now in; Krasnodar, Tikhoretsk, Kropotkin, Armavir, Salsk stay out.
+- Fix: Version 308's Caucasus step (tools/v308_build/caucasus.py) dropped V5 pieces under 30 km2 everywhere and eroded the rest by 0.01 deg, so about 2,600 km2 of small islands (Aegean, Ionian, Andaman, Maldives, Gulf) fell out of V5 and V4 stuck out of V5. Now only the pieces the circle cuts are trimmed; Version 308 was re-run with the fix before Version 309 (V4 outside V5: 0).
+- V5 37,476,684 (Version 308 as published) -> 37,482,391 (Version 308 fixed) -> 37,493,722 km2. V6 and V7 already held it. Version test: no errors.
