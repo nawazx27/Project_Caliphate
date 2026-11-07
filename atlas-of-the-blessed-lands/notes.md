@@ -1882,3 +1882,11 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - V5 37,921,842 -> 37,107,013 km2; V6 (rom) 39,970,165 and V7 (v2) 47,872,136 took a few hundred km2 of edge. Each version inside the next.
 - Texts: V5 lead, titles, versions paragraph, search entry.
 - Checked: build, version test (no errors), screenshot compared with his close-ups.
+
+## Version 306 (2026-11-07): V5 gains the Ottoman lands of 1683
+- Nawaz sent a schematic map of the Ottoman Empire at its height (1683) with "It should look like this" (reference/v306_ottoman_1683_map.jpg). The map is a drawing whose coasts do not fit real coastlines (about 5 px off after fitting), so its lands were taken as whole real regions instead of tracing the drawing.
+- tools/v306_v5_ottoman.py: V5 (grm) = V5 of Version 305 + Hungary + the regions in tools/data/v306_ottoman_regions.parquet (Overture divisions): Ukraine's Odesa, Mykolaiv, Kherson, Zaporizhzhia, Khmelnytskyi, Vinnytsia and Ternopil oblasts (Podolia and the Yedisan/Budjak coast), Crimea and Sevastopol (cut to land), Mariupol and Kalmiuskyi raions; Russia's Neklinovsky raion, Taganrog, Azov city and Azov raion, Krasnodar Krai and Adygea (Kuban). Then the pocket fill (14 pockets, 788 km2). V6 and V7 fold in any V5 land they lacked.
+- In: Budapest, Kamianets, Vinnytsia, Odesa, Simferopol, Azov, Krasnodar. Out: Vienna (the 1683 siege failed), Kyiv.
+- V5 37,107,013 -> 37,328,964 km2; V6 (rom) 39,970,575; V7 (v2) 47,872,390. Each version inside the next. Nothing removed.
+- Texts: V5 titles, versions paragraph, V5 lead ("Since Version 306 ..."), search entries.
+- Checked: build, version test (no errors), screenshot.
