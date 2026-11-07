@@ -2022,3 +2022,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - tools/v330_strays_v4_v5.py: Nosy Be (Madagascar, ~300 km2), the Russian islands off the Volga delta and Chechen Island (~100 km2 each) dropped from V4 (sas, -494 km2) and V5 (grm, -513 km2); Madagascar off their country lists. The Kazakh Caspian islands stay (Kazakhstan whole in V3-V5).
 - Found, not changed: an 8 km2 sliver of V3 outside V4 near the Karakoram Pass (77.6 E, 35.5 N), older than this version.
 - V4 35,107,145; V5 37,681,254 km2. Version test: no errors.
+
+## Poster of V5 (2026-11-07, after Version 330; map unchanged)
+- Nawaz: "Make a poster of v5". tools/poster_v5.js (from tools/poster_v4.js, his Ottoman-zenith style): dark vintage-atlas poster, V5 (grm) in crimson relief with a gold edge, framed from the Canaries to Myanmar and Shetland to Tanzania, title DAR AL-AMAN, medallion, compass roses, classical sea names (+ Bahr al-Shimal, Bahr Harkand), cartouche "The Grand Caliphate - V5 - three continents, Shetland to Zanzibar - about 37.7 million km2", disclaimer line at the foot. Output posters/v5_poster.png (4200x3200) and .jpg; sent as handoff part13-poster-v5.
