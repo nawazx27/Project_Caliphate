@@ -1,10 +1,17 @@
-"""Version 310 (Nawaz: "Go for this balkans shape", then the full 1683 Ottoman map: "Just use this balkans shape").
+"""Version 310 (Nawaz: "Go for this balkans shape", then the 1683 Ottoman map, then, circling the Ukrainian regions added in Version 308:
+"I told you to use the second image Balkans shape" - the 1683 map traced in Version 307).
+In the Balkans, Moldova and Ukraine V5 (grm) goes back to its Version 307 shape (the 1683 map traced, tools/v307_build), plus whatever of
+V4 lies there; this drops the whole regions Version 308 added there (Slovakia, Zakarpattia, Ternopil, Khmelnytskyi, Vinnytsia,
+Kirovohrad, Cherkasy). Elsewhere V5 is unchanged (Vienna, Regensburg, Scotland, the Caucasus of Versions 308-309 stay).
+Usage: python3 tools/v310_v5_ottoman_balkans.py <caliph.json of Version 307, from: git show 5e7f8db:./src/caliph.json>
+(The trace of the full 1683 map, tools/v310_build and tools/data/v310_ottoman_full_map_shape.geojson, was the first preview and is not used.)
+OLD DOC:
 In the Balkans and Danube lands (Slovenia, Croatia, Bosnia, Serbia, Montenegro, Kosovo, North Macedonia, Albania, Bulgaria, Greece,
 Romania, Moldova, Hungary, Slovakia, and Zakarpattia) V5 (grm) is the land inside the empire traced from that map
 (tools/v310_build: fit.py on its European cities, trace.py -> tools/data/v310_ottoman_full_map_shape.geojson), plus whatever of V4
 lies there (V4 must stay inside V5). Elsewhere V5 is unchanged. Holes the redraw leaves inside V5 are filled; pockets >=80% filled.
 Run on the Version 309 caliph.json."""
-import json, os, subprocess, shapely
+import json, os, sys, subprocess, shapely
 import pyarrow.parquet as pq
 from shapely.geometry import shape, MultiPolygon, Polygon, Point, box
 from shapely.geometry.polygon import orient
@@ -15,14 +22,14 @@ F_ = os.path.join(P, 'src/caliph.json'); C = json.load(open(F_))
 M = lambda k: MultiPolygon([Polygon(r[0], r[1:]) for r in C[k]['polys']]).buffer(0)
 geo = json.loads(subprocess.check_output(['node', '-e', "const fs=require('fs'),t=require('./node_modules/topojson-client');const g=JSON.parse(fs.readFileSync('geo2.json'));process.stdout.write(JSON.stringify(t.feature(g,g.objects.countries)))"], cwd=P))
 G = {f['id']: (f['properties']['n'], shape(f['geometry']).buffer(0)) for f in geo['features'] if f.get('geometry')}
-IDS = ['705', '191', '070', '688', '499', 'KOS', '807', '008', '100', '300', '642', '498', '348', '703']
+IDS = ['705', '191', '070', '688', '499', 'KOS', '807', '008', '100', '300', '642', '498', '348', '703', '804']
 zak = [shapely.from_wkb(r['geometry']).buffer(0) for r in pq.read_table(os.path.join(P, 'tools/data/v308_roman_ottoman_regions.parquet')).to_pylist() if r['region'] == 'UA-21' and r['subtype'] == 'region' and r['is_land'] is not False]
 R = shapely.union_all([G[i][1].buffer(0.02) for i in IDS] + [z.buffer(0.02) for z in zak]).buffer(0)
 win = box(5, 30, 45, 55); L = shapely.union_all([g for n, g in G.values() if g.intersects(win)]).intersection(win)
-O = shape(json.load(open(os.path.join(P, 'tools/data/v310_ottoman_full_map_shape.geojson')))['geometry']).buffer(0)
+V307 = MultiPolygon([Polygon(r[0], r[1:]) for r in json.load(open(sys.argv[1]))['grm']['polys']]).buffer(0)
 Yp, V4 = M('grm'), M('sas')
-NEW = shapely.union_all([O.intersection(L).intersection(R), V4.intersection(R)])
-print('in the Balkans: removed', round(A(Yp.intersection(R).difference(NEW))), 'added', round(A(NEW.difference(Yp))), '; of it kept for V4', round(A(V4.intersection(R).difference(O))))
+NEW = shapely.union_all([V307.intersection(R), V4.intersection(R)])
+print('in the Balkans: removed', round(A(Yp.intersection(R).difference(NEW))), 'added', round(A(NEW.difference(Yp))), '; V4 land not in V307 there', round(A(V4.intersection(R).difference(V307))))
 keep = []
 for q in getattr(Yp, 'geoms', [Yp]):
     if not q.intersects(R): keep.append(q); continue
@@ -52,5 +59,5 @@ for k, (n, g) in G.items():
 old = C['grm']['km2']; C['grm'] = {'polys': out, 'km2': km2of(out), 'states': sorted(rws, key=lambda r: -r['km2'] * r['pct'])}
 print('grm', old, '->', C['grm']['km2'])
 for a, b in [('sas', 'grm'), ('grm', 'rom'), ('rom', 'v2')]: print(a, 'outside', b, round(A(M(a).difference(M(b).buffer(0.01)))))
-for n, p in {'Vienna': (16.37, 48.21), 'Bratislava': (17.11, 48.15), 'Budapest': (19.04, 47.5), 'Kosice': (21.26, 48.72), 'Uzhhorod': (22.29, 48.62), 'Ljubljana': (14.51, 46.05), 'Zagreb': (15.98, 45.81), 'Rijeka': (14.44, 45.33), 'Split': (16.44, 43.51), 'Dubrovnik': (18.09, 42.65), 'Sarajevo': (18.41, 43.86), 'Osijek': (18.69, 45.55), 'Kotor': (18.77, 42.42), 'Durres': (19.45, 41.32), 'Corfu': (19.92, 39.62), 'Cluj': (23.6, 46.77), 'Chisinau': (28.86, 47.0), 'Crete': (24.9, 35.2)}.items(): print(' ', n, Y.contains(Point(p)))
+for n, p in {'Vienna': (16.37, 48.21), 'Bratislava': (17.11, 48.15), 'Budapest': (19.04, 47.5), 'Kosice': (21.26, 48.72), 'Uzhhorod': (22.29, 48.62), 'Ljubljana': (14.51, 46.05), 'Zagreb': (15.98, 45.81), 'Rijeka': (14.44, 45.33), 'Split': (16.44, 43.51), 'Dubrovnik': (18.09, 42.65), 'Sarajevo': (18.41, 43.86), 'Osijek': (18.69, 45.55), 'Kotor': (18.77, 42.42), 'Durres': (19.45, 41.32), 'Corfu': (19.92, 39.62), 'Cluj': (23.6, 46.77), 'Chisinau': (28.86, 47.0), 'Crete': (24.9, 35.2), 'Ternopil': (25.6, 49.55), 'Khmelnytskyi': (27.0, 49.42), 'Vinnytsia': (28.47, 49.23), 'Uman': (30.22, 48.75), 'Kamianets': (26.58, 48.68), 'Odesa': (30.73, 46.48), 'Simferopol': (34.1, 44.95), 'Donetsk': (37.8, 48.0)}.items(): print(' ', n, Y.contains(Point(p)))
 json.dump(C, open(F_ + '.tmp', 'w'), separators=(',', ':'), ensure_ascii=False); os.replace(F_ + '.tmp', F_)
