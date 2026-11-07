@@ -1991,3 +1991,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - So the Bosporan Kuban fringe round Krasnodar and Byzantine Nicopsis (Tuapse coast) are outside V5 by his choice.
 - No-gaps rule: he said "Forget about the no gaps rule" (asked whether for good or only for Tuapse; not yet answered).
 - V5 37,688,224 -> 37,681,953 km2. Version test: no errors.
+
+## (Not applied) Version 324 preview: northern/eastern Slovakia and Ostrava out
+- Nawaz asked whether the circled area (northern/eastern Slovakia, Ostrava) was Roman (no: Barbaricum; only western Slovakia had Marcomannic-war forts/camps), said "Sure" to a preview (tools/v324_v5_roman_ottoman_north.py, -35,701 km2), then "Let it be": NOT applied. V5 stays as Version 323 (all of Slovakia, Hungary and eastern Moravia in, by his Version 320 request). Do not run v324_v5_roman_ottoman_north.py unless he asks.
