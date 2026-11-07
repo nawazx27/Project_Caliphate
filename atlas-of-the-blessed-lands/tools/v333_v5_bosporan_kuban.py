@@ -2,7 +2,8 @@
 the Sindians, Maeotians, Toretae, Psessians... (inscriptions of Aspurgus, Rhescuporis), so the Kuban round Krasnodar was at least claimed
 by Rome's client kingdom; disputed whether ruled or only tributary -> "Preview"). V5 (grm) takes the Kuban fringe: Krasnodar city,
 Dinskoy, Seversky, Abinsky and Gelendzhik (the Toretae coast) (Overture, tools/data/v322_kuban_scilly.parquet). The Tuapse coast
-(Nicopsis) is NOT added. No pocket filling. V6 gone; V4 inside V5 checked."""
+(Nicopsis) is NOT added. No pocket filling. Then his red line on the preview (reference/v333_kuban_redline.jpg, tools/data/v333_kuban_redline.json):
+the border runs from the Don corner down to the Kuban edge near Krasnodar; the land between the old straight line and his line is added. V6 gone; V4 inside V5 checked."""
 import json, os, subprocess, shapely
 import pyarrow.parquet as pq
 from shapely.geometry import shape, MultiPolygon, Polygon, Point
@@ -31,6 +32,10 @@ NAMES = {'городской округ Краснодар', 'Динской р�
 T = unary_union([shapely.from_wkb(r['geometry']).buffer(0) for r in rows if r['name'] in NAMES and r['is_land'] is not False])
 V5 = M('grm'); print('Krasnodar fringe adds', round(A(T.difference(V5))), 'km2')
 X = unary_union([V5, T.buffer(0.003)]).buffer(0)
+RL = Polygon(json.load(open(os.path.join(P, 'tools/data/v333_kuban_redline.json')))['ring']).buffer(0)
+Lk = unary_union([g for n, g in G.values() if g.intersects(RL)]).intersection(RL)
+print('red line adds', round(A(Lk.difference(X))), 'km2')
+X = unary_union([X, Lk.buffer(0.002)]).buffer(0)
 o = polys(X); Y = MultiPolygon([Polygon(r[0], r[1:]) for r in o]).buffer(0)
 rws = []
 for k, (n, g) in G.items():
@@ -39,7 +44,7 @@ for k, (n, g) in G.items():
         if pct >= 1: rws.append({'id': k, 'n': n, 'km2': round(A(g)), 'pct': pct})
 old = C['grm']['km2']; C['grm'] = {'polys': o, 'km2': km2of(o), 'states': sorted(rws, key=lambda r: -r['km2'] * r['pct'])}
 print('grm', old, '->', C['grm']['km2'])
-for n_, p in {'Nicopsis (Novomikhaylovsky)': (38.85, 44.26), 'Tuapse': (39.07, 44.1), 'Krasnodar': (38.98, 45.04), 'Gelendzhik': (38.06, 44.56), 'Maykop': (40.1, 44.6), 'Goryachy Klyuch': (39.13, 44.63), 'Kropotkin': (40.57, 45.44)}.items(): print('  ', n_, Y.contains(Point(p)))
+for n_, p in {'Nicopsis (Novomikhaylovsky)': (38.85, 44.26), 'Tuapse': (39.07, 44.1), 'Krasnodar': (38.98, 45.04), 'Gelendzhik': (38.06, 44.56), 'Maykop': (40.1, 44.6), 'Goryachy Klyuch': (39.13, 44.63), 'Kropotkin': (40.57, 45.44), 'Tikhoretsk': (40.13, 45.85), 'Ust-Labinsk': (39.69, 45.21), 'Salsk': (41.54, 46.47), 'Bataysk': (39.74, 47.14)}.items(): print('  ', n_, Y.contains(Point(p)))
 for key in []:
     V = M(key); ex = A(Y.difference(V))
     if ex < 1: print(key, 'already holds V5'); continue
