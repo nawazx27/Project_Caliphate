@@ -1890,3 +1890,12 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - V5 37,107,013 -> 37,328,964 km2; V6 (rom) 39,970,575; V7 (v2) 47,872,390. Each version inside the next. Nothing removed.
 - Texts: V5 titles, versions paragraph, V5 lead ("Since Version 306 ..."), search entries.
 - Checked: build, version test (no errors), screenshot.
+
+## Version 307 (2026-11-07): V5 follows the dark red Ottoman empire of his 1683 map
+- Nawaz of Version 306: "I don't like this shape", then the same 1683 map again: "I want this shape... the shape of dark red shaded region".
+- tools/v307_v5_ottoman_map.py: V5 (grm) = V5 of Version 305 + the land inside the drawn empire. The whole-region additions of Version 306 are dropped (Version 306's caliph.json is not the base). V6 and V7 go back to their Version 305 shapes and take the V5 land they lack (rom +272 km2, v2 +210 km2).
+- tools/v307_build/fit.py: map fitted on 11 control points (Vienna, Budapest, Belgrade, Sofia, Constantinople, Athens, Baku, the SE Black Sea corner, Kerch strait, the Don mouth, Sinop), quadratic, residuals up to 8 px. trace.py: red empire + the sea within 8 px of it (so the drawing's rough coasts do not cut real coast land; the far Caspian shores stay out), smoothed (Chaikin), saved as tools/data/v307_ottoman_map_shape.geojson; then cut to real land.
+- In: Budapest, Chisinau, Chernivtsi, Kamianets, Vinnytsia, Odesa, Zaporizhzhia, Simferopol, Mariupol, Donetsk, Rostov, Krasnodar, Derbent, Baku. Out: Vienna, Bratislava, Kosice, Ternopil, Khmelnytskyi, Uman, Dnipro, Luhansk, Stavropol, Grozny, Makhachkala, Kyiv.
+- Then he drew a red line on the preview east of the Don-Kuban notch: the border now runs from where it meets the Don straight down to the Kuban corner (tools/v307_build/redline307.json, read off his screenshot reference/v307_redline_don_kuban.jpg; +11,736 km2).
+- V5 37,107,013 (Version 305) -> 37,404,052 km2 (9 pockets, 828 km2, filled). Each version inside the next.
+- Texts: V5 titles, versions paragraph (about 37.4 million km2), V5 lead ("Since Version 307 ..."), search entry.
