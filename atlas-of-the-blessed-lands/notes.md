@@ -1922,3 +1922,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Checked: the land traced from that map (tools/data/v5_roman_map305.geojson) and Version 305's V5 lie wholly inside V5 (0 km2 missing).
 - tools/v311_v5_gerulata.py: V5 takes okres Bratislava V (Petrzalka, Jarovce, Rusovce, Cunovo, south of the Danube; tools/data/v311_bratislava_v.parquet): +67 km2 (the rest was already in). Bratislava's old town north of the river stays out. V6 +49, V7 +3 km2.
 - V5 37,383,876 -> 37,383,954 km2. Each version inside the next. Version test: no errors.
+
+## Version 312 (2026-11-07): V6 (the Mediterranean version) removed; the Super Caliphate is now V6
+- Nawaz: "Remove V6 and add v5 Mediterranean to the super caliphate and renumber if needed".
+- Checked first: the Super Caliphate (v2) already holds all of the Mediterranean version (rom) and of V5 (0 km2 outside), so no land changed.
+- build.js: 'rom' added to HIDDEN_OUTLINES (data kept, like the other removed versions). body.html: the rom buttons and the V6 sentence removed; the versions now run V1 to V6; the Super Caliphate sentence names the Mediterranean lands it holds; its buttons, titles and the notes say V6. eng_e.js: XNAME/XNUM v2 (and old eu, v3) -> V6; #outline-v6 and #outline-mediterranean open the Super Caliphate; the rom search entry merged into the Super Caliphate entry ('v6 version 6' and 'v7 version 7' both find it); the Super Caliphate lead and province notes say V6. eng_c.js: the four Super Caliphate map labels say V6. start.js: rom no longer preloaded.
+- Version test loop is now shj, me2, me9, sas, grm, v2: no errors (V6 = 47.9 million km2, 140 states).
