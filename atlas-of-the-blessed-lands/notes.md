@@ -1978,3 +1978,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Nawaz: "Now, Does v5 have all the lands that the Roman Empire ever held?" (all 60 Roman/Byzantine sites in; but 2,138 km2 of the original map and 4,003 km2 of the sharper map, a corner of western Czechia round Cheb, lay outside after Version 316's Saale-Naab line) -> the sharper map again: "Cover".
 - tools/v321_v5_cover_roman_maps.py: V5 takes all land of both traced maps it lacked (Cheb corner 4,086 km2, a 20 km2 sliver by Magdeburg), edge smoothed locally (0.05 deg, land only). Map land still outside V5: 0 km2. Cheb, Marianske Lazne, Karlovy Vary in; Plzen out. V6 +2 km2.
 - V5 37,671,563 -> 37,675,712 km2. Version test: no errors.
+
+## Version 322 (2026-11-07): the last Roman lands in V5
+- Nawaz: "Does v5 have all the lands that the Roman Empire ever held?" -> "Are you sure?" (52 more sites: Channel Islands, Scilly, the Bosporan Kuban fringe out) -> "Preview" -> "Are you sure?" (the DARE provinces of 117 also showed the Breton/Vendee islands and a Noricum strip north of the Danube at Linz out) -> "Add everything left out" -> "Push".
+- tools/v322_v5_islands_kuban.py (data tools/data/v322_kuban_scilly.parquet): Jersey and Guernsey with Alderney, Sark, Herm (base map + Overture) +228 km2; Isles of Scilly +15; Krasnodar city, Dinskoy, Seversky, Abinsky, Gelendzhik +6,001; mainland France with all its islands, all of Austria (Muehlviertel) and every country V5 holds 100% taken whole again (coastal specks; Netherlands in Europe only) +3,355; 3 pockets 138. The Tuapse coast was tried and left OUT: it closes a 34,000 km2 pocket of the central Kuban plain (Maykop, Kropotkin, Tikhoretsk) that the gap rule would fill.
+- Checked: DARE provinces of 117, both Roman-rule maps: 0 km2 outside V5; 112 Roman/Byzantine sites all in.
+- V5 37,675,712 -> 37,688,224 km2; V6 +46 km2 (47,873,998). Text: V5 lead. Version test: no errors.
