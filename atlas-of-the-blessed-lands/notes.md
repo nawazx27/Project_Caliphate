@@ -1938,3 +1938,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Nawaz: "Add entire uk and Ireland".
 - tools/v314_v5_uk_ireland.py: V5 (grm) takes the whole United Kingdom (Highlands, Orkney, Shetland, the Hebrides, Northern Ireland), the whole of Ireland, and the Isle of Man between them (it was 68% in), from the base map (826, 372, 833). +123,254 km2. V6 already held them.
 - V5 37,392,744 -> 37,518,071 km2. Texts: titles, versions paragraph, V5 lead, search entry. Version test: no errors.
+
+## Version 315 (2026-11-07): every land of the sharper Roman-rule map in V5
+- Nawaz sent a sharper redraw (marked Grok) of the map of the duration of Roman rule: "Make sure v5 is not missing any of these lands and their borders from this image" (reference/v315_roman_rule_map_hires.jpg). It matches the original only to 0.91 (purple overlap), so it was fitted on its own.
+- tools/v315_build/icp.py: start from the Version 305 fit carried over by scale and shift, then iterative closest point to Natural Earth coasts, cubic, median 1.4 px. trace.py: every purple/magenta shade + sea within 6 px, smoothed -> tools/data/v315_roman_map_hires_shape.geojson.
+- tools/v315_v5_roman_map_hires.py: V5 took every land of it that it lacked: the north slope of the Caucasus (16,506 km2: the redraw puts the Roman edge a little north of the crest), Germany east to the Saale and Leipzig (9,979), Lower Bavaria (3,291), a strip by Oldenburg (1,046), south of Vienna (843), the Carpathian edge in Ukraine (483), and coast slivers in Calabria (129) and Normandy (33); 9 tiny pockets. Map land still outside V5: 0 km2.
+- V5 37,518,071 -> 37,550,922 km2; V6 already held it. Texts: versions paragraph (about 37.6 million km2), V5 lead. Version test: no errors.
