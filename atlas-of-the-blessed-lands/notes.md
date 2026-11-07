@@ -2005,3 +2005,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Nawaz: "Does all of the Roman Empire fall within V5? Every single territory the Romans ever held? ... conduct thorough research" -> wider check (~165 sites incl. Marktbreit, Harzhorn, Darial, Hatra, Babylon, Orkney, the Canaries, Socotra, Malta/Pantelleria/Lampedusa, the Balearics): only two islets outside, Isla de Lobos (Roman purple-dye workshop, 1st c.) and Mogador/Iles Purpuraires (Juba II's dye works) -> "Add".
 - tools/v327_v5_roman_islets.py: both from Overture base land (tools/data/v327_lobos_mogador.parquet), +4.67 km2. Not counted as held and noted as such: raids/exploration (Marib, Najran, Meroe, Agisymba, Heraclius in Persia), trade finds (Ireland, Socotra, Bornholm, Gotland, Heligoland), the Bosporan Kuban fringe and Nicopsis (Version 325 preview, not applied).
 - V5 37,681,953 -> 37,681,961 km2. Text: V5 lead. Version test: no errors.
+
+## Version 328 (2026-11-07): stray line at the Elbe mouth removed from V5
+- Nawaz: "Remove any stray lines from V5 (if it has any)".
+- Checked V5 for holes (none), seams between pieces on land (none: all 865 hairline gaps found lie on its outer edge, ~1 m wide, rounding against the base map's borders, invisible), thin spikes and slivers.
+- tools/v328_v5_stray_lines.py: removed the 6.5 km hairline piece (0.21 km2) at the Elbe mouth left by Version 318; the outline opened by ~20 m (parts thinner than ~40 m); 0.24 km2 removed, 0.03 km2 added by rounding. Seven other flagged "spikes" (Kinburn spit, Arabat spit, Chesil Beach, Pembrokeshire, Sicily, Algerian coast, La Palma) were false alarms: long straight coast edges, zero area. Real islands (Lakshadweep, Farasan, Lobos, Mogador, Sark, Scilly) kept.
+- V5 37,681,961 km2 (unchanged at that precision), 620 -> 619 pieces. Version test: no errors.
