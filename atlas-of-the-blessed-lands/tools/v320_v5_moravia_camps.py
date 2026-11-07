@@ -1,5 +1,6 @@
 """Version 320 (Nawaz: "Now, Does v5 have all the lands that the Roman Empire ever held?" -> only the Marcomannic-war marching camps at
-Olomouc-Neredín and Hulín lay outside -> "Preview"). V5 (grm) takes the Olomouc and Zlín regions of Czechia (Overture,
+Olomouc-Neredín and Hulín lay outside -> "Preview"). V5 (grm) takes the Olomouc and Zlín regions of Czechia, and (his red line, "Extend and make it follow the border of Czechia till Slovakia",
+reference/v320_moravia_silesia_line.jpg) the Moravian-Silesian region with Ostrava, (Overture,
 tools/data/v319_cz_at_regions.parquet). Pockets >=80% filled; V6 takes what it lacks."""
 import json, os, sys, subprocess, shapely
 import pyarrow.parquet as pq
@@ -15,8 +16,8 @@ F_ = os.path.join(P, 'src/caliph.json'); C = json.load(open(F_))
 M = lambda k: MultiPolygon([Polygon(r[0], r[1:]) for r in C[k]['polys']]).buffer(0)
 V5 = M('grm')
 rows = pq.read_table(os.path.join(P, 'tools/data/v319_cz_at_regions.parquet')).to_pylist()
-B = unary_union([shapely.from_wkb(r['geometry']).buffer(0) for r in rows if r['subtype'] == 'region' and r['is_land'] is not False and r['region'] in ('CZ-71', 'CZ-72')])
-print('Olomouc and Zlin regions add', round(A(B.difference(V5))), 'km2; touch V5:', B.buffer(0.01).intersects(V5))
+B = unary_union([shapely.from_wkb(r['geometry']).buffer(0) for r in rows if r['subtype'] == 'region' and r['is_land'] is not False and r['region'] in ('CZ-71', 'CZ-72', 'CZ-80')])   # + Moravian-Silesian region: his line along the Czech border to Slovakia
+print('Olomouc, Zlin and Moravian-Silesian regions add', round(A(B.difference(V5))), 'km2; touch V5:', B.buffer(0.01).intersects(V5))
 X = unary_union([V5, B.buffer(0.003)]).buffer(0)
 win = box(5, 44, 25, 56); L = unary_union([g for n, g in G.values() if g.intersects(win)]).intersection(win)
 rest = L.difference(X); XB = X.buffer(0.05); fill = []
