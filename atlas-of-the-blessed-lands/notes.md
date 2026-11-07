@@ -1928,3 +1928,8 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Checked first: the Super Caliphate (v2) already holds all of the Mediterranean version (rom) and of V5 (0 km2 outside), so no land changed.
 - build.js: 'rom' added to HIDDEN_OUTLINES (data kept, like the other removed versions). body.html: the rom buttons and the V6 sentence removed; the versions now run V1 to V6; the Super Caliphate sentence names the Mediterranean lands it holds; its buttons, titles and the notes say V6. eng_e.js: XNAME/XNUM v2 (and old eu, v3) -> V6; #outline-v6 and #outline-mediterranean open the Super Caliphate; the rom search entry merged into the Super Caliphate entry ('v6 version 6' and 'v7 version 7' both find it); the Super Caliphate lead and province notes say V6. eng_c.js: the four Super Caliphate map labels say V6. start.js: rom no longer preloaded.
 - Version test loop is now shj, me2, me9, sas, grm, v2: no errors (V6 = 47.9 million km2, 140 states).
+
+## Version 313 (2026-11-07): the Roman marching camps of north-east Scotland in V5
+- Nawaz: "Does v5 have all the lands that the Roman Empire ever held or not?" (yes, but for the temporary marching camps north of the Tay) -> "Add".
+- tools/v313_v5_ne_scotland.py: V5 (grm) takes Aberdeenshire, Aberdeen City and Moray (Overture, tools/data/v313_ne_scotland.parquet): the camps of Agricola (AD 83-84) and Severus (208-211) at Raedykes, Normandykes, Kintore, Logie Durno, Ythan Wells, Glenmailen, Muiryfold and Bellie. +8,724 km2. Inverness and the Highlands stay out. V6 (v2) already held them (+2 km2).
+- V5 37,383,954 -> 37,392,744 km2. Texts: titles, versions paragraph, V5 lead, search entry. Version test: no errors.
