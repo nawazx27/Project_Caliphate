@@ -1,6 +1,8 @@
 """Version 322 (Nawaz: "Now, Does v5 have all the lands that the Roman Empire ever held?" -> "Are you sure?" -> 52 more sites checked:
 three Roman lands outside: the Channel Islands, the Isles of Scilly, and the Kuban fringe of the Bosporan client kingdom round
-Krasnodar -> "Preview"). V5 (grm) takes Jersey and Guernsey (with Alderney and Sark) from the base map (832, 831) and Overture (with Sark and Herm), the Isles of Scilly
+Krasnodar -> "Preview" -> "Are you sure?" -> the DARE provinces of 117 showed the Breton/Vendee islands (Belle-Ile, Yeu, Ouessant,
+Sein) and a strip of Noricum north of the Danube at Linz outside -> "Add everything left out"). Also: all of metropolitan France and
+all of Austria (Muehlviertel), every country V5 holds 100% taken whole again (coastal specks; the Netherlands in Europe only). (The Tuapse coast is NOT added: it would close the central Kuban plain into a pocket.) V5 (grm) takes Jersey and Guernsey (with Alderney and Sark) from the base map (832, 831) and Overture (with Sark and Herm), the Isles of Scilly
 and the Krasnodar Krai districts between the lower Kuban and the coast up to Krasnodar (Krasnodar city, Dinskoy, Seversky, Abinsky,
 Gelendzhik; Overture, tools/data/v322_kuban_scilly.parquet). Pockets >=80% filled; V6 (v2) takes any V5 land it lacks."""
 import json, os, subprocess, shapely
@@ -26,14 +28,23 @@ def polys(X, mn=0.05):
         q = orient(Polygon(q.exterior, [h for h in q.interiors if A(Polygon(h)) >= 5000]), 1.0)
         out.append([[[round(u, 3), round(v, 3)] for u, v in rr.coords] for rr in [q.exterior, *q.interiors]])
     return out
-KUBAN = {'городской округ Краснодар', 'Динской район', 'Северский район', 'Абинский район', 'городской округ Геленджик'}
+KUBAN = {'городской округ Краснодар', 'Динской район', 'Северский район', 'Абинский район', 'городской округ Геленджик'}   # the Tuapse coast was tried and left out: it closes a 34,000 km2 pocket of the central Kuban plain (Maykop, Kropotkin, Tikhoretsk)
 rows = [r for r in pq.read_table(os.path.join(P, 'tools/data/v322_kuban_scilly.parquet')).to_pylist() if r['is_land'] is not False]
 K = unary_union([shapely.from_wkb(r['geometry']).buffer(0) for r in rows if r['name'] in KUBAN])
 SC = unary_union([shapely.from_wkb(r['geometry']).buffer(0) for r in rows if r['name'] == 'Isles of Scilly'])
 CI = unary_union([G['832'][1], G['831'][1]] + [shapely.from_wkb(r['geometry']).buffer(0) for r in rows if r['subtype'] == 'dependency'])   # Overture Jersey and Guernsey with Alderney, Sark, Herm
 V5 = M('grm')
+fr = [k for k, (n, g) in G.items() if n == 'France'][0]
+WH = [G[fr][1].intersection(box(-6, 41, 10, 52)), G['040'][1]]          # mainland France with its islands, all of Austria
+for r in C['grm']['states']:
+    if r['pct'] >= 100 and r['id'] in G:
+        g = G[r['id']][1]
+        if r['n'] == 'Netherlands': g = g.intersection(box(2, 50, 8, 54))
+        WH.append(g)
+W = unary_union(WH)
+print('whole France/Austria/held countries add', round(A(W.difference(V5))), 'km2')
 for n, g in [('Channel Islands', CI), ('Isles of Scilly', SC), ('Kuban fringe', K)]: print(n, 'adds', round(A(g.difference(V5))), 'km2')
-X = unary_union([V5, CI.buffer(0.002), SC.buffer(0.002), K.buffer(0.003)]).buffer(0)
+X = unary_union([V5, CI.buffer(0.002), SC.buffer(0.002), K.buffer(0.003), W.buffer(0.001)]).buffer(0)
 win = box(36, 43.5, 41, 46.5); L = unary_union([g for n, g in G.values() if g.intersects(win)]).intersection(win)
 rest = L.difference(X); XB = X.buffer(0.05); fill = []
 for q in getattr(rest, 'geoms', [rest]):
@@ -48,7 +59,7 @@ for k, (n, g) in G.items():
         if pct >= 1: rws.append({'id': k, 'n': n, 'km2': round(A(g)), 'pct': pct})
 old = C['grm']['km2']; C['grm'] = {'polys': o, 'km2': km2of(o), 'states': sorted(rws, key=lambda r: -r['km2'] * r['pct'])}
 print('grm', old, '->', C['grm']['km2'])
-for n_, p in {'St Helier (Jersey)': (-2.1, 49.19), 'St Peter Port (Guernsey)': (-2.54, 49.46), 'Alderney': (-2.2, 49.71), 'Sark': (-2.36, 49.43), 'Scilly (St Mary\'s)': (-6.3, 49.92), 'Krasnodar': (38.98, 45.04), 'Abinsk': (38.15, 44.87), 'Gelendzhik': (38.06, 44.56), 'Goryachy Klyuch': (39.13, 44.63), 'Tuapse': (39.07, 44.1)}.items(): print('  ', n_, Y.contains(Point(p)))
+for n_, p in {'St Helier (Jersey)': (-2.1, 49.19), 'St Peter Port (Guernsey)': (-2.54, 49.46), 'Alderney': (-2.2, 49.71), 'Sark': (-2.36, 49.43), 'Scilly (St Mary\'s)': (-6.3, 49.92), 'Krasnodar': (38.98, 45.04), 'Abinsk': (38.15, 44.87), 'Gelendzhik': (38.06, 44.56), 'Goryachy Klyuch': (39.13, 44.63), 'Tuapse': (39.07, 44.1), 'Belle-Ile': (-3.21, 47.34), 'Ile d\'Yeu': (-2.33, 46.71), 'Ouessant': (-5.08, 48.46), 'Linz north bank (Urfahr)': (14.29, 48.32), 'Freistadt (Muehlviertel)': (14.5, 48.51)}.items(): print('  ', n_, Y.contains(Point(p)))
 for key in ['v2']:
     V = M(key); ex = A(Y.difference(V))
     if ex < 1: print(key, 'already holds V5'); continue
