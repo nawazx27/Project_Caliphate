@@ -5,7 +5,9 @@ tools/data/v322_kuban_scilly.parquet), and -> "Fill" (his second, tighter red li
 south-south-east to the Gelendzhik district at ~38.61E 44.55N): the land between that line, the old straight line and the Gelendzhik district, so the hinterland of
 Novorossiysk and Gelendzhik closes up. Evidence: the Roman watchtower near Arkhipo-Osipovka (1st century AD, second third; Gallo-Roman
 helmet cheek-piece; burned when the garrison left c. AD 68; Bonin and Meleshko). Tuapse (Zichian client coast) and the Kuban interior
-are NOT added."""
+are NOT added. Version 351 (Nawaz: "Apply" after Pagrae = Gelendzhik was found named as an eastern limit of the Bosporan Kingdom in
+Wikipedia's Gelendzhik article, citing Onaiko, and the 2022 study of Nero's eastern campaign) runs this with FILL=0: the Gelendzhik
+district only, without the red-line hinterland."""
 import json, os, subprocess, shapely
 from shapely.geometry import shape, MultiPolygon, Polygon, Point
 from shapely.ops import unary_union
@@ -31,7 +33,7 @@ def polys(X, mn=0.05):
 import pyarrow.parquet as pq
 FILL = Polygon([(38.38, 44.98), (38.43, 44.88), (38.48, 44.78), (38.55, 44.66), (38.61, 44.55), (38.45, 44.55), (38.2, 44.6), (37.9, 44.9), (38.3, 45.1)]).intersection(G['643'][1])   # his red line
 POD0 = unary_union([shapely.from_wkb(r['geometry']).buffer(0) for r in pq.read_table(os.path.join(P, 'tools/data/v322_kuban_scilly.parquet')).to_pylist() if r['name'] == 'городской округ Геленджик' and r['is_land'] is not False])
-POD = unary_union([POD0, FILL])
+POD = unary_union([POD0, FILL]) if os.environ.get('FILL', '1') == '1' else POD0   # Version 351: FILL=0, the district only (no hinterland)
 V5 = M('grm'); print('Gelendzhik (Toretae coast) adds', round(A(POD.difference(V5))), 'km2')
 X = unary_union([V5, POD.buffer(0.002)]).buffer(0)
 o = polys(X, 0.02); Y = MultiPolygon([Polygon(r[0], r[1:]) for r in o]).buffer(0)
