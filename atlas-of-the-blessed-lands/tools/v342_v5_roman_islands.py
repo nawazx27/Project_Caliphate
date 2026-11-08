@@ -2,10 +2,13 @@
 check Wikipedia's, Britannica's, etc."). An audit against Pleiades (the gazetteer of the ancient world: 17,517 Roman-era places in
 and around the Roman provinces, 3,377 forts, camps, stations and milestones) found the only Roman-held land outside V5 to be
 small islands the base map does not draw (Capri, Delos and Rheneia, Levanzo, the Lerins islands, Montecristo, Fournoi, Leipsoi,
-Arki, Therasia, Pseira and others). V5 (grm) takes, at full detail, every island of 0.1 to 5000 km2 that lies within ~30 km of the
+Arki, Therasia, Pseira and others). V5 (grm) takes, at full detail, every island of 0.05 to 5000 km2 that lies within ~30 km of the
 Roman provinces of AD 117 (DARE), on the Frisian coast west of the Elbe, round Crimea and the Bosporus, on the Colchian coast and
-at Farasan, and that V5 lacked or held less than 95% of: 722 islands (Overture 2026-10-21.0 country land;
-tools/data/v342_roman_islands.parquet). Coastlines of the mainland and large islands stay as drawn."""
+at Farasan, of which V5 lacked any part (0.01 km2 or more): 1,033 islands, including the full coasts of Malta, Crete, Cyprus, Sicily
+and Sardinia (Overture 2026-10-21.0 country land;
+tools/data/v342_roman_islands.parquet), and the thin coastal strips (2,700+ pieces, ~7,800 km2) where the base map draws Roman
+coast as sea, e.g. the headlands of Korakesion (Alanya), Scarborough and Brean Down, Malta's west coast, Punta della Campanella
+(Overture land within ~30 km of the provinces, outside the base map's land and outside V5; tools/data/v342_roman_coast_slivers.parquet)."""
 import json, os, subprocess, shapely
 import pyarrow.parquet as pq
 from shapely.geometry import shape, MultiPolygon, Polygon, Point
@@ -31,8 +34,9 @@ def polys(X, mn=0.05):
     return out
 rows = pq.read_table(os.path.join(P, 'tools/data/v342_roman_islands.parquet')).to_pylist()
 I = unary_union([shapely.from_wkb(r['geometry']).buffer(0) for r in rows])
-V5 = M('grm'); print(len(rows), 'islands add', round(A(I.difference(V5))), 'km2')
-X = unary_union([V5, I.buffer(0.002)]).buffer(0)
+SL = unary_union([shapely.from_wkb(r['geometry']).buffer(0) for r in pq.read_table(os.path.join(P, 'tools/data/v342_roman_coast_slivers.parquet')).to_pylist()])
+V5 = M('grm'); print(len(rows), 'islands add', round(A(I.difference(V5))), 'km2; coastal strips add', round(A(SL.difference(V5))), 'km2')
+X = unary_union([V5, I.buffer(0.002), SL.buffer(0.0005)]).buffer(0)
 o = polys(X, 0.02); Y = MultiPolygon([Polygon(r[0], r[1:]) for r in o]).buffer(0)
 rws = []
 for k, (n, g) in G.items():
@@ -43,7 +47,9 @@ old = C['grm']['km2']; C['grm'] = {'polys': o, 'km2': km2of(o), 'states': sorted
 print('grm', old, '->', C['grm']['km2'])
 for n_, p in {'Capri (Villa Iovis)': (14.262, 40.558), 'Delos': (25.268, 37.397), 'Rheneia': (25.213, 37.412), 'Levanzo': (12.339, 37.987),
               'Lerins (Saint-Honorat)': (7.047, 43.507), 'Montecristo': (10.302, 42.338), 'Fournoi': (26.479, 37.579), 'Leipsoi': (26.771, 37.296),
-              'Arki fort': (26.734, 37.391), 'Therasia': (25.34, 36.452), 'Pseira': (25.86, 35.186), 'Dokos': (23.348, 37.346)}.items():
+              'Arki fort': (26.734, 37.391), 'Therasia': (25.34, 36.452), 'Pseira': (25.86, 35.186), 'Dokos': (23.348, 37.346),
+              'Korakesion (Alanya castle)': (31.994, 36.534), 'Scarborough signal station': (-0.386, 54.287), 'Brean Down temple': (-3.032, 51.327),
+              'Ras-ir Raheb (Malta)': (14.329, 35.906), 'Punta della Campanella': (14.325, 40.569)}.items():
     print('  ', n_, Y.buffer(0.005).contains(Point(p)), round(Y.distance(Point(p)) * 111, 1), 'km')
 print('sas outside grm', round(A(M('sas').difference(Y.buffer(0.01)))))
 json.dump(C, open(F_ + '.tmp', 'w'), separators=(',', ':'), ensure_ascii=False); os.replace(F_ + '.tmp', F_)
