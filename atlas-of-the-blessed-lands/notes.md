@@ -2089,3 +2089,7 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Version 354 (tools/v354_v5_congo_nile.py): the part of DR Congo draining to Lakes Albert, Edward and George (watershed on Mapzen terrain z8, tools/dev/congo_nile_watershed.py, tools/data/v354_nile_watershed_box.geojson), +14,992 km2. Bunia, Butembo and Beni stay out (Congo side).
 - Version 355 (tools/v355_v5_caucasus_nose.py, NOSE=0.35): his circled "nose" (where his red line meets the Caucasus edge, ~39.7E) lifted ~35-40 km north, tapering to nothing at 42.5E; the Caspian "back angle" unchanged. +3,564 km2 (Ust-Labinsk, Ladozhskaya in; Armavir 9 km out). -> "Push".
 - V5 37,821,091 -> 37,839,866 km2. sas still inside grm.
+
+## Version 356: the Caucasus nose a bit higher
+- Nawaz: "Can you do the nose just a bit more higher" -> preview NOSE=0.6 -> "Let it be for now" -> later, comparing full maps, "push the higher nose".
+- tools/v355_v5_caucasus_nose.py run again with NOSE=0.6 (lift full west of 39.6E, tapering to nothing at 42.5E; Caspian angle unchanged): +2,157 km2, Armavir in; Kropotkin and Stavropol stay out. V5 37,839,866 -> 37,842,023 km2. sas still inside grm.
