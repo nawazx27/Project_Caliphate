@@ -9,5 +9,5 @@ Every other client kingdom (Armenia, Iberia, Lazica, Abasgi, Apsilae, Sanigae, C
 Nabataea, Judaea, Mauretania, Thrace, the Cottian Alps, the Quadi of Vannius, the Cherusci under Italicus, the Garamantes) is already in V5."""
 import os, subprocess, sys
 T = os.path.dirname(os.path.abspath(__file__))
-for t in ['v333_v5_bosporan_kuban.py', 'v325_v5_exceptions.py', 'v332_v5_bohemia.py']:
+for t in ['v333_v5_bosporan_kuban.py', 'v325_v5_exceptions.py', 'v332_v5_bohemia.py'] + (['v338_v5_kuban_basin.py'] if os.environ.get('KUBAN_BASIN') else []):
     print('==', t); subprocess.check_call([sys.executable, os.path.join(T, t)])
