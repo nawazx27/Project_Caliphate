@@ -1,9 +1,8 @@
-"""Version 341 PREVIEW, run on top of the Version 340 natural-borders preview (Nawaz sent a list of lands Rome invaded or meant to
-annex but gave up, and a map of Germania Magna, "Preview with these"). V5 (grm) takes Germania Magna as that map shades it:
+"""Version 341 PREVIEW, run on the live V5 (Version 339), without the Version 340 natural-borders preview (Nawaz sent a list of lands Rome invaded or meant to
+annex but gave up, and a map of Germania Magna, "Preview with these" -> "keep aside the natural borders preview ... preview with these new lands"). V5 (grm) takes Germania Magna as that map shades it:
 all of Germany, Denmark (Jutland and the islands), and Poland west of the Vistula and the San (Gdansk, Poznan, Lodz, Krakow,
-Rzeszow; Warsaw's west bank), so the border runs Vistula - San - Carpathian crest. Czechia (Marcomannia) is already in from
-Version 340; Caledonia, Mesopotamia and Assyria, Arabia Felix (Yemen, Asir, Jizan, Najran), the Iazyges' plain (Sarmatia) and
-Moldova are already in V5. Base map countries (276, 208, 616); Vistula and San from Natural Earth 10m (tools/data/v341_vistula_san.geojson)."""
+Rzeszow; Warsaw's west bank), so the border runs Vistula - San - Carpathian crest, and all of Czechia (Marcomannia). Caledonia, Mesopotamia and Assyria, Arabia Felix (Yemen, Asir, Jizan, Najran), the Iazyges' plain (Sarmatia) and
+Moldova are already in V5. Base map countries (276, 208, 616, 203); Vistula and San from Natural Earth 10m (tools/data/v341_vistula_san.geojson)."""
 import json, os, subprocess, shapely
 from shapely.geometry import shape, MultiPolygon, Polygon, Point
 from shapely.ops import unary_union
@@ -34,9 +33,9 @@ WEST = unary_union([q for q in getattr(pieces, 'geoms', [pieces]) if Point(14.5,
 print('Poland pieces', [(round(A(q)), round(q.representative_point().x, 1)) for q in getattr(pieces, 'geoms', [pieces]) if A(q) > 100])
 WEST = unary_union([WEST, PL.intersection(band).intersection(WEST.buffer(0.02))])
 V5 = M('grm')
-DE, DK = G['276'][1], G['208'][1]
-for n, x in [('Germany', DE), ('Denmark', DK), ('Poland west of the Vistula and San', WEST)]: print(n, 'adds', round(A(x.difference(V5))), 'km2')
-X = unary_union([V5, DE.buffer(0.003), DK.buffer(0.003), WEST.buffer(0.003)]).buffer(0)
+DE, DK, CZ = G['276'][1], G['208'][1], G['203'][1]
+for n, x in [('Germany', DE), ('Denmark', DK), ('Poland west of the Vistula and San', WEST), ('Czechia (Marcomannia)', CZ)]: print(n, 'adds', round(A(x.difference(V5))), 'km2')
+X = unary_union([V5, DE.buffer(0.003), DK.buffer(0.003), WEST.buffer(0.003), CZ.buffer(0.003)]).buffer(0)
 o = polys(X, 0.02); Y = MultiPolygon([Polygon(r[0], r[1:]) for r in o]).buffer(0)
 rws = []
 for k, (n, gg) in G.items():
@@ -47,7 +46,7 @@ old = C['grm']['km2']; C['grm'] = {'polys': o, 'km2': km2of(o), 'states': sorted
 print('grm', old, '->', C['grm']['km2'])
 for n_, p in {'Berlin': (13.4, 52.52), 'Copenhagen': (12.57, 55.68), 'Skagen': (10.58, 57.72), 'Szczecin': (14.55, 53.43), 'Poznan': (16.93, 52.41),
               'Gdansk': (18.65, 54.35), 'Lodz': (19.46, 51.76), 'Krakow': (19.94, 50.06), 'Rzeszow': (22.0, 50.04), 'Warsaw west bank': (20.98, 52.23),
-              'Lublin (stays out)': (22.57, 51.25), 'Bialystok (stays out)': (23.16, 53.13), 'Malmo (stays out)': (13.0, 55.6)}.items():
+              'Lublin (stays out)': (22.57, 51.25), 'Bialystok (stays out)': (23.16, 53.13), 'Malmo (stays out)': (13.0, 55.6), 'Prague': (14.42, 50.08)}.items():
     print('  ', n_, Y.contains(Point(p)))
 print('sas outside grm', round(A(M('sas').difference(Y.buffer(0.01)))))
 json.dump(C, open(F_ + '.tmp', 'w'), separators=(',', ':'), ensure_ascii=False); os.replace(F_ + '.tmp', F_)
