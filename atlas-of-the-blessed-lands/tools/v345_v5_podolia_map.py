@@ -1,8 +1,9 @@
-"""Version 345 PREVIEW (Nawaz sent a map of the northern Black Sea c.1672-83 (Podolia, Ottoman 1672-99, in blue; Right-Bank Ukraine,
-vassal, in grey) and Wikipedia's map of the Podolia Eyalet in 1683 -> the map draws Podolia ~15-25 km further north and further
-north-east than Version 343 -> "Preview"). V5 (grm) takes Podolia as drawn on that map, read off it (tools/data/v345_podolia_map.geojson):
-north edge ~49.6-49.8N, east edge with Right-Bank Ukraine from ~28.6E 49.8N down to the Dniester; the west edge stays on the Strypa.
-Reading the schematic map is good to about +-20 km."""
+"""Version 345 PREVIEW (Nawaz sent three maps of the Ottoman north c.1672-1683 -> "Preview"). V5 (grm) takes the Podolia Eyalet as
+drawn (dark red) on the Wikimedia map "The Ottoman Empire in 1683" (Ottoman_empire.svg derivative), the only one of the three with a
+coordinate grid: traced from the image and placed on its 5-degree graticule (lon 25-30, lat 45-50 cell; error ~2-5 km)
+(tools/data/v345_podolia_wiki1683.geojson). That map's eyalet reaches the Strypa in the west, ~49.9N in the north and, after the
+Treaty of Zurawno (1676), south-east past Bratslav along the Dniester to ~29.7E. The hand-read outline of the schematic map
+(tools/data/v345_podolia_wiki1683.geojson) is kept for reference but not used."""
 import json, os, subprocess, shapely
 from shapely.geometry import shape, MultiPolygon, Polygon, Point
 from shapely.ops import unary_union
@@ -25,7 +26,7 @@ def polys(X, mn=0.05):
         q = orient(Polygon(q.exterior, [h for h in q.interiors if A(Polygon(h)) >= 5000]), 1.0)
         out.append([[[round(u, 3), round(v, 3)] for u, v in rr.coords] for rr in [q.exterior, *q.interiors]])
     return out
-POD = shape(json.load(open(os.path.join(P, 'tools/data/v345_podolia_map.geojson')))['features'][0]['geometry']).intersection(G['804'][1])
+POD = shape(json.load(open(os.path.join(P, 'tools/data/v345_podolia_wiki1683.geojson')))['features'][0]['geometry']).intersection(G['804'][1])
 V5 = M('grm'); print('Podolia (as on the map) adds', round(A(POD.difference(V5))), 'km2')
 X = unary_union([V5, POD.buffer(0.002)]).buffer(0)
 o = polys(X, 0.02); Y = MultiPolygon([Polygon(r[0], r[1:]) for r in o]).buffer(0)
@@ -38,7 +39,7 @@ old = C['grm']['km2']; C['grm'] = {'polys': o, 'km2': km2of(o), 'states': sorted
 print('grm', old, '->', C['grm']['km2'])
 for n_, p in {'Kamianets-Podilskyi': (26.58, 48.68), 'Medzhybizh': (27.41, 49.44), 'Khmilnyk': (27.96, 49.56), 'Proskuriv (Khmelnytskyi)': (26.99, 49.42),
               'Horodok': (26.57, 49.17), 'Satanov': (26.26, 49.25), 'Chortkiv': (25.80, 49.02), 'Yazlovets': (25.47, 48.96), 'Buchach': (25.39, 49.06),
-              'Starokostiantyniv': (27.21, 49.76), 'Kalynivka (NE corner)': (28.52, 49.45), 'Bratslav (vassal, stays out)': (28.94, 48.82), 'Uman (vassal, stays out)': (30.22, 48.75)}.items():
+              'Starokostiantyniv': (27.21, 49.76), 'Kalynivka (NE corner)': (28.52, 49.45), 'Bratslav': (28.94, 48.82), 'Yampil': (28.28, 48.24), 'Rybnytsia': (29.01, 47.77), 'Ternopil': (25.59, 49.55), 'Uman (vassal, stays out)': (30.22, 48.75)}.items():
     print('  ', n_, Y.contains(Point(p)), round(Y.distance(Point(p)) * 111, 1), 'km')
 print('sas outside grm', round(A(M('sas').difference(Y.buffer(0.01)))))
 json.dump(C, open(F_ + '.tmp', 'w'), separators=(',', ':'), ensure_ascii=False); os.replace(F_ + '.tmp', F_)
