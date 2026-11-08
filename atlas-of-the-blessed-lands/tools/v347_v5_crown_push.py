@@ -3,7 +3,9 @@ the entire Black Sea is engulfed and the land is completely connected"). The nor
 from Sochi to Derbent) is moved north by DY degrees, keeping its exact shape; west of the crown's tip the pushed line runs on at the
 tip's height to the old Don-Novorossiysk line. All Russian land between the old crest line and the pushed line is added, which
 closes the gap on the Black Sea coast (Arkhipo-Osipovka - Tuapse - Lazarevskoye) so the whole Black Sea is ringed by V5.
-A design choice of the author (outline is his specification), not a historical holding."""
+Then (his red line on the 0.92 preview, "until that angle" -> red line from the Azov block's north-east corner ~41.07E 47.51N
+curving east of the old straight line down to the pushed crown at ~39.7E 44.8N) the old Don-Novorossiysk straight line is replaced by
+that red line (RED=1). A design choice of the author (outline is his specification), not a historical holding."""
 import json, os, subprocess, shapely
 from shapely.geometry import shape, MultiPolygon, Polygon, Point
 from shapely.ops import unary_union
@@ -38,6 +40,9 @@ pts = [(x, top(x)) for x in lons]; pts = [(x, y + DY) for x, y in pts if y is no
 west = pts[0][1]
 ring = [(37.6, 40.0), (37.6, west)] + pts + [(49.3, pts[-1][1]), (49.3, 40.0)]
 POD = Polygon(ring).buffer(0).intersection(G['643'][1])
+if os.environ.get('RED', '1') == '1':
+    RED = [(41.07, 47.51), (42.0, 47.32), (42.24, 47.10), (42.21, 46.66), (41.59, 46.22), (41.02, 45.88), (40.53, 45.60), (40.12, 45.19), (39.71, 44.79)]
+    POD = unary_union([POD, Polygon(RED + [(38.0, 44.79), (38.0, 47.45)]).buffer(0).intersection(G['643'][1])])
 V5 = M('grm'); print('pushed crown, DY =', DY, 'adds', round(A(POD.difference(V5))), 'km2')
 X = unary_union([V5, POD.buffer(0.002)]).buffer(0)
 o = polys(X, 0.02); Y = MultiPolygon([Polygon(r[0], r[1:]) for r in o]).buffer(0)
@@ -48,7 +53,7 @@ for k, (n, g) in G.items():
         if pct >= 1: rws.append({'id': k, 'n': n, 'km2': round(A(g)), 'pct': pct})
 old = C['grm']['km2']; C['grm'] = {'polys': o, 'km2': km2of(o), 'states': sorted(rws, key=lambda r: -r['km2'] * r['pct'])}
 print('grm', old, '->', C['grm']['km2'])
-for n_, p in {'Tuapse': (39.07, 44.10), 'Lazarevskoye': (39.33, 43.91), 'Novomikhaylovsky (Nicopsis)': (38.85, 44.26), 'Dzhubga': (38.70, 44.32), 'Maykop': (40.10, 44.61), 'Cherkessk': (42.06, 44.23), 'Nalchik': (43.61, 43.49), 'Vladikavkaz': (44.68, 43.02), 'Grozny': (45.69, 43.32), 'Makhachkala': (47.50, 42.98), 'Krasnodar': (38.98, 45.04), 'Stavropol': (41.97, 45.04)}.items():
+for n_, p in {'Tuapse': (39.07, 44.10), 'Lazarevskoye': (39.33, 43.91), 'Novomikhaylovsky (Nicopsis)': (38.85, 44.26), 'Dzhubga': (38.70, 44.32), 'Maykop': (40.10, 44.61), 'Cherkessk': (42.06, 44.23), 'Nalchik': (43.61, 43.49), 'Vladikavkaz': (44.68, 43.02), 'Grozny': (45.69, 43.32), 'Makhachkala': (47.50, 42.98), 'Krasnodar': (38.98, 45.04), 'Stavropol': (41.97, 45.04), 'Kropotkin': (40.57, 45.44), 'Tikhoretsk': (40.13, 45.85), 'Salsk': (41.54, 46.47), 'Armavir': (41.12, 44.99), 'Volgodonsk (stays out)': (42.16, 47.51)}.items():
     print('  ', n_, Y.contains(Point(p)), round(Y.distance(Point(p)) * 111, 1), 'km')
 print('sas outside grm', round(A(M('sas').difference(Y.buffer(0.01)))))
 json.dump(C, open(F_ + '.tmp', 'w'), separators=(',', ':'), ensure_ascii=False); os.replace(F_ + '.tmp', F_)
