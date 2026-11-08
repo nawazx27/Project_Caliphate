@@ -2,7 +2,8 @@
 Caucasus whose orange region's north edge runs from Taman east, sagging over the Kuban, to the Caspian north of Makhachkala). V5 (grm)
 takes all Russian land south of that north edge (traced from his image; tools/data/v349_caucasus_edge.geojson; schematic, good to
 ~20-30 km) and keeps his red line from Version 347 (Azov block's north-east corner down to ~39.7E 44.8N) in place of the old straight
-line. A design choice of the author, not a historical holding."""
+line; then ("Push it a bit upward") the traced edge is moved north by DY degrees (0.3, ~33 km). A design choice of the
+author, not a historical holding."""
 import json, os, subprocess, shapely
 from shapely.geometry import shape, MultiPolygon, Polygon, Point
 from shapely.ops import unary_union
@@ -25,12 +26,13 @@ def polys(X, mn=0.05):
         q = orient(Polygon(q.exterior, [h for h in q.interiors if A(Polygon(h)) >= 5000]), 1.0)
         out.append([[[round(u, 3), round(v, 3)] for u, v in rr.coords] for rr in [q.exterior, *q.interiors]])
     return out
-EDGE = [tuple(p) for p in json.load(open(os.path.join(P, 'tools/data/v349_caucasus_edge.geojson')))['features'][0]['geometry']['coordinates']]
+DY = float(os.environ.get('DY', '0.3'))   # "Push it a bit upward"
+EDGE = [(p[0], p[1] + DY) for p in json.load(open(os.path.join(P, 'tools/data/v349_caucasus_edge.geojson')))['features'][0]['geometry']['coordinates']]
 ring = [(36.5, 40.0), (36.5, EDGE[0][1])] + EDGE + [(49.3, EDGE[-1][1]), (49.3, 40.0)]
 POD = Polygon(ring).buffer(0).intersection(G['643'][1])
 RED = [(41.07, 47.51), (42.0, 47.32), (42.24, 47.10), (42.21, 46.66), (41.59, 46.22), (41.02, 45.88), (40.53, 45.60), (40.12, 45.19), (39.71, 44.79)]
 POD = unary_union([POD, Polygon(RED + [(38.0, 44.79), (38.0, 47.45)]).buffer(0).intersection(G['643'][1])])
-V5 = M('grm'); print('Caucasus shape adds', round(A(POD.difference(V5))), 'km2')
+V5 = M('grm'); print('Caucasus shape, DY =', DY, 'adds', round(A(POD.difference(V5))), 'km2')
 X = unary_union([V5, POD.buffer(0.002)]).buffer(0)
 o = polys(X, 0.02); Y = MultiPolygon([Polygon(r[0], r[1:]) for r in o]).buffer(0)
 rws = []
