@@ -2102,3 +2102,7 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 ## Version 358: V4's Caucasus in V5, Gelendzhik block unchanged
 - Nawaz (Version 357 had restored the old V5 crown by mistake): "use the crown used in v4 which has the modern Georgia and [Derbent] inside" and "keep Gelendzhik like this".
 - tools/v358_v5_v4_caucasus.py: inside 39.0-49.5E, 41.0-44.6N, V5 = V4 (sas): modern Georgia (with Abkhazia) and Azerbaijan plus Derbent and southern Dagestan; the Russian crown (Sochi-Adler coast, Krasnaya Polyana, north-slope strips) removed, -18,617 km2. The Bosporan/Gelendzhik block west of 39E is unchanged (checked: 0 difference). Congo Nile lands kept. V5 37,732,493 -> 37,713,910 km2. Roman sites (Pityus, Sebastopolis, Phasis, Apsaros, Mtskheta, Gobustan) and Ottoman Derbent inside. sas inside grm.
+
+## Version 359: Gelendzhik block as in his screenshot, crown of Version 358 kept
+- Nawaz: "don't change the crown of the current v5, just change and keep the Gelendzhik from the second image" (his zoomed screenshot = the Version 346 shape: the Gelendzhik district plus the land up to his second red line, ~38.38E 44.98N down to ~38.61E 44.55N). Version 357/358 had only the district.
+- tools/v346_v5_gelendzhik.py run with FILL=1 on Version 358: +909 km2 (882 km2 new land). V5 37,713,910 -> 37,714,819 km2. Crown (V4's Caucasus, modern Georgia/Azerbaijan + Derbent) unchanged. sas inside grm.
