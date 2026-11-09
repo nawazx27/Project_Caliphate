@@ -2093,3 +2093,8 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 ## Version 356: the Caucasus nose a bit higher
 - Nawaz: "Can you do the nose just a bit more higher" -> preview NOSE=0.6 -> "Let it be for now" -> later, comparing full maps, "push the higher nose".
 - tools/v355_v5_caucasus_nose.py run again with NOSE=0.6 (lift full west of 39.6E, tapering to nothing at 42.5E; Caspian angle unchanged): +2,157 km2, Armavir in; Kropotkin and Stavropol stay out. V5 37,839,866 -> 37,842,023 km2. sas still inside grm.
+
+## Version 357: back to the separate Caucasus crown, Gelendzhik and the Congo Nile lands kept
+- Nawaz: after checking the crown version keeps every Roman- and Ottoman-held land, "Keep this Gelendzhik and go back to the crown ... and push".
+- src/caliph.json restored from Version 351 (commit 9579f83: crown + the Gelendzhik district, no hinterland), then tools/v354_v5_congo_nile.py rerun (the Congolese Nile lands, so V5 keeps the whole Mediterranean basin). V5 37,717,282 + 14,992 -> 37,732,493 km2. Versions 352-356 (Caucasus shape, red line, nose) undone; do not rerun v349/v355 unless he asks. sas still inside grm.
+- Checked inside: Derbent, Sukhum, Poti, Batumi, Anapa, Sudzhuk-Kale, Taman, Temryuk, Azov, Tbilisi, Baku, Kamianets, Yazlovets (Ottoman); Pityus, Sebastopolis, Phasis, Mtskheta, Gobustan, Gelendzhik/Arkhipo-Osipovka tower (Roman).
