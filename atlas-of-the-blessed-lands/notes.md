@@ -2127,3 +2127,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 363: the Atlantic Ocean name hidden in the clean map
 - Nawaz (phone screenshot of V6, dark theme, Clean on, "Atlantic Ocean" lettered across West Africa's coast): "Remove Atlantic Ocean in clean". src/eng_c.js: the sea labels named 'Atlantic Ocean' get noClean (as Baḥr al-Rūm, al-Qulzum, Fāris and the Sahara already have). Checked on a phone-size view over the Atlantic, Clean off and on. The other ocean names (Southern, Pacific, Indian, Arctic) still show in the clean map; he asked only for the Atlantic.
+
+## Version 364: the name "Grand Caliphate" moved from V4 to V5
+- Nawaz: "V5 is the grand caliphate", then "Push". The name had stayed with the sas outline (named in Version 289, when it was numbered V5; it became V4 later). Now V5 (grm) carries it: V5's note, both tooltips, the versions paragraph and the search entry ("grand caliphate" finds V5); V4 is described without a name; V6's note says it holds "V5, the Grand Caliphate". Hidden outlines' old notes (rom) not touched. The page still opens on V4 (asked him whether it should open on V5; no answer yet). No map change.
