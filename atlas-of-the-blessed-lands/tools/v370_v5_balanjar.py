@@ -1,4 +1,4 @@
-"""Version 370 PREVIEW (Nawaz asked whether V5 holds every Rashidun land: yes, all held land; only Balanjar, the Khazar town of the failed raid of
+"""Version 370 (applied after "Preview" then "Add"; V6 (sup) gets the same land so it still holds V5). (Nawaz asked whether V5 holds every Rashidun land: yes, all held land; only Balanjar, the Khazar town of the failed raid of
 c. 652, is outside -> "Preview"). V5 (grm) takes the Dagestan land of Version 281 (tools/data/v4_rashidun281.geojson, key 'v2': whole districts
 filled to his red lines of that time, from Derbent's hinterland north to Makhachkala, Kaspiysk and Buynaksk, covering two of the three
 proposed sites of Balanjar: Buynaksk and the ruins south of Makhachkala; the lower Sulak site lies further north and is NOT covered).
@@ -41,5 +41,12 @@ print('grm', old, '->', C['grm']['km2'])
 for n_, p in {'Derbent': (48.29, 42.06), 'Makhachkala': (47.5, 42.98), 'Buynaksk (Balanjar site 1)': (47.12, 42.82), 'Tarki ruins (site 2)': (47.49, 42.95), 'lower Sulak / Verkhny Chiryurt (site 3)': (46.85, 43.2),
               'Kizlyar (out)': (46.71, 43.85), 'Grozny (out)': (45.69, 43.32)}.items():
     print('  ', n_, Y.contains(Point(p)), round(Y.distance(Point(p)) * 111, 1), 'km')
-print('grm outside sup', round(A(Y.difference(MP(C['sup']['polys']).buffer(0.01)))))
+V6 = MP(C['sup']['polys']); X6 = unary_union([V6, W.buffer(0.002)]).buffer(0); o6 = polys(X6, 0.02); Y6 = MP(o6)
+r6 = []
+for k, (n, g) in G.items():
+    if g.area and g.intersects(Y6):
+        pct = round(100 * g.intersection(Y6).area / g.area)
+        if pct >= 1: r6.append({'id': k, 'n': n, 'km2': round(A(g)), 'pct': pct})
+old6 = C['sup']['km2']; C['sup'] = {'polys': o6, 'km2': km2of(o6), 'states': sorted(r6, key=lambda r: -r['km2'] * r['pct'])}
+print('sup', old6, '->', C['sup']['km2'], '| grm outside sup', round(A(Y.difference(Y6.buffer(0.01)))), '| sas outside grm', round(A(MP(C['sas']['polys']).difference(Y.buffer(0.01)))))
 json.dump(C, open(F_ + '.tmp', 'w'), separators=(',', ':'), ensure_ascii=False); os.replace(F_ + '.tmp', F_)
