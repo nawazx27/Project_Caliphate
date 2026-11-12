@@ -1,4 +1,4 @@
-"""Version 373 PREVIEW (Nawaz, on a screenshot of V5 after Version 371, circled in red the coast north of Makhachkala: the Agrakhan peninsula,
+"""Version 373 PREVIEW (redrawn after his second circle: "I meant only that" = only the Agrakhan spit and Chechen Island, not the mainland shore). (Nawaz, on a screenshot of V5 after Version 371, circled in red the coast north of Makhachkala: the Agrakhan peninsula,
 the shore of the Agrakhan Bay and Chechen Island: "Fill"). The circle, georeferenced on the screenshot (Mercator fitted on Batumi and Baku,
 checked on Tbilisi, Yerevan and Aktau to 0.04 deg), is tools/data/v373_agrakhan_circle.geojson. V5 (grm) and V6 (sup) take all Russian land
 inside it. On the live V5 (the Version 372 Caspian-line preview is separate). DIR env = project dir (preview: a copy)."""
@@ -26,7 +26,10 @@ def polys(X, mn=0.05):
         out.append([[[round(u, 3), round(v, 3)] for u, v in rr.coords] for rr in [q.exterior, *q.interiors]])
     return out
 CI = shape(json.load(open(os.path.join(HERE, 'tools/data/v373_agrakhan_circle.geojson')))['geometry'])
-W = CI.intersection(G['643'][1])
+# only the spit and the island: cut off the mainland west of the Agrakhan Bay along the bay's middle (base-map water), then south to the Sulak mouth
+CUT = [(47.2, 44.05), (47.42, 43.92), (47.497, 43.88), (47.475, 43.84), (47.519, 43.80), (47.498, 43.76), (47.47, 43.72), (47.476, 43.68), (47.444, 43.64),
+       (47.422, 43.60), (47.422, 43.56), (47.428, 43.52), (47.44, 43.48), (47.462, 43.42), (47.48, 43.36), (47.49, 43.28), (47.2, 43.28)]
+W = CI.intersection(G['643'][1]).difference(Polygon(CUT))
 def add(key):
     V = MP(C[key]['polys']); a = W.difference(V); print('  +', key, round(A(a)), 'km2')
     for g in sorted(getattr(a, 'geoms', [a]), key=lambda g: -A(g))[:5]:
@@ -38,7 +41,7 @@ def add(key):
             if pct >= 1: rws.append({'id': k, 'n': n, 'km2': round(A(g)), 'pct': pct})
     old = C[key]['km2']; C[key] = {'polys': o, 'km2': km2of(o), 'states': sorted(rws, key=lambda r: -r['km2'] * r['pct'])}; print(key, old, '->', C[key]['km2']); return Y
 Y5 = add('grm'); Y6 = add('sup')
-for n_, p in {'Agrakhan peninsula': (47.62, 43.75), 'Chechen Island': (47.75, 43.97), 'Sulak village': (47.52, 43.53), 'Kizlyar (out, west of the circle)': (46.71, 43.85), 'Makhachkala': (47.5, 42.98)}.items():
+for n_, p in {'Agrakhan peninsula': (47.62, 43.75), 'Chechen Island': (47.75, 43.97), 'Agrakhan spit middle': (47.52, 43.6), 'mainland west of the bay (out)': (47.33, 43.6), 'Kizlyar (out, west of the circle)': (46.71, 43.85), 'Makhachkala': (47.5, 42.98)}.items():
     print('  ', n_, Y5.contains(Point(p)), round(Y5.distance(Point(p)) * 111, 1), 'km')
 print('grm outside sup', round(A(Y5.difference(Y6.buffer(0.01)))))
 json.dump(C, open(F_ + '.tmp', 'w'), separators=(',', ':'), ensure_ascii=False); os.replace(F_ + '.tmp', F_)
