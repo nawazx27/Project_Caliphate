@@ -4,7 +4,7 @@ const dir = process.argv[2];
 const { chromium } = require(path.join(dir, 'node_modules/playwright'));
 (async () => {
   const br = await chromium.launch(); const errors = [];
-  for (const tok of ['outline-v1', 'outline-v2', 'outline-v3', 'outline-v4', 'outline-v5', 'outline-v6']) {
+  for (const tok of ['outline-v1', 'outline-v2', 'outline-v3', 'outline-v4', 'outline-v5', 'outline-v6', 'outline-v7']) {
     const pg = await br.newPage({ viewport: { width: 1400, height: 900 } });
     pg.on('pageerror', e => errors.push(tok + ': ' + e.message));
     pg.on('console', m => { if (m.type() === 'error' && !/favicon|ERR_|net::/.test(m.text())) errors.push(tok + ' console: ' + m.text()); });
@@ -14,7 +14,7 @@ const { chromium } = require(path.join(dir, 'node_modules/playwright'));
     await pg.goto('file://' + path.resolve(dir, 'index.html') + '#' + tok);
     await pg.waitForFunction(() => window.__atlasTest, null, { timeout: 60000 });
     await pg.waitForTimeout(2500);
-    const txt = await pg.evaluate(() => { const m = document.body.innerText.match(/(\d+(\.\d+)?) million km²/); return m ? m[0] : null; });
+    const txt = await pg.evaluate(() => { const m = document.body.innerText.match(/About (\d+(\.\d+)?) million km²/) || document.body.innerText.match(/(\d+(\.\d+)?) million km²/); return m ? m[0] : null; });
     console.log(tok, 'ok', txt);
     await pg.close();
   }
