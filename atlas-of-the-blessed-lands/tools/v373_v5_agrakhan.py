@@ -1,4 +1,4 @@
-"""Version 373 PREVIEW (third round: his red line on the first preview; before that, redrawn after his second circle: "I meant only that" = only the Agrakhan spit and Chechen Island, not the mainland shore). (Nawaz, on a screenshot of V5 after Version 371, circled in red the coast north of Makhachkala: the Agrakhan peninsula,
+"""Version 373 (applied after "Full map" and "Push"; third round: his red line on the first preview; before that, redrawn after his second circle: "I meant only that" = only the Agrakhan spit and Chechen Island, not the mainland shore). (Nawaz, on a screenshot of V5 after Version 371, circled in red the coast north of Makhachkala: the Agrakhan peninsula,
 the shore of the Agrakhan Bay and Chechen Island: "Fill"). The circle, georeferenced on the screenshot (Mercator fitted on Batumi and Baku,
 checked on Tbilisi, Yerevan and Aktau to 0.04 deg), is tools/data/v373_agrakhan_circle.geojson. V5 (grm) and V6 (sup) take all Russian land
 inside it. On the live V5 (the Version 372 Caspian-line preview is separate). DIR env = project dir (preview: a copy)."""

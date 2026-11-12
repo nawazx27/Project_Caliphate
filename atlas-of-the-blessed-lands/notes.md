@@ -2151,3 +2151,10 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 371: the third proposed Balanjar site (lower Sulak) inside V5
 - Nawaz: "cover the left out site" (Verkhny Chiryurt on the Sulak by Kizilyurt, 7 km outside after Version 370). tools/v371_v5_sulak.py: V5 (and V6, which already held it) takes Kizilyurt city okrug (holds the site) and the Kizilyurtovsky District round it, whole (Overture Maps 2026-10-21.0, tools/data/v371_sulak_kizilyurt.geojson): +517 km2, V5 37,737,394 -> 37,737,932; V6 unchanged (46,132,942). All three proposed sites (Buynaksk, Tarki, Verkhny Chiryurt) now inside; Khasavyurt 20 km out. Site identifications are from Wikipedia's Balanjar article as read in Version 281, not re-checked.
+
+## Version 372 (preview only, not applied): V5 to his red line west of the Caspian
+- On a dark-theme phone screenshot, a red line from north of the Caspian (~50.1E 47.85N) across the lower Volga and south along ~46.4E to the Caucasus: tools/v372_v5_caspian_line.py (DIR=copy) adds Astrakhan, eastern Kalmykia and north-east Dagestan, +31,538 km2. Not applied (he moved on to the Agrakhan circle). V6 lacks ~27,000 km2 of that land; add it to V6 too if ever applied.
+
+## Version 373: the Agrakhan coast, peninsula and Chechen Island in V5 and V6
+- Nawaz circled the coast north of Makhachkala on a V5 screenshot ("Fill"); preview 1 took all land in the circle; he circled again, "I meant only that" (spit + island); preview 2 took only the spit; then he drew a red line from V5's edge (~47.0E 43.37N) to the spit's tip (~47.58E 43.91N) on preview 1; preview 3 filled east of that line; "Full map", "Push".
+- tools/v373_v5_agrakhan.py (line: tools/data/v373_agrakhan_line.json; circle: tools/data/v373_agrakhan_circle.geojson): V5 and V6 take all Russian land east of his line: the Agrakhan Bay's mainland shore, the Agrakhan peninsula and Chechen Island. V5 37,737,932 -> 37,739,565; V6 46,132,942 -> 46,133,480 km2. Georeferenced on the page's own screenshot (Mercator, checked to ~0.01 deg).
