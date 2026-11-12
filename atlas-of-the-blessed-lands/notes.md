@@ -2185,3 +2185,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 384: the Version 383 colours taken back
 - Nawaz: "I like the previous tone". The Version 383 colour values (sea, land, gold wash, outside dim, line colour, both themes) are removed, so the map's colours are exactly as before Version 383. Kept: the slimmer outline band and line on phones (8 px / 2 px), which is a width, not a tone; offered to undo that too.
+
+## Version 385: the Version 383 sea colour back, the rest in the previous tone
+- Nawaz: "Keep the C unchanged." then "I like the color of the sea after your color change." Only --sea and --glow take the Version 383 values again (light #A6C8D4 / #CBE2E8, dark #071626 / #0E2B45). Land, gold wash, outside dim and outline colour stay as before Version 383. The slimmer phone outline is kept.

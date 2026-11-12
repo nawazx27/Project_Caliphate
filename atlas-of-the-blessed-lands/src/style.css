@@ -1203,3 +1203,7 @@ html.fullmap #readbar,html.fullmap #totop{display:none}
 
 /* ---------- Version 384: the Version 383 colours taken back at the author's request ("I like the previous tone"); only the slimmer outline on phones is kept ---------- */
 @media (max-width:700px){.caliphx-band{stroke-width:8px}.caliphx-line{stroke-width:2px}}
+/* Version 385: the Version 383 SEA colour back at the author's request ("I like the color of the sea after your color change"); land, gold wash and outline stay in the previous tone */
+:root{--sea:#A6C8D4; --glow:#CBE2E8}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--sea:#071626; --glow:#0E2B45}}
+:root[data-theme="dark"]{--sea:#071626; --glow:#0E2B45}
