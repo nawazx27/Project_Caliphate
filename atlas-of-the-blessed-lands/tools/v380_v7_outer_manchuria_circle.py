@@ -1,9 +1,9 @@
-"""Version 380 PREVIEW (Nawaz: "Why do you keep adding that.. restrict to this [the Madrid Maps 'Concept of a Greater China' map] and add the entire
-Korean Peninsula and with everything in the image that I gave you right now" = his red circle drawn on the Version 379 preview round the north-east,
-tools/data/v380_outer_manchuria_circle.json, georeferenced through the page's own projection, checked on the 30-60N graticule to 2 px).
-V7 (sup): China, Taiwan, Hong Kong, Macao, Mongolia (v377), Tuva and the Russian Far East regions (v378), Korea (v379) as before, PLUS all Russian
-land inside his circle: the whole Okhotsk-sea coast, northern Khabarovsk, and the land north and west of the Khabarovsk lobe up to the circle's edge.
-Nothing from the Yuan or Qing maps. DIR env = project dir (preview: a copy; needs 377-379 applied first)."""
+"""Version 380 PREVIEW, corrected (Nawaz: "Are you stupid? I said fucking restrict to this", the Madrid Maps "Concept of a Greater China" map). His red circle
+(tools/data/v380_outer_manchuria_circle.json, drawn on the Version 379 preview round the Khabarovsk lobe and the Okhotsk coast, georeferenced through the page's own
+projection) marks land to TAKE OUT, not to add: on his map Outer Manchuria stops well south of the Okhotsk coast. So V7 = the Greater China preview chain
+(v377 China, Taiwan, Hong Kong, Macao, Mongolia; v378 Tuva and the Far East regions; v379 Korea) MINUS all Russian land inside his circle. V7 holds no other
+Russian land there. DIR env = project dir (preview: a copy; needs 377-379 applied first)."""
+
 import json, os, subprocess, math, shapely, numpy as np
 from shapely.geometry import shape, MultiPolygon, Polygon, Point, mapping
 from shapely.ops import unary_union
@@ -29,10 +29,9 @@ def polys(X, mn=0.05):
     return out
 CI = Polygon([tuple(p) for p in json.load(open(os.path.join(HERE, 'tools/data/v380_outer_manchuria_circle.json')))]).buffer(0)
 V = MP(C['sup']['polys']); RUS = G['643'][1]
-W = CI.intersection(RUS); a = W.difference(V)
-print('circle', [round(v, 1) for v in CI.bounds], '| Russian land inside it', round(A(W)), 'km2 | new to V7', round(A(a)), 'km2')
-for g in sorted(getattr(a, 'geoms', [a]), key=lambda g: -A(g))[:4]: print('   piece', round(A(g)), 'km2 at', [round(c, 1) for c in g.representative_point().coords[0]])
-X = unary_union([V, W.buffer(0.003)]).buffer(0)
+CUT = CI.intersection(RUS.buffer(0.05))
+print('circle', [round(v, 1) for v in CI.bounds], '| V7 land removed inside it', round(A(V.intersection(CUT))), 'km2')
+X = V.difference(CUT).buffer(0)
 o = polys(X, 0.02); Y = MP(o); rws = []
 for k, (n, g) in G.items():
     if g.area and g.intersects(Y):
