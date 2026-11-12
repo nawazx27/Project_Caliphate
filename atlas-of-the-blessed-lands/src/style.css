@@ -1200,3 +1200,18 @@ html.fullmap #readbar,html.fullmap #totop{display:none}
 @media (max-width:980px), (orientation:landscape) and (max-height:520px){
   .atlas.full .scale .north{display:flex}
   .atlas.full .scale .north .rose{width:40px;height:40px}}
+
+/* ---------- Version 383: colour and line polish (colour values and stroke widths only; no new shapes, so nothing extra to paint) ----------
+   Light: a clearer blue sea, warmer parchment, a truer gold wash inside the outline, paler land outside it.
+   Dark: a deeper night sea, a luminous gold wash inside, the outside land sunk further back.
+   Phone: a slimmer band and line, so the outline stays crisp when the whole world is on screen. */
+:root{--sea:#A6C8D4; --glow:#CBE2E8; --land:#F3E7C9; --xline:#6B4A06; --xwash:.16; --xband:.32}
+.caliphx-wash{fill:#C8962A}
+.caliphx-dim{fill:#E9E7E1;fill-opacity:.70}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--sea:#071626; --glow:#0E2B45; --land:#1F2623; --xline:#F0CF7C; --xwash:.20; --xband:.30}
+  :root:not([data-theme="light"]) .caliphx-wash{fill:#D9A83E}
+  :root:not([data-theme="light"]) .caliphx-dim{fill:#090D0D;fill-opacity:.58}}
+:root[data-theme="dark"]{--sea:#071626; --glow:#0E2B45; --land:#1F2623; --xline:#F0CF7C; --xwash:.20; --xband:.30}
+:root[data-theme="dark"] .caliphx-wash{fill:#D9A83E}
+:root[data-theme="dark"] .caliphx-dim{fill:#090D0D;fill-opacity:.58}
+@media (max-width:700px){.caliphx-band{stroke-width:8px}.caliphx-line{stroke-width:2px}}
