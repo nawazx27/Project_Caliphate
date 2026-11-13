@@ -1,4 +1,4 @@
-"""Version 389 PREVIEW (Nawaz, on the Sokoto preview picture, drew a red line across Central Africa from the Gulf of Guinea (~6E 1.6N) east through the south of
+"""Version 389 PREVIEW, FINAL form (Nawaz: "Keep until Central African Republic and Cameroon"): the seven countries Ghana, Cote d'Ivoire, Togo, Benin, Nigeria, Cameroon and the Central African Republic only; Equatorial Guinea, Gabon, Congo and Sao Tome (south of Cameroon) are NOT added. (Earlier, second form (Nawaz: "Forget my line.. fill with modern countries in that area"): no line, whole countries of the Gulf of Guinea and Central African area: the eight below plus Gabon, the Republic of the Congo and Sao Tome and Principe (the countries his line had touched or run beside). DR Congo (2.3 M km2, only grazed by the line) is NOT added. (First form: Nawaz, on the Sokoto preview picture, drew a red line across Central Africa from the Gulf of Guinea (~6E 1.6N) east through the south of
 Cameroon and the Central African Republic to South Sudan (~29E 6.3N), saying "Fill with modern countries"). Georeferenced on the picture's graticule
 (tools/data/v389_line.json). Every modern country that lies (mostly) north of the line and not yet in V6 is added WHOLE to V6 (tib) and V7 (sup):
 Ghana, Cote d'Ivoire, Togo, Benin, Nigeria, Cameroon, the Central African Republic and Equatorial Guinea (66% north of the line; Sao Tome 15%, Gabon 6%, Congo 7%,
@@ -26,7 +26,7 @@ def polys(X, mn=0.05):
         q = orient(Polygon(q.exterior, [h for h in q.interiors if A(Polygon(h)) >= 5000]), 1.0)
         out.append([[[round(u, 3), round(v, 3)] for u, v in rr.coords] for rr in [q.exterior, *q.interiors]])
     return out
-NAMES = ['Ghana', "Côte d'Ivoire", 'Togo', 'Benin', 'Nigeria', 'Cameroon', 'Central African Rep.', 'Eq. Guinea']
+NAMES = ['Ghana', "Côte d'Ivoire", 'Togo', 'Benin', 'Nigeria', 'Cameroon', 'Central African Rep.']
 W = {n: G[[k for k, (nm, g) in G.items() if nm == n][0]][1] for n in NAMES}
 def add(key):
     V = MP(C[key]['polys']); run = V
@@ -42,8 +42,8 @@ def add(key):
     old = C[key]['km2']; C[key] = {'polys': o, 'km2': km2of(o), 'states': sorted(rws, key=lambda r: -r['km2'] * r['pct'])}; print(key, old, '->', C[key]['km2']); return Y
 Y6 = add('tib'); Y7 = add('sup')
 for n_, p in {'Abidjan': (-4.03, 5.36), 'Accra': (-0.19, 5.6), 'Lome': (1.22, 6.13), 'Cotonou': (2.42, 6.37), 'Lagos': (3.38, 6.52), 'Port Harcourt': (7.01, 4.82), 'Yaounde': (11.52, 3.87), 'Douala': (9.7, 4.05),
-              'Bangui': (18.56, 4.36), 'Berberati': (15.79, 4.26), 'Bangassou': (22.8, 4.74), 'Malabo (Bioko)': (8.78, 3.75), 'Bata': (9.77, 1.86), 'Libreville (out)': (9.45, 0.39), 'Sao Tome (out)': (6.73, 0.34),
-              'Brazzaville (out)': (15.28, -4.27), 'Kisangani (out)': (25.19, 0.52), 'Kumasi': (-1.62, 6.69), 'Bouake': (-5.03, 7.69), 'Sassandra': (-6.08, 4.95)}.items():
+              'Bangui': (18.56, 4.36), 'Berberati': (15.79, 4.26), 'Bangassou': (22.8, 4.74), 'Malabo (Eq. Guinea, out)': (8.78, 3.75), 'Bata (out)': (9.77, 1.86), 'Libreville (out)': (9.45, 0.39), 'Sao Tome (out)': (6.73, 0.34),
+              'Brazzaville (out)': (15.28, -4.27), 'Kinshasa (DR Congo, out)': (15.3, -4.32), 'Kisangani (out)': (25.19, 0.52), 'Kumasi': (-1.62, 6.69), 'Bouake': (-5.03, 7.69), 'Sassandra': (-6.08, 4.95)}.items():
     print('  ', n_, Y6.contains(Point(p)), round(Y6.distance(Point(p)) * 111, 1), 'km')
 print('grm outside tib', round(A(MP(C['grm']['polys']).difference(Y6.buffer(0.01)))), '| tib outside sup', round(A(Y6.difference(Y7.buffer(0.01)))))
 json.dump(C, open(F_ + '.tmp', 'w'), separators=(',', ':'), ensure_ascii=False); os.replace(F_ + '.tmp', F_)
