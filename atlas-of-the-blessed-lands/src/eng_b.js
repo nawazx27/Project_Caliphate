@@ -192,7 +192,7 @@ function simplifyD(d, eps){
 }
 /* used below k 0.6, below k 1.5, and from there on; each coarse copy is made the first time it is needed, and the
    other one a moment after the page has settled, so opening the page does not wait for both */
-const LAND_EPS = [3, 0.8, 0.3], LAND_LODC = [null, null, null, LAND_D];
+const LAND_EPS = [3, 0.8, 0.3], LAND_LODC = [null, null, null, LAND_D + EXTRA_LAND_D];   /* Version 386: the extra islands stay drawn at full detail (they used to drop out after the first zoom) */
 let PRE_CX = null;   /* Version 123: V2's coarse outline copies made by build.js */   /* Version 65: a coarsest copy for the whole-world view */
 /* Version 98: the two coarsest copies come ready-made with the page (build.js); they are used only if they were made from this same coastline */
 { const pre = JSON.parse(document.getElementById('landlod').textContent);
@@ -201,9 +201,9 @@ let PRE_CX = null;   /* Version 123: V2's coarse outline copies made by build.js
     while(i < s.length){ x += num(); y += num(); out += (out ? 'L' : 'M') + (x/100).toFixed(2) + ',' + (y/100).toFixed(2); }
     return out + (s[0] === 'Z' ? 'Z' : ''); }).join('');
   if(pre.n === LAND_D.length){ LAND_LODC[0] = unpackD(pre.lod[0]); LAND_LODC[1] = unpackD(pre.lod[1]); }
-  if(pre.cx) PRE_CX = {n:pre.cx.n, lod:pre.cx.lod.map(unpackD)}; }
+  if(pre.cx) PRE_CX = {k:pre.cx.k || 'sas', n:pre.cx.n, lod:pre.cx.lod.map(unpackD)}; }
 const cxLv = () => T.k < 0.25 ? 0 : T.k < 0.6 ? 1 : T.k < 1.5 ? 2 : 3;   /* the level of detail for the zoom (the coastline's steps) */
-const landLOD = lv => LAND_LODC[lv] || (LAND_LODC[lv] = simplifyD(LAND_D, LAND_EPS[lv]));
+const landLOD = lv => LAND_LODC[lv] || (LAND_LODC[lv] = simplifyD(lv === 2 ? LAND_D + EXTRA_LAND_D : LAND_D, LAND_EPS[lv]));
 const whenIdle = f => (window.requestIdleCallback ? requestIdleCallback(f, {timeout:4000}) : setTimeout(f, 1500));
 let landLv = 3, VIEW_SET = false;   /* VIEW_SET: the opening view is in place, so the right coarse coastline can be chosen */
 const CLIPS = [];   /* {els, lines(), full(), key()}: strokes swapped for their clipped stretch close in */
@@ -299,7 +299,7 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
   /* Version 119: while zoomed out the outline is drawn from a coarser copy, as the coastline is (same steps and tolerances, under a pixel
      on screen); the outline has grown to about 46,000 points, and painting all of them at the whole-region view was most of a redraw */
   CX.lodC = {};
-  if(PRE_CX && PRE_CX.n === CALIPH.sas.polys.flat().reduce((t, r)=>t + r.length, 0)) CX.lodC.sas = [PRE_CX.lod[0], PRE_CX.lod[1]];   /* drawn until the full path is needed */
+  if(PRE_CX && CALIPH[PRE_CX.k] && PRE_CX.n === CALIPH[PRE_CX.k].polys.flat().reduce((t, r)=>t + r.length, 0)) CX.lodC[PRE_CX.k] = [PRE_CX.lod[0], PRE_CX.lod[1]];   /* drawn until the full path is needed */
   /* a coarse copy is made in a quiet moment, not while the page opens or a version is switched: until it is ready the full outline is drawn,
      and the next redraw picks the copy up */
   CX.lod = (key, lv) => { if(lv >= 3) return CX.d[key]; const c = CX.lodC[key] || (CX.lodC[key] = []);

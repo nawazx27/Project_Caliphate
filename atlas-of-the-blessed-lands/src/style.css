@@ -1207,3 +1207,5 @@ html.fullmap #readbar,html.fullmap #totop{display:none}
 :root{--sea:#A6C8D4; --glow:#CBE2E8}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--sea:#071626; --glow:#0E2B45}}
 :root[data-theme="dark"]{--sea:#071626; --glow:#0E2B45}
+/* Version 386: on phones the country title is smaller, so at the whole-world view it sits on the lands instead of below them */
+@media (max-width:520px){.lbl.darlbl{font-size:13.5px;letter-spacing:.2em;stroke-width:3px}.lbl.darlbl .arl.dar{font-size:12px}}

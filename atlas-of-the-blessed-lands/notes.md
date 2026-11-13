@@ -2188,3 +2188,14 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 385: the Version 383 sea colour back, the rest in the previous tone
 - Nawaz: "Keep the C unchanged." then "I like the color of the sea after your color change." Only --sea and --glow take the Version 383 values again (light #A6C8D4 / #CBE2E8, dark #071626 / #0E2B45). Land, gold wash, outside dim and outline colour stay as before Version 383. The slimmer phone outline is kept.
+
+## Version 386: accuracy and experience pass
+- Nawaz: "Let's do everything in fixing the accuracy and improving the experience" (items 1-3 and 7-10 of the list offered).
+- Missing islands (1): tools/v386_missing_islands.py finds the 1,967 Natural Earth 10m islands the base map dropped (under ~7 km2; 47,606 km2 in all), stores them in tools/data/v386_missing_islands.geojson and in CALIPH.extraLand (with the traced Kastellorizo group, kept in tools/data/v386_extraland_base.json), so the page draws them as land; each outline (not V1) takes the islands of countries it holds whole, and islands within 0.3 deg whose nearest mainland is inside: V3 +13, V4 +198, V5 +194, V6 +194, V7 +449 (mostly the Maldives, Chagos, Indonesia, the Philippines, Melanesia). The page keeps them at every zoom (src/eng_b.js LAND_LODC). Page 5.47 -> 5.64 MB.
+- True areas (2): tools/v386_areas_ellipsoid.py re-measures each outline's km2 on the WGS84 ellipsoid (pyproj) instead of d3's sphere (~0.15% high). RERUN IT AFTER ANY OUTLINE TOOL. V1 0.874, V2 17.54, V3 30.35, V4 35.04, V5 37.66, V6 41.24, V7 46.07 million km2; the versions paragraph updated.
+- Projection note (3): a new note in "Reading these maps honestly": Mercator stretches sizes towards the poles; the areas are measured on the globe. No equal-area rebuild (offered as too large).
+- Faster opening (7): each outline's points are unpacked only when that outline is first used (src/new_geom.js), the prebuilt coarse outline copies are now V5's, and the background builder starts with the versions nearest V5. Measured on a phone with the CPU slowed 4x: about 6.6 -> 6.3 s; a content-visibility test on the text sections gave no gain and was taken out. Most of the remaining time is the browser laying out the page and drawing the base map.
+- Opens on V5 (8): XV 'grm' (src/eng_c.js), pressed buttons in src/body.html, OPEN_KEY in build.js.
+- Phone title (9): DĀR AL-AMĀN smaller on screens up to 520 px, so it sits on the lands at the whole-world view; the Sahara name now waits for the first zoom step (its minK 0 -> 0.11) so the two do not collide.
+- Three continents (10): a paragraph in V5's note (Africa, Asia and Europe; every crossing: Suez and Sinai, the Bosporus and Dardanelles, Gibraltar; the Mediterranean, its climate lands and drainage basin). V6 still has no name (waiting on him).
+- Not done: the 8 km2 V3-outside-V4 sliver (now 7.6 km2), equal-area view.
