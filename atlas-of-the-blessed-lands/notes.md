@@ -2199,3 +2199,4 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Phone title (9): DĀR AL-AMĀN smaller on screens up to 520 px, so it sits on the lands at the whole-world view; the Sahara name now waits for the first zoom step (its minK 0 -> 0.11) so the two do not collide.
 - Three continents (10): a paragraph in V5's note (Africa, Asia and Europe; every crossing: Suez and Sinai, the Bosporus and Dardanelles, Gibraltar; the Mediterranean, its climate lands and drainage basin). V6 still has no name (waiting on him).
 - Not done: the 8 km2 V3-outside-V4 sliver (now 7.6 km2), equal-area view.
+- Fix (found while analysing all the versions): the island rule "every island of a country the outline holds whole" had pulled Sint Eustatius and Saba (Dutch Caribbean, ~26 km2) into V5, V6 and V7 because the Netherlands is whole in them. Removed; tools/v386_missing_islands.py now takes such islands only within 3 deg of the outline. Areas re-measured.

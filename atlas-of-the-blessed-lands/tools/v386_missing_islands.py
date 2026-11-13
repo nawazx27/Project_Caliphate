@@ -56,7 +56,7 @@ for key in ['me2', 'me9', 'sas', 'grm', 'tib', 'sup']:
     add = []; why = collections.Counter()
     for n, q in miss:
         if V.intersects(q): continue
-        if n in whole: add.append(q); why[n] += 1; continue
+        if n in whole and V.distance(q) <= 3: add.append(q); why[n] += 1; continue   # (fix: not a whole country's islands across an ocean, e.g. the Dutch Caribbean)
         if V.distance(q) <= 0.3:
             m = parts[LANDTREE.nearest(q)]
             if Vb.contains(nearest_points(q, m)[1]): add.append(q); why[n + ' (near)'] += 1
