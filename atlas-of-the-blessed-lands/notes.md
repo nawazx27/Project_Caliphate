@@ -2203,3 +2203,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 387 (preview only, not applied): V6 with every further Muslim-ruled land
 - Nawaz asked whether V6 could be a Grand Caliphate; option 2 previewed (tools/v387_v6_muslim_lands.py, DIR=copy): V6 + northern Nigeria (Sokoto Caliphate, Kanem-Bornu; 18 states), the North Caucasus and Pontic-Caspian steppe (12 Russian regions), the Volga (7 regions: Kazan, Sarai, the Kazan and Astrakhan khanates); Tibet kept. V6 41.24 -> 42.65M, V7 -> 47.36M. He said "Let it be": NOT applied, V6 unchanged.
+
+## Version 388 (preview only, not applied): the Sokoto Caliphate in V6
+- Nawaz asked whether V6 holds every land a caliphate held (139 points, 17 states: all inside except northern Nigeria, i.e. the Sokoto Caliphate; sultanates and khanates such as the Volga, Malay and Caucasian Imamate lands are not caliphates) -> "Caliphate only" -> preview tools/v388_v6_sokoto.py (DIR=copy): 16 Nigerian states (Sokoto, Kebbi, Zamfara, Katsina, Kano, Jigawa, Kaduna, Bauchi, Gombe, Adamawa, Taraba, Niger, Kwara, Nasarawa, FCT, Plateau) + the enclosed Borno-Yobe pocket (~49,000 km2, filled by the no-gaps rule): V6 41.24 -> 41.84M, V7 -> 46.66M. He said "Let it be": NOT applied.
