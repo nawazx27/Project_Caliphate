@@ -1,5 +1,5 @@
 """Version 390 PREVIEW (Nawaz: Wikipedia 'Golden Horde' map c.1300, "Preview Exactly, with the yellow shape"): the yellow Golden Horde shape exactly as drawn
-(tools/data/v390_golden_horde.geojson, traced and georeferenced by tools/v390_golden_horde_trace.py) is added to V6 (tib) and V7 (sup), clipped to land (no sea added),
+(tools/data/v390_golden_horde.geojson, traced and georeferenced by tools/v390_golden_horde_trace.py) is added to V6 (tib) and V7 (sup) (and, with env WITH_V5=1, also V5 'grm': Nawaz 'Preview v5 with it'), clipped to land (no sea added),
 tiny gaps (< 20,000 km2) between it and the old edge closed. DIR env = project dir (preview: a copy). Run v386_areas_ellipsoid.py after."""
 import json, os, subprocess, shapely
 from shapely.geometry import shape, MultiPolygon, Polygon, Point
@@ -40,7 +40,8 @@ def add(key):
             if pct >= 1: rws.append({'id': k, 'n': n, 'km2': round(A(g)), 'pct': pct})
     old = C[key]['km2']; C[key] = {'polys': o, 'km2': km2of(o), 'states': sorted(rws, key=lambda r: -r['km2'] * r['pct'])}
     print(key, old, '->', C[key]['km2'], '| newly added', round(A(Y.difference(V))), 'km2'); return Y
-Y6 = add('tib'); Y7 = add('sup')
+Y5 = add('grm') if os.environ.get('WITH_V5') else None; Y6 = add('tib'); Y7 = add('sup')
+if Y5 is not None: print('V5 (grm) outside V6', round(A(Y5.difference(Y6.buffer(0.01)))))
 print('grm outside tib', round(A(MP(C['grm']['polys']).difference(Y6.buffer(0.01)))), '| tib outside sup', round(A(Y6.difference(Y7.buffer(0.01)))))
 print('share of the drawn shape now inside V6:', round(100 * A(NEW.intersection(Y6)) / A(NEW), 1), '%')
 json.dump(C, open(F_ + '.tmp', 'w'), separators=(',', ':'), ensure_ascii=False); os.replace(F_ + '.tmp', F_)
