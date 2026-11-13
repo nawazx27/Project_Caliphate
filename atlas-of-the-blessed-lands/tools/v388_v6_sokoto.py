@@ -2,7 +2,7 @@
 (the other gaps found were sultanates and khanates). Its emirates, as whole Nigerian states (Overture 2026-10-21.0, tools/data/v387_regions.parquet):
 Sokoto, Kebbi (Gwandu), Zamfara, Katsina, Kano, Jigawa (Hadejia), Kaduna (Zazzau), Bauchi, Gombe, Adamawa (Yola), Taraba, Niger (Nupe, Bida), Kwara (Ilorin),
 Nasarawa, the Federal Capital Territory and Plateau (the last three lie inside the ring of the others). NOT added: Borno and Yobe (Kanem-Bornu, never part
-of the caliphate; V3 already holds their Lake Chad districts), Kogi, and the south. The caliphate's lands in Niger, Burkina Faso, Benin and Cameroon are already
+of the caliphate; V3 already holds their Lake Chad districts; the rest of them is added only where it is an enclosed pocket, as the no-gaps rule requires), Kogi, and the south. The caliphate's lands in Niger, Burkina Faso, Benin and Cameroon are already
 in V3 and up. DIR env = project dir (preview: a copy)."""
 import pyarrow.parquet as pq
 import json, os, subprocess, math, shapely, numpy as np
@@ -37,7 +37,10 @@ print('states', len(parts), sorted(parts))
 W = unary_union(list(parts.values())).intersection(G['566'][1].buffer(0.02))
 def add(key):
     V = MP(C[key]['polys']); print('  +', key, round(A(W.difference(V))), 'km2')
-    o = polys(unary_union([V, W.buffer(0.003)]).buffer(0), 0.02); Y = MP(o); rws = []
+    X = unary_union([V, W.buffer(0.003)]).buffer(0)
+    holes = [Polygon(h) for q in getattr(X, 'geoms', [X]) for h in q.interiors if Polygon(h).representative_point().x > 5 and Polygon(h).representative_point().x < 16 and 8 < Polygon(h).representative_point().y < 14]
+    for h in holes: print('     closing an enclosed pocket (no-gaps rule):', round(A(h)), 'km2 at', [round(c, 1) for c in h.representative_point().coords[0]])
+    o = polys(unary_union([X] + holes).buffer(0), 0.02); Y = MP(o); rws = []
     for k, (n, g) in G.items():
         if g.area and g.intersects(Y):
             pct = round(100 * g.intersection(Y).area / g.area)
