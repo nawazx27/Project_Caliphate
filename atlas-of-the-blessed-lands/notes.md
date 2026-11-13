@@ -2200,3 +2200,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Three continents (10): a paragraph in V5's note (Africa, Asia and Europe; every crossing: Suez and Sinai, the Bosporus and Dardanelles, Gibraltar; the Mediterranean, its climate lands and drainage basin). V6 still has no name (waiting on him).
 - Not done: the 8 km2 V3-outside-V4 sliver (now 7.6 km2), equal-area view.
 - Fix (found while analysing all the versions): the island rule "every island of a country the outline holds whole" had pulled Sint Eustatius and Saba (Dutch Caribbean, ~26 km2) into V5, V6 and V7 because the Netherlands is whole in them. Removed; tools/v386_missing_islands.py now takes such islands only within 3 deg of the outline. Areas re-measured.
+
+## Version 387 (preview only, not applied): V6 with every further Muslim-ruled land
+- Nawaz asked whether V6 could be a Grand Caliphate; option 2 previewed (tools/v387_v6_muslim_lands.py, DIR=copy): V6 + northern Nigeria (Sokoto Caliphate, Kanem-Bornu; 18 states), the North Caucasus and Pontic-Caspian steppe (12 Russian regions), the Volga (7 regions: Kazan, Sarai, the Kazan and Astrakhan khanates); Tibet kept. V6 41.24 -> 42.65M, V7 -> 47.36M. He said "Let it be": NOT applied, V6 unchanged.
