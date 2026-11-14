@@ -1,4 +1,4 @@
-// usage: node boxshot.js <dir with index.html> <out.png> w s e n   (env OV=outline-v5)
+// usage: node boxshot.js <dir with index.html> <out.png> w s e n   (env OV=outline-v5, CLEAN=1 for the clean map)
 const { chromium } = require(require('path').join(process.argv[2],'node_modules/playwright'));
 const fs = require('fs');
 const path = require('path');
@@ -15,6 +15,7 @@ const d3 = require(path.join(process.argv[2], 'node_modules/d3'));
   await pg.goto('file://' + path.resolve(dir, 'index.html') + '#' + (process.env.OV || 'outline-v5'));
   await pg.waitForFunction(() => window.__atlasTest, null, { timeout: 60000 });
   await pg.waitForTimeout(4000);
+  if (process.env.CLEAN) { await pg.evaluate(() => { const b = [...document.querySelectorAll('[data-clean]')].find(x => x.offsetParent); if (b) b.click(); }); await pg.waitForTimeout(1500); }   // env CLEAN=1: the Clean map view
   await pg.evaluate(bb => { window.__atlasTest.goB(bb); }, [[+w, +s], [+e, +n]]);
   await pg.waitForTimeout(4000);
   await pg.screenshot({ path: out, clip: { x: 88, y: 113, width: 1374, height: 784 } });

@@ -4,7 +4,7 @@ const dir = process.argv[2];
 const { chromium } = require(path.join(dir, 'node_modules/playwright'));
 (async () => {
   const br = await chromium.launch(); const errors = [];
-  for (const tok of ['outline-v2', 'outline-v3', 'outline-v4', 'outline-v5', 'outline-v6', 'outline-v7']) {
+  for (const tok of ['outline-v1', 'outline-v2', 'outline-v3', 'outline-v4', 'outline-v5', 'outline-v6', 'outline-v7']) {
     const pg = await br.newPage({ viewport: { width: 1400, height: 900 } });
     pg.on('pageerror', e => errors.push(tok + ': ' + e.message));
     pg.on('console', m => { if (m.type() === 'error' && !/favicon|ERR_|net::/.test(m.text())) errors.push(tok + ' console: ' + m.text()); });
