@@ -2217,3 +2217,4 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 395: V6 is now the Grand Caliphate
 - Nawaz: "Make v6 the grand caliphate... because it's stretching from Spain to all the way to china". The name moves from V5 to V6 (XV tib) in the V6 note (CX_LEAD.tib), V7 note, V5 note, both copies of the V5/V6 button titles, the versions paragraph and the search entries (V6 search words gain "grand caliphate spain to china"). V5 has no name now. No outline changed; the page still opens on V5 (OPEN_KEY grm).
+- After Version 395: Nawaz said "Let them be" to the waiting previews 391 (Germany in V5) and 392-394 (Sokoto, rest of Nigeria, Guinea coast in V6): NOT applied. The golden-ratio idea for V6 (now 1.63 on the ground) was also left ("Let it be").
