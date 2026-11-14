@@ -2266,3 +2266,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 424: V1's south edge curved to the Bab el-Mandeb
 - Nawaz: "Just drag the last part out to the shore entirely" / "Not in a straight line, but take its natural curve and drag it to the shore" (Version 423's Lake Tana curve rejected, not applied). tools/v424_v1_curve_to_shore.py (after v422): east of 36 E the straight 12.95 N cut is replaced by the Egyptian map's south-edge curve carried on (gentle sag ~12.4 N near 40 E) to Ras Siyyan on the strait, roughened like v420; land above in (Eritrea, Assab, Djibouti's Ras Siyyan tip), below out (Gondar, Lalibela, Mekelle now out). Then v411_arabia.py and the ellipsoid tool. V1 ~4.29M, V2 ~6.14M.
+
+## Version 425: V1's south edge rises to the Eritrean coast
+- Nawaz (red stroke on the Version 422 picture from the bottom of V1's south-western bulge up to the Eritrean coast): "Push". tools/v425_v1_curve_up_to_shore.py on the Version 424 V1: the edge from ~35.5 E 13.0 N bows up to the shore at ~40.3 E 15.15 N (Gulf of Zula, south of Massawa), roughened; south of it out (Assab, Danakil, Tigray, Djibouti tip), north of it in (Asmara, Massawa, Keren, Kassala, Gedaref). Then v411_arabia.py and the ellipsoid tool. V1 ~4.16M, V2 ~6.01M.
