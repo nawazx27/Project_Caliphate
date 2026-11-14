@@ -2232,3 +2232,8 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 406: a missed piece of land at the head of the Gulf filled in V1
 - Nawaz (phone screenshot, red circle by Bandar Imam Khomeini): "There is a piece of land which is not filled." tools/v406_v1_khor_musa.py fills the ~153 km2 of Khuzestan land between the Khor Musa channels (and a 0.3 km2 bit near Abadan) that the trace's coastal step missed; no land left out in that corner; V1 still ~1.80 million km2, inside V2. A wider scan found only inward bends along borders (not gaps by his rule).
+
+## Versions 407-408 (previews only, not applied)
+- 407: V1 + all land inside Nawaz's Nile-to-Euphrates red line and the Middle East Eye "Greater Israel (Herzl)" map (tools/v407_v1_nile_euphrates.py MODE=flat): Egypt east of the Nile from the Delta to near Aswan + the Ha'il wedge; V1 -> 2.06M.
+- 408: same Nile part, but V1's Arabian lobe (Tayyi edge to Kuwait) dragged down 1 degree instead of the flat line (MODE=drag, DY=1.0); Hafar al-Batin in, Ha'il 12 km out.
+- He said "Let it be": NOT applied. Live V1 stays Version 406.
