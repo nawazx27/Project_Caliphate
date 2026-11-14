@@ -2237,3 +2237,7 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - 407: V1 + all land inside Nawaz's Nile-to-Euphrates red line and the Middle East Eye "Greater Israel (Herzl)" map (tools/v407_v1_nile_euphrates.py MODE=flat): Egypt east of the Nile from the Delta to near Aswan + the Ha'il wedge; V1 -> 2.06M.
 - 408: same Nile part, but V1's Arabian lobe (Tayyi edge to Kuwait) dragged down 1 degree instead of the flat line (MODE=drag, DY=1.0); Hafar al-Batin in, Ha'il 12 km out.
 - He said "Let it be": NOT applied. Live V1 stays Version 406.
+
+## Version 409: V1 from the Nile to the Euphrates, pushed down to the Gulf
+- Nawaz: "I meant this shape as whole ... push downward until you meet the greater Israel specifications", then a red line from the new south-east corner to the Gulf: "Fill and push".
+- Run order on CALIPH.shj: `MEET=1 X0=39.5 DY=2.5 python3 tools/v407_v1_nile_euphrates.py` (Egypt part of his red line + the MEE map: Delta, Cairo, Nile valley towards Aswan, Eastern Desert, canal; V1's Arabian lobe east of the Hejaz dragged straight down 2.6 deg, the least that covers the whole flat-line wedge: Ha'il, Hafar al-Batin, Khafji in), then `python3 tools/v409_v1_gulf_fill.py` (Saudi land east of that edge to the Gulf down to his line ~25.6 N: Jubail, Dammam, Dhahran), then v386_areas_ellipsoid.py. V1 ~2.24 million km2 (sphere), inside V2; Lake Manzala left as water (as V2). Out: Riyadh (~100 km), al-Hofuf (25 km), Bahrain, Qatar, Aswan (7 km). V1 note, versions paragraph and search words updated.
