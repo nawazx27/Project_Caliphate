@@ -2229,3 +2229,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 405: all of Kuwait in V1
 - Nawaz, on a Wikipedia map of Kuwait with the hatched former Neutral Zone: "Extend Kuwait until here" -> "Push". tools/v405_v1_kuwait_neutral_zone.py: V1 (shj) gets all of Kuwait (Bubiyan, Warbah, Faylakah) and the southern half of the Neutral Zone down to its hatch edge (~28.24 N, Khafji inside), map fitted on Kuwait's own corners (1-2 km). About 1,500 km2 added; V1 still ~1.80 million km2, inside V2. The V1 note says so.
+
+## Version 406: a missed piece of land at the head of the Gulf filled in V1
+- Nawaz (phone screenshot, red circle by Bandar Imam Khomeini): "There is a piece of land which is not filled." tools/v406_v1_khor_musa.py fills the ~153 km2 of Khuzestan land between the Khor Musa channels (and a 0.3 km2 bit near Abadan) that the trace's coastal step missed; no land left out in that corner; V1 still ~1.80 million km2, inside V2. A wider scan found only inward bends along borders (not gaps by his rule).
