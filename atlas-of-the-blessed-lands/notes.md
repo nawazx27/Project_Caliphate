@@ -2260,3 +2260,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 ## Version 421: Sudan coast in V1; V5 (India, key sas) removed; SEVEN versions
 - Nawaz: "Bring that to the shore remove V5 and push directly". tools/v421_v1_sudan_coast.py (run after the Version 420 chain): the Sudanese land between V1's east edge and the Red Sea, 20.5 N to the Eritrean border (Suakin, Tokar, Aqiq), ~19,000 km2; then v411_arabia.py and the ellipsoid tool. V1 ~4.04M, V2 ~5.90M.
 - V5 (sas, V4 + the Indian subcontinent) removed from the page (HIDDEN_OUTLINES, data kept). Now: V1 shj, V2 arb, V3 me2, V4 me9, V5 grm (V4 + the Indian subcontinent + Rome/Ottomans; page opens on it), V6 tib (the Grand Caliphate), V7 sup (the Super Caliphate). grm's texts now say "V4 with the whole Indian subcontinent and every land Rome/the Ottomans held". #outline-v8.. open sup.
+
+## Version 422: Eritrea to the coast in V1
+- Nawaz (arrow across Eritrea): "I meant this entire bit to coast line". tools/v422_v1_eritrea_coast.py (after v421): all of Eritrea + Ethiopian land north of V1's southern tip (~12.95 N) east of V1 (Tigray, northern Afar; Mekelle, Axum) + the Sudanese corner, ~206,000 km2; then v411_arabia.py and the ellipsoid tool. V1 ~4.25M, V2 ~6.10M, inside V3. Djibouti out.
