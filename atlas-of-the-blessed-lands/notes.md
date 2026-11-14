@@ -2263,3 +2263,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 422: Eritrea to the coast in V1
 - Nawaz (arrow across Eritrea): "I meant this entire bit to coast line". tools/v422_v1_eritrea_coast.py (after v421): all of Eritrea + Ethiopian land north of V1's southern tip (~12.95 N) east of V1 (Tigray, northern Afar; Mekelle, Axum) + the Sudanese corner, ~206,000 km2; then v411_arabia.py and the ellipsoid tool. V1 ~4.25M, V2 ~6.10M, inside V3. Djibouti out.
+
+## Version 424: V1's south edge curved to the Bab el-Mandeb
+- Nawaz: "Just drag the last part out to the shore entirely" / "Not in a straight line, but take its natural curve and drag it to the shore" (Version 423's Lake Tana curve rejected, not applied). tools/v424_v1_curve_to_shore.py (after v422): east of 36 E the straight 12.95 N cut is replaced by the Egyptian map's south-edge curve carried on (gentle sag ~12.4 N near 40 E) to Ras Siyyan on the strait, roughened like v420; land above in (Eritrea, Assab, Djibouti's Ras Siyyan tip), below out (Gondar, Lalibela, Mekelle now out). Then v411_arabia.py and the ellipsoid tool. V1 ~4.29M, V2 ~6.14M.
