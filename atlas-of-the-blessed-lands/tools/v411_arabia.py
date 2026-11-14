@@ -39,7 +39,7 @@ def polys_lakes(X, mn=0.02):
         q = orient(Polygon(q.exterior, [h for h in q.interiors if A(Polygon(h)) >= 100]), 1.0)
         out.append([[[round(u, 3), round(v, 3)] for u, v in rr.coords] for rr in [q.exterior, *q.interiors]])
     return out
-o = polys_lakes(unary_union([X] + holes).buffer(0)); Y = MP(o); rws = []
+o = polys_lakes(unary_union([X] + holes).buffer(0).intersection(V2.buffer(0.002))); Y = MP(o); rws = []   # kept inside V3 (me2): Lake Manzala stays water
 for k, (n, g) in G.items():
     if g.area and g.intersects(Y):
         pct = round(100 * g.intersection(Y).area / g.area)
