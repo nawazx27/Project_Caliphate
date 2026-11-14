@@ -31,10 +31,16 @@ MODE = os.environ.get('MODE', 'drag')
 if MODE == 'drag':   # Version 408: Nawaz: "The Nile is good, but just drag that piece which I circled downward instead of taking the flat line"
     SH = SH.intersection(shapely.box(28, 20, 36.5, 33))     # keep only the Egyptian (Nile) part of the two shapes
     DY = float(os.environ.get('DY', '1.0'))
-    PIECE = V.intersection(shapely.box(41.9, 27, 48.6, 31.5))   # V1's lobe between the Tayyi edge and Kuwait, the piece he circled
+    PIECE = V.intersection(shapely.box(float(os.environ.get('X0', '41.9')), 27, 48.6, 31.5))   # Version 409: X0=39.5, the whole lobe east of the Hejaz   # V1's lobe between the Tayyi edge and Kuwait, the piece he circled
     SWEPT = unary_union([shapely.affinity.translate(PIECE, 0, -DY * i / 40) for i in range(41)]).buffer(0)
     print('   dragged down', DY, 'deg; new land from the drag', round(A(SWEPT.intersection(LAND).difference(V))), 'km2')
     SH = unary_union([SH, SWEPT])
+    if os.environ.get('MEET'):   # Version 409: Nawaz "push downward until you meet the greater Israel specifications": DY grown until the flat-line wedge is all covered
+        FLAT = unary_union([shape(json.load(open(os.path.join(HERE, 'tools/data/' + f + '.geojson')))['geometry']).buffer(0) for f in ['v407_nile_euphrates_redline', 'v407_nile_euphrates_mee']]).intersection(shapely.box(36.5, 20, 50, 33)).intersection(LAND).difference(V)
+        while A(FLAT.difference(SWEPT)) > 1:
+            DY += 0.05; SWEPT = unary_union([shapely.affinity.translate(PIECE, 0, -DY * i / 60) for i in range(61)]).buffer(0)
+        print('   dragged down to meet the flat-line wedge:', round(DY, 2), 'deg; new land from the drag', round(A(SWEPT.intersection(LAND).difference(V))), 'km2')
+        SH = unary_union([SH, SWEPT])
 NEW = SH.intersection(LAND).difference(V)
 print('   land added', round(A(NEW)), 'km2')
 X = unary_union([V, NEW.buffer(0.003)]).buffer(0)
