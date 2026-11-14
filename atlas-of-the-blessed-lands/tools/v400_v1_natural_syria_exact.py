@@ -36,6 +36,7 @@ SEA = shapely.box(28, 24, 56, 42).difference(LAND)
 COAST = TR_.buffer(0.12).difference(TR_).intersection(LAND).intersection(SEA.buffer(0.12))
 print('   coastal strips taken up to the sea', round(A(COAST)), 'km2')
 parts = {'Natural Syria as drawn (traced)': unary_union([TR_, COAST]).intersection(LAND)}
+parts['Cyprus, the whole island (drawn whole on the map; the thin Karpas tip is lost in tracing)'] = unary_union([G[cid(n)][1] for n in ['Cyprus', 'N. Cyprus', 'Cyprus U.N. Buffer Zone', 'Akrotiri', 'Dhekelia']])
 for n, g in parts.items(): print('  ', n, round(A(g)), 'km2')
 X = unary_union([g.buffer(0.003) for g in parts.values()]).buffer(0)
 holes = [Polygon(h) for q in getattr(X, 'geoms', [X]) for h in q.interiors if A(Polygon(h)) > 0.5]
