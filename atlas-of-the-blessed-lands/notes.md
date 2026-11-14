@@ -2206,3 +2206,14 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 388 (preview only, not applied): the Sokoto Caliphate in V6
 - Nawaz asked whether V6 holds every land a caliphate held (139 points, 17 states: all inside except northern Nigeria, i.e. the Sokoto Caliphate; sultanates and khanates such as the Volga, Malay and Caucasian Imamate lands are not caliphates) -> "Caliphate only" -> preview tools/v388_v6_sokoto.py (DIR=copy): 16 Nigerian states (Sokoto, Kebbi, Zamfara, Katsina, Kano, Jigawa, Kaduna, Bauchi, Gombe, Adamawa, Taraba, Niger, Kwara, Nasarawa, FCT, Plateau) + the enclosed Borno-Yobe pocket (~49,000 km2, filled by the no-gaps rule): V6 41.24 -> 41.84M, V7 -> 46.66M. He said "Let it be": NOT applied.
+
+## Versions 389-394 (previews only, not applied)
+- 389: V6/V7 + Ghana, Côte d'Ivoire, Togo, Benin, Nigeria, Cameroon, Central African Rep. (tools/v389_v6_central_africa.py; final form "Keep until Central African Republic and Cameroon").
+- 390: the Golden Horde c.1300 shape traced from his Wikipedia picture (tools/v390_golden_horde_trace.py, tools/data/v390_golden_horde.geojson, tools/v390_v6_golden_horde.py; WITH_V5=1 also V5). He said "Forget that".
+- 391: all of modern Germany in V5 (and V6) (tools/v391_v5_germany.py): V5 37.66 -> 37.74M. Waiting.
+- 392: the Sokoto Caliphate's lands (16 Nigerian states + Cameroon's North, Adamaoua, Far North; tools/v392_v6_sokoto_adamawa.py, tools/data/v392_cm_regions.parquet) in V6/V7.
+- 393: then the rest of Nigeria (his red line on the Nigeria-Cameroon border, "Fill until Nigeria border"; tools/v393_v6_nigeria_south.py).
+- 394: then Côte d'Ivoire, Ghana, Togo, Benin (his red loop, "Fill"; tools/v394_v6_guinea_coast.py). 392+393+394 together: V6 41.24 -> 42.94M, V7 -> 47.77M. Waiting for "Push" (run in that order, then v386_areas_ellipsoid.py).
+
+## Version 395: V6 is now the Grand Caliphate
+- Nawaz: "Make v6 the grand caliphate... because it's stretching from Spain to all the way to china". The name moves from V5 to V6 (XV tib) in the V6 note (CX_LEAD.tib), V7 note, V5 note, both copies of the V5/V6 button titles, the versions paragraph and the search entries (V6 search words gain "grand caliphate spain to china"). V5 has no name now. No outline changed; the page still opens on V5 (OPEN_KEY grm).
