@@ -27,9 +27,9 @@ def polys(X, mn=0.05):
 SOUTH = float(os.environ.get('SOUTH', '24.03'))   # the First Cataract at Aswan (between Aswan and the old dam, ~24.03 N)
 EG = [g for k, (n, g) in G.items() if n == 'Egypt'][0]
 LAND = unary_union([g for k, (n, g) in G.items()]).buffer(0)
-TR_ = unary_union([shape(json.load(open(os.path.join(HERE, 'tools/data/' + f + '.geojson')))['geometry']).buffer(0) for f in ['v413_egypt', 'v414_egyptian_empire']])   # his olive map + the whole 15th-century-BC Egyptian Empire map
+TR_ = unary_union([shape(json.load(open(os.path.join(HERE, 'tools/data/' + f + '.geojson')))['geometry']).buffer(0) for f in os.environ.get('TRACES', 'v414_egyptian_empire').split(',')])   # Nawaz: "I want exactly this outline": the Egyptian Empire map alone (TRACES=v413_egypt,v414_egyptian_empire gives the earlier union)   # his olive map + the whole 15th-century-BC Egyptian Empire map
 SEA = shapely.box(20, 10, 45, 36).difference(LAND)
-COAST = TR_.buffer(0.35).difference(TR_).intersection(LAND).intersection(SEA.buffer(0.35))   # the map is stylised: on the coasts, the land is taken to the sea
+CB = float(os.environ.get('COAST', '0.12')); COAST = unary_union([TR_.buffer(CB).difference(TR_).intersection(LAND).intersection(SEA.buffer(CB)), TR_.buffer(0.4).difference(TR_).intersection(LAND).intersection(SEA.buffer(0.4)).intersection(shapely.box(24, 22.0, 37, 32))])   # in Egypt (north of 22 N) the map's green runs to the sea on both coasts, so the land is taken to the sea there; in Sudan its edge stays inland   # only where the map's edge is the sea (fit error ~20 km)   # the map is stylised: on the coasts, the land is taken to the sea
 NEW = unary_union([TR_, COAST]).intersection(LAND)
 print('   traced', round(A(TR_.intersection(LAND))), 'km2; coastal strips', round(A(COAST)), 'km2; land outside V3 (dropped to keep the nesting)', round(A(NEW.difference(MP(C['me2']['polys']).buffer(0.01)))), 'km2')
 V = MP(C['shj']['polys']); V3 = MP(C['me2']['polys'])
