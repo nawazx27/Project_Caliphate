@@ -30,6 +30,7 @@ V = MP(C['shj']['polys']); V2 = MP(C['me2']['polys'])
 MODE = os.environ.get('MODE', 'drag')
 if MODE == 'drag':   # Version 408: Nawaz: "The Nile is good, but just drag that piece which I circled downward instead of taking the flat line"
     SH = SH.intersection(shapely.box(28, 20, 36.5, 33))     # keep only the Egyptian (Nile) part of the two shapes
+    if os.environ.get('NO_EGYPT'): SH = shapely.Polygon()   # Version 419: Egypt comes from the Egyptian Empire map instead
     DY = float(os.environ.get('DY', '1.0'))
     PIECE = V.intersection(unary_union([shapely.box(float(os.environ.get('X0', '41.9')), 27, 48.6, 31.5), shapely.box(48.6, 27, 50, 29.3)]))   # the second box: Kuwait's coast and the Neutral Zone (no Iranian shore)   # Version 409: X0=39.5, the whole lobe east of the Hejaz   # V1's lobe between the Tayyi edge and Kuwait, the piece he circled
     SWEPT = unary_union([shapely.affinity.translate(PIECE, 0, -DY * i / 40) for i in range(41)]).buffer(0)
