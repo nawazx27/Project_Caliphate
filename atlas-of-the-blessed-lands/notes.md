@@ -2244,3 +2244,7 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 410: Version 409 undone
 - Nawaz: "Revert back to the previous one". src/caliph.json, src/eng_e.js and src/body.html restored from before Version 409, so V1 is the Version 406 shape again (Natural Syria + Bilad al-Sham + Hejaz + classical lines + all of Kuwait + the Khor Musa fix, ~1.80 million km2). No Nile, no Arabian push, no Gulf fill. The tools (v407, v409) stay saved; do not rerun them unless he asks.
+
+## Version 411: a new V2 (V1 + the whole Arabian Peninsula); EIGHT versions now
+- Nawaz: "build upon V1 and add the entire Arabian Peninsula and name it V2" -> "Push". New key CALIPH.arb (XV 'arb', tools/v411_arabia.py; rerun after V1 changes): V1 + Saudi Arabia, Yemen (with Socotra), Oman (Musandam, Kuria Muria), UAE, Qatar, Bahrain, Kuwait whole; ~3.9 million km2; holds all of V1, inside me2.
+- RENUMBERED: V1 shj, V2 arb (new), V3 me2 (heartland), V4 me9, V5 sas, V6 grm, V7 tib (the Grand Caliphate), V8 sup (the Super Caliphate). Every V2-V7 in src/body.html and in the non-comment code/text of src/eng_e.js moved up one; code comments and older notes keep the old numbers. Links #outline-v1..#outline-v8 follow the new numbers (#outline-arabia opens V2). v386_areas_ellipsoid.py and tools/dev/check.js include arb / V8. The page still opens on grm (now V6).

@@ -7,7 +7,7 @@ from pyproj import Geod
 P = os.environ.get('DIR') or os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 G = Geod(ellps='WGS84'); A = lambda ring: abs(G.geometry_area_perimeter(Polygon(ring))[0]) / 1e6
 F_ = os.path.join(P, 'src/caliph.json'); C = json.load(open(F_))
-for k in ['shj', 'me2', 'me9', 'sas', 'grm', 'tib', 'sup']:
+for k in ['shj', 'arb', 'me2', 'me9', 'sas', 'grm', 'tib', 'sup']:
     new = round(sum(A(p[0]) - sum(A(h) for h in p[1:]) for p in C[k]['polys']))
     print(k, C[k]['km2'], '->', new, '(%+.2f%%)' % (100 * (new - C[k]['km2']) / C[k]['km2'])); C[k]['km2'] = new
 json.dump(C, open(F_ + '.tmp', 'w'), separators=(',', ':'), ensure_ascii=False); os.replace(F_ + '.tmp', F_)
