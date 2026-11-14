@@ -2269,3 +2269,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 425: V1's south edge rises to the Eritrean coast
 - Nawaz (red stroke on the Version 422 picture from the bottom of V1's south-western bulge up to the Eritrean coast): "Push". tools/v425_v1_curve_up_to_shore.py on the Version 424 V1: the edge from ~35.5 E 13.0 N bows up to the shore at ~40.3 E 15.15 N (Gulf of Zula, south of Massawa), roughened; south of it out (Assab, Danakil, Tigray, Djibouti tip), north of it in (Asmara, Massawa, Keren, Kassala, Gedaref). Then v411_arabia.py and the ellipsoid tool. V1 ~4.16M, V2 ~6.01M.
+
+## Version 426: V2 (arb, V1 + Arabia) removed; SIX versions
+- Nawaz: "Remove v2". arb hidden (HIDDEN_OUTLINES, data kept; tools/v411_arabia.py no longer needs rerunning after V1 changes). Now: V1 shj (4.2M), V2 me2 (heartland, 17.5M), V3 me9 (30.4M), V4 grm (37.7M; page opens on it), V5 tib (the Grand Caliphate, 41.2M), V6 sup (the Super Caliphate, 46.1M). Page text and links renumbered; #outline-v7.. open sup.
