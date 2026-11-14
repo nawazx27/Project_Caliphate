@@ -1,4 +1,4 @@
-"""Version 407 PREVIEW (Nawaz: his red line from the Nile to the Euphrates and the Middle East Eye map of the "Nile to Euphrates" shape: "Does it have everything of this red line?" -> "Preview").
+"""Version 407/408 PREVIEW (408: MODE=drag (default): Egypt from the shapes only; in Arabia V1's lobe between the Tayyi edge and Kuwait is dragged down DY degrees (default 1.0) instead of the flat line; MODE=flat = the Version 407 form). Version 407 PREVIEW (Nawaz: his red line from the Nile to the Euphrates and the Middle East Eye map of the "Nile to Euphrates" shape: "Does it have everything of this red line?" -> "Preview").
 V1 (shj) gets all land inside either shape (tools/data/v407_nile_euphrates_redline.geojson traced on his map, fit ~9 km; v407_nile_euphrates_mee.geojson traced from the MEE map, ~25-40 km):
 Egypt east of the Nile from the Delta to Aswan with the Eastern Desert, and the Ha'il - Hafar al-Batin wedge of Saudi Arabia. Kept inside V2. DIR env = project dir. Run v386_areas_ellipsoid.py after."""
 import json, os, subprocess, math, shapely, numpy as np
@@ -27,6 +27,14 @@ def polys(X, mn=0.05):
 LAND = unary_union([g for n, g in G.values()])
 SH = unary_union([shape(json.load(open(os.path.join(HERE, 'tools/data/' + f + '.geojson')))['geometry']).buffer(0) for f in ['v407_nile_euphrates_redline', 'v407_nile_euphrates_mee']])
 V = MP(C['shj']['polys']); V2 = MP(C['me2']['polys'])
+MODE = os.environ.get('MODE', 'drag')
+if MODE == 'drag':   # Version 408: Nawaz: "The Nile is good, but just drag that piece which I circled downward instead of taking the flat line"
+    SH = SH.intersection(shapely.box(28, 20, 36.5, 33))     # keep only the Egyptian (Nile) part of the two shapes
+    DY = float(os.environ.get('DY', '1.0'))
+    PIECE = V.intersection(shapely.box(41.9, 27, 48.6, 31.5))   # V1's lobe between the Tayyi edge and Kuwait, the piece he circled
+    SWEPT = unary_union([shapely.affinity.translate(PIECE, 0, -DY * i / 40) for i in range(41)]).buffer(0)
+    print('   dragged down', DY, 'deg; new land from the drag', round(A(SWEPT.intersection(LAND).difference(V))), 'km2')
+    SH = unary_union([SH, SWEPT])
 NEW = SH.intersection(LAND).difference(V)
 print('   land added', round(A(NEW)), 'km2')
 X = unary_union([V, NEW.buffer(0.003)]).buffer(0)
