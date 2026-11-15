@@ -2,10 +2,12 @@
 "I meant this block... drag it keeping its shape until it reaches Djibouti" / "Drag or expand preserving its shape").
 The block's whole southern edge (from where it leaves the Libya-Sudan border, 25.06 E 20.0 N, down its south-west side, round the bulge and up to the
 Red Sea shore at the Gulf of Zula, 40.16 E 15.03 N) is moved as one piece, shape unchanged, by the vector that brings its coastal end to Djibouti's coast at
-the Somaliland border (43.24 E 11.49 N); everything it passes over on the way is filled (the sweep), and the land between it and the sea is taken to the shore.
+the Somaliland border (43.24 E 11.49 N). The moved block is joined to V1 as it stands (no sweep: sliding the edge along itself had filled its bends and left a
+straight line, which Nawaz rejected; the left side must keep its own shape), so the new left side is the old one carried on with all its bends;
+the land between the moved block and the sea is taken to the shore.
 Djibouti is taken whole with its islands; Somaliland stays out, and the straight Djibouti-Somaliland border is roughened like the Version 429 edges.
 DIR env = project dir. Run v386_areas_ellipsoid.py after."""
-import json, os, subprocess, shapely, numpy as np
+import json, os, subprocess, shapely, shapely.affinity, numpy as np
 from shapely.geometry import shape, MultiPolygon, Polygon, Point, LineString
 from shapely.ops import unary_union
 from shapely.geometry.polygon import orient
@@ -24,12 +26,12 @@ iZ, iC = near(40.16, 15.025), near(25.062, 20.006)
 assert iZ < iC, (iZ, iC)
 E = R[iZ:iC + 1]; print('edge', len(E), 'points from', E[0].round(3), 'to', E[-1].round(3), '| lowest', E[:, 1].min().round(2))
 T = np.array([43.242, 11.488]); D = T - E[0]; print('drag vector', D.round(3), '(east, north) degrees')
-quads = [Polygon([tuple(p), tuple(q), tuple(q + D), tuple(p + D)]).buffer(0) for p, q in zip(E[:-1], E[1:])]
-SWEEP = unary_union([g for g in quads if not g.is_empty]).buffer(0.0005)
+B = AF.intersection(Polygon([(24.98, 5), (46, 5), (46, 22.0), (24.98, 22.0)]))      # the block: V1's African land south of Egypt's 22 N line, east of Libya
+BD = shapely.affinity.translate(B, D[0], D[1])          # the block moved as one piece, shape unchanged (its left side keeps every bend)
 ib = int(np.argmin(E[:, 1]))                      # the bulge: from here east the land between the moved edge and the sea is taken to the shore
 SHORE = Polygon(list(map(tuple, E[:ib + 1][::-1] + D)) + [(43.9, 11.2), (44.6, 12.2), (44.6, 15.6), (40.6, 15.6)] + list(map(tuple, E[:ib + 1]))).buffer(0)
 AFR = unary_union([G[k] for k in ['Sudan', 'South Sudan', 'Eritrea', 'Ethiopia', 'Djibouti']])
-add = unary_union([unary_union([SWEEP, SHORE]).intersection(AFR), G['Djibouti']]).buffer(0.003)
+add = unary_union([unary_union([BD, SHORE]).intersection(AFR), G['Djibouti']]).buffer(0.003)
 X = unary_union([V, add.intersection(V2.buffer(0.002))]).buffer(0)
 # the straight Djibouti-Somaliland border (tripoint 42.925 E 10.999 N to the coast 43.242 E 11.488 N) roughened: within a band round it, land on the Djibouti
 # side of a rough line is in, on the Somaliland side out
