@@ -2344,3 +2344,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 450: the South Caucasus back in V1
 - Nawaz asked whether V1 holds all of Southwest Asia; the most accurate definition is the UN M49 "Western Asia" (18 countries, with Armenia, Azerbaijan, Georgia; Iran counted in Southern Asia). "Add them back": src/caliph.json, src/eng_e.js, src/body.html restored from Version 446 (Armenia, Azerbaijan with Nakhchivan, Georgia whole). V1 ~11.22M km2 and holds all 18 Western Asian countries whole.
+
+## Version 451: Version 450 undone (no South Caucasus in V1)
+- Nawaz: "revert back". src/caliph.json, src/eng_e.js, src/body.html restored from Version 449: Armenia, Azerbaijan, Georgia out of V1 again. V1 ~11.03M km2.
