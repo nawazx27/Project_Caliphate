@@ -2363,3 +2363,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 459: the Nimule notch filled to his stroke
 - Version 458's fill had missed the notch he meant (it took only ~27 km2 beside it). Nawaz (red stroke on the Version 458 close-up along the notch's mouth): "Fill and push". STROKE=1 run of tools/v458_v1_nimule_notch.py (on the Version 458 V1): land north of the stroke (31.64 E 3.62 N to 31.93 E 3.56 N, starting on V1's own edge) filled, ~520 km2, the little step at the east end smoothed. V1 ~11.12M km2.
+
+## Version 460: the bulge south of Nimule filled to his third stroke
+- Nawaz (red curve on the Version 459 close-up from V1's edge west of Nimule down round the Albert Nile's entry and back to the edge east of it): "Fill and push". STROKE2=1 run of tools/v458_v1_nimule_notch.py (stroke read off the screenshot: 31.72 E 3.535 N - 31.79 E 3.47 N - 31.88 E 3.45 N - 32.05 E 3.49 N, its ends taken onto V1's own edge): ~400 km2 of Uganda added round the Nile's entry. V1 ~11.12M km2 (still inside V2, which holds all of Uganda).

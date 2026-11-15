@@ -25,6 +25,13 @@ if os.environ.get('STROKE'):
     extra = S.intersection(LAND).difference(V); print('   stroke fill', round(A(extra)), 'km2')
     notch = unary_union([notch, extra])
 print('notch filled', round(A(notch)), 'km2', [round(c, 2) for c in notch.bounds] if not notch.is_empty else '')
+if os.environ.get('STROKE2'):   # Version 460: his third stroke, a bulge south of Nimule round the Albert Nile's entry (read off the Version 459 close-up)
+    from shapely.ops import nearest_points
+    from shapely.geometry import Polygon as Pg
+    pts = [(31.72, 3.535), (31.75, 3.49), (31.79, 3.47), (31.88, 3.45), (31.97, 3.47), (32.05, 3.49)]
+    Pa = nearest_points(V.boundary, Point(31.71, 3.57))[0]; Pb = nearest_points(V.boundary, Point(32.06, 3.49))[0]
+    S2 = Pg([(Pa.x, Pa.y)] + pts + [(Pb.x, Pb.y), (Pb.x, 3.8), (Pa.x, 3.8)]).buffer(0)
+    extra2 = S2.intersection(LAND).difference(V); print('   stroke-2 fill', round(A(extra2)), 'km2'); notch = unary_union([notch, extra2])
 X = unary_union([V, notch.buffer(0.002)]).buffer(0)
 if os.environ.get('STROKE'):   # smooth the two little steps where the stroke meets the old edge
     SB = box(31.45, 3.45, 32.0, 3.75)
