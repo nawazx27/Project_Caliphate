@@ -1,6 +1,6 @@
 """Version 442 (Nawaz: "Add Pakistan and Afghanistan", after the Version 441 preview). V1 (shj) takes Afghanistan and Pakistan whole (Pakistan as the
 base map draws it, with Azad Kashmir and Gilgit-Baltistan; Indian-administered Kashmir and Siachen are not added). Long straight inland stretches of the new
-edge are roughened as in Version 441 (fixed seed). Run AFTER tools/v441_v1_farmland_rest.py. DIR env = project dir. Run v386_areas_ellipsoid.py after."""
+edge are roughened as in Version 441 (fixed seed). Run AFTER tools/v441_v1_farmland_rest.py. DIR env = project dir. Run v386_areas_ellipsoid.py after.Roughening is OFF unless ROUGH=1 (Nawaz: "Don't make all borders rough and jagged... only the ones I say"): the real borders are kept."""
 import json, os, subprocess, shapely, numpy as np
 from shapely.geometry import shape, MultiPolygon, Polygon, Point, LineString
 from shapely.ops import unary_union
@@ -43,7 +43,7 @@ for q in getattr(X, 'geoms', [X]):
     c = np.array(q.exterior.simplify(0.004).coords)
     for a, b in zip(c[:-1], c[1:]):
         L = np.hypot(*(b - a)); mid = Point((a + b) / 2)
-        if L >= 0.3 and NEWL.buffer(0.05).contains(mid) and not SEA.contains(mid): segs.append((a, b))
+        if os.environ.get('ROUGH') and L >= 0.3 and NEWL.buffer(0.05).contains(mid) and not SEA.contains(mid): segs.append((a, b))
 print('   straight stretches roughened:', len(segs))
 for a, b in segs:
     L = np.hypot(*(b - a)); n = max(16, int(L / 0.015)); u = np.linspace(0, 1, n)

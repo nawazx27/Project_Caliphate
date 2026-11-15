@@ -2,7 +2,7 @@
 East"). V1 (shj) takes: all of Libya (Tripolitania's Roman olive lands: the Jefara, the Jebel Nafusa, Tarhuna, Leptis Magna, Tripoli; and the Fezzan's
 Garamantian oases), Armenia, Azerbaijan and Georgia whole (the Ararat plain, the Kura and Aras valleys, Kakheti), and Afghanistan's Nimroz province
 (Afghan Sistan: Zaranj, Chakhansur and the canal-watered Sar-o-Tar plain). Every long straight stretch of the new outer edge (inland, 0.3 deg or longer:
-the Saharan borders of Libya, Nimroz's lines) is roughened (fixed seed, up to ~25 km, tapered at its ends). DIR env = project dir. Run v386 after."""
+the Saharan borders of Libya, Nimroz's lines) is roughened (fixed seed, up to ~25 km, tapered at its ends). DIR env = project dir. Run v386 after.Roughening is OFF unless ROUGH=1 (Nawaz: "Don't make all borders rough and jagged... only the ones I say"): the real borders are kept."""
 import json, os, subprocess, shapely, numpy as np
 from shapely.geometry import shape, MultiPolygon, Polygon, Point, LineString
 from shapely.ops import unary_union
@@ -45,7 +45,7 @@ for q in getattr(X, 'geoms', [X]):
     c = np.array(q.exterior.simplify(0.004).coords)
     for a, b in zip(c[:-1], c[1:]):
         L = np.hypot(*(b - a)); mid = Point((a + b) / 2)
-        if L >= 0.3 and NEWL.buffer(0.05).contains(mid) and not SEA.contains(mid): segs.append((a, b))
+        if os.environ.get('ROUGH') and L >= 0.3 and NEWL.buffer(0.05).contains(mid) and not SEA.contains(mid): segs.append((a, b))
 print('   straight stretches roughened:', len(segs))
 for a, b in segs:
     L = np.hypot(*(b - a)); n = max(16, int(L / 0.015)); u = np.linspace(0, 1, n)
