@@ -2328,3 +2328,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 444: the page opens on V1
 - Nawaz: "Open on v1". build.js OPEN_KEY 'shj' (the precomputed coarse outline is V1's), src/eng_c.js XV = 'shj', src/body.html the V1 buttons pressed (both copies). V1 is now a "wide" version (WIDEV) with its own frame SHJ_B (18.5-64.5 E, 2.5-43 N), so choosing V1 frames all of it. The first map view on opening is still FOCUS[0] (the holy-lands view), as before.
+
+## Version 445: the notch north-east of Lake Turkana filled; Sudan and South Sudan whole
+- Nawaz (red stroke on his phone screenshot, ~37.0 E 6.0 N to ~37.85 E 6.7 N): "Fill and make sure the entire modern Sudan and South Sudan is in v1 and push directly". tools/v445_v1_notch_sudans.py on shj: the notch north-west of his stroke filled (~4,400 km2 of Ethiopia); Sudan and South Sudan taken whole (both 100.0%; the Version 435 roughening had left ~0.2% of Sudan out). V1 ~11.03M km2.
