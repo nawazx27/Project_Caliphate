@@ -2289,3 +2289,7 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 431: the four rivers' names stand out
 - Nawaz chose "Four stand out, keep rest". src/eng_c.js: the labels of the Nile, Euphrates, Sayhan (Seyhan), Jayhan (Ceyhan), Blue and White Nile get class 'four' (src/style.css: 15 px bold, deeper blue, land-coloured halo), show sooner when zoomed out and are placed before other names; the other river names are unchanged.
+
+## Version 432: the whole Arabian Peninsula in V1; all four rivers lettered at every zoom
+- Nawaz: "Add the entire Arabian peninsula to v1" -> preview -> "All four of the rivers must have exclusive lettering. And make this the new v1". tools/v432_v1_arabia.py on shj: V1 += Saudi Arabia, Yemen (Socotra), Oman (Musandam, Kuria Muria), UAE, Qatar, Bahrain, Kuwait, whole with islands; V1's own land is not clipped; only the added land is kept inside V2 (me2); small pockets closed only east of 34.5 E (Egypt's Lake Manzala and Lake Burullus stay water). Then v386_areas_ellipsoid.py. V1 ~5.54M -> ~7.39M km2, still inside V2. CX_LEAD.shj and the body.html versions paragraph updated. A red dot on his screenshot in the open Arabian Sea (~60 E 11.5 N) was taken as a stray mark (no land there).
+- src/eng_c.js: the Sayḥān and the Jayḥān got zoomed-out labels (minK 0, maxK 1.0, class four, pri 12) at their own spots (Sayḥān 35.0 E 38.75 N, Jayḥān 36.6 E 36.75 N, with alts), so all four rivers' names show at every zoom in the special lettering; from k 1.0 the old spots on the rivers take over.
