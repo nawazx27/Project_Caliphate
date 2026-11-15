@@ -2337,3 +2337,4 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 447: V1 with Armenia only (Version 446 undone)
 - Nawaz: "Only with Armenia". src/caliph.json back to Version 445, then CTRY=Armenia run of tools/v440_v1_iran.py (Nakhchivan, enclosed by Armenia, Iran and Türkiye, filled as a pocket), then v386_areas_ellipsoid.py. Azerbaijan (apart from Nakhchivan) and Georgia out. V1 ~11.07M km2. Page text updated.
+- Version 448 (Nawaz: "Remove Armenia enclave"): Artsvashen, Armenia's ~40 km2 exclave inside Azerbaijan (45.47-45.56 E, 40.60-40.66 N), removed from V1 (its separate polygon dropped). Nakhchivan stays in.
