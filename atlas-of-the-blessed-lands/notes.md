@@ -2317,3 +2317,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 439: the lower Omo corner filled in V1
 - Nawaz (red stroke on the Version 438 close-up from the north tip of Lake Turkana up to V1's edge): "Fill". tools/v439_v1_omo_fill.py on shj: Ethiopian land west of the stroke (~35.95 E 4.62 N to ~36.95 E 6.15 N, roughened, seed 439) added, ~21,000 km2; V1 ~9.55M km2.
+
+## Version 440: all of Iran in V1
+- Nawaz: "What is the historic farmland of the Middle East?" (answered: the Nile, Mesopotamia/al-Sawad, Khuzestan, the Fertile Crescent, Anatolia, Arabia's oases and Yemen, Persia, Greece, Sudan; all in V1 except Persia beyond Khuzestan) -> "Make sure v1 has the entire historic farmland of the Middle East" -> preview -> "Push". tools/v440_v1_iran.py (CTRY=Iran default) on shj: Iran whole with its islands; its eastern/northern borders are V1's edge (no long straight stretches). Then v386_areas_ellipsoid.py. Added ~1.48M km2; V1 ~11.03M km2. Offered, not done: the Caucasus notch (Armenia, Azerbaijan, Georgia) and Greater Khurasan (Merv, Herat, Balkh, Samarkand, Bukhara).
