@@ -2360,3 +2360,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 458: notch at Nimule filled
 - Nawaz (red stroke across the small notch in V1's edge where the Albert Nile enters South Sudan): "Fill and push". tools/v458_v1_nimule_notch.py: ~27 km2 of land in the notch added (V1 closed by ~9 km in a small box). V1 ~11.12M km2.
+
+## Version 459: the Nimule notch filled to his stroke
+- Version 458's fill had missed the notch he meant (it took only ~27 km2 beside it). Nawaz (red stroke on the Version 458 close-up along the notch's mouth): "Fill and push". STROKE=1 run of tools/v458_v1_nimule_notch.py (on the Version 458 V1): land north of the stroke (31.64 E 3.62 N to 31.93 E 3.56 N, starting on V1's own edge) filled, ~520 km2, the little step at the east end smoothed. V1 ~11.12M km2.
