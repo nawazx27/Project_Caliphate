@@ -81,7 +81,12 @@ gCountries.selectAll('path').data(countries.features).join('path').attr('class',
 /* the great rivers heavier, the next rank a little heavier, as a printed map grades them */
 const RIV_MAJOR = new Set(['Nile','El Bahr el Abyad','Bahr el Jebel','Albert Nile','Tigris','Dicle','Euphrates','Firat','Al Furat','Shatt al Arab','Amu  Darya','Syr  Darya','Indus','Ganges','Brahmaputra','Volga','Danube','Niger','Congo','Zambezi','Yangtze','Chang Jiang','Mekong','Ob','Yenisey','Lena','Amazonas','Mississippi','Huang','Amur','Irtysh']);
 const RIV_MID = new Set(['Jordan','Karkheh','Helmand','Kura','Aras','Harirud','Atrek','Sobat','Shebele','Shabeelle','Jubba','Omo','Victoria Nile','Blue Nile','Ural','Don','Dnipro','Rhine','Sénégal','Benue','Sutlej','Chenab','Jhelum','Tarim','Orange','Limpopo','Lualaba','Kama','Missouri','Paraná','St. Lawrence','Mackenzie','Yukon','Murray','Rosetta Branch','Damietta Branch']);
-world.append('g').selectAll('path').data(rivers.features).join('path').attr('class',d=>'river'+(RIV_MAJOR.has(d.properties.n)?' major':RIV_MID.has(d.properties.n)?' mid':'')).attr('d', gpP);
+/* Version 430: the four rivers of the hadith (Sayḥān, Jayḥān, the Euphrates, the Nile) are drawn from their own end-to-end tracing (OpenStreetMap,
+   tools/v430_trace_rivers.py); the base map's coarser pieces of them are left out so they are not drawn twice */
+const FOUR_R = unpackRings(JSON.parse(document.getElementById('fourrivers').textContent));
+const FOUR_OLD = new Set(['Nile','El Bahr el Abyad','Bahr el Jebel','Albert Nile','Victoria Nile','Kagera','Rosetta Branch','Damietta Branch','Euphrates','Firat','Al Furat','Shatt al Arab','Blue Nile']);
+world.append('g').selectAll('path').data(rivers.features.filter(d=>!FOUR_OLD.has(d.properties.n))).join('path').attr('class',d=>'river'+(RIV_MAJOR.has(d.properties.n)?' major':RIV_MID.has(d.properties.n)?' mid':'')).attr('d', gpP);
+{ const gF = world.append('g'); FOUR_R.forEach(r=>gF.append('path').attr('class','river major four').attr('data-river', r.k).attr('d', r.parts.map(lineD).join('')).append('title').text(r.n + ' · one of the four rivers of Muslim 2839')); }
 const gLava = world.append('g').attr('data-layer','lava');
 LAVA.forEach(l=>gLava.append('path').attr('class','lavaf').attr('data-sel','lava').attr('d', ringD(l.p)).on('click', e=>{ e.stopPropagation(); select('lava'); }).append('title').text(l.n+' (approximate)'));
 const gFill = world.append('g').attr('clip-path','url(#landclip)');

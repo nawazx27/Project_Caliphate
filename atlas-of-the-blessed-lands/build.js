@@ -27,6 +27,7 @@ const pack = o => Array.isArray(o) ? (isRing(o) && at3(o) ? encRing(o) : o.map(p
 const HIDDEN_OUTLINES = ['arb', 'sas', 'sah', 'af', 'eu', 'x', 'x3', 'me', 'me8', 'ca', 'rom', 'v2'];   /* Version 326: V6 (v2, the Super Caliphate) removed at the author's request; data kept */   /* Version 312: V6 (rom, the Mediterranean version) removed at the author's request; the Super Caliphate already holds it and becomes V6 */   /* Version 296: V2 (me8) and V4 (ca) removed at the author's request */   /* Version 283: CALIPH.sas is now the V5 of the Indian subcontinent (the old V5 shape stays in tools/data/v5_shape_v276.json) */
 const caliphPage = Object.fromEntries(Object.entries(caliphD).map(([k, v]) => [k, HIDDEN_OUTLINES.includes(k) && v && v.polys ? Object.assign({}, v, {polys: []}) : v]));
 const caliphJ = JSON.stringify(pack(caliphPage)).replace(/</g, '\\u003c');
+const fourRiversJ = JSON.stringify(pack(JSON.parse(R('src/four_rivers.json')).rivers)).replace(/</g, '\\u003c');   /* Version 430: the four rivers of Muslim 2839 traced end to end (tools/v430_trace_rivers.py) */
 const geo = packTopo('geo2.json'), geoLo = packTopo('landlo.json');
 /* Version 98: the two coarse coastlines drawn when zoomed out (landLOD levels 0 and 1 in src/eng_b.js) are made here once,
    with the same projection, data and simplifyD as the page, instead of on the reader's phone each time the page opens */
@@ -77,6 +78,7 @@ ${R('src/body.html')}
 <script type="application/json" id="geo">${geo}</script>
 <script type="application/json" id="geolo">${geoLo}</script>
 <script type="application/json" id="caliph">${caliphJ}</script>
+<script type="application/json" id="fourrivers">${fourRiversJ}</script>
 <script type="application/json" id="nat">${natJ}</script>
 <script type="application/json" id="landlod">${landLodJ}</script>
 <script>
