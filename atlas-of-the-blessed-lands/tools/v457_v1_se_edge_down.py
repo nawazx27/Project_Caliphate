@@ -14,14 +14,20 @@ G = {f['properties']['n']: shape(f['geometry']).buffer(0) for f in geo['features
 F_ = os.path.join(P, 'src/caliph.json'); C = json.load(open(F_))
 MP = lambda pl: MultiPolygon([Polygon(r[0], r[1:]) for r in pl]).buffer(0)
 V = MP(C['shj']['polys'])
-DY = float(os.environ.get('DY', '0.5'))
-BAND = LineString([(35.95, 4.6), (37.0, 6.0), (39.0, 7.6), (41.0, 9.4), (42.9, 11.1)]).buffer(0.8)
+DY = float(os.environ.get('DY', '1.0'))
+BAND = LineString([(35.95, 4.6), (37.0, 6.0), (39.0, 7.6), (41.0, 9.4), (42.9, 11.1)]).buffer(1.4)
 piece = V.intersection(BAND).intersection(G['Ethiopia'].buffer(0.01))
 ss = lambda t: t * t * (3 - 2 * t)
-shift = lambda x: DY * ss(np.clip((x - 36.3) / 1.2, 0, 1)) * ss(np.clip((42.3 - x) / 1.0, 0, 1))
-moved = shapely.transform(piece.segmentize(0.02), lambda c: np.c_[c[:, 0], c[:, 1] - shift(c[:, 0])]).buffer(0)
+TAPER = os.environ.get('TAPER', '0') == '1'   # Nawaz: "More of the entire piece": the whole piece moves, ends included (clipped to Ethiopia's borders)
+shift = (lambda x: DY * ss(np.clip((x - 36.3) / 1.2, 0, 1)) * ss(np.clip((42.3 - x) / 1.0, 0, 1))) if TAPER else (lambda x: DY + 0 * x)
+seg = piece.segmentize(0.02)
+moved = unary_union([shapely.transform(seg, lambda c, k=k: np.c_[c[:, 0], c[:, 1] - k / 8 * shift(c[:, 0])]) for k in range(1, 9)]).buffer(0)   # every step of the way down, so no gap opens behind the piece
 add = moved.intersection(G['Ethiopia'])
 X = unary_union([V, add.buffer(0.003).intersection(G['Ethiopia'].buffer(0.003))]).buffer(0)
+ET = G['Ethiopia']
+X = unary_union([X, X.buffer(0.25).buffer(-0.25).intersection(ET)]).buffer(0)   # close slivers left between the moved piece and Ethiopia's borders
+holes = [Polygon(h) for q in getattr(X, 'geoms', [X]) for h in q.interiors if A(Polygon(h)) < 50000]
+X = unary_union([X] + holes).buffer(0)
 X = shapely.set_precision(X, 0.001); o = []
 for q in getattr(X, 'geoms', [X]):
     if q.geom_type != 'Polygon' or A(q) < 0.02: continue
