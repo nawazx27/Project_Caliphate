@@ -27,7 +27,9 @@ iZ, iC = near(40.16, 15.025), near(25.062, 20.006)
 assert iZ < iC, (iZ, iC)
 E = R[iZ:iC + 1]; print('edge', len(E), 'points from', E[0].round(3), 'to', E[-1].round(3), '| lowest', E[:, 1].min().round(2))
 T = np.array([43.242, 11.488]); D = T - E[0]; print('drag vector', D.round(3), '(east, north) degrees')
-B = AF.intersection(Polygon([(24.98, 5), (46, 5), (46, 22.0), (24.98, 22.0)]))      # the block: V1's African land south of Egypt's 22 N line, east of Libya
+AFRB = unary_union([G[k] for k in ['Sudan', 'Eritrea', 'Ethiopia', 'Egypt', 'Bir Tawil'] if k in G]).buffer(0.02)
+B = AF.intersection(Polygon([(24.98, 5), (46, 5), (46, 22.0), (24.98, 22.0)])).intersection(AFRB)   # the block: V1's AFRICAN land south of Egypt's 22 N line,
+# east of Libya (Arabia, joined to it through Sinai, is kept out: enlarged with it, a piece of Yemen and Oman fell on the Ogaden as a stray triangle)
 MODE = os.environ.get('MODE', 'expand')
 if MODE == 'drag':                                     # moved as one piece: the length reaches Djibouti, the width stays
     BD = shapely.affinity.translate(B, D[0], D[1]); E2 = E + D
