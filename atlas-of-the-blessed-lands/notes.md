@@ -2272,3 +2272,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 426: V2 (arb, V1 + Arabia) removed; SIX versions
 - Nawaz: "Remove v2". arb hidden (HIDDEN_OUTLINES, data kept; tools/v411_arabia.py no longer needs rerunning after V1 changes). Now: V1 shj (4.2M), V2 me2 (heartland, 17.5M), V3 me9 (30.4M), V4 grm (37.7M; page opens on it), V5 tib (the Grand Caliphate, 41.2M), V6 sup (the Super Caliphate, 46.1M). Page text and links renumbered; #outline-v7.. open sup.
+
+## Version 427: Bahrain and the Kharg islands in V1
+- Nawaz (Apple Maps screenshots): "in V1 at Bahrain and this one" (Kharg Islands). tools/v427_v1_bahrain_kharg.py: V1 gets all of Bahrain (with the Hawar islands) and Kharg Island. tools/v427_kharku.py: Kharku/Khargu (missing from Natural Earth) drawn from his screenshot (~5 km, 50.333 E 29.301 N to 50.360 E 29.343 N; approximate) into extraLand and into V1-V6. V1 ~4.16M.
