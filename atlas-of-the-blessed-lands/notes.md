@@ -2314,3 +2314,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 438: all of South Sudan in V1
 - Nawaz: "Add South Sudan and push" (applied directly, no preview). tools/v438_v1_south_sudan.py on shj (after v437): South Sudan whole (Juba, Yei, Torit, Nimule, Wau, Aweil, Yambio, Kapoeta); its borders with the CAR, DR Congo, Uganda, Kenya (Ilemi as Natural Earth draws it) and Ethiopia are V1's edge there, no long straight stretches. Then v386_areas_ellipsoid.py. Added ~257,000 km2; V1 ~9.52M km2. The White Nile is now in from Nimule. Ethiopia's Omo corner (~5,800 km2, 35-35.8 E, 5.3-6.4 N) between South Sudan's border and the V1 lobe edge is an inward bend open to the south, not an enclosed gap; left out (can be filled with EXTRA=35,5.2,35.9,6.5 if he asks). CX_LEAD.shj, RIVERS_P and the body.html versions paragraph updated.
+
+## Version 439: the lower Omo corner filled in V1
+- Nawaz (red stroke on the Version 438 close-up from the north tip of Lake Turkana up to V1's edge): "Fill". tools/v439_v1_omo_fill.py on shj: Ethiopian land west of the stroke (~35.95 E 4.62 N to ~36.95 E 6.15 N, roughened, seed 439) added, ~21,000 km2; V1 ~9.55M km2.
