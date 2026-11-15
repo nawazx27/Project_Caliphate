@@ -2341,3 +2341,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 449: Armenia removed from V1
 - Nawaz: "Remove Armenia". src/caliph.json, src/eng_e.js and src/body.html back to Version 445 (so Armenia and Nakhchivan, which was in only because Armenia enclosed it, are out; Versions 446-448 undone). V1 ~11.03M km2.
+
+## Version 450: the South Caucasus back in V1
+- Nawaz asked whether V1 holds all of Southwest Asia; the most accurate definition is the UN M49 "Western Asia" (18 countries, with Armenia, Azerbaijan, Georgia; Iran counted in Southern Asia). "Add them back": src/caliph.json, src/eng_e.js, src/body.html restored from Version 446 (Armenia, Azerbaijan with Nakhchivan, Georgia whole). V1 ~11.22M km2 and holds all 18 Western Asian countries whole.
