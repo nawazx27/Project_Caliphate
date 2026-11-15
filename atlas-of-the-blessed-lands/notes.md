@@ -2357,3 +2357,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 457: V1's south-east edge in Ethiopia brought down
 - Nawaz (red loop round V1's edge from Lake Turkana to Djibouti): "Bring this piece just a bit down" -> preview (0.5 deg, ends fixed) -> "More of the entire piece" -> preview -> "Push". tools/v457_v1_se_edge_down.py (DY 1.0, no taper, TAPER=1 for the fixed-ends variant): V1's land in a band round that edge moved straight south step by step (no gap), Ethiopian land only, slivers against Ethiopia's borders closed. ~82,000 km2 added; Hawassa, Adama, Awash, Arba Minch, Dire Dawa in; V1 ~11.12M km2, ~63% of Ethiopia. V2 (arb) holds all of Ethiopia already.
+
+## Version 458: notch at Nimule filled
+- Nawaz (red stroke across the small notch in V1's edge where the Albert Nile enters South Sudan): "Fill and push". tools/v458_v1_nimule_notch.py: ~27 km2 of land in the notch added (V1 closed by ~9 km in a small box). V1 ~11.12M km2.
