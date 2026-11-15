@@ -2275,3 +2275,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 427: Bahrain and the Kharg islands in V1
 - Nawaz (Apple Maps screenshots): "in V1 at Bahrain and this one" (Kharg Islands). tools/v427_v1_bahrain_kharg.py: V1 gets all of Bahrain (with the Hawar islands) and Kharg Island. tools/v427_kharku.py: Kharku/Khargu (missing from Natural Earth) drawn from his screenshot (~5 km, 50.333 E 29.301 N to 50.360 E 29.343 N; approximate) into extraLand and into V1-V6. V1 ~4.16M.
+
+## Version 428: Türkiye, Greece, Cyrenaica and all of Egypt in V1
+- Nawaz (Wikipedia's map of the Levant in its broad, historical meaning): "Add Turkey, Greece, and the portion of Libya in the image to V1" + "and add entire Egypt as well". tools/v428_v1_turkey_greece_cyrenaica.py (Türkiye and Greece whole with all islands; Libya east of 20.0 E, the map's straight line: Benghazi, Tobruk, Kufra; Sirte out), then tools/v428_v1_egypt_whole.py (all of Egypt incl. Siwa and the far west). V1 ~5.53M, inside V2. The page still says V1 is the smallest outline (true).
