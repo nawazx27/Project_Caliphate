@@ -2278,3 +2278,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 428: Türkiye, Greece, Cyrenaica and all of Egypt in V1
 - Nawaz (Wikipedia's map of the Levant in its broad, historical meaning): "Add Turkey, Greece, and the portion of Libya in the image to V1" + "and add entire Egypt as well". tools/v428_v1_turkey_greece_cyrenaica.py (Türkiye and Greece whole with all islands; Libya east of 20.0 E, the map's straight line: Benghazi, Tobruk, Kufra; Sirte out), then tools/v428_v1_egypt_whole.py (all of Egypt incl. Siwa and the far west). V1 ~5.53M, inside V2. The page still says V1 is the smallest outline (true).
+
+## Version 429: Libya-Sudan notch filled, V1's straight Libyan edges roughened
+- Nawaz (red line across the notch at the Libya-Sudan-Chad corner): "Fill and make the straight edges and lines rough". tools/v429_v1_libya_rough.py: ~5,400 km2 notch filled; inland edges in the box 17.5-27.5 E, 17.5-32 N (the 20 E line, Libya's southern borders) roughened, fixed seed, up to ~10 km; coasts untouched. V1 ~5.54M.
