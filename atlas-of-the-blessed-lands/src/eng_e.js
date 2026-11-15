@@ -296,7 +296,8 @@ const cxData = () => XV === 'arb' ? CALIPH.arb : XV === 'tib' ? CALIPH.tib : XV 
 /* Version 66: the versions are numbered by size, from the smallest (V1) to the largest (V6; the old V7 was deleted in Version 155 and V3 in Version 157, at the author's request; the NEW V7 of Version 159, V2 plus four physical regions, was deleted in Version 169); the internal keys keep their old names */
 const XNAME = {sup:'V6', tib:'V5', grm:'V4', shj:'V1', me8:'V2', me2:'V2', ca:'V3', me9:'V3', sas:'V4', rom:'V5', v2:'V5', eu:'V5', sah:'V3', af:'V3', me:'V2', full:'V2', v3:'V5'};
 const XNUM = {sup:'V6', tib:'V5', grm:'V4', shj:'V1', me8:'V2', me2:'V2', ca:'V3', me9:'V3', sas:'V4', rom:'V5', v2:'V5', eu:'V5', sah:'V3', af:'V3', me:'V2', full:'V2', v3:'V5'};   /* Version 290: the new V6 (rom) sits between V5 and the Super Caliphate, which is now V7 */   /* Version 241: V2 (me), V4 (full) and V8 (x3/'v3') removed from the list at the author's request (data kept: the Super Caliphate is built on x3); the rest renumbered V1–V8 by size; the removed keys map to the nearest kept version */
-const WIDEV = v => v === 'sup' || v === 'tib' || v === 'grm' || v === 'rom' || v === 'sah' || v === 'sas' || v === 'ca' || v === 'v2' || v === 'v3' || v === 'me2' || v === 'me9' || v === 'af' || v === 'eu';   /* the views that need the whole sheet */
+const SHJ_B = [[18.5,2.5],[64.5,43.0]];   /* Version 444: V1 (shj), the page's opening view: Cyrenaica to Iran, the Black Sea to Juba */
+const WIDEV = v => v === 'shj' || v === 'sup' || v === 'tib' || v === 'grm' || v === 'rom' || v === 'sah' || v === 'sas' || v === 'ca' || v === 'v2' || v === 'v3' || v === 'me2' || v === 'me9' || v === 'af' || v === 'eu';   /* the views that need the whole sheet */
 const mkm = n => (n/1e6).toFixed(1);
 function cxArea(){
   const d = cxData();
@@ -425,7 +426,7 @@ if(shortQ.addEventListener) shortQ.addEventListener('change', ()=>{
 /* the sheet is now large enough that every view fills the frame; only a reader's own zoom shows the sheet's edge */
 let autoWide = false;   /* true while the page widened itself for a wide version (V2, V5, V6); the reader's own choice is kept */
 /* the whole territory with a margin: the sheet now runs past it on every side */
-function showWide(b){ b = b || (XV === 'v3' ? V3_B : XV === 'me2' ? ME2_B : XV === 'ca' ? CA_B : XV === 'me8' ? V8_B : XV === 'me9' || XV === 'sah' ? V9_B : XV === 'sas' ? SAS_B : XV === 'sup' ? SUP_B : XV === 'tib' ? TIB_B : XV === 'rom' || XV === 'grm' ? ROM_B : XV === 'af' ? AF_B : XV === 'eu' ? EU_B : V2_B); if(deskQ.matches){ if(atlasEl.classList.contains('wide')) go(b); else { autoWide = true; setWide(true, ()=>go(b)); } } else go(b); }
+function showWide(b){ b = b || (XV === 'v3' ? V3_B : XV === 'me2' ? ME2_B : XV === 'ca' ? CA_B : XV === 'me8' ? V8_B : XV === 'me9' || XV === 'sah' ? V9_B : XV === 'sas' ? SAS_B : XV === 'sup' ? SUP_B : XV === 'shj' ? SHJ_B : XV === 'tib' ? TIB_B : XV === 'rom' || XV === 'grm' ? ROM_B : XV === 'af' ? AF_B : XV === 'eu' ? EU_B : V2_B); if(deskQ.matches){ if(atlasEl.classList.contains('wide')) go(b); else { autoWide = true; setWide(true, ()=>go(b)); } } else go(b); }
 function leaveAutoWide(then){ if(autoWide && atlasEl.classList.contains('wide')){ autoWide = false; setWide(false, then); } else { autoWide = false; if(then) then(); } }
 const V8_B = [[24.5,11.5],[63.5,43.0]];   /* V8: Egypt to Iran, Yemen to the Caucasus (Version 187) */
 const V9_B = [[-17.5,-12.0],[88.0,55.5]];   /* V5 (me9): with Central Asia to the Altai (Version 234) */
