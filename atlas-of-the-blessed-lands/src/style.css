@@ -1212,3 +1212,9 @@ html.fullmap #readbar,html.fullmap #totop{display:none}
 :root[data-theme="dark"]{--sea:#071626; --glow:#0E2B45}
 /* Version 386: on phones the country title is smaller, so at the whole-world view it sits on the lands instead of below them */
 @media (max-width:520px){.lbl.darlbl{font-size:13.5px;letter-spacing:.2em;stroke-width:3px}.lbl.darlbl .arl.dar{font-size:12px}}
+
+/* Version 431: the four rivers of the hadith (Sayḥān, Jayḥān, the Euphrates, the Nile) named more strongly than other rivers */
+.lbl.sea.small.four{font-size:15px;font-weight:700;letter-spacing:.05em;fill:#1E5E78;stroke:var(--lblhalo);stroke-width:3px;stroke-opacity:.9}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .lbl.sea.small.four{fill:#9CD3EA}}
+:root[data-theme="dark"] .lbl.sea.small.four{fill:#9CD3EA}
+@media (max-width:760px){.lbl.sea.small.four{font-size:14px}}
