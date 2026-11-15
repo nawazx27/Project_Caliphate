@@ -2334,3 +2334,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 446: the South Caucasus in V1
 - Nawaz: "Add Armenia to v1" -> preview (Nakhchivan, then enclosed, filled by the pocket rule) -> "Full map" -> "Add Azerbaijan and Georgia" -> preview -> "Push with Armenia" (taken as: push the preview with all three). Runs of tools/v440_v1_iran.py with CTRY=Armenia, Azerbaijan, Georgia on shj, then v386_areas_ellipsoid.py. V1 ~11.22M km2; its northern edge is now the three countries' real borders with Russia along the Greater Caucasus. Page text updated.
+
+## Version 447: V1 with Armenia only (Version 446 undone)
+- Nawaz: "Only with Armenia". src/caliph.json back to Version 445, then CTRY=Armenia run of tools/v440_v1_iran.py (Nakhchivan, enclosed by Armenia, Iran and Türkiye, filled as a pocket), then v386_areas_ellipsoid.py. Azerbaijan (apart from Nakhchivan) and Georgia out. V1 ~11.07M km2. Page text updated.
