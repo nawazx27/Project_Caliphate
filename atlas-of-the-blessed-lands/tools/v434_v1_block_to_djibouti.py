@@ -2,8 +2,8 @@
 "I meant this block... drag it keeping its shape until it reaches Djibouti" / "Drag or expand preserving its shape").
 The block's whole southern edge (from where it leaves the Libya-Sudan border, 25.06 E 20.0 N, down its south-west side, round the bulge and up to the
 Red Sea shore at the Gulf of Zula, 40.16 E 15.03 N) is made larger as one piece, the same shape in length and width (MODE=expand, the default: scaled and turned about the corner where its
-left side starts, 25.06 E 20.0 N, so its coastal end reaches Djibouti's coast at the Somaliland border, 43.24 E 11.49 N; MODE=drag only moves it there, which
-gave the length but not the width). The new block is joined to V1 as it stands (no sweep: sliding the edge along itself had filled its bends and left a
+left side starts, 25.06 E 20.0 N, so its coastal end reaches Djibouti's coast at the Somaliland border, 43.24 E 11.49 N, then widened across its
+length by WIDE, default 1.15, "a bit more wider"; MODE=drag only moves it there, which gave the length but not the width). The new block is joined to V1 as it stands (no sweep: sliding the edge along itself had filled its bends and left a
 straight line, which Nawaz rejected; the left side must keep its own shape), so the new left side is the old one carried on with all its bends;
 the land between the moved block and the sea is taken to the shore.
 Djibouti is taken whole with its islands; Somaliland stays out, and the straight Djibouti-Somaliland border is roughened like the Version 429 edges.
@@ -36,7 +36,12 @@ else:                                                  # expanded as one piece (
     k = np.hypot(*vt) / np.hypot(*vz); th = np.arctan2(vt[1], vt[0]) - np.arctan2(vz[1], vz[0])
     a_, b_, d_, e_ = k * np.cos(th), -k * np.sin(th), k * np.sin(th), k * np.cos(th)
     M = [a_, b_, d_, e_, Cc[0] - a_ * Cc[0] - b_ * Cc[1], Cc[1] - d_ * Cc[0] - e_ * Cc[1]]
-    BD = shapely.affinity.affine_transform(B, M); E2 = np.c_[a_ * E[:, 0] + b_ * E[:, 1] + M[4], d_ * E[:, 0] + e_ * E[:, 1] + M[5]]
+    WIDE = float(os.environ.get('WIDE', '1.15'))     # Nawaz: "A bit more wider": then widened across its length (corner-to-tip line kept, so the corner
+    uu = vt / np.hypot(*vt); nn = np.array([-uu[1], uu[0]])   # and the tip stay put), by WIDE (1 = the plain enlargement)
+    Sm = np.eye(2) + (WIDE - 1) * np.outer(nn, nn); Lm = Sm @ np.array([[a_, b_], [d_, e_]]); off = Cc - Lm @ Cc
+    M = [Lm[0, 0], Lm[0, 1], Lm[1, 0], Lm[1, 1], off[0], off[1]]
+    BD = shapely.affinity.affine_transform(B, M); E2 = E @ Lm.T + off
+    print('   widened by', WIDE, '| tip ->', E2[0].round(3), '| corner ->', E2[-1].round(3))
     print('expand: scale', round(k, 3), 'turn', round(np.degrees(th), 2), 'degrees, about', Cc.round(3), '| tip ->', E2[0].round(3))
 ib = int(np.argmin(E[:, 1]))                      # the bulge: from here east the land between the moved edge and the sea is taken to the shore
 SHORE = Polygon(list(map(tuple, E2[:ib + 1][::-1])) + [(43.9, 11.2), (44.6, 12.2), (44.6, 15.6), (40.6, 15.6)] + list(map(tuple, E[:ib + 1]))).buffer(0)
