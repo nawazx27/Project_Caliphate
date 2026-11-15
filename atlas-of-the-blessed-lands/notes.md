@@ -2331,3 +2331,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 445: the notch north-east of Lake Turkana filled; Sudan and South Sudan whole
 - Nawaz (red stroke on his phone screenshot, ~37.0 E 6.0 N to ~37.85 E 6.7 N): "Fill and make sure the entire modern Sudan and South Sudan is in v1 and push directly". tools/v445_v1_notch_sudans.py on shj: the notch north-west of his stroke filled (~4,400 km2 of Ethiopia); Sudan and South Sudan taken whole (both 100.0%; the Version 435 roughening had left ~0.2% of Sudan out). V1 ~11.03M km2.
+
+## Version 446: the South Caucasus in V1
+- Nawaz: "Add Armenia to v1" -> preview (Nakhchivan, then enclosed, filled by the pocket rule) -> "Full map" -> "Add Azerbaijan and Georgia" -> preview -> "Push with Armenia" (taken as: push the preview with all three). Runs of tools/v440_v1_iran.py with CTRY=Armenia, Azerbaijan, Georgia on shj, then v386_areas_ellipsoid.py. V1 ~11.22M km2; its northern edge is now the three countries' real borders with Russia along the Greater Caucasus. Page text updated.
