@@ -19,7 +19,7 @@ ASIA = {'Yemen', 'Saudi Arabia', 'Oman', 'Israel', 'Palestine', 'Jordan'}
 AFL = unary_union([g for n_, g in G.items() if n_ not in ASIA and g.intersects(shapely.box(5, -8, 52, 23))]).buffer(0)
 B = V.intersection(shapely.box(12, -12, 52, 20.006)).intersection(AFL).difference(G['Libya']).buffer(0)   # the piece only (V1's Libyan corner north of the diagonal stays as it is)
 XA, W = float(os.environ.get('XA', '52.0')), float(os.environ.get('WEST', '1.035'))
-YS, EASE = 15.72, 2.5                                   # the foot of the straight 24 E Sudan-Chad line; the push eases in over 2.5 deg south of it
+YS, EASE = 15.72, float(os.environ.get('EASE', '2.5'))                                   # the foot of the straight 24 E Sudan-Chad line; the push eases in over 2.5 deg south of it
 def f(x, y, z=None):
     x = np.asarray(x); y = np.asarray(y); t = np.clip((YS - y) / EASE, 0, 1); t = t * t * (3 - 2 * t)
     return XA - (XA - x) * (1 + (W - 1) * t), y
