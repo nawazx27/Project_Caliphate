@@ -2405,3 +2405,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 480: the widened left side of V2's shield moved up
 - Nawaz: "Push it a bit more upward", then "Push". tools/v480_v2_shield_up.py (DY 1.0): V2's African piece west of the straight 24 E Sudan-Chad line moved 1 deg north as one piece (rough edge kept) and joined, so its top corner in eastern Chad rises along the straight line (which stays as it is). +101,574 km2, almost all Chad (Biltine, Arada in; Fada out). V2 about 15.22 million km2 (ellipsoid), still below V3 (~15.4M). V1 unchanged.
+
+## Version 481: all of Kenya in V2
+- Nawaz (on V2's first weak spot, Mombasa and Dar es Salaam outside; preview with Kenya and Tanzania's coast to Dar es Salaam): "Just add entire Kenya and push". TZ=0 run of tools/v481_v2_east_coast.py (A1 env = Natural Earth admin-1): Kenya whole (the coast strip with Mombasa, Malindi; Mombasa island and the Lamu islands, missing from the base coastline, added as small discs round the towns). +~11,700 km2. Kenya 100% in V2. Tanzania's coast (Tanga, Pwani, Dar es Salaam, Zanzibar, Pemba) NOT added (his choice). V2 about 15.23 million km2. Page text updated.

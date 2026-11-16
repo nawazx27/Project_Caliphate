@@ -1,5 +1,5 @@
 """Version 481 (Nawaz, on the first weak spot of V2 (Mombasa and Dar es Salaam, East Africa's two big ports, outside): "Fix the first weak spot and
-preview full map"). Added to V2 (CALIPH.arb): all of Kenya (the coast strip with Mombasa, Malindi and Lamu; V2 held 98%), and Tanzania's coast from the
+preview full map", then "Just add entire Kenya and push": run with TZ=0, Kenya only). Added to V2 (CALIPH.arb): all of Kenya (the coast strip with Mombasa, Malindi and Lamu; V2 held 98%), and Tanzania's coast from the
 Kenyan border to Dar es Salaam as whole regions (Natural Earth admin-1, A1 env = its geojson): Tanga, Pwani, Dar es Salaam and the Zanzibar and Pemba
 islands (the five Zanzibar regions); V2 already held Arusha and Kilimanjaro, so the coast joins it through Tanga. Enclosed pockets filled; V1 unchanged.
 DIR env = project dir. Run v386_areas_ellipsoid.py after."""
@@ -19,6 +19,7 @@ F_ = os.path.join(P, 'src/caliph.json'); C = json.load(open(F_))
 MP = lambda pl: MultiPolygon([Polygon(r[0], r[1:]) for r in pl]).buffer(0)
 V = MP(C['arb']['polys']); V1 = MP(C['shj']['polys'])
 ISL = unary_union([Point(39.668, -4.045).buffer(0.045), Point(40.90, -2.27).buffer(0.06), Point(40.95, -2.18).buffer(0.05)])   # Mombasa island and the Lamu archipelago (Lamu, Manda), too small for the base map's coastline: the city on its island taken whole
+if os.environ.get('TZ', '1') == '0': TZ = Polygon()   # Kenya only (Nawaz's choice in Version 481)
 X = unary_union([V, G['Kenya'].buffer(0.003), KE, TZ.buffer(0.003), ISL]).buffer(0)
 X = unary_union([X] + [Polygon(h) for q in getattr(X, 'geoms', [X]) for h in q.interiors if A(Polygon(h)) < 20000]).buffer(0)
 add = X.difference(V); print('added', round(A(add)), 'km2', {k: round(A(add.intersection(G[k]))) for k in G if G[k].intersects(add) and A(add.intersection(G[k])) > 50})
