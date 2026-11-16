@@ -20,7 +20,17 @@ def chaikin(P, n=5):   # the stroke is a hand-drawn curve: smooth the read-off p
         for (x0, y0), (x1, y1) in zip(P[:-1], P[1:]): Q += [(0.75 * x0 + 0.25 * x1, 0.75 * y0 + 0.25 * y1), (0.25 * x0 + 0.75 * x1, 0.25 * y0 + 0.75 * y1)]
         P = Q + [P[-1]]
     return P
-POLY = Polygon(chaikin(ST) + [(32.641, 4.3), (31.218, 4.3)]).buffer(0)
+import numpy as np
+CV = np.array(chaikin(ST))
+if os.environ.get('ROUGH', '1') == '1':   # Nawaz: "Make it a bit rough": fixed-seed noise along the curve's normal, up to ~6 km, none at its two ends
+    rng = np.random.default_rng(463); n = len(CV); u = np.linspace(0, 1, n)
+    def nz(k, amp):
+        v = rng.normal(0, 1, k + 3); q = np.linspace(0, k, n); i = np.minimum(q.astype(int), k + 1); f = q - i; f = f * f * (3 - 2 * f)
+        return amp * (v[i] * (1 - f) + v[i + 1] * f)
+    d = np.clip(nz(6, 0.03) + nz(18, 0.015) + nz(45, 0.006), -0.055, 0.055) * np.sin(np.pi * u) ** 0.7
+    t = np.gradient(CV, axis=0); nrm = np.c_[-t[:, 1], t[:, 0]]; nrm /= np.linalg.norm(nrm, axis=1, keepdims=True) + 1e-12
+    CV = CV + nrm * d[:, None]
+POLY = Polygon([tuple(p) for p in CV] + [(32.641, 4.3), (31.218, 4.3)]).buffer(0)
 LANDS = unary_union([G['Uganda'], G['South Sudan'], G['DR Congo']])
 add = POLY.intersection(LANDS).difference(V); print('filled', round(A(add)), 'km2', {k: round(A(add.intersection(G[k]))) for k in ['Uganda', 'South Sudan', 'DR Congo']})
 X = unary_union([V, add.buffer(0.003).intersection(LANDS.buffer(0.003))]).buffer(0)
