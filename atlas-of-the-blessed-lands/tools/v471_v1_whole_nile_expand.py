@@ -27,7 +27,7 @@ MP = lambda pl: MultiPolygon([Polygon(r[0], r[1:]) for r in pl]).buffer(0)
 V = MP(C['shj']['polys'])
 ASIA = {'Yemen', 'Saudi Arabia', 'Oman', 'Israel', 'Palestine', 'Jordan'}
 AFL = unary_union([g for n_, g in G.items() if n_ not in ASIA and g.intersects(shapely.box(12, -8, 52, 23))]).buffer(0)   # African land round it
-B = V.intersection(shapely.box(24.98, -5, 52, 22.0)).intersection(AFL)
+B = V.intersection(shapely.box(12, -10, 52, 22.0)).intersection(AFL).difference(G['Libya']).buffer(0)   # the whole piece, Darfur and eastern Chad included (a box edge at 25 E had left a straight cut line)
 Cc = tuple(float(v) for v in os.environ.get('ORIGIN', '23.982,22.0').split(','))
 def grow(s):
     BS = shapely.affinity.scale(B, s, s, origin=Cc).intersection(AFL)
@@ -42,7 +42,8 @@ else:
         if miss(grow(mid)) < 1: hi = mid
         else: lo = mid
     s = hi
-X = grow(s); print('scale', round(s, 4), '| highlands outside after', round(miss(X), 1), 'km2')
+X = grow(s); X = unary_union([V, X.difference(V).buffer(-0.03).buffer(0.03).intersection(AFL)]).buffer(0)   # hairline slivers of the enlarged piece dropped
+print('scale', round(s, 4), '| highlands outside after', round(miss(X), 1), 'km2')
 X = unary_union([X] + [Polygon(hh) for q in getattr(X, 'geoms', [X]) for hh in q.interiors if A(Polygon(hh)) < 80000]).buffer(0)
 X = unary_union([q for q in getattr(X, 'geoms', [X]) if A(q) > 1 or not (20 < q.centroid.x < 52 and q.centroid.y < 15)])
 add = X.difference(V)
