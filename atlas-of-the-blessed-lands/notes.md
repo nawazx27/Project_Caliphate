@@ -2399,3 +2399,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 478: the left side of V2's shield made rough, like a real border
 - Nawaz: "Make the left side look better and rough like all other borders and not cartoonish... and push directly". tools/v478_v2_left_rough.py: V2's western edge from the foot of the straight Sudan-Chad line (that line untouched) down through Chad, the CAR and DR Congo to ~3 S densified (~2 km) and moved along its normal by fixed-seed fractal noise (seed 478; four scales, ~60 km bends to ~2 km wiggles, at most ~12 km), faded out at both ends; V1 and the whole traced Nile basin kept inside. ~7,600 km2 out, ~8,300 km2 in; V2 about 14.84 million km2.
+
+## Version 479: the left side of V2's shield pushed further west and higher
+- Nawaz: "Expand a bit more left and up at that same side", then "Push". EASE=1.0 run of tools/v477_v2_left_side_out.py (WEST 1.035, XA 52) on the Version 478 V2: the straight Sudan-Chad line kept; the push now starts just below its foot (eases in over 1 deg instead of 2.5), so eastern Chad near the top widens too; the Version 478 rough edge is carried along. +275,978 km2: eastern Chad (~105,000), DR Congo's north (~104,000), the CAR (~47,000), a little of Tanzania, Burundi, Congo. V2 about 15.12 million km2 (ellipsoid), still below V3 (~15.4M). V1 unchanged.
