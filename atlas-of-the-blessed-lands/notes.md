@@ -2366,3 +2366,8 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 460: the bulge south of Nimule filled to his third stroke
 - Nawaz (red curve on the Version 459 close-up from V1's edge west of Nimule down round the Albert Nile's entry and back to the edge east of it): "Fill and push". STROKE2=1 run of tools/v458_v1_nimule_notch.py (stroke read off the screenshot: 31.72 E 3.535 N - 31.79 E 3.47 N - 31.88 E 3.45 N - 32.05 E 3.49 N, its ends taken onto V1's own edge): ~400 km2 of Uganda added round the Nile's entry. V1 ~11.12M km2 (still inside V2, which holds all of Uganda).
+
+## Version 461: the previews of Versions 461-463 applied (south-east Ethiopia, Zeila, the rough Nimule bump)
+- Nawaz (his screenshots of the Version 463 preview, wide and close): "Let's go with this make that bump a bit rough and push". Run on the Version 460 V1, in this order: tools/v461_v1_rift_fill.py (south-east Ethiopian edge filled, +15,782 km2: Harar, Dire Dawa, Goba, Robe in), tools/v462_v1_zeila_fill.py (+8,400 km2 to his line at Zeila: Zeila in, Borama, Berbera, Hargeisa out), tools/v463_v1_west_nile_fill.py with its default ROUGH=1 (the U at Nimule, +5,074 km2 of north-western Uganda: Moyo, Adjumani in; the curve given a light fixed-seed roughness, up to ~6 km, as he asked), then tools/v386_areas_ellipsoid.py. V1 about 11.15 million km2 (ellipsoid).
+- NOT applied (previews he passed over by choosing the Version 463 state): tools/v464 (Ethiopian Highlands), v465 (Ogaden/Somaliland), v466 and v467 (the south-west edge out to his red line, ~460,000 km2). Do not run them unless he asks.
+- The outlines remain the author's specification, not a ruling.
