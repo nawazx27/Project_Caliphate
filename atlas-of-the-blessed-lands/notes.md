@@ -2378,3 +2378,7 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Step 2, tools/v469_v1_left_side_out.py: the original straight Sudan-Chad line (24 E, from the Libya-Chad-Sudan tripoint at 19.5 N down to 15.72 N) kept exactly where it was; below it the piece pushed west from its east side (44 E) by a factor easing from 1 at 15.72 N to 1.10 at 13.2 N and south (Darfur edge ~2 deg, ~220 km west). +303,337 km2: eastern Chad (Abeche, Adre), north-eastern CAR (Birao; Ndele out), more of northern DR Congo. Earlier tries of this step (a leaning joint at 20 N; the straight line carried west to 22 E) were previews only.
 - V1 about 11.87 million km2 (ellipsoid). Previews v464-v467 still NOT applied.
 - Unverified: the highlands are a 1500 m contour on ~1.2 km DEM cells, smoothed; the outlines remain the author's specification, not a ruling.
+
+## Version 470: the notch in V1's southern edge in northern Uganda filled to his stroke
+- Nawaz (IMG_5409, phone, a red stroke across the mouth of the V-shaped notch in V1's edge between the north end of Lake Albert and the Albert Nile's bend): "Fill and push directly". tools/v470_v1_uganda_notch.py: picture placed by fitting V1's own drawn outline (mean error ~4 px, ~2 km); stroke points tools/data/v470_stroke_points.npy; the land shut in between V1's edge and the stroke added. +2,037 km2, all Uganda (round Pakwach and Nebbi). V1 about 11.88 million km2 (ellipsoid).
+- The outlines remain the author's specification, not a ruling.
