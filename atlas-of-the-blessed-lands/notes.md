@@ -2402,3 +2402,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 479: the left side of V2's shield pushed further west and higher
 - Nawaz: "Expand a bit more left and up at that same side", then "Push". EASE=1.0 run of tools/v477_v2_left_side_out.py (WEST 1.035, XA 52) on the Version 478 V2: the straight Sudan-Chad line kept; the push now starts just below its foot (eases in over 1 deg instead of 2.5), so eastern Chad near the top widens too; the Version 478 rough edge is carried along. +275,978 km2: eastern Chad (~105,000), DR Congo's north (~104,000), the CAR (~47,000), a little of Tanzania, Burundi, Congo. V2 about 15.12 million km2 (ellipsoid), still below V3 (~15.4M). V1 unchanged.
+
+## Version 480: the widened left side of V2's shield moved up
+- Nawaz: "Push it a bit more upward", then "Push". tools/v480_v2_shield_up.py (DY 1.0): V2's African piece west of the straight 24 E Sudan-Chad line moved 1 deg north as one piece (rough edge kept) and joined, so its top corner in eastern Chad rises along the straight line (which stays as it is). +101,574 km2, almost all Chad (Biltine, Arada in; Fada out). V2 about 15.22 million km2 (ellipsoid), still below V3 (~15.4M). V1 unchanged.
