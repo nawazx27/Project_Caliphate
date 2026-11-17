@@ -10,36 +10,47 @@ from shapely.ops import unary_union
 HERE = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 F_ = os.path.join(HERE, 'src/four_rivers.json'); R = json.load(open(F_)); N = [r for r in R['rivers'] if r['k'] == 'nile'][0]
 SP = Point(29.3583, -2.3264)
-rows = [r for r in pq.read_table(sys.argv[1], columns=['names', 'geometry']).to_pylist()]
-nm = lambda r: ((r['names'].get('primary') if isinstance(r['names'], dict) else r['names']) or '') if r.get('names') else ''
-geo = [(nm(r), shapely.from_wkb(r['geometry'])) for r in rows]
-geo = [(n, g) for n, g in geo if g.geom_type == 'LineString' and g.intersects(box(28.8, -4.2, 31.9, -0.8))]
-cur = unary_union([LineString(c) for c in N['parts']]); add = []
+import numpy as np
+T = pq.read_table(sys.argv[1], columns=['names', 'geometry'])
+GA = shapely.from_wkb(np.array(T.column('geometry').to_pylist(), dtype=object))
+keep = np.where(shapely.intersects(GA, box(28.8, -4.2, 31.9, -0.8)) & (shapely.get_type_id(GA) == 1))[0]
+NM = T.column('names').to_pylist()
+nm = lambda r: ((r.get('primary') if isinstance(r, dict) else r) or '') if r else ''
+geo = [(nm(NM[k]), GA[k]) for k in keep]; print('waterway pieces in the area', len(geo))
+cur = unary_union([LineString(c) for c in N['parts']]).intersection(box(28.6, -4.4, 32.1, -0.6)); add = []   # the drawn river near the Kagera only (fast)
 NAMES = ('akagera', 'kagera', 'nyabarongo', 'mwogo', 'rukarara', 'ruvyironza')
-cand = [g for n, g in geo if any(k == n.lower().strip() or n.lower().startswith(k) for k in NAMES)]
+cand = [g for n, g in geo if any(n.lower().strip().startswith(k) for k in NAMES)]
 while True:
-    new = [g for g in cand if g.distance(cur) < 0.01 and g.difference(cur.buffer(0.003)).length > 0.3 * g.length]
+    cb = cur.buffer(0.003)
+    new = [g for g in cand if g.distance(cur) < 0.02 and g.difference(cb).length > 0.3 * g.length]
     if not new: break
-    for g in new: add.append(g); cur = cur.union(g); cand.remove(g)
+    for g in new: add.append(g); cand.remove(g)
+    cur = unary_union([cur] + new)
 print('named pieces added', len(add), '| distance to the spring now', round(cur.distance(SP) * 111, 1), 'km')
-# the head stream: shortest chain of (any) waterway pieces from the drawn line to the piece nearest the spring
-loc = [g for n, g in geo if g.distance(SP) < 0.3]
-G = nx.Graph()
-for i, g in enumerate(loc):
-    G.add_node(i)
-    for j in range(i):
-        if g.distance(loc[j]) < 0.002: G.add_edge(i, j, w=g.length)
-start = [i for i, g in enumerate(loc) if g.distance(cur) < 0.002]
-goal = min(range(len(loc)), key=lambda i: loc[i].distance(SP))
-best = None
-for s in start:
-    try:
-        p = nx.shortest_path(G, s, goal, weight='w')
-        if best is None or len(p) < len(best): best = p
-    except nx.NetworkXNoPath: pass
-if best:
-    for i in best:
-        if loc[i].difference(cur.buffer(0.003)).length > 0.2 * loc[i].length: add.append(loc[i]); cur = cur.union(loc[i])
+# the head stream: the data's pieces between the drawn river and the spring do not all touch (the spring is on the Nyirabugoyi, which meets the
+# Rukarara ~5 km from the nearest Rukarara piece in the data); so the chain is the shortest path through waterway pieces near the spring where a small
+# gap (up to ~6 km) between two pieces costs ten times its length and is bridged by a short joining segment
+from shapely.ops import nearest_points
+loc = np.array([g for n, g in geo if g.distance(SP) < 0.45], dtype=object); print('pieces near the spring', len(loc))
+tree = shapely.STRtree(loc); a, b = tree.query(loc, predicate='dwithin', distance=0.055)
+G = nx.Graph(); G.add_nodes_from(range(len(loc)))
+for x, y in zip(a, b):
+    if x < y:
+        gap = loc[x].distance(loc[y]); G.add_edge(int(x), int(y), w=(loc[x].length + loc[y].length) / 2 + 10 * gap, gap=gap)
+start = [i for i, g in enumerate(loc) if g.distance(cur) < 0.004]
+goal = min(range(len(loc)), key=lambda i: loc[i].distance(SP)); print('nearest piece to the spring is', round(loc[goal].distance(SP) * 111, 2), 'km away')
+G.add_node('S')
+for s_ in start: G.add_edge('S', s_, w=0, gap=0)
+best = nx.shortest_path(G, 'S', goal, weight='w')[1:]
+joins = []
+for x, y in zip(best[:-1], best[1:]):
+    if G[x][y]['gap'] > 0.001:
+        p_, q_ = nearest_points(loc[x], loc[y]); joins.append(LineString([p_, q_]))
+for i in best:
+    if loc[i].difference(cur.buffer(0.003)).length > 0.2 * loc[i].length: add.append(loc[i])
+add += joins
+cur = unary_union([cur] + [loc[i] for i in best] + joins)
+print('gaps bridged', len(joins), [round(j.length * 111, 1) for j in joins], 'km')
 print('head-stream pieces', len(best or []), '| distance to the spring now', round(cur.distance(SP) * 111, 2), 'km')
 for g in add: N['parts'].append([[round(x, 4), round(y, 4)] for x, y in g.simplify(0.0004).coords])
 json.dump(R, open(F_ + '.tmp', 'w'), separators=(',', ':'), ensure_ascii=False); os.replace(F_ + '.tmp', F_)
