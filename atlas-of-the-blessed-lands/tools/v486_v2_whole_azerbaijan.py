@@ -1,9 +1,10 @@
-"""Version 486 (Nawaz, the Wikipedia article "Whole Azerbaijan" and its map (IMG_5482: North Azerbaijan, Iravan/Armenia, Borchaly, Derbent, South
-Azerbaijan, Kirkuk inside a red line): "Preview v2"). Added to V2 (CALIPH.arb): the Republic of Azerbaijan whole (with Nakhchivan), Armenia whole,
-Borchali as Georgia's Kvemo Kartli province (Natural Earth admin-1, A1 env; Wikipedia: "part of the Kvemo Kartli province"), and Derbent as on his map:
-the land of southern Dagestan (tools/data/derbent_south_dagestan249.geojson) east of the map's red line from the Azerbaijan border (~47.8 E 41.2 N) up to
-Derbent (~48.25 E 42.15 N), i.e. Derbent city and district with the coast south of it (Magaramkent). South Azerbaijan (Iran) and Kirkuk (Iraq) are
-already in V2. Enclosed pockets filled; V1 unchanged. The map's line is read approximately. DIR env = project dir. Run v386_areas_ellipsoid.py after."""
+"""Version 486 (Nawaz, the Wikipedia article "Whole Azerbaijan" and its map IMG_5482 (North Azerbaijan, Iravan/Armenia, Borchaly, Derbent, South
+Azerbaijan, Kirkuk shaded inside a red line): "Preview v2", then on the first preview (whole countries and provinces): "That's not what I sent. look at
+the image, trace it, and I want it exactly like that." / "Trace it exactly."). The map was placed by fitting its own drawn borders and coastlines to the
+atlas's (Mercator scale, offset and a small shear; median error ~5 px, ~5 km); its shaded area inside the red line was traced
+(tools/data/v486_whole_azerbaijan_traced.geojson; spurs along black border lines and arrows opened off at ~4 km). Added to V2 (CALIPH.arb): that traced
+area cut to land, plus Azerbaijan and Armenia whole (the map shades them whole; the ~5 km tracing error must not cut slivers off them). Enclosed pockets
+filled; V1 unchanged. DIR env = project dir. Run v386_areas_ellipsoid.py after."""
 import json, os, subprocess, shapely
 from shapely.geometry import shape, MultiPolygon, Polygon, Point
 from shapely.ops import unary_union
@@ -13,15 +14,15 @@ HERE = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'); P = os.en
 A = lambda g: abs(Geod(ellps='WGS84').geometry_area_perimeter(g)[0]) / 1e6
 geo = json.loads(subprocess.check_output(['node', '-e', "const fs=require('fs'),t=require('./node_modules/topojson-client');const g=JSON.parse(fs.readFileSync('geo2.json'));process.stdout.write(JSON.stringify(t.feature(g,g.objects.countries)))"], cwd=P))
 G = {f['properties']['n']: shape(f['geometry']).buffer(0) for f in geo['features'] if f.get('geometry')}
-KK = unary_union([shape(f['geometry']).buffer(0) for f in json.load(open(os.environ['A1']))['features'] if f['properties'].get('adm0_a3') == 'GEO' and f['properties'].get('name') == 'Kvemo Kartli'])
-KK = KK.intersection(G['Georgia'].buffer(0.01))
-SD = unary_union([shape(f['geometry']).buffer(0) for f in json.load(open(os.path.join(HERE, 'tools/data/derbent_south_dagestan249.geojson')))['features']])
-DB = SD.intersection(Polygon([(47.8, 41.2), (48.25, 42.15), (48.9, 42.15), (48.9, 40.9), (47.6, 40.9)])).intersection(G['Russia'].buffer(0.02))
-print('Kvemo Kartli', round(A(KK)), 'km2 | Derbent piece', round(A(DB)), 'km2')
+TR = shape(json.load(open(os.path.join(HERE, 'tools/data/v486_whole_azerbaijan_traced.geojson')))['geometry']).buffer(0)
+TR = TR.buffer(-0.04).buffer(0.04)                          # spurs along the map's black border lines and the label arrow off
+LAND = unary_union([g for g in G.values() if g.intersects(shapely.box(38, 30, 52, 44))]).buffer(0)
+TR = TR.intersection(LAND)
+print('traced area on land', round(A(TR)), 'km2 | in Georgia', round(A(TR.intersection(G['Georgia']))), '| in Russia', round(A(TR.intersection(G['Russia']))))
 F_ = os.path.join(P, 'src/caliph.json'); C = json.load(open(F_))
 MP = lambda pl: MultiPolygon([Polygon(r[0], r[1:]) for r in pl]).buffer(0)
 V = MP(C['arb']['polys'])
-X = unary_union([V, G['Azerbaijan'].buffer(0.003), G['Armenia'].buffer(0.003), KK.buffer(0.003), DB.buffer(0.003)]).buffer(0)
+X = unary_union([V, G['Azerbaijan'].buffer(0.003), G['Armenia'].buffer(0.003), TR.buffer(0.003)]).buffer(0)
 X = unary_union([X] + [Polygon(h) for q in getattr(X, 'geoms', [X]) for h in q.interiors if A(Polygon(h)) < 20000]).buffer(0)
 add = X.difference(V); print('added', round(A(add)), 'km2', {k: round(A(add.intersection(G[k]))) for k in G if G[k].intersects(add) and A(add.intersection(G[k])) > 50})
 X = shapely.set_precision(X, 0.001); o = []
