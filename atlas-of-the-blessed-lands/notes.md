@@ -2429,3 +2429,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 489: Version 488 undone, V6 and V7 back to their Version 485 shapes
 - Nawaz: "Revert back. Agree that." / "I meant the v6". V6 (tib) and V7 (sup) restored exactly from the commit before Version 488 (the East African lobe is back to Uganda, Rwanda, Burundi, Tanzania and Kenya; no DR Congo, Zambia, Malawi or Mozambique); V6 page text restored. Do not rerun tools/v488_v6_lobe_out.py unless he asks. V6 ~41.24M, V7 ~46.07M. The Iranian Plateau preview for V2 (tools/v489_v2_iranian_plateau.py) was also dropped, not applied. Still waiting: V2 Whole Azerbaijan + Georgia preview.
+
+## Version 490: V6 and V7 hold 100% of the Nile basin
+- Nawaz (on the check that V6 held the whole Nile and 99.999% of the traced basin, a 21 km2 sliver on the South Sudan-DR Congo watershed near Yei, ~28.7 E 4.5 N, outside): "Make sure it's 100% inside." tools/v490_v6_v7_nile_basin_full.py: that sliver added to V6 (tib) and V7 (sup) as a small piece overlapping each by ~1 km (the outline itself untouched). Traced basin land outside V6 and V7: 0 km2. V6 ~41.24M, V7 ~46.07M.
