@@ -13,10 +13,10 @@ HERE = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'); P = os.en
 A = lambda g: abs(Geod(ellps='WGS84').geometry_area_perimeter(g)[0]) / 1e6
 geo = json.loads(subprocess.check_output(['node', '-e', "const fs=require('fs'),t=require('./node_modules/topojson-client');const g=JSON.parse(fs.readFileSync('geo2.json'));process.stdout.write(JSON.stringify(t.feature(g,g.objects.countries)))"], cwd=P))
 G = {f['properties']['n']: shape(f['geometry']).buffer(0) for f in geo['features'] if f.get('geometry')}
-T = shape(json.load(open(os.path.join(HERE, 'tools/data/v486_whole_azerbaijan_traced.geojson')))['geometry']).buffer(0)
+T = shape(json.load(open(os.path.join(HERE, 'tools/data/v496_whole_azerbaijan_redline.geojson')))['geometry']).buffer(0)   # the area enclosed by his red line (tools/v486_build/trace3.py)
 LAND = unary_union([g for g in G.values() if g.intersects(T.buffer(0.5))]).buffer(0)
-ARROW = box(44.2, 41.7, 44.85, 42.05)                    # the Borchaly label's arrow, which the trace caught as a hairline running out past the red line
-TL = unary_union([T.difference(ARROW), T.intersection(ARROW).buffer(-0.015).buffer(0.015)]).intersection(LAND)   # everywhere else exactly as traced
+SH = T
+TL = T.intersection(LAND)   # exactly the area inside his red line ("My image doesn't contain these stupid lines": the grey-shading trace caught the Borchaly arrow and a black border knob; the red-line trace has neither)
 GR = unary_union([G['Georgia'], G['Russia'].intersection(box(40, 40, 50, 45))]).buffer(0.002)
 F_ = os.path.join(P, 'src/caliph.json'); C = json.load(open(F_))
 MP = lambda pl: MultiPolygon([Polygon(r[0], r[1:]) for r in pl]).buffer(0)
@@ -29,7 +29,7 @@ for q in getattr(X, 'geoms', [X]):
     q = orient(Polygon(q.exterior, [h for h in q.interiors if A(Polygon(h)) >= 100]), 1.0)
     o.append([[[round(a, 3), round(b, 3)] for a, b in rr.coords] for rr in [q.exterior, *q.interiors]])
 Y = MP(o)
-TLL = T.intersection(LAND)
+TLL = SH.intersection(LAND)
 print('traced shaded land inside V2:', round(100 * A(TLL.intersection(Y.buffer(0.002))) / A(TLL), 3), '% | outside', round(A(TLL.difference(Y.buffer(0.002))), 1), 'km2')
 ext = Y.intersection(GR).difference(T.buffer(0.01))
 print('V2 in Georgia/Russia beyond the red line:', round(A(ext), 1) if not ext.is_empty else 0, 'km2 | added', round(A(Y.difference(V))), 'km2, removed', round(A(V.difference(Y))), 'km2')
