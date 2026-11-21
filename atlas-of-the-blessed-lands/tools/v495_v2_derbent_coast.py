@@ -20,9 +20,12 @@ add = [q for q in getattr(g, 'geoms', [g]) if 0 < A(q) < 100 and q.buffer(0.003)
 # narrower than ~4 km is taken too (Nawaz, a loop round the tip's north-east shore: "Push it to the coast")
 strip = LAND.intersection(B).intersection(V.buffer(0.04)).intersection(SEA.buffer(0.04)).difference(V)
 add += [q for q in getattr(strip, 'geoms', [strip]) if A(q) > 0.01]
+TOP = V.intersection(B).bounds[3]                      # Nawaz: "Don't extend it upward, it should end where the current v2 ends"
+add = [q.intersection(box(40, 30, 52, TOP)) for q in add]; add = [q for q in add if not q.is_empty]
+print('kept below the lobe tip at', round(TOP, 3), 'N')
 print('coastal slivers added', len(add), round(sum(A(q) for q in add), 1), 'km2')
 X = unary_union([V] + [q.buffer(0.003).intersection(LAND.buffer(0.003)) for q in add]).buffer(0)
-X = unary_union([X, X.intersection(B.buffer(0.2)).buffer(0.05, quad_segs=16).buffer(-0.05, quad_segs=16).intersection(B).intersection(LAND)]).buffer(0)   # the little hook at the tip rounded off
+X = unary_union([X, X.intersection(B.buffer(0.2)).buffer(0.05, quad_segs=16).buffer(-0.05, quad_segs=16).intersection(B).intersection(LAND).intersection(box(40, 30, 52, TOP))]).buffer(0)   # rounded, never above the old tip
 X = shapely.set_precision(X, 0.001); o = []
 for q in getattr(X, 'geoms', [X]):
     if q.geom_type != 'Polygon' or A(q) < 0.02: continue
