@@ -23,6 +23,13 @@ F_ = os.path.join(P, 'src/caliph.json'); C = json.load(open(F_))
 MP = lambda pl: MultiPolygon([Polygon(r[0], r[1:]) for r in pl]).buffer(0)
 V = MP(C['arb']['polys'])
 X = unary_union([V, G['Azerbaijan'].buffer(0.003), G['Armenia'].buffer(0.003), TR.buffer(0.003)]).buffer(0)
+if os.environ.get('DERBENT', '1') == '1':   # Nawaz: "Add derbent and push": Derbent city whole (its city district, Overture), and the land between it and the traced strip
+    DC = shape(json.load(open(os.path.join(HERE, 'tools/data/v486_derbent_city.geojson')))['geometry']).buffer(0)
+    loc = shapely.box(47.9, 41.7, 48.7, 42.3)
+    X = unary_union([X, DC.buffer(0.003)]).buffer(0)
+    gap = X.intersection(loc).buffer(0.06).buffer(-0.06).difference(X).intersection(G['Russia'].buffer(0.003))
+    X = unary_union([X, gap]).buffer(0)
+    print('Derbent city', round(A(DC)), 'km2 | gap between it and the strip filled', round(A(gap)) if not gap.is_empty else 0, 'km2')
 X = unary_union([X] + [Polygon(h) for q in getattr(X, 'geoms', [X]) for h in q.interiors if A(Polygon(h)) < 20000]).buffer(0)
 add = X.difference(V); print('added', round(A(add)), 'km2', {k: round(A(add.intersection(G[k]))) for k in G if G[k].intersects(add) and A(add.intersection(G[k])) > 50})
 X = shapely.set_precision(X, 0.001); o = []
