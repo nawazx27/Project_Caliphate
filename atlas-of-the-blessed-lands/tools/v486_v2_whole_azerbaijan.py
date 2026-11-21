@@ -1,8 +1,8 @@
 """Version 486 (Nawaz, the Wikipedia article "Whole Azerbaijan" and its map IMG_5482 (North Azerbaijan, Iravan/Armenia, Borchaly, Derbent, South
 Azerbaijan, Kirkuk shaded inside a red line): "Preview v2", then on the first preview (whole countries and provinces): "That's not what I sent. look at
 the image, trace it, and I want it exactly like that." / "Trace it exactly."). The map was placed by fitting its own drawn borders and coastlines to the
-atlas's (Mercator scale, offset and a small shear; median error ~5 px, ~5 km); its shaded area inside the red line was traced
-(tools/data/v486_whole_azerbaijan_traced.geojson; spurs along black border lines and arrows opened off at ~4 km). Added to V2 (CALIPH.arb): that traced
+atlas's (first an affine fit, ~5 km error; then, at "Trace the outline more accurately for v2", a 2nd-order polynomial fit, median ~1.5 px, ~1.5 km, and the
+edge put on the CENTRE of the red line: tools/v486_build/trace2.py -> tools/data/v486_whole_azerbaijan_traced.geojson). Added to V2 (CALIPH.arb): that traced
 area cut to land, plus Azerbaijan and Armenia whole (the map shades them whole; the ~5 km tracing error must not cut slivers off them). Enclosed pockets
 filled; V1 unchanged. DIR env = project dir. Run v386_areas_ellipsoid.py after."""
 import json, os, subprocess, shapely
@@ -15,7 +15,7 @@ A = lambda g: abs(Geod(ellps='WGS84').geometry_area_perimeter(g)[0]) / 1e6
 geo = json.loads(subprocess.check_output(['node', '-e', "const fs=require('fs'),t=require('./node_modules/topojson-client');const g=JSON.parse(fs.readFileSync('geo2.json'));process.stdout.write(JSON.stringify(t.feature(g,g.objects.countries)))"], cwd=P))
 G = {f['properties']['n']: shape(f['geometry']).buffer(0) for f in geo['features'] if f.get('geometry')}
 TR = shape(json.load(open(os.path.join(HERE, 'tools/data/v486_whole_azerbaijan_traced.geojson')))['geometry']).buffer(0)
-TR = TR.buffer(-0.04).buffer(0.04)                          # spurs along the map's black border lines and the label arrow off
+TR = TR.buffer(-0.05).buffer(0.05)                          # the spur along the Borchaly label arrow and two knobs where the red line touches black lines off (~5 km; the Georgia and Dagestan strips are wider)
 LAND = unary_union([g for g in G.values() if g.intersects(shapely.box(38, 30, 52, 44))]).buffer(0)
 TR = TR.intersection(LAND)
 print('traced area on land', round(A(TR)), 'km2 | in Georgia', round(A(TR.intersection(G['Georgia']))), '| in Russia', round(A(TR.intersection(G['Russia']))))
