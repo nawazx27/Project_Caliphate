@@ -2463,3 +2463,6 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 ## Version 501: V5 notch north of Nepal filled
 - Nawaz (phone screenshot of V5 over the Himalaya, an arrow at the inward hook in its border north of Nepal): "Fill".
 - tools/v501_v5_nepal_notch.py: the outside pocket under the hook (83.63-84.16 E, 29.84-30.44 N) added to V5 (grm), closed on the east at the hook's own tip (84.158 E) in the border's stair-step style. +1,926 km2; V5 ~37.66M. V6 and V7 already hold it (100%).
+
+## Version 502: Version 500 undone (V4 without Septimania again)
+- Nawaz: "Revert back to old v4". V4 (me9) restored exactly from the commit before Version 500, and the V4 page text (body.html, eng_e.js) restored too. V4 ~30.35M. The V5 notch fill (Version 501) is kept. Do not rerun tools/v498_v4_umayyad.py unless he asks.
