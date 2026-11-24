@@ -13,7 +13,7 @@ HERE = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'); P = os.en
 A = lambda g: abs(Geod(ellps='WGS84').geometry_area_perimeter(g)[0]) / 1e6
 geo = json.loads(subprocess.check_output(['node', '-e', "const fs=require('fs'),t=require('./node_modules/topojson-client');const g=JSON.parse(fs.readFileSync('geo2.json'));process.stdout.write(JSON.stringify(t.feature(g,g.objects.countries)))"], cwd=P))
 G = {f['properties']['n']: shape(f['geometry']).buffer(0) for f in geo['features'] if f.get('geometry')}
-SEP = shape(json.load(open(os.path.join(HERE, 'tools/data/v498_septimania_traced.geojson')))['geometry']).buffer(0).intersection(G['France'].buffer(0.003))   # "Trace this map exactly": his Wikipedia Septimania map (tools/v498_septimania_trace.py)
+SEP = shape(json.load(open(os.path.join(HERE, os.environ.get('SEPT', 'tools/data/v498_septimania_traced.geojson'))))['geometry']).buffer(0).intersection(G['France'].buffer(0.003))   # "Trace this map exactly": his Wikipedia Septimania map (tools/v498_septimania_trace.py)
 # the land left between it and Spain/Andorra (if the sketch stops short of the border) is filled, so no gap is left between Septimania and al-Andalus
 SEP = unary_union([SEP, unary_union([SEP, G['Spain'], G['Andorra']]).buffer(0.08).buffer(-0.08).intersection(G['France']).difference(SEP)]).buffer(0)
 KG = shape(json.load(open(os.path.join(HERE, 'tools/data/kashgar_and_shore.geojson')))['features'][0]['geometry']).buffer(0).intersection(G['China'].buffer(0.01))
