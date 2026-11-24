@@ -2459,3 +2459,7 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - Nawaz (the 'Any 600' map): "Trace this map exactly and compare it to your previous trace", then "Add the new trace to V4", then "Push the new land to the shore and push".
 - tools/v498_septimania_trace2.py: the Any 600 map fitted to the drawn borders and coasts (polynomial, order 2), the Septimania area taken as the component inside its white lines -> tools/data/v498_septimania_traced2.geojson (54,440 km2: France 45,097, Spain 8,878, Andorra 453).
 - SHORE=1 SEPT=tools/data/v498_septimania_traced2.geojson ONLY_SEPT=1 python3 tools/v498_v4_umayyad.py: the French land between the trace and the Gulf of Lion added (+559 km2 shore strip); Septimania 46,443 km2 on French land; V4 (me9) +45,724 km2, ~30.40M. Narbonne, Carcassonne, Nimes in. Kashgar not added; V5-V7 already hold it.
+
+## Version 501: V5 notch north of Nepal filled
+- Nawaz (phone screenshot of V5 over the Himalaya, an arrow at the inward hook in its border north of Nepal): "Fill".
+- tools/v501_v5_nepal_notch.py: the outside pocket under the hook (83.63-84.16 E, 29.84-30.44 N) added to V5 (grm), closed on the east at the hook's own tip (84.158 E) in the border's stair-step style. +1,926 km2; V5 ~37.66M. V6 and V7 already hold it (100%).
