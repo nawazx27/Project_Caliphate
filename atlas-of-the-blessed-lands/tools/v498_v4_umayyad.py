@@ -17,6 +17,12 @@ SEP = shape(json.load(open(os.path.join(HERE, os.environ.get('SEPT', 'tools/data
 # the land left between it and Spain/Andorra (if the sketch stops short of the border) is filled, so no gap is left between Septimania and al-Andalus
 SEP = unary_union([SEP, unary_union([SEP, G['Spain'], G['Andorra']]).buffer(0.08).buffer(-0.08).intersection(G['France']).difference(SEP)]).buffer(0)
 KG = shape(json.load(open(os.path.join(HERE, 'tools/data/kashgar_and_shore.geojson')))['features'][0]['geometry']).buffer(0).intersection(G['China'].buffer(0.01))
+if os.environ.get('SHORE') == '1':   # Nawaz: "Push the new land to the shore": the French land between the traced Septimania and the sea (strips narrower than ~8 km
+    FR = G['France']; SEA = shapely.box(1, 41.5, 5.5, 44.5).difference(unary_union([g for g in G.values() if g.intersects(shapely.box(1, 41.5, 5.5, 44.5))]))   # on the coast of the Gulf of Lion)
+    strip = FR.intersection(SEP.buffer(0.08)).intersection(SEA.buffer(0.08)).difference(SEP)
+    strip = unary_union([q for q in getattr(strip, 'geoms', [strip]) if q.buffer(0.003).intersects(SEA)])
+    print('shore strip added', round(A(strip)) if not strip.is_empty else 0, 'km2')
+    SEP = unary_union([SEP, strip]).buffer(0)
 print('Septimania', round(A(SEP)), 'km2 | Kashgar + Kizilsu', round(A(KG)), 'km2')
 F_ = os.path.join(P, 'src/caliph.json'); C = json.load(open(F_))
 JOBS = [('me9', [SEP, KG]), ('grm', [KG])] if os.environ.get('ONLY_SEPT') != '1' else [('me9', [SEP])]   # Nawaz: "Only do this addition to v4 and push" -> ONLY_SEPT=1

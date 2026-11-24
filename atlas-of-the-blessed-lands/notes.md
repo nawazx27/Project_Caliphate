@@ -2454,3 +2454,8 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 499: Version 498 undone (no Septimania in V4)
 - Nawaz, after seeing V4 before and after: "Revert back". V4 (me9) and the page text restored exactly from the commit before Version 498. Do not rerun tools/v498_v4_umayyad.py unless he asks. V4 ~30.35M.
+
+## Version 500: Septimania in V4 (traced from the 'Any 600' map, taken to the shore)
+- Nawaz (the 'Any 600' map): "Trace this map exactly and compare it to your previous trace", then "Add the new trace to V4", then "Push the new land to the shore and push".
+- tools/v498_septimania_trace2.py: the Any 600 map fitted to the drawn borders and coasts (polynomial, order 2), the Septimania area taken as the component inside its white lines -> tools/data/v498_septimania_traced2.geojson (54,440 km2: France 45,097, Spain 8,878, Andorra 453).
+- SHORE=1 SEPT=tools/data/v498_septimania_traced2.geojson ONLY_SEPT=1 python3 tools/v498_v4_umayyad.py: the French land between the trace and the Gulf of Lion added (+559 km2 shore strip); Septimania 46,443 km2 on French land; V4 (me9) +45,724 km2, ~30.40M. Narbonne, Carcassonne, Nimes in. Kashgar not added; V5-V7 already hold it.
