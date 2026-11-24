@@ -1,6 +1,6 @@
 """Version 498 (Nawaz, the Wikipedia Umayyad Caliphate article; V4 held 27 of 31 key Umayyad places, missing Septimania (Narbonne, Carcassonne, Nimes,
-719-759) and Kashgar (Qutayba's raid, c. 715): "I want all those lands in v4"). Added to V4 (CALIPH.me9): Septimania as Wikipedia defines it (the former region of
-Languedoc-Roussillon: Aude, Gard, Herault, Lozere and Pyrenees-Orientales; Natural Earth admin-1, tools/data/v498_septimania.geojson), and the Kashgar oasis
+719-759) and Kashgar (Qutayba's raid, c. 715): "I want all those lands in v4"). Added to V4 (CALIPH.me9): Septimania traced from the Wikipedia Septimania map he sent
+("Trace this map exactly"; tools/v498_septimania_trace.py -> tools/data/v498_septimania_traced.geojson; the 5-department version was replaced), and the Kashgar oasis
 as China's Kashgar Prefecture with the Kizilsu Kyrgyz Prefecture between it and Kyrgyzstan (the Version 138 shape, tools/data/kashgar_and_shore.geojson,
 its Chinese part). V5, V6 and V7 already hold Septimania (Gaul) and V6, V7 Kashgar; V5 gets Kashgar too so it still holds V4.
 DIR env = project dir. Run v386_areas_ellipsoid.py after."""
@@ -13,7 +13,9 @@ HERE = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'); P = os.en
 A = lambda g: abs(Geod(ellps='WGS84').geometry_area_perimeter(g)[0]) / 1e6
 geo = json.loads(subprocess.check_output(['node', '-e', "const fs=require('fs'),t=require('./node_modules/topojson-client');const g=JSON.parse(fs.readFileSync('geo2.json'));process.stdout.write(JSON.stringify(t.feature(g,g.objects.countries)))"], cwd=P))
 G = {f['properties']['n']: shape(f['geometry']).buffer(0) for f in geo['features'] if f.get('geometry')}
-SEP = unary_union([shape(f['geometry']).buffer(0) for f in json.load(open(os.path.join(HERE, 'tools/data/v498_septimania.geojson')))['features']]).intersection(G['France'].buffer(0.01))
+SEP = shape(json.load(open(os.path.join(HERE, 'tools/data/v498_septimania_traced.geojson')))['geometry']).buffer(0).intersection(G['France'].buffer(0.003))   # "Trace this map exactly": his Wikipedia Septimania map (tools/v498_septimania_trace.py)
+# the land left between it and Spain/Andorra (if the sketch stops short of the border) is filled, so no gap is left between Septimania and al-Andalus
+SEP = unary_union([SEP, unary_union([SEP, G['Spain'], G['Andorra']]).buffer(0.08).buffer(-0.08).intersection(G['France']).difference(SEP)]).buffer(0)
 KG = shape(json.load(open(os.path.join(HERE, 'tools/data/kashgar_and_shore.geojson')))['features'][0]['geometry']).buffer(0).intersection(G['China'].buffer(0.01))
 print('Septimania', round(A(SEP)), 'km2 | Kashgar + Kizilsu', round(A(KG)), 'km2')
 F_ = os.path.join(P, 'src/caliph.json'); C = json.load(open(F_))
