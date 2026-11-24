@@ -19,7 +19,8 @@ SEP = unary_union([SEP, unary_union([SEP, G['Spain'], G['Andorra']]).buffer(0.08
 KG = shape(json.load(open(os.path.join(HERE, 'tools/data/kashgar_and_shore.geojson')))['features'][0]['geometry']).buffer(0).intersection(G['China'].buffer(0.01))
 print('Septimania', round(A(SEP)), 'km2 | Kashgar + Kizilsu', round(A(KG)), 'km2')
 F_ = os.path.join(P, 'src/caliph.json'); C = json.load(open(F_))
-for key, add in [('me9', [SEP, KG]), ('grm', [KG])]:
+JOBS = [('me9', [SEP, KG]), ('grm', [KG])] if os.environ.get('ONLY_SEPT') != '1' else [('me9', [SEP])]   # Nawaz: "Only do this addition to v4 and push" -> ONLY_SEPT=1
+for key, add in JOBS:
     polys = [Polygon(r[0], r[1:]) for r in C[key]['polys']]
     for a in add:
         near = [i for i, p in enumerate(polys) if box(*p.exterior.bounds).intersects(box(*a.buffer(0.5).bounds))]
