@@ -1,6 +1,6 @@
 """Version 498 (Nawaz, the Wikipedia Umayyad Caliphate article; V4 held 27 of 31 key Umayyad places, missing Septimania (Narbonne, Carcassonne, Nimes,
-719-759) and Kashgar (Qutayba's raid, c. 715): "I want all those lands in v4"). Added to V4 (CALIPH.me9): Septimania as the four French departments of the
-old Visigothic province, Pyrenees-Orientales, Aude, Herault and Gard (Natural Earth admin-1, tools/data/v498_septimania.geojson), and the Kashgar oasis
+719-759) and Kashgar (Qutayba's raid, c. 715): "I want all those lands in v4"). Added to V4 (CALIPH.me9): Septimania as Wikipedia defines it (the former region of
+Languedoc-Roussillon: Aude, Gard, Herault, Lozere and Pyrenees-Orientales; Natural Earth admin-1, tools/data/v498_septimania.geojson), and the Kashgar oasis
 as China's Kashgar Prefecture with the Kizilsu Kyrgyz Prefecture between it and Kyrgyzstan (the Version 138 shape, tools/data/kashgar_and_shore.geojson,
 its Chinese part). V5, V6 and V7 already hold Septimania (Gaul) and V6, V7 Kashgar; V5 gets Kashgar too so it still holds V4.
 DIR env = project dir. Run v386_areas_ellipsoid.py after."""
