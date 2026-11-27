@@ -198,7 +198,7 @@ function simplifyD(d, eps){
 /* used below k 0.6, below k 1.5, and from there on; each coarse copy is made the first time it is needed, and the
    other one a moment after the page has settled, so opening the page does not wait for both */
 const LAND_EPS = [3, 0.8, 0.3], LAND_LODC = [null, null, null, LAND_D + EXTRA_LAND_D];   /* Version 386: the extra islands stay drawn at full detail (they used to drop out after the first zoom) */
-let PRE_CX = null;   /* Version 123: V2's coarse outline copies made by build.js */   /* Version 65: a coarsest copy for the whole-world view */
+let PRE_CX = null, PRE_CXS = {};   /* Version 123: V2's coarse outline copies made by build.js */   /* Version 65: a coarsest copy for the whole-world view */
 /* Version 98: the two coarsest copies come ready-made with the page (build.js); they are used only if they were made from this same coastline */
 { const pre = JSON.parse(document.getElementById('landlod').textContent);
   const unpackD = rings => rings.map(s => { let i = 1, x = 0, y = 0, out = '';
@@ -206,7 +206,8 @@ let PRE_CX = null;   /* Version 123: V2's coarse outline copies made by build.js
     while(i < s.length){ x += num(); y += num(); out += (out ? 'L' : 'M') + (x/100).toFixed(2) + ',' + (y/100).toFixed(2); }
     return out + (s[0] === 'Z' ? 'Z' : ''); }).join('');
   if(pre.n === LAND_D.length){ LAND_LODC[0] = unpackD(pre.lod[0]); LAND_LODC[1] = unpackD(pre.lod[1]); }
-  if(pre.cx) PRE_CX = {k:pre.cx.k || 'sas', n:pre.cx.n, lod:pre.cx.lod.map(unpackD)}; }
+  if(pre.cx) PRE_CX = {k:pre.cx.k || 'sas', n:pre.cx.n, lod:pre.cx.lod.map(unpackD)};
+  PRE_CXS = {}; (pre.cxs || []).forEach(c => { PRE_CXS[c.k] = {n:c.n, packed:c.lod, unpack:unpackD}; }); }   /* Version 508: every version's coarse copies, unpacked when first drawn */
 const cxLv = () => T.k < 0.25 ? 0 : T.k < 0.6 ? 1 : T.k < 1.5 ? 2 : 3;   /* the level of detail for the zoom (the coastline's steps) */
 const landLOD = lv => LAND_LODC[lv] || (LAND_LODC[lv] = simplifyD(lv === 2 ? LAND_D + EXTRA_LAND_D : LAND_D, LAND_EPS[lv]));
 const whenIdle = f => (window.requestIdleCallback ? requestIdleCallback(f, {timeout:4000}) : setTimeout(f, 1500));
@@ -309,6 +310,7 @@ const NAT_B = [[-18.5,-3.5],[83.0,46.5]];   /* the whole ring, from Saint-Louis 
      and the next redraw picks the copy up */
   CX.lod = (key, lv) => { if(lv >= 3) return CX.d[key]; const c = CX.lodC[key] || (CX.lodC[key] = []);
     if(c[lv]) return c[lv];
+    const pc = PRE_CXS[key]; if(lv < 2 && pc && src[key] && pc.n === src[key].polys.flat().reduce((t, r)=>t + r.length, 0)) return (c[lv] = pc.unpack(pc.packed[lv]));   /* Version 508: made by build.js */
     if(!c['q'+lv]){ c['q'+lv] = 1; whenIdle(()=>{ c[lv] = simplifyD(CX.d[key], LAND_EPS[lv]); }); }
     return CX.d[key]; };
   CX.lk2 = () => { const k = XK(), lv = cxLv(); return k + '|' + lv + (lv >= 3 || (CX.lodC[k] && CX.lodC[k][lv]) ? '' : '*'); };   /* '*': the coarse copy is not ready yet */

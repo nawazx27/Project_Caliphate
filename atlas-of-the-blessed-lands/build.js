@@ -49,7 +49,11 @@ const landLodJ = (() => {
   const ringD = rg => 'M' + rg.map(p => proj(p).map(v => v.toFixed(2)).join(',')).join('L') + 'Z';
   const OPEN_KEY = 'shj';   /* Version 444: opens on V1 */   /* Version 386: the outline the page opens on (keep in step with XV in src/eng_c.js and the pressed buttons in src/body.html) */
   const cxD = caliphD[OPEN_KEY].polys.map(poly => poly.map(ringD).join('')).join(''), cxN = caliphD[OPEN_KEY].polys.flat().reduce((t, r) => t + r.length, 0);
-  return JSON.stringify({n:landD.length, lod:[simplifyD(landD, 3), simplifyD(landD, 0.8)].map(packD), cx:{k:OPEN_KEY, n:cxN, lod:[simplifyD(cxD, 3), simplifyD(cxD, 0.8)].map(packD)}}).replace(/</g, '\\u003c');
+  /* Version 508: the two coarse copies of EVERY version's outline come with the page, not only the opening one's, so the phone does not
+     spend seconds after opening simplifying the other six outlines (long tasks that made the first taps slow) */
+  const cxs = ['shj', 'arb', 'me2', 'me9', 'grm', 'tib', 'sup'].filter(k => caliphD[k]).map(k => { const d = caliphD[k].polys.map(poly => poly.map(ringD).join('')).join('');
+    return {k, n:caliphD[k].polys.flat().reduce((t, r) => t + r.length, 0), lod:[simplifyD(d, 3), simplifyD(d, 0.8)].map(packD)}; });
+  return JSON.stringify({n:landD.length, lod:[simplifyD(landD, 3), simplifyD(landD, 0.8)].map(packD), cx:{k:OPEN_KEY, n:cxN, lod:[simplifyD(cxD, 3), simplifyD(cxD, 0.8)].map(packD)}, cxs}).replace(/</g, '\\u003c');
 })();
 const natJ = JSON.stringify(pack(Object.assign(JSON.parse(R('src/nat.json')), {pol: undefined}))).replace(/</g, '\\u003c');   /* Natural + political was removed in Version 60 */
 
@@ -72,7 +76,7 @@ ${fonts}
 ${css}
 </style>
 ${R('src/body.html')}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>/* Version 508: only the parts of d3 7.9 the atlas uses (selection, transition, zoom, geo, min), 70 KB instead of 280 KB, inline; made by esbuild from src/vendor/d3_entry.js */${R('src/vendor/d3custom.min.js').replace(/<\/script/gi, '<\\/script')}</script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 <script>/* if a library host is unreachable, try a second one */window.d3||document.write('<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"><\\/script>');window.topojson||document.write('<script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"><\\/script>');</script>
 <script type="application/json" id="geo">${geo}</script>

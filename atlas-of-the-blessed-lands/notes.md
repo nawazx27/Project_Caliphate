@@ -2477,3 +2477,9 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 - The key (#legend) drew legend blocks the page had hidden (V6's provenance colours, the Natural ring, the Internal lines; also the outline legends in views without an outline) because rules like .v2key{display:flex} beat the browser's [hidden]. Fixed with .minilegend [data-lg][hidden]{display:none !important} (src/style.css). The key went from ~30 lines to 7 in the Overview, no longer runs past the map frame or under the compass and scale bar. Outline legends still show when an outline is on (checked: overview, #outline-v4, #outline-v6).
 - On a phone (max-width 700px) the key starts closed (src/start.js). Not seen in the emulated test (its layout was wider than 700 px); to confirm on his phone.
 - No colour, map or text change.
+
+## Version 508: the speed fix
+- Nawaz: "Go ahead" (after the speed preview, measured with Context7-checked d3 guidance and a slowed-phone benchmark).
+- d3: the full d3 7.9 bundle from cdnjs (280 KB) replaced by a bundle of only what the page uses (d3-selection, d3-transition, d3-zoom, d3-geo, min; src/vendor/d3_entry.js -> src/vendor/d3custom.min.js, 70 KB), written into index.html by build.js. The jsDelivr fallback line stays (it is skipped because window.d3 exists). If code in src/ starts using another d3.x function, export it in d3_entry.js and rebuild (command in the file).
+- Outlines: build.js now also ships the two coarse copies (simplified at 3 and 0.8 px) of every version's outline in #landlod (cxs); CX.lod in src/eng_b.js uses them when the outline's point count matches. Before, the phone simplified six outlines itself in the seconds after opening.
+- Measured on a 4x-slowed phone (median of 3): map shown 7.0 -> 6.6 s; time blocked by long tasks 12.9 -> 9.9 s; long tasks 38 -> 25. Page file 5.71 -> 6.15 MB. Screenshots of V1, V4, V7 identical to Version 507 (0 differing pixels); check.js no errors.
