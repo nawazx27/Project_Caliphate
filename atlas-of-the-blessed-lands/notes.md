@@ -2466,3 +2466,14 @@ Researched by region with web sources (mainly Wikipedia articles on each dynasty
 
 ## Version 502: Version 500 undone (V4 without Septimania again)
 - Nawaz: "Revert back to old v4". V4 (me9) restored exactly from the commit before Version 500, and the V4 page text (body.html, eng_e.js) restored too. V4 ~30.35M. The V5 notch fill (Version 501) is kept. Do not rerun tools/v498_v4_umayyad.py unless he asks.
+
+## Versions 503-506: previews only (not applied)
+- 503/504: Bilad al-Sham and al-Hijaz traced from his diagram's broader (dashed) outlines (tools/v503_sham_hijaz_outer_trace.py, ~1.03M km2), then given the Taurus head of the Arabic Natural Syria map west of the Euphrates (tools/v504_sham_hijaz_taurus_head.py, ~1.08M km2). He has not said how to use it.
+- 505: V4 + all of metropolitan France (tools/v505_v4_france.py, +538,000 km2). 506: V4 with Pakistan on its recognised borders, Indian-held Kashmir, Siachen out (tools/v506_v4_pakistan_recognised.py, -108,000 km2). Septimania re-previewed (Version 500 shape). He said "Let it be": none applied.
+- Context7 check: shapely/pyproj usage audited; all seven outlines valid, stored km2 equal the dissolved geodesic area to within 45 km2. Speed preview (custom 70 KB d3 bundle inline + build-time coarse copies of every version): on a 4x-slowed phone map shown 7.0 -> 6.6 s, long-task time 12.9 -> 9.9 s, +430 KB page; NOT applied (waiting for "Push").
+
+## Version 507: the map key tidied
+- Nawaz: "Make the atlas more beautiful (visually)", then "Push" on the preview.
+- The key (#legend) drew legend blocks the page had hidden (V6's provenance colours, the Natural ring, the Internal lines; also the outline legends in views without an outline) because rules like .v2key{display:flex} beat the browser's [hidden]. Fixed with .minilegend [data-lg][hidden]{display:none !important} (src/style.css). The key went from ~30 lines to 7 in the Overview, no longer runs past the map frame or under the compass and scale bar. Outline legends still show when an outline is on (checked: overview, #outline-v4, #outline-v6).
+- On a phone (max-width 700px) the key starts closed (src/start.js). Not seen in the emulated test (its layout was wider than 700 px); to confirm on his phone.
+- No colour, map or text change.

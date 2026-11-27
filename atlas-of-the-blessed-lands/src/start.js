@@ -31,3 +31,5 @@ setTimeout(()=>{ const keys = ['tib','me9','sup','me2','shj','arb','grm'];
 
 /* test hook for automated performance checks (no effect on the page) */
 window.__atlasTest = { goB:b=>{ wrapSel.call(zoom.transform, boundsT(b, W, H)); update(); }, go:(x,y,k)=>{ wrapSel.call(zoom.transform, d3.zoomIdentity.translate(x,y).scale(k)); update(); }, T:()=>({x:T.x,y:T.y,k:T.k}), update:()=>update(), bt:(b,wide)=>{ const t=boundsT(b,W,H,undefined,wide); return {x:t.x,y:t.y,k:t.k,W,H,ext:zoom.scaleExtent(),coverK}; } };
+/* Version 507: on a phone the key starts closed (one tap on "Key" opens it), so the map is not covered when the page opens */
+{ const lg = document.getElementById('legend'); if(lg && window.matchMedia && matchMedia('(max-width: 700px)').matches) lg.open = false; }

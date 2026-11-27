@@ -1218,3 +1218,8 @@ html.fullmap #readbar,html.fullmap #totop{display:none}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .lbl.sea.small.four{fill:#9CD3EA}}
 :root[data-theme="dark"] .lbl.sea.small.four{fill:#9CD3EA}
 @media (max-width:760px){.lbl.sea.small.four{font-size:14px}}
+
+/* Version 507: the key shows only the legends of what is on the map. A legend block hidden by the page (V6's provenance colours, the
+   Natural ring, the Internal lines) was still drawn because its own display rule beat the browser's [hidden]; that made the key run
+   past the bottom of the map and under the compass and scale bar. */
+.minilegend [data-lg][hidden], .minilegend [data-lgany][hidden]{display:none !important}
